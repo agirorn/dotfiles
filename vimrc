@@ -1,3 +1,6 @@
+"# Color picker for the mac.
+"# http://www.robinwood.com/Catalog/Technical/OtherTuts/MacColorPicker/MacColorPicker.html
+
 call pathogen#infect()
 " Get Backspace to work
 set backspace=indent,eol,start
@@ -11,6 +14,12 @@ set ttymouse=xterm2
 set nocompatible
 set modelines=0
 
+" Create the backup directory if it doesn't exists.
+if !isdirectory('/tmp/vim_backup')
+  silent !mkdir -p ~/tmp/vim_backup
+endif
+set backupdir=~/tmp/vim_backup/
+set directory=~/tmp/vim_backup/
 
 " Turn off the bell
 "set vb
@@ -23,7 +32,7 @@ set wildmode=list:longest
 set wildmenu
 
 " Give you some typing space
-set scrolloff=3
+set scrolloff=5
 
 if has("autocmd")
 	" Enable filetype detection
@@ -95,21 +104,20 @@ endfunction
 " Toggles NERDTree
 map <silent> <F2> :call NTFinderP()<CR> 
 
-
 "#############################
 "# Search 
 "#############################
 let mapleader = ","
 
-nnoremap / /\v
-vnoremap / /\v
+"# nnoremap / /\v
+"# vnoremap / /\v
 
 " Search as you type
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
-set showmatch
+"#set showmatch
 set hlsearch
 
 nnoremap <leader><space> :noh<cr>
@@ -167,6 +175,8 @@ set t_Co=256
 "# called with , + ?
 "####################################################
 
+"# Yank/Copy to the end of the line.
+map Y y$
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>rr :source $MYVIMRC<cr>
@@ -208,4 +218,31 @@ nmap <Space> i_<Esc>r
 
 "# Getting Copy Paste to work on the mac iTerm2
 set clipboard=unnamed
+
+"" I put my autocommands in a block like this
+"if !exists("autocommandsLoaded")
+"  let autocommandsLoaded = 1
+"  ...
+"  autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+"endif
+
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+
+
+"# Try to make it faster
+syn sync fromstart 
+
+
+" tap indent movement (use mark `m' for cursor position)
+map <S-Tab>  mm<`m:<C-U>exec "normal ".&shiftwidth."h"<CR>mmgv`m
+map <Tab>    mm>`m:<C-U>exec "normal ".&shiftwidth."l"<CR>mmgv`m
+
+
+"# Higlite Extra Wite Space, Except in incert mode
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
