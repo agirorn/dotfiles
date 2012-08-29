@@ -8,7 +8,7 @@ syntax on
 "filetype plugin indent on
 
 " This seams to make me resize the windows splits withe my mouse
-set ttymouse=xterm2 
+set ttymouse=xterm2
 
 " disable vi compatibility (emulation of old bugs)
 set nocompatible
@@ -27,7 +27,7 @@ set directory=~/tmp/vim_backup/
 set visualbell
 
 
-" File autocompleat 
+" File autocompleat
 set wildmode=list:longest
 set wildmenu
 
@@ -37,7 +37,7 @@ set scrolloff=5
 if has("autocmd")
 	" Enable filetype detection
 	filetype plugin indent on
-	
+
 	" Restore cursor position
 	autocmd BufReadPost *
 		\ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -102,10 +102,10 @@ function! NTFinderP()
 endfunction
 
 " Toggles NERDTree
-map <silent> <F2> :call NTFinderP()<CR> 
+map <silent> <F2> :call NTFinderP()<CR>
 
 "#############################
-"# Search 
+"# Search
 "#############################
 let mapleader = ","
 
@@ -170,7 +170,7 @@ set t_Co=256
 " colorscheme new/256-jungle
 
 "#####################################################
-"# My verry on custom things 
+"# My verry on custom things
 "#
 "# called with , + ?
 "####################################################
@@ -219,19 +219,11 @@ nmap <Space> i_<Esc>r
 "# Getting Copy Paste to work on the mac iTerm2
 set clipboard=unnamed
 
-"" I put my autocommands in a block like this
-"if !exists("autocommandsLoaded")
-"  let autocommandsLoaded = 1
-"  ...
-"  autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
-"endif
-
+"# Set the syntax highlighting for the Gemfile
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
-
 "# Try to make it faster
-syn sync fromstart 
-
+syn sync fromstart
 
 " tap indent movement (use mark `m' for cursor position)
 map <S-Tab>  mm<`m:<C-U>exec "normal ".&shiftwidth."h"<CR>mmgv`m
