@@ -194,12 +194,12 @@ nnoremap <leader>T :w<cr> :!clear; ruby -Itest %<cr>
 " nnoremap <C-k> <C-w>k
 " nnoremap <C-l> <C-w>l
 
-nnoremap <leader>n :bn<cr>
-nnoremap <leader>p :bp<cr>
-nnoremap <leader>d :b#<bar>bd#<CR>
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>d :bd<CR>
 
 nnoremap <leader>t :tab
-nnoremap <leader>m :tabn<cr>
+nnoremap <leader>m :tabn<CR>
 
 
 
