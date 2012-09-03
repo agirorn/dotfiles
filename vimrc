@@ -196,7 +196,7 @@ nnoremap <leader>T :w<cr> :!clear; ruby -Itest %<cr>
 
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
-nnoremap <leader>d :bd<CR>
+nnoremap <leader>d :Bclose<CR>
 
 nnoremap <leader>t :tab
 nnoremap <leader>m :tabn<CR>
