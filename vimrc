@@ -202,7 +202,32 @@ nnoremap <leader>t :tab
 nnoremap <leader>m :tabn<CR>
 
 
+"# Switch between Vim window splits easily
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
+
+"# Resizing windows
+map - <C-W>-
+map + <C-W>+
+
+"# Use this if you want to make the hidden windows colaps to nothing.
+"# set wmh=0
+
+"# If you want to maximize the window after change.
+"map <C-H> <C-W>h<C-W>_
+"map <C-J> <C-W>j<C-W>_
+"map <C-K> <C-W>k<C-W>_
+"map <C-L> <C-W>l<C-W>_
+
+"# Enable window commands in insert mode
+imap <C-w> <C-o><C-w>
 
 " Enable Mouse / This desables the selections ogf text withe the mouse
 set mouse=a
