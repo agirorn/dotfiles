@@ -1,6 +1,9 @@
 "# Color picker for the mac.
 "# http://www.robinwood.com/Catalog/Technical/OtherTuts/MacColorPicker/MacColorPicker.html
 
+" disable vi compatibility (emulation of old bugs)
+set nocompatible
+
 call pathogen#infect()
 " Get Backspace to work
 set backspace=indent,eol,start
@@ -10,8 +13,6 @@ syntax on
 " This seams to make me resize the windows splits withe my mouse
 set ttymouse=xterm2
 
-" disable vi compatibility (emulation of old bugs)
-set nocompatible
 set modelines=0
 
 " Create the backup directory if it doesn't exists.
@@ -121,8 +122,6 @@ set incsearch
 set hlsearch
 
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 
 "# autoindent and textwraping
 set nowrap
@@ -198,10 +197,6 @@ nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :Bclose<CR>
 
-nnoremap <leader>t :tab
-nnoremap <leader>m :tabn<CR>
-
-
 "# Switch between Vim window splits easily
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
@@ -250,11 +245,6 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 "# Try to make it faster
 syn sync fromstart
 
-" tap indent movement (use mark `m' for cursor position)
-map <S-Tab>  mm<`m:<C-U>exec "normal ".&shiftwidth."h"<CR>mmgv`m
-map <Tab>    mm>`m:<C-U>exec "normal ".&shiftwidth."l"<CR>mmgv`m
-
-
 "# Higlite trailing whitespace, except in insert mode
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -267,4 +257,12 @@ autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:slime_target = "tmux"
+
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold
 
