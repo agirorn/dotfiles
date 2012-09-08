@@ -266,3 +266,5 @@ autocmd BufWinLeave * call clearmatches()
 "# Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+let g:slime_target = "tmux"
+
