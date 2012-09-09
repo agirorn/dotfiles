@@ -316,3 +316,20 @@ nmap <leader>s :set spell<CR>
 nmap <leader>sn ]s
 " List of suggested spelling
 nmap <leader>sl z=
+
+" Lookup the current word on dictionary.com
+function! LookupCurrentWordOnDictionaryCom()
+  :silent ! open http://dictionary.reference.com/browse/<cword>
+  redraw!
+endfunction
+map <leader>D :call LookupCurrentWordOnDictionaryCom()<CR>
+
+" Lookup the current word on IKEA.is
+function! LookupCurrentWordOnIkeaIs()
+  :silent ! open http://www.ikea.is/search\?\&search=<cword>
+  redraw!
+endfunction
+map <leader>I :call LookupCurrentWordOnIkeaIs()<CR>
+
+
+
