@@ -271,5 +271,14 @@ set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**
 set wildignore+=tmp/**
 
+" Borrowed from: http://thelackthereof.org/docs/dotfiles/.vimrc
+" Command-T: Fix up-arrow, left-arrow, and backspace
+let g:CommandTSelectPrevMap=['<C-p>','<C-k>','<Esc>0A','<Up>']
+let g:CommandTCursorLeftMap=['<Left>']
+let g:CommandTBackspaceMap=['<BS>', '<C-h>']
+
+" Command-T: Keep the results at the top to save eyeball focus
+let g:CommandTMatchWindowAtTop=1
+
 "# Swithc betwen files
 map ,, <C-^>
