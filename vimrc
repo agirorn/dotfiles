@@ -266,7 +266,10 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-"# CommandT uses this to exclude files
+"# Command-T uses this to exclude files
 set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**/**
+set wildignore+=tmp/**/**
 
+"# Swithc betwen files
+map ,, <C-^>
