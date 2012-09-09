@@ -311,3 +311,8 @@ set selectmode=mouse,key
 vmap y y
 vmap x x
 
+nmap <leader>s :set spell<CR>
+" Next spell word
+nmap <leader>sn ]s
+" List of suggested spelling
+nmap <leader>sl z=
