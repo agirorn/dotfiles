@@ -282,3 +282,32 @@ let g:CommandTMatchWindowAtTop=1
 
 "# Swithc betwen files
 map ,, <C-^>
+
+
+
+:command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
+
+" add routs to a new bufer
+map rou :R rake routes
+" Close buffer
+map <leader>q :q<CR>
+
+" Keap selection when indenting
+vnoremap > >gv
+vnoremap < <gv
+
+" Indent withe the tab key
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" Get SHIFT+arrow keys to select text
+set keymodel=startsel,stopsel
+set selectmode=mouse,key
+
+" Copy and cut in selection mode
+vmap y y
+vmap x x
+
