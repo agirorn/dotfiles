@@ -1,0 +1,6 @@
+[submodule "vim/bundle/vim-ruby"]
+	path = vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/bundle/vim-slime"]
+	path = vim/bundle/vim-slime
+	url = git://github.com/jpalardy/vim-slime.git
