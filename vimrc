@@ -268,8 +268,8 @@ highlight Pmenu ctermbg=238 gui=bold
 
 "# Command-T uses this to exclude files
 set wildignore+=*.o,*.obj,.git
-set wildignore+=vendor/**/**
-set wildignore+=tmp/**/**
+set wildignore+=vendor/**
+set wildignore+=tmp/**
 
 "# Swithc betwen files
 map ,, <C-^>
