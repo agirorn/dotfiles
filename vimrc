@@ -312,7 +312,7 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " Get SHIFT+arrow keys to select text
-set keymodel=startsel,stopsel
+set keymodel=startsel
 set selectmode=mouse,key
 
 " Copy and cut in selection mode
