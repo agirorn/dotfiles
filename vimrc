@@ -277,7 +277,7 @@ let g:CommandTBackspaceMap=['<BS>', '<C-h>']
 
 " Command-T: Keep the results at the top to save eyeball focus
 let g:CommandTMatchWindowAtTop=1
-let g:CommandTMaxHeight=15
+"let g:CommandTMaxHeight=15
 
 " Command-T maped key's
 map <leader>ta :CommandT app/assets/<CR>
@@ -342,5 +342,15 @@ function! LookupCurrentWordOnIkeaIs()
 endfunction
 map <leader>I :call LookupCurrentWordOnIkeaIs()<CR>
 
+" Lookup the current word on IKEA.is
+function! OpenVimCheatSheet()
+  :silent ! open http://www.worldtimzone.com/res/vi.html
+  redraw!
+endfunction
+map <leader>c :call OpenVimCheatSheet()<CR>
 
+" If the Esc key is just to far away.
+inoremap jj <Esc>
 
+" The time it takse vim to resolve key maps in ms
+set timeoutlen=300
