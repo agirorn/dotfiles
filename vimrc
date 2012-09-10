@@ -1,5 +1,5 @@
-"# Color picker for the mac.
-"# http://www.robinwood.com/Catalog/Technical/OtherTuts/MacColorPicker/MacColorPicker.html
+" Color picker for the mac.
+" http://www.robinwood.com/Catalog/Technical/OtherTuts/MacColorPicker/MacColorPicker.html
 
 " disable vi compatibility (emulation of old bugs)
 set nocompatible
@@ -105,34 +105,32 @@ endfunction
 " Toggles NERDTree
 map <silent> <F2> :call NTFinderP()<CR>
 
-"#############################
-"# Search
-"#############################
+" Search
 let mapleader = ","
 
-"# nnoremap / /\v
-"# vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Search as you type
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
-"#set showmatch
+" set showmatch
 set hlsearch
 
 nnoremap <leader><space> :noh<cr>
 
-"# autoindent and textwraping
+" autoindent and textwraping
 set nowrap
 set textwidth=79
 set formatoptions=qn1
-"# set formatoptions=n1croql "# the old walue.
-"# set formatoptions=n1coql  "# the old value with out the auto commenting.
+" set formatoptions=n1croql " the old walue.
+" set formatoptions=n1coql  " the old value with out the auto commenting.
 
 " set colorcolumn=120
 
-"# show invisable chars like TextMate
+" show invisable chars like TextMate
 " set list
 set listchars=tab:▸\ ,eol:¬
 
@@ -146,7 +144,7 @@ set showtabline=2
 set switchbuf=usetab,newtab
 
 
-"# disable the arrow keys
+" disable the arrow keys
 " nnoremap <up> <nop>
 " nnoremap <down> <nop>
 " nnoremap <left> <nop>
@@ -168,26 +166,23 @@ set t_Co=256
 " colorscheme desert
 " colorscheme new/256-jungle
 
-"#####################################################
-"# My verry on custom things
-"#
-"# called with , + ?
-"####################################################
-
-"# Yank/Copy to the end of the line.
+" Yank/Copy to the end of the line.
 map Y y$
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>rr :source $MYVIMRC<cr>
 
 inoremap jj <ESC>
-nnoremap <leader>i <C-w>v<C-w>l "# Press ,i to go to a vertical split and start working ther
+
+" Press ,i to go to a vertical split and start working ther
+nnoremap <leader><bar> <C-w>v<C-w>l
+nnoremap <leader>_ <C-w>s<C-w>j
 
 " Run unittests for the current file
 nnoremap <leader>T :w<cr> :!clear; ruby -Itest %<cr>
 
 
-"# map C-( hjkl ) to move bettwen splits
+" map C-( hjkl ) to move bettwen splits
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-j> <C-w>j
 " nnoremap <C-k> <C-w>k
@@ -197,7 +192,7 @@ nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :Bclose<CR>
 
-"# Switch between Vim window splits easily
+" Switch between Vim window splits easily
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -208,20 +203,20 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
-"# Resizing windows
+" Resizing windows
 map - <C-W>-
 map + <C-W>+
 
-"# Use this if you want to make the hidden windows colaps to nothing.
-"# set wmh=0
+" Use this if you want to make the hidden windows colaps to nothing.
+" set wmh=0
 
-"# If you want to maximize the window after change.
+" If you want to maximize the window after change.
 "map <C-H> <C-W>h<C-W>_
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_
 "map <C-L> <C-W>l<C-W>_
 
-"# Enable window commands in insert mode
+" Enable window commands in insert mode
 imap <C-w> <C-o><C-w>
 
 " Enable Mouse / This desables the selections ogf text withe the mouse
@@ -236,16 +231,16 @@ set tabpagemax=30
 nmap <Space> i_<Esc>r
 
 
-"# Getting Copy Paste to work on the mac iTerm2
+" Getting Copy Paste to work on the mac iTerm2
 set clipboard=unnamed
 
-"# Set the syntax highlighting for the Gemfile
+" Set the syntax highlighting for the Gemfile
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
-"# Try to make it faster
+" Try to make it faster
 syn sync fromstart
 
-"# Higlite trailing whitespace, except in insert mode
+" Higlite trailing whitespace, except in insert mode
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -253,7 +248,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-"# Remove trailing whitespace on save
+" Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:slime_target = "tmux"
@@ -266,7 +261,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-"# Command-T uses this to exclude files
+" Command-T uses this to exclude files
 set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**
 set wildignore+=tmp/**
@@ -293,7 +288,7 @@ map <leader>tu :CommandT test/units/<CR>
 map <leader>ti :CommandT test/integration/<CR>
 map <leader>tf :CommandT test/functional/<CR>
 
-"# Swithc betwen files
+" Swithc betwen files
 map ,, <C-^>
 
 
