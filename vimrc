@@ -22,6 +22,9 @@ endif
 set backupdir=~/tmp/vim_backup/
 set directory=~/tmp/vim_backup/
 
+" Copy backupfiles when editing crontab files
+au BufEnter crontab.* setl backupcopy=yes
+
 " Turn off the bell
 "set vb
 "set vb t_vb=''."
