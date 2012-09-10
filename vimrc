@@ -279,6 +279,19 @@ let g:CommandTBackspaceMap=['<BS>', '<C-h>']
 
 " Command-T: Keep the results at the top to save eyeball focus
 let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=15
+
+" Command-T maped key's
+map <leader>ta :CommandT app/assets/<CR>
+map <leader>tc :CommandT app/controllers/<CR>
+map <leader>th :CommandT app/helpers/<CR>
+map <leader>tm :CommandT app/models/<CR>
+map <leader>tv :CommandT app/views/<CR>
+map <leader>tl :CommandT app/lib/<CR>
+map <leader>tt :CommandT test/<CR>
+map <leader>tu :CommandT test/units/<CR>
+map <leader>ti :CommandT test/integration/<CR>
+map <leader>tf :CommandT test/functional/<CR>
 
 "# Swithc betwen files
 map ,, <C-^>
