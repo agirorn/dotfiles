@@ -291,6 +291,9 @@ map <leader>tu :CommandT test/units/<CR>
 map <leader>ti :CommandT test/integration/<CR>
 map <leader>tf :CommandT test/functional/<CR>
 
+" Flush Command-T cache
+" :map <[SOME CHAR]> :CommandTFlush
+
 " Swithc betwen files
 map ,, <C-^>
 
