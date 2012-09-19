@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/agir/.rvm/gems/ruby-1.9.3-p0@Ice-Battery/gems/whenever-0.7.3'
 let g:netrw_dirhist_2='/Users/agir/.rvm/gems/ruby-1.9.3-p0@Ice-Battery/gems/paperclip-2.5.2'
 let g:netrw_dirhist_3='/Users/agir/.rvm/gems/ruby-1.9.3-p0@Ice-Battery/gems/delayed_job-3.0.1'
@@ -7,3 +7,5 @@ let g:netrw_dirhist_4='/Users/agir/code/ikea.is/vendor/ruby/1.9.1/gems/guard-she
 let g:netrw_dirhist_5='/Users/agir/.profile_scripts'
 let g:netrw_dirhist_6='/Users/agir/code/ikea.is/test/unit/Navision'
 let g:netrw_dirhist_7='/Users/agir/code/ikea.is/app'
+let g:netrw_dirhist_8='/Users/agir/code/iReport'
+let g:netrw_dirhist_9='/Users/agir/code/iReport/app/models/data_base_connection'
