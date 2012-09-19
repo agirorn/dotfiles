@@ -7,12 +7,15 @@
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 
+
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/opt/local/sbin:$PATH"
-export PATH="/opt/local/bin:$PATH"
-export PATH="$PATH:~/bin"
+
+! echo $PATH | grep -q '/usr/local/sbin' && PATH="/usr/local/sbin:$PATH"
+! echo $PATH | grep -q '/usr/local/bin'  && PATH="/usr/local/bin:$PATH"
+! echo $PATH | grep -q '/opt/local/sbin' && PATH="/opt/local/sbin:$PATH"
+! echo $PATH | grep -q '/opt/local/bin'  && PATH="/opt/local/bin:$PATH"
+! echo $PATH | grep -q '~/bin'           && PATH="$PATH:~/bin"
+export PATH
 export MANPATH="/usr/local/share/man:$MANPATH"
 export INFOPATH="/usr/local/share/info:$INFOPATH"
 
