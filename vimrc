@@ -357,3 +357,5 @@ inoremap jj <Esc>
 
 " The time it takse vim to resolve key maps in ms
 set timeoutlen=300
+
+map <leader>ii gg=G
