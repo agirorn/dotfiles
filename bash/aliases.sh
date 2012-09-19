@@ -24,6 +24,16 @@ alias ports_listengin="lsof -i -P| grep 'LISTEN'"
 alias '^l'=clear
 alias tmux='tmux -2'
 
+# NOT RUNNING INSIDE TMUX
+if [ -x /opt/local/bin/bash ]; then
+  test -z $TMUX && alias tmux='tmux -2 new-session "/opt/local/bin/reattach-to-user-namespace /opt/local/bin/bash -l"'
+else
+  test -z $TMUX && alias tmux='tmux -2 new-session "/bin/bash -l"'
+fi
+
+# RUNNING INSIDE TMUX
+# test $TMUX && echo 'IN tmux'
+
 alias l="ls -lh"
 alias ll="ls -l"
 
