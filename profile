@@ -2,6 +2,11 @@
 # My .profile file ;)
 #
 
+# the basics
+: ${HOME=~}
+: ${LOGNAME=$(id -un)}
+: ${UNAME=$(uname)}
+
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
@@ -56,5 +61,19 @@ alias git='LC_ALL="en_US.UTF-8" git'
 # Hostcomplete
 : ${HOSTFILE=~/.ssh/known_hosts}
 shopt -s hostcomplete >/dev/null 2>&1
+
+
+# ----------------------------------------------------------------------
+# MACOS X / DARWIN SPECIFIC
+# ----------------------------------------------------------------------
+if [ "$UNAME" = Darwin ]; then
+  # Run tmux if it's not running and use the latest bash if avalable
+  if [ -x /opt/local/bin/bash ]; then
+    test -z $TMUX && tmux -2 new-session "/opt/local/bin/reattach-to-user-namespace /opt/local/bin/bash -l"
+  else
+    test -z $TMUX && tmux -2 new-session "/bin/bash -l"
+  fi
+fi
+
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
