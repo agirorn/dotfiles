@@ -268,6 +268,10 @@ highlight Pmenu ctermbg=238 gui=bold
 set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**
 set wildignore+=tmp/**
+set wildignore+=public/system/images/**
+set wildignore+=public/images/**
+
+let g:CommandTMaxFiles=20000
 
 " Borrowed from: http://thelackthereof.org/docs/dotfiles/.vimrc
 " Command-T: Fix up-arrow, left-arrow, and backspace
