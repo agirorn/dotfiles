@@ -23,6 +23,7 @@ alias restart_nginx='sudo launchctl unload -w /Library/LaunchDaemons/org.macport
 alias ports_listengin="lsof -i -P| grep 'LISTEN'"
 alias '^l'=clear
 alias tmux='tmux -2'
+alias tmuxpwd='tmux set default-path `pwd`'
 
 alias ls='ls -G'
 alias ll="ls -lf"
