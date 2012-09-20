@@ -24,7 +24,34 @@ alias ports_listengin="lsof -i -P| grep 'LISTEN'"
 alias '^l'=clear
 alias tmux='tmux -2'
 
-alias l="ls -lh"
-alias ll="ls -l"
+alias ls='ls -G'
+alias ll="ls -lf"
+alias l="ll"
+alias la="ls -la"
 
+alias o="open ."
+
+alias m="mate ."
+
+alias beep='echo -en "\007"; growlnotify -m "BEEP"'
+alias sbeep='growlnotify -m "BEEP :: SILENT"'
+alias gdone='growlnotify -m "BEEP :: DONE :: DONE :: DONE"'
+
+alias total='du -hc | grep total'
+
+# Bundler aliases.
+# http://ryan.mcgeary.org/2011/02/09/vendor-everything-still-applies/
+alias b="bundle"
+alias bi="bundle install --path vendor"
+alias bu="bundle update"
+alias be="bundle exec"
+alias binit="bi --path vendor && b package && echo 'vendor/ruby' >> .gitignore"
+
+alias rs='rails s'
+alias rc='rails c'
+alias urs='unicorn_rails'
+alias rr='rake routes| less'
+
+function find_alias { alias| grep "alias $1"; }
+alias fa=find_alias
 
