@@ -8,7 +8,8 @@
 : ${UNAME=$(uname)}
 
 # OLD WAY Mac ports path
-# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# For some reason fixes macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
 
