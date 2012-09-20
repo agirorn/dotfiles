@@ -51,3 +51,10 @@ PROMPT_ARROW="\[$P_EBLACK\]→\[$P_NO_COLOR\]"
 # For the therminal title.
 PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
 export PS1="\n$PROMPT_DIR$PROMPT_GIT \n$PROMPT_ARROW "
+
+# OLD PROMTP
+# PS1='\[\e[1;32m\][\u@\h \W$(__git_ps1 " (%s)")]\$\[\e[0m\] '
+
+# Some PROMT EXPERIMENT
+# PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}: ${PWD/$HOME/~}\007"'
+
