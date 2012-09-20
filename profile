@@ -7,6 +7,8 @@
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 
+# OLD WAY Mac ports path
+# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
 
@@ -16,6 +18,10 @@
 ! echo $PATH | grep -q '/opt/local/bin'  && PATH="/opt/local/bin:$PATH"
 ! echo $PATH | grep -q '~/bin'           && PATH="$PATH:~/bin"
 export PATH
+
+# Node.js
+export PATH=$HOME/local/node/bin:$PATH
+
 export MANPATH="/usr/local/share/man:$MANPATH"
 export INFOPATH="/usr/local/share/info:$INFOPATH"
 
@@ -35,6 +41,7 @@ shopt -s histappend
 source ~/.bash/completion/rake.sh
 source ~/.bash/completion/capistrano.sh
 source ~/.bash/completion/code.sh
+source ~/.bash/completion/compleations.sh
 
 # My custom prompt
 source ~/.bash/prompt.sh
@@ -65,6 +72,8 @@ alias git='LC_ALL="en_US.UTF-8" git'
 : ${HOSTFILE=~/.ssh/known_hosts}
 shopt -s hostcomplete >/dev/null 2>&1
 
+# Color grep output
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
 # ----------------------------------------------------------------------
 # MACOS X / DARWIN SPECIFIC
