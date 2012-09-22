@@ -23,7 +23,6 @@ export PATH
 # Node.js
 export PATH=$HOME/local/node/bin:$PATH
 
-echo $MANPATH
 ! echo $MANPATH | grep -q '/usr/local/share/man' && MANPATH="/usr/local/share/man:$MANPATH"
 ! echo $MANPATH | grep -q '/opt/local/share/man' && MANPATH="/opt/local/share/man:$MANPATH"
 export MANPATH
