@@ -23,7 +23,11 @@ export PATH
 # Node.js
 export PATH=$HOME/local/node/bin:$PATH
 
-export MANPATH="/usr/local/share/man:$MANPATH"
+echo $MANPATH
+! echo $MANPATH | grep -q '/usr/local/share/man' && MANPATH="/usr/local/share/man:$MANPATH"
+! echo $MANPATH | grep -q '/opt/local/share/man' && MANPATH="/opt/local/share/man:$MANPATH"
+export MANPATH
+
 export INFOPATH="/usr/local/share/info:$INFOPATH"
 
 # SET LOCAL TO UTF-8
@@ -43,6 +47,7 @@ source ~/.bash/completion/rake.sh
 source ~/.bash/completion/capistrano.sh
 source ~/.bash/completion/code.sh
 source ~/.bash/completion/compleations.sh
+source ~/.bash/completion/tmux-completion.sh
 
 # My custom prompt
 source ~/.bash/prompt.sh
@@ -58,7 +63,6 @@ fi
 if [ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ]; then
   . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
 fi
-
 
 # Oracle client breyta.
 test -d /opt/oracle/instantclient_10_2 && export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
@@ -87,6 +91,5 @@ if [ "$UNAME" = Darwin ]; then
     test -z $TMUX && tmux -2 new-session "/bin/bash -l"
   fi
 fi
-
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
