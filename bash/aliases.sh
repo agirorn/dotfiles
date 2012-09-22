@@ -17,7 +17,7 @@ alias binit="bi && bundle package && echo 'vendor/ruby' >> .gitignore"
 alias nginx_restart='sudo kill `cat /opt/local/var/run/nginx/nginx.pid`'
 
 # nginx short cuts
-alias start_nginx='sudo launchctl load -w /Library/LaunchDaemons/org.macports.nginx.plist'
+
 alias stop_nginx='sudo launchctl unload -w /Library/LaunchDaemons/org.macports.nginx.plist'
 alias restart_nginx='sudo launchctl unload -w /Library/LaunchDaemons/org.macports.nginx.plist; sudo launchctl load -w /Library/LaunchDaemons/org.macports.nginx.plist'
 alias ports_listengin="lsof -i -P| grep 'LISTEN'"
@@ -55,4 +55,9 @@ alias rr='rake routes| less'
 
 function find_alias { alias| grep "alias $1"; }
 alias fa=find_alias
+
+test -z $TMUX && alias exit='tmux kill-session'
+# If running in a TMUX sesion kill the session on exit
+test -z $TMUX && alias exit=exit
+
 
