@@ -229,11 +229,6 @@ set mouse=a
 
 set tabpagemax=30
 
-
-" single character insert
-nmap <Space> i_<Esc>r
-
-
 " Getting Copy Paste to work on the mac iTerm2
 set clipboard=unnamed
 
