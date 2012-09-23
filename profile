@@ -41,17 +41,22 @@ export HISTCONTROL=erasedups
 export HISTSIZE=999
 shopt -s histappend
 
-# My custom bash compleations
+# Custom bash compleations
 source ~/.bash/completion/rake.sh
 source ~/.bash/completion/capistrano.sh
 source ~/.bash/completion/code.sh
 source ~/.bash/completion/compleations.sh
 source ~/.bash/completion/tmux-completion.sh
 
-# My custom prompt
+# Custom prompt
 source ~/.bash/prompt.sh
 source ~/.bash/ls_colors.sh
+
+# Custom aliases
 source ~/.bash/aliases.sh
+
+# Custom commands
+source ~/.bash/bundler_mate.sh
 
 # Auto complete git.
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
