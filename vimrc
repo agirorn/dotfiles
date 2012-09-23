@@ -422,15 +422,24 @@ function! AlternateForCurrentFile()
   let new_file = current_file
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
+  let is_erb = match(current_file, '\<views\$>')
   let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') || match(current_file, '\<helpers\>') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')
     end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    if is_erb
+      let new_file = substitute(new_file, '\.erb$', '.erb_spec.rb', '')
+    else
+      let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    end
     let new_file = 'spec/' . new_file
   else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    if is_erb
+      let new_file = substitute(new_file, '\.erb_spec\.rb$', '.erb', '')
+    else
+      let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    end
     let new_file = substitute(new_file, '^spec/', '', '')
     if in_app
       let new_file = 'app/' . new_file
