@@ -54,7 +54,7 @@ set keymodel=startsel
 set selectmode=mouse,key
 
 " THE TIME IT TAKSE VIM TO RESOLVE KEY MAPS IN MS
-set timeoutlen=300
+"set timeoutlen=300
 
 
 " THIS SEAMS TO ALLOW MY TO RESIZE THE WINDOWS SPLITS WITH THE MOUSE
@@ -297,6 +297,7 @@ map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets/sass<cr>
+map <leader>gS :CommandTFlush<cr>\|:CommandT spec<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
