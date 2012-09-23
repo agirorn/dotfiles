@@ -1,42 +1,78 @@
-" Color picker for the mac.
+" COLOR PICKER FOR THE MAC.
 " http://www.robinwood.com/Catalog/Technical/OtherTuts/MacColorPicker/MacColorPicker.html
 
-" disable vi compatibility (emulation of old bugs)
+" DISABLE VI COMPATIBILITY (EMULATION OF OLD BUGS)
 set nocompatible
 
 call pathogen#infect()
-" Get Backspace to work
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GET BACKSPACE TO WORK
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=indent,eol,start
 syntax on
-"filetype plugin indent on
+set number
+set laststatus=2
+set ruler
+set ttyfast
+set enc=utf-8
+set fenc=utf-8
+set encoding=utf-8
+set termencoding=utf-8
+set autoindent
+set showmode
+set showcmd
+set smartindent
+set tabstop=2        " TAB WIDTH IS 2 SPACES
+set shiftwidth=2     " INDENT ALSO WITH 4 SPACES
+set softtabstop=2    " SOFT TABS
+set expandtab        " EXPAND TABS TO SPACES
+set modelines=0
+set visualbell
+set wildmode=list:longest
+set wildmenu
+set scrolloff=5
+set nowrap
+set textwidth=79
+set formatoptions=qn1
+set listchars=tab:▸\ ,eol:¬
+set showtabline=2
+set switchbuf=usetab,newtab
 
-" This seams to make me resize the windows splits withe my mouse
+" 256 COLORS
+set t_Co=256
+colorscheme vibrantink
+
+" ENABLE MOUSE / THIS DESABLES THE SELECTIONS OGF TEXT WITHE THE MOUSE
+set mouse=a
+set tabpagemax=30
+" GETTING COPY PASTE TO WORK ON THE MAC ITERM2
+set clipboard=unnamed
+
+" GET SHIFT+ARROW KEYS TO SELECT TEXT
+set keymodel=startsel
+set selectmode=mouse,key
+
+" THE TIME IT TAKSE VIM TO RESOLVE KEY MAPS IN MS
+set timeoutlen=300
+
+
+" THIS SEAMS TO ALLOW MY TO RESIZE THE WINDOWS SPLITS WITH THE MOUSE
 set ttymouse=xterm2
 
-set modelines=0
 
-" Create the backup directory if it doesn't exists.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CREATE THE BACKUP DIRECTORY IF IT DOESN'T EXISTS.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !isdirectory('/tmp/vim_backup')
   silent !mkdir -p ~/tmp/vim_backup
 endif
 set backupdir=~/tmp/vim_backup/
 set directory=~/tmp/vim_backup/
 
-" Copy backupfiles when editing crontab files
+" COPY BACKUPFILES WHEN EDITING CRONTAB FILES
 au BufEnter crontab.* setl backupcopy=yes
 
-" Turn off the bell
-"set vb
-"set vb t_vb=''."
-set visualbell
-
-
-" File autocompleat
-set wildmode=list:longest
-set wildmenu
-
-" Give you some typing space
-set scrolloff=5
 
 if has("autocmd")
 	" Enable filetype detection
@@ -51,39 +87,10 @@ endif
 if &t_Co > 2 || has("gui_running")
 endif
 
-
-
-" set relativenumber " sets the line numbers relitev to the cursor
-"set undofile   " If you vant to be able to undo after closing a file uncomment this
-
-" turn line numbers on
-set number
-
-" set cursorline
-set laststatus=2
-set ruler
-set ttyfast
-set enc=utf-8
-set fenc=utf-8
-set encoding=utf-8
-set termencoding=utf-8
-" use indentation of previous line
-set autoindent
-set showmode
-set showcmd
-" use intelligent indentation for C
-set smartindent
-" configure tabwidth and insert spaces instead of tabs
-set tabstop=2        " tab width is 2 spaces
-set shiftwidth=2     " indent also with 4 spaces
-set softtabstop=2    " Soft tabs
-set expandtab        " expand tabs to spaces
-
-" open NERDTree with the folder for the current file.
-"au VimEnter * NERDTreeFind
-
-
-function! NTFinderP()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggles NERDTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ToggleNerdTree()
     "" Check if NERDTree is open
     if exists("t:NERDTreeBufName")
         let s:ntree = bufwinnr(t:NERDTreeBufName)
@@ -104,50 +111,28 @@ function! NTFinderP()
         endif
     endif
 endfunction
+map <silent> <F2> :call ToggleNerdTree()<CR>
 
-" Toggles NERDTree
-map <silent> <F2> :call NTFinderP()<CR>
-
-" Search
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LEADER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
-" nnoremap / /\v
-" vnoremap / /\v
-
-" Search as you type
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SEARCH AS YOU TYPE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
-" set showmatch
 set hlsearch
 
+" HIDE SEACH SELECTION
 nnoremap <leader><space> :noh<cr>
 
-" autoindent and textwraping
-set nowrap
-set textwidth=79
-set formatoptions=qn1
-" set formatoptions=n1croql " the old walue.
-" set formatoptions=n1coql  " the old value with out the auto commenting.
-
-" set colorcolumn=120
-
-" show invisable chars like TextMate
-" set list
-set listchars=tab:▸\ ,eol:¬
-
-""" Toggles NERDTree
-"map <silent> <F1> :call NTFinderP()<CR>
-
-" Always show tabs
-set showtabline=2
-
-" How open behaves
-set switchbuf=usetab,newtab
-
-
-" disable the arrow keys
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DISABLE THE ARROW KEYS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nnoremap <up> <nop>
 " nnoremap <down> <nop>
 " nnoremap <left> <nop>
@@ -159,17 +144,10 @@ set switchbuf=usetab,newtab
 " nnoremap j gj
 " nnoremap k gk
 
-" 256 colors pleas ;)
-set t_Co=256
 
-" # colors
-" colorscheme darkblue
- colorscheme vibrantink
-" colorscheme delek
-" colorscheme desert
-" colorscheme new/256-jungle
-
-" Yank/Copy to the end of the line.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Yank / Copy TO THE END OF THE LINE.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map Y y$
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -177,13 +155,11 @@ nnoremap <leader>rr :source $MYVIMRC<cr>
 
 inoremap jj <ESC>
 
-" Press ,i to go to a vertical split and start working ther
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PRESS ,i TO GO TO A VERTICAL SPLIT AND START WORKING THER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader><bar> <C-w>v<C-w>l
 nnoremap <leader>_ <C-w>s<C-w>j
-
-" Run unittests for the current file
-nnoremap <leader>T :w<cr> :!clear; ruby -Itest %<cr>
-
 
 " map C-( hjkl ) to move bettwen splits
 " nnoremap <C-h> <C-w>h
@@ -195,7 +171,9 @@ nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :Bclose<CR>
 
-" Switch between Vim window splits easily
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SWITCH BETWEEN WINDOW SPLITS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -206,39 +184,36 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
-" Resizing windows
+" RESIZING WINDOWS
 map - <C-W>-
 map + <C-W>+
 
-" Use this if you want to make the hidden windows colaps to nothing.
-" set wmh=0
-
-" If you want to maximize the window after change.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" IF YOU WANT TO MAXIMIZE THE WINDOW AFTER CHANGE.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map <C-H> <C-W>h<C-W>_
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_
 "map <C-L> <C-W>l<C-W>_
 
-" Enable window commands in insert mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ENABLE WINDOW COMMANDS IN INSERT MODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap <C-w> <C-o><C-w>
 
-" Enable Mouse / This desables the selections ogf text withe the mouse
-set mouse=a
-
-"tab ball
-
-set tabpagemax=30
-
-" Getting Copy Paste to work on the mac iTerm2
-set clipboard=unnamed
-
-" Set the syntax highlighting for the Gemfile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SET THE SYNTAX HIGHLIGHTING FOR THe Gemfile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
-" Try to make it faster
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TRY TO MAKE IT FASTER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syn sync fromstart
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Higlite trailing whitespace, except in insert mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -246,12 +221,16 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" Remove trailing whitespace on save
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" REMOVE TRAILING WHITESPACE ON SAVE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufWritePre * :%s/\s\+$//e
 
 let g:slime_target = "tmux"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ruby
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
@@ -267,7 +246,9 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 
-" Command-T uses this to exclude files
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command-T USES THIS TO EXCLUDE FILES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**
 set wildignore+=tmp/**
@@ -276,8 +257,10 @@ set wildignore+=public/images/**
 
 let g:CommandTMaxFiles=20000
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Borrowed from: http://thelackthereof.org/docs/dotfiles/.vimrc
 " Command-T: Fix up-arrow, left-arrow, and backspace
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:CommandTSelectPrevMap=['<C-p>','<C-k>','<Esc>0A','<Up>']
 let g:CommandTCursorLeftMap=['<Left>']
 let g:CommandTBackspaceMap=['<BS>', '<C-h>']
@@ -336,69 +319,80 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 " :map <[SOME CHAR]> :CommandTFlush
 
 " Swithc betwen files
-map ,, <C-^>
+map <leader><leader> <C-^>
 
 
 
 :command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
 
-" add routs to a new bufer
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ADD ROUTS TO A NEW BUFER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map rou :R rake routes
-" Close buffer
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CLOSE BUFFER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>q :q<CR>
 
-" Keap selection when indenting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" KEAP SELECTION WHEN INDENTING
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vnoremap > >gv
 vnoremap < <gv
 
-" Indent withe the tab key
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" INDENT WITH THE TAB KEY
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" Get SHIFT+arrow keys to select text
-set keymodel=startsel
-set selectmode=mouse,key
-
-" Copy and cut in selection mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Copy AND Cut IN SELECTION MODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap y y
 vmap x x
 
 nmap <leader>s :set spell<CR>
-" Next spell word
+" NEXT SPELL WORD
 nmap <leader>sn ]s
-" List of suggested spelling
+" LIST OF SUGGESTED SPELLING
 nmap <leader>sl z=
 
-" Lookup the current word on dictionary.com
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LOOKUP THE CURRENT WORD ON dictionary.com
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! LookupCurrentWordOnDictionaryCom()
   :silent ! open http://dictionary.reference.com/browse/<cword>
   redraw!
 endfunction
 map <leader>D :call LookupCurrentWordOnDictionaryCom()<CR>
 
-" Lookup the current word on IKEA.is
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LOOKUP THE CURRENT WORD ON IKEA.is
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! LookupCurrentWordOnIkeaIs()
   :silent ! open http://www.ikea.is/search\?\&search=<cword>
   redraw!
 endfunction
 map <leader>I :call LookupCurrentWordOnIkeaIs()<CR>
 
-" Lookup the current word on IKEA.is
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LOOKUP THE CURRENT WORD ON IKEA.IS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! OpenVimCheatSheet()
   :silent ! open http://www.worldtimzone.com/res/vi.html
   redraw!
 endfunction
 map <leader>c :call OpenVimCheatSheet()<CR>
 
-" If the Esc key is just to far away.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" IF THE <ESC> KEY IS JUST TO FAR AWAY.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap jj <Esc>
-
-" The time it takse vim to resolve key maps in ms
-set timeoutlen=300
-
 map <leader>ii gg=G
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
