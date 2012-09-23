@@ -497,3 +497,9 @@ function! RunTests(filename)
     end
 endfunction
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ADD # encoding: UTF-8 TO TOP OF FILE.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command InsertRubyUtf8 :normal ggi<c-r>'# encoding: UTF-8<CR>
+map <leader>8 :InsertRubyUtf8
+
