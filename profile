@@ -18,10 +18,10 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 ! echo $PATH | grep -q '/opt/local/sbin' && PATH="/opt/local/sbin:$PATH"
 ! echo $PATH | grep -q '/opt/local/bin'  && PATH="/opt/local/bin:$PATH"
 ! echo $PATH | grep -q '~/bin'           && PATH="$PATH:~/bin"
-export PATH
 
 # Node.js
-export PATH=$HOME/local/node/bin:$PATH
+! echo $PATH | grep -q '$HOME/local/node/bin'           && PATH=$HOME/local/node/bin:$PATH
+export PATH
 
 ! echo $MANPATH | grep -q '/usr/local/share/man' && MANPATH="/usr/local/share/man:$MANPATH"
 ! echo $MANPATH | grep -q '/opt/local/share/man' && MANPATH="/opt/local/share/man:$MANPATH"
