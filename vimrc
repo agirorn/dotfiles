@@ -520,7 +520,7 @@ map <leader>8 :InsertRubyUtf8<CR>
 map <leader>l \\\
 
 " Make SuperTab work with OmniComplete
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 
 " Color of SuperTab Menu
 highlight   Pmenu         ctermfg=2 ctermbg=0
