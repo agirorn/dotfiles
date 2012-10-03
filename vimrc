@@ -518,3 +518,6 @@ map <leader>8 :InsertRubyUtf8<CR>
 
 " TOGGLE COMMENT FOR CURRENT LINE
 map <leader>l \\\
+
+" Make SuperTab work with OmniComplete
+let g:SuperTabDefaultCompletionType = "context"
