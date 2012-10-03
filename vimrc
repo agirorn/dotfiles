@@ -521,3 +521,10 @@ map <leader>l \\\
 
 " Make SuperTab work with OmniComplete
 let g:SuperTabDefaultCompletionType = "context"
+
+" Color of SuperTab Menu
+highlight   Pmenu         ctermfg=2 ctermbg=0
+highlight   PmenuSel      ctermfg=0 ctermbg=255
+" highlight   PmenuSbar     ctermfg=0 ctermbg=50
+" highlight   PmenuThumb    ctermfg=0 ctermbg=7
+
