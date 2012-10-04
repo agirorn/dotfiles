@@ -445,11 +445,10 @@ function! AlternateForCurrentFile()
       let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     end
     let new_file = substitute(new_file, '^spec/', '', '')
-    if in_lib
-      let new_file = 'lib/' . new_file
-    end
     if in_app
       let new_file = 'app/' . new_file
+    else
+      let new_file = 'lib/' . new_file
     end
   endif
   return new_file
