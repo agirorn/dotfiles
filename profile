@@ -47,6 +47,7 @@ source ~/.bash/completion/capistrano.sh
 source ~/.bash/completion/code.sh
 source ~/.bash/completion/compleations.sh
 source ~/.bash/completion/tmux-completion.sh
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 # Custom prompt
 source ~/.bash/prompt.sh
