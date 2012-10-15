@@ -259,8 +259,8 @@ let g:CommandTMaxFiles=20000
 " Borrowed from: http://thelackthereof.org/docs/dotfiles/.vimrc
 " Command-T: Fix up-arrow, left-arrow, and backspace
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:CommandTSelectPrevMap=['<C-p>','<C-k>','<Esc>0A','<Up>']
-let g:CommandTCursorLeftMap=['<Left>']
+"let g:CommandTSelectPrevMap=['<C-p>','<C-k>','<Esc>0A','<Up>']
+"let g:CommandTCursorLeftMap=['<Left>']
 let g:CommandTBackspaceMap=['<BS>', '<C-h>']
 
 " Command-T: Keep the results at the top to save eyeball focus
