@@ -415,14 +415,21 @@ function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
 endfunction
+
 function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
+  let current_file  = expand("%")
+  let new_file      = current_file
+  let is_erb        = match(current_file, '\<views\>') != -1
+  let is_controller = match(current_file, '\<controllers\>') != -1
+  let is_model      = match(current_file, '\<models\>') != -1
+  let is_view       = match(current_file, '\<views\>') != -1
+  let is_helper     = match(current_file, '\<helpers\>') != -1
+  let is_mailer     = match(current_file, '\<mailer\>')
+  let in_spec       = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
-  let is_erb = match(current_file, '\<views\>') != -1
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
-  let in_lib = match(current_file, '\<lib\>') != -1
+  let in_app        = is_controller || is_model || is_view || is_helper || is_mailer
+  let in_lib        = match(current_file, '\<lib\>') != -1
+
   if going_to_spec
     if in_lib
       let new_file = substitute(new_file, '^lib/', '', '')
@@ -449,6 +456,7 @@ function! AlternateForCurrentFile()
       let new_file = 'lib/' . new_file
     end
   endif
+
   return new_file
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
