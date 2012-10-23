@@ -60,4 +60,5 @@ test -z $TMUX && alias exit='tmux kill-session'
 # If running in a TMUX sesion kill the session on exit
 test -z $TMUX && alias exit=exit
 
-
+# When ther are fast specs
+alias fspec='rspec fast_spec'
