@@ -426,10 +426,12 @@ function! AlternateForCurrentFile()
   let is_helper     = match(current_file, '\<helpers\>') != -1
   let is_mailer     = match(current_file, '\<mailer\>')
   let in_spec       = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
+  let in_fast_spec  = match(current_file, '^fast_spec/') != -1
+  let going_to_spec = !(in_spec || in_fast_spec)
   let in_app        = is_controller || is_model || is_view || is_helper || is_mailer
   let in_lib        = match(current_file, '\<lib\>') != -1
 
+  echo going_to_spec
   if going_to_spec
     if in_lib
       let new_file = substitute(new_file, '^lib/', '', '')
@@ -442,14 +444,24 @@ function! AlternateForCurrentFile()
     else
       let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     end
-    let new_file = 'spec/' . new_file
+    let fast_spec_file = 'fast_spec/' . new_file
+    let spec_file = 'spec/' . new_file
+    if filereadable(spec_file)
+      let new_file = spec_file
+    else
+      let new_file = fast_spec_file
+    end
   else
     if is_erb
       let new_file = substitute(new_file, '\.erb_spec\.rb$', '.erb', '')
     else
       let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     end
-    let new_file = substitute(new_file, '^spec/', '', '')
+    if in_fast_spec
+      let new_file = substitute(new_file, '^fast_spec/', '', '')
+    else
+      let new_file = substitute(new_file, '^spec/', '', '')
+    end
     if in_app
       let new_file = 'app/' . new_file
     else
