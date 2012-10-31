@@ -446,11 +446,17 @@ function! AlternateForCurrentFile()
     end
     let fast_spec_file = 'fast_spec/' . new_file
     let spec_file = 'spec/' . new_file
-    if filereadable(spec_file)
+
+    if is_erb
       let new_file = spec_file
     else
-      let new_file = fast_spec_file
+      if filereadable(spec_file)
+        let new_file = spec_file
+      else
+        let new_file = fast_spec_file
+      end
     end
+
   else
     if is_erb
       let new_file = substitute(new_file, '\.erb_spec\.rb$', '.erb', '')
