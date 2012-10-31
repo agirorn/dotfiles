@@ -433,17 +433,21 @@ function! AlternateForCurrentFile()
 
   echo going_to_spec
   if going_to_spec
+
     if in_lib
       let new_file = substitute(new_file, '^lib/', '', '')
     end
+
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')
     end
+
     if is_erb
       let new_file = substitute(new_file, '\.erb$', '.erb_spec.rb', '')
     else
       let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     end
+
     let fast_spec_file = 'fast_spec/' . new_file
     let spec_file = 'spec/' . new_file
 
@@ -458,21 +462,25 @@ function! AlternateForCurrentFile()
     end
 
   else
+
     if is_erb
       let new_file = substitute(new_file, '\.erb_spec\.rb$', '.erb', '')
     else
       let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     end
+
     if in_fast_spec
       let new_file = substitute(new_file, '^fast_spec/', '', '')
     else
       let new_file = substitute(new_file, '^spec/', '', '')
     end
+
     if in_app
       let new_file = 'app/' . new_file
     else
       let new_file = 'lib/' . new_file
     end
+
   endif
 
   return new_file
