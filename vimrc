@@ -113,6 +113,17 @@ function! ToggleNerdTree()
 endfunction
 map <silent> <F2> :call ToggleNerdTree()<CR>
 
+" Now you can just click on any thing and it just reacts (open og close
+" folders, and open files)
+let NERDTreeMouseMode=2
+
+" sort files and folders by name
+let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
+
+" Hide bundler_stubs
+let NERDTreeIgnore=['^bundler_stubs$', '\~$']
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
