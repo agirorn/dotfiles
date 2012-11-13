@@ -430,6 +430,7 @@ endfunction
 function! AlternateForCurrentFile()
   let current_file  = expand("%")
   let new_file      = current_file
+
   let is_erb        = match(current_file, '\<views\>') != -1
   let is_controller = match(current_file, '\<controllers\>') != -1
   let is_model      = match(current_file, '\<models\>') != -1
@@ -443,20 +444,11 @@ function! AlternateForCurrentFile()
   let in_lib        = match(current_file, '\<lib\>') != -1
 
   if going_to_spec
+    let new_file = substitute(new_file, '^lib/', '', '')
+    let new_file = substitute(new_file, '^app/', '', '')
 
-    if in_lib
-      let new_file = substitute(new_file, '^lib/', '', '')
-    end
-
-    if in_app
-      let new_file = substitute(new_file, '^app/', '', '')
-    end
-
-    if is_erb
-      let new_file = substitute(new_file, '\.erb$', '.erb_spec.rb', '')
-    else
-      let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    end
+    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    let new_file = substitute(new_file, '\.erb$', '.erb_spec.rb', '')
 
     let fast_spec_file = 'fast_spec/' . new_file
     let spec_file = 'spec/' . new_file
@@ -466,27 +458,21 @@ function! AlternateForCurrentFile()
     else
       let new_file = spec_file
     end
-
   else
-
     if is_erb
       let new_file = substitute(new_file, '\.erb_spec\.rb$', '.erb', '')
     else
       let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     end
 
-    if in_fast_spec
-      let new_file = substitute(new_file, '^fast_spec/', '', '')
-    else
-      let new_file = substitute(new_file, '^spec/', '', '')
-    end
+    let new_file = substitute(new_file, '^fast_spec/', '', '')
+    let new_file = substitute(new_file, '^spec/', '', '')
 
     if in_app
       let new_file = 'app/' . new_file
     else
       let new_file = 'lib/' . new_file
     end
-
   endif
 
   return new_file
