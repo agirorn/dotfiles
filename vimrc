@@ -442,7 +442,6 @@ function! AlternateForCurrentFile()
   let in_app        = is_controller || is_model || is_view || is_helper || is_mailer
   let in_lib        = match(current_file, '\<lib\>') != -1
 
-  echo going_to_spec
   if going_to_spec
 
     if in_lib
@@ -462,14 +461,10 @@ function! AlternateForCurrentFile()
     let fast_spec_file = 'fast_spec/' . new_file
     let spec_file = 'spec/' . new_file
 
-    if is_erb
-      let new_file = spec_file
+    if filereadable(fast_spec_file)
+      let new_file = fast_spec_file
     else
-      if filereadable(spec_file)
-        let new_file = spec_file
-      else
-        let new_file = fast_spec_file
-      end
+      let new_file = spec_file
     end
 
   else
