@@ -560,6 +560,6 @@ highlight   PmenuSel      ctermfg=0 ctermbg=255
 " highlight   PmenuSbar     ctermfg=0 ctermbg=50
 " highlight   PmenuThumb    ctermfg=0 ctermbg=7
 
-autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
 highlight def link rubyRspec Function
 
