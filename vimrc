@@ -525,6 +525,8 @@ function! RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
 
+  let is_fast_spec  = match(a:filename, '^fast_spec/') != -1 && filereadable(".fspec")
+
   if match(a:filename, '_test.rb$') != -1
       exec ":!ruby -Itest " . a:filename
   elseif match(a:filename, '\.feature$') != -1
@@ -532,7 +534,7 @@ function! RunTests(filename)
   else
     if filereadable("script/test")
       exec ":!script/test " . a:filename
-    elseif filereadable(".fspec")
+    elseif is_fast_spec
       exec ":!rspec --color -O .fspec " . a:filename
     elseif filereadable("Gemfile")
       exec ":!bundle exec rspec --color " . a:filename
