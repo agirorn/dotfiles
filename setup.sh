@@ -5,16 +5,16 @@
 # This file installes the dotfiles from ~/dotfiles to your home directory.
 # In the process it take a backup of any files it could overwite.
 #
-# This is meant to be a non destructive command that you can run any time you 
+# This is meant to be a non destructive command that you can run any time you
 # update the dot files or add new ones.
 ################################################################################
 
-########## Configuration 
+########## Configuration
 
 dot_files_dir=~/dotfiles                    # dotfiles directory
 backup_dir=~/dotfiles_old             # old dotfiles backup directory
 
-dot_files="vimrc vim tmux.conf irbrc"    # list of files/folders to symlink in homedir
+dot_files="profile bash vimrc vim tmux.conf irbrc"    # list of files/folders to symlink in homedir
 
 ########## Banner
 echo '########################'
@@ -25,7 +25,7 @@ echo ''
 ########## Updating Dot Files
 #
 # move any existing dotfiles in the home directory to dotfiles_old directory,
-# then create symlinks from the homedir to any files in the ~/dotfiles directory 
+# then create symlinks from the homedir to any files in the ~/dotfiles directory
 # specified in $files, excluding things that have been simlinkt before
 for file in $dot_files; do
   link_to_dot_file=~/.$file
@@ -38,7 +38,7 @@ for file in $dot_files; do
         mkdir -p $backup_dir
       fi
       echo "Backing up $link_to_dot_file to $backup_dir/ "
-      mv $link_to_dot_file $backup_dir/ 
+      mv $link_to_dot_file $backup_dir/
     fi
   fi
 
