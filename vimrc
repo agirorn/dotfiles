@@ -525,7 +525,7 @@ function! RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
 
-  let is_fast_spec  = match(a:filename, '^fast_spec/') != -1 && filereadable(".fspec")
+  let is_fast_spec  = ( match(a:filename, '^fast_spec/') != -1 || match(a:filename, '^fspec/') != -1 ) && filereadable(".fspec")
 
   if match(a:filename, '_test.rb$') != -1
       exec ":!ruby -Itest " . a:filename
