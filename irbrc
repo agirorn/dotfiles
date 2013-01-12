@@ -5,10 +5,10 @@ class Object
     if match_this
       if match_this.respond_to? :each
         match_this.each do |matcher|
-          ms = ms.select {|m| m.match(matcher) } 
+          ms = ms.select {|m| m.match(matcher) }
         end
       else
-        ms = ms.select {|m| m.match(match_this) } 
+        ms = ms.select {|m| m.match(match_this) }
       end
     end
     ms = ms.select(&block) if block_given?
@@ -17,3 +17,4 @@ class Object
 end
 
 require 'irb/completion'
+require 'irb/ext/save-history'
