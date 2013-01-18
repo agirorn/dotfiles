@@ -261,7 +261,7 @@ map <leader>v :view %%
 set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**
 set wildignore+=tmp/**
-set wildignore+=public/system/images/**
+set wildignore+=public/system/**
 set wildignore+=public/images/**
 
 let g:CommandTMaxFiles=20000
