@@ -436,7 +436,7 @@ function! AlternateForCurrentFile()
   let is_model      = match(current_file, '\<models\>') != -1
   let is_view       = match(current_file, '\<views\>') != -1
   let is_helper     = match(current_file, '\<helpers\>') != -1
-  let is_mailer     = match(current_file, '\<mailer\>')
+  let is_mailer     = match(current_file, '\<mailer\>') != -1
   let in_spec       = match(current_file, '^spec/') != -1
   let in_fast_spec  = match(current_file, '^fast_spec/') != -1
   let going_to_spec = !(in_spec || in_fast_spec)
