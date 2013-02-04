@@ -437,7 +437,9 @@ function! AlternateForCurrentFile()
   let is_view       = match(current_file, '\<views\>') != -1
   let is_helper     = match(current_file, '\<helpers\>') != -1
   let is_mailer     = match(current_file, '\<mailer\>') != -1
-  let in_spec       = match(current_file, '^spec/') != -1
+  let in_rspec      = match(current_file, '^spec/') != -1
+  let in_fspec      = match(current_file, '^fspec/') != -1
+  let in_spec       = in_rspec || in_fspec
   let in_fast_spec  = match(current_file, '^fast_spec/') != -1
   let going_to_spec = !(in_spec || in_fast_spec)
   let in_app        = is_controller || is_model || is_view || is_helper || is_mailer
@@ -450,7 +452,7 @@ function! AlternateForCurrentFile()
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     let new_file = substitute(new_file, '\.erb$', '.erb_spec.rb', '')
 
-    let fast_spec_file = 'fast_spec/' . new_file
+    let fast_spec_file = 'fspec/' . new_file
     let spec_file = 'spec/' . new_file
 
     if filereadable(fast_spec_file)
@@ -465,7 +467,7 @@ function! AlternateForCurrentFile()
       let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     end
 
-    let new_file = substitute(new_file, '^fast_spec/', '', '')
+    let new_file = substitute(new_file, '^fspec/', '', '')
     let new_file = substitute(new_file, '^spec/', '', '')
 
     if in_app
