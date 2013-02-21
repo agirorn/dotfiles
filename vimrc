@@ -263,6 +263,8 @@ set wildignore+=vendor/**
 set wildignore+=tmp/**
 set wildignore+=public/system/**
 set wildignore+=public/images/**
+set wildignore+=db/sphinx/**
+
 
 let g:CommandTMaxFiles=20000
 
