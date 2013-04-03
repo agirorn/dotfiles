@@ -13,19 +13,19 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
 
-[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:$PATH"
-[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:$PATH"
-[ -d /usr/local/bin  ] && PATH="/usr/local/bin:$PATH"
-[ -d /opt/local/sbin ] && PATH="/opt/local/sbin:$PATH"
-[ -d /opt/local/bin  ] && PATH="/opt/local/bin:$PATH"
-[ -d ~/bin           ] && PATH="$PATH:~/bin"
+test -d /usr/local/sbin && PATH="/usr/local/sbin:$PATH"
+test -d /usr/local/sbin && PATH="/usr/local/sbin:$PATH"
+test -d /usr/local/bin  && PATH="/usr/local/bin:$PATH"
+test -d /opt/local/sbin && PATH="/opt/local/sbin:$PATH"
+test -d /opt/local/bin  && PATH="/opt/local/bin:$PATH"
+test -d ~/bin           && PATH="$PATH:~/bin"
 
 # Node.js
-! echo $PATH | grep -q '$HOME/local/node/bin'           && PATH=$HOME/local/node/bin:$PATH
+[ -d $HOME/local/node/bin ] && PATH=$HOME/local/node/bin:$PATH
 export PATH
 
-! echo $MANPATH | grep -q '/usr/local/share/man' && MANPATH="/usr/local/share/man:$MANPATH"
-! echo $MANPATH | grep -q '/opt/local/share/man' && MANPATH="/opt/local/share/man:$MANPATH"
+test -d /usr/local/share/man && MANPATH="/usr/local/share/man:$MANPATH"
+test -d /opt/local/share/man && MANPATH="/opt/local/share/man:$MANPATH"
 export MANPATH
 
 export INFOPATH="/usr/local/share/info:$INFOPATH"
@@ -43,32 +43,17 @@ export HISTSIZE=999
 shopt -s histappend
 
 # Custom bash compleations
-source ~/.bash/completion/rake.sh
-source ~/.bash/completion/capistrano.sh
-source ~/.bash/completion/code.sh
-source ~/.bash/completion/compleations.sh
-source ~/.bash/completion/tmux-completion.sh
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+test -d ~/.bash/completion && source ~/.bash/completion/*
+test -r $rvm_path/scripts/completion && . $rvm_path/scripts/completion
 
-# Custom prompt
-source ~/.bash/prompt.sh
-source ~/.bash/ls_colors.sh
-
-# Custom aliases
-source ~/.bash/aliases.sh
-
-# Custom commands
-source ~/.bash/bundler_mate.sh
+# Custom bash things
+test -d ~/.bash && source ~/.bash/*
 
 # Auto complete git.
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
-fi
+test -f /opt/local/etc/profile.d/bash_completion.sh && source /opt/local/etc/profile.d/bash_completion.sh
 
 # Bash completion
-if [ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ]; then
-  . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
-fi
+test -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh && source /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
 
 # Oracle client breyta.
 test -d /opt/oracle/instantclient_10_2 && export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
