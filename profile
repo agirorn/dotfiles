@@ -42,18 +42,29 @@ export HISTCONTROL=erasedups
 export HISTSIZE=999
 shopt -s histappend
 
-# Custom bash compleations
-test -d ~/.bash/completion && source ~/.bash/completion/*
-test -r $rvm_path/scripts/completion && . $rvm_path/scripts/completion
+###########################################################################
+# sources(dir)
+#
+# This function sources any file or all files in directory if they exist.
+###########################################################################
+function sources {
+  local dir=$1
+  local file=$1
+  test -f $file && source $file
 
-# Custom bash things
-test -d ~/.bash && source ~/.bash/*
+  test ! -d $dir && return 1
+  for file in $dir/*; do
+    test -f $file && source $file;
+  done
+}
 
-# Auto complete git.
-test -f /opt/local/etc/profile.d/bash_completion.sh && source /opt/local/etc/profile.d/bash_completion.sh
 
-# Bash completion
-test -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh && source /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
+sources $rvm_path/scripts/completion # RVM
+sources /opt/local/etc/profile.d # Mac Ports
+sources /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh # Mac Ports
+sources /usr/local/etc/bash_completion.d # HomeBrew
+sources ~/.bash/completion
+sources ~/.bash
 
 # Oracle client breyta.
 test -d /opt/oracle/instantclient_10_2 && export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
@@ -78,6 +89,8 @@ if [ "$UNAME" = Darwin ]; then
   # Run tmux if it's not running and use the latest bash if avalable
   if [ -x /opt/local/bin/bash ]; then
     test -z $TMUX && tmux -2 new-session "/opt/local/bin/reattach-to-user-namespace /opt/local/bin/bash -l"
+  elif [ -x /usr/local/bin/bash ]; then
+    test -z $TMUX && tmux -2 new-session "/usr/local/bin/reattach-to-user-namespace /usr/local/bin/bash -l"
   else
     test -z $TMUX && tmux -2 new-session "/bin/bash -l"
   fi
