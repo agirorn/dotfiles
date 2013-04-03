@@ -13,11 +13,12 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
 
-! echo $PATH | grep -q '/usr/local/sbin' && PATH="/usr/local/sbin:$PATH"
-! echo $PATH | grep -q '/usr/local/bin'  && PATH="/usr/local/bin:$PATH"
-! echo $PATH | grep -q '/opt/local/sbin' && PATH="/opt/local/sbin:$PATH"
-! echo $PATH | grep -q '/opt/local/bin'  && PATH="/opt/local/bin:$PATH"
-! echo $PATH | grep -q '~/bin'           && PATH="$PATH:~/bin"
+[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:$PATH"
+[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:$PATH"
+[ -d /usr/local/bin  ] && PATH="/usr/local/bin:$PATH"
+[ -d /opt/local/sbin ] && PATH="/opt/local/sbin:$PATH"
+[ -d /opt/local/bin  ] && PATH="/opt/local/bin:$PATH"
+[ -d ~/bin           ] && PATH="$PATH:~/bin"
 
 # Node.js
 ! echo $PATH | grep -q '$HOME/local/node/bin'           && PATH=$HOME/local/node/bin:$PATH
