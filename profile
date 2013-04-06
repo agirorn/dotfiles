@@ -13,18 +13,19 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # MacPorts Installer addition on 2010-01-12_at_15:57:14: adding an appropriate PATH variable for use with MacPorts.
 
-! echo $PATH | grep -q '/usr/local/sbin' && PATH="/usr/local/sbin:$PATH"
-! echo $PATH | grep -q '/usr/local/bin'  && PATH="/usr/local/bin:$PATH"
-! echo $PATH | grep -q '/opt/local/sbin' && PATH="/opt/local/sbin:$PATH"
-! echo $PATH | grep -q '/opt/local/bin'  && PATH="/opt/local/bin:$PATH"
-! echo $PATH | grep -q '~/bin'           && PATH="$PATH:~/bin"
+test -d /usr/local/sbin && PATH="/usr/local/sbin:$PATH"
+test -d /usr/local/sbin && PATH="/usr/local/sbin:$PATH"
+test -d /usr/local/bin  && PATH="/usr/local/bin:$PATH"
+test -d /opt/local/sbin && PATH="/opt/local/sbin:$PATH"
+test -d /opt/local/bin  && PATH="/opt/local/bin:$PATH"
+test -d ~/bin           && PATH="$PATH:~/bin"
 
 # Node.js
-! echo $PATH | grep -q '$HOME/local/node/bin'           && PATH=$HOME/local/node/bin:$PATH
+[ -d $HOME/local/node/bin ] && PATH=$HOME/local/node/bin:$PATH
 export PATH
 
-! echo $MANPATH | grep -q '/usr/local/share/man' && MANPATH="/usr/local/share/man:$MANPATH"
-! echo $MANPATH | grep -q '/opt/local/share/man' && MANPATH="/opt/local/share/man:$MANPATH"
+test -d /usr/local/share/man && MANPATH="/usr/local/share/man:$MANPATH"
+test -d /opt/local/share/man && MANPATH="/opt/local/share/man:$MANPATH"
 export MANPATH
 
 export INFOPATH="/usr/local/share/info:$INFOPATH"
@@ -41,33 +42,29 @@ export HISTCONTROL=erasedups
 export HISTSIZE=999
 shopt -s histappend
 
-# Custom bash compleations
-source ~/.bash/completion/rake.sh
-source ~/.bash/completion/capistrano.sh
-source ~/.bash/completion/code.sh
-source ~/.bash/completion/compleations.sh
-source ~/.bash/completion/tmux-completion.sh
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+###########################################################################
+# sources(dir)
+#
+# This function sources any file or all files in directory if they exist.
+###########################################################################
+function sources {
+  local dir=$1
+  local file=$1
+  test -f $file && source $file
 
-# Custom prompt
-source ~/.bash/prompt.sh
-source ~/.bash/ls_colors.sh
+  test ! -d $dir && return 1
+  for file in $dir/*; do
+    test -f $file && source $file;
+  done
+}
 
-# Custom aliases
-source ~/.bash/aliases.sh
 
-# Custom commands
-source ~/.bash/bundler_mate.sh
-
-# Auto complete git.
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
-fi
-
-# Bash completion
-if [ -f /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh ]; then
-  . /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh
-fi
+sources $rvm_path/scripts/completion # RVM
+sources /opt/local/etc/profile.d # Mac Ports
+sources /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh # Mac Ports
+sources /usr/local/etc/bash_completion.d # HomeBrew
+sources ~/.bash/completion
+sources ~/.bash
 
 # Oracle client breyta.
 test -d /opt/oracle/instantclient_10_2 && export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
@@ -92,6 +89,8 @@ if [ "$UNAME" = Darwin ]; then
   # Run tmux if it's not running and use the latest bash if avalable
   if [ -x /opt/local/bin/bash ]; then
     test -z $TMUX && tmux -2 new-session "/opt/local/bin/reattach-to-user-namespace /opt/local/bin/bash -l"
+  elif [ -x /usr/local/bin/bash ]; then
+    test -z $TMUX && tmux -2 new-session "/usr/local/bin/reattach-to-user-namespace /usr/local/bin/bash -l"
   else
     test -z $TMUX && tmux -2 new-session "/bin/bash -l"
   fi

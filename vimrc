@@ -115,7 +115,7 @@ map <silent> <F2> :call ToggleNerdTree()<CR>
 
 " Now you can just click on any thing and it just reacts (open og close
 " folders, and open files)
-let NERDTreeMouseMode=2
+let NERDTreeMouseMode=1
 
 " sort files and folders by name
 let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
@@ -261,8 +261,10 @@ map <leader>v :view %%
 set wildignore+=*.o,*.obj,.git
 set wildignore+=vendor/**
 set wildignore+=tmp/**
-set wildignore+=public/system/images/**
+set wildignore+=public/system/**
 set wildignore+=public/images/**
+set wildignore+=db/sphinx/**
+
 
 let g:CommandTMaxFiles=20000
 
@@ -290,7 +292,7 @@ function! ShowRoutes()
   " Delete everything
   :normal 1GdG
   " Put routes output in buffer
-  :0r! rake -s routes
+  :silent :0r! rake -s routes
   " Size window to number of lines (1 plus rake output length)
   :exec ":normal " . line("$") . "_ "
   " Move cursor to bottom
@@ -436,8 +438,10 @@ function! AlternateForCurrentFile()
   let is_model      = match(current_file, '\<models\>') != -1
   let is_view       = match(current_file, '\<views\>') != -1
   let is_helper     = match(current_file, '\<helpers\>') != -1
-  let is_mailer     = match(current_file, '\<mailer\>')
-  let in_spec       = match(current_file, '^spec/') != -1
+  let is_mailer     = match(current_file, '\<mailers\>') != -1
+  let in_rspec      = match(current_file, '^spec/') != -1
+  let in_fspec      = match(current_file, '^fspec/') != -1
+  let in_spec       = in_rspec || in_fspec
   let in_fast_spec  = match(current_file, '^fast_spec/') != -1
   let going_to_spec = !(in_spec || in_fast_spec)
   let in_app        = is_controller || is_model || is_view || is_helper || is_mailer
@@ -450,13 +454,13 @@ function! AlternateForCurrentFile()
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     let new_file = substitute(new_file, '\.erb$', '.erb_spec.rb', '')
 
-    let fast_spec_file = 'fast_spec/' . new_file
+    let fast_spec_file = 'fspec/' . new_file
     let spec_file = 'spec/' . new_file
 
-    if filereadable(fast_spec_file)
-      let new_file = fast_spec_file
-    else
+    if filereadable(spec_file)
       let new_file = spec_file
+    else
+      let new_file = fast_spec_file
     end
   else
     if is_erb
@@ -465,7 +469,7 @@ function! AlternateForCurrentFile()
       let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     end
 
-    let new_file = substitute(new_file, '^fast_spec/', '', '')
+    let new_file = substitute(new_file, '^fspec/', '', '')
     let new_file = substitute(new_file, '^spec/', '', '')
 
     if in_app
@@ -483,6 +487,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>t :call RunTestFile()<cr>
+map <leader>F :call RunDocumentFormatedTest()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
 map <leader>c :w\|:!script/features<cr>
@@ -515,17 +520,16 @@ function! SetTestFile()
   let t:grb_test_file=@%
 endfunction
 
+function! RunDocumentFormatedTest()
+  call RunTestFile(" -f d")
+endfunction
+
 function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !clear
 
-  let is_fast_spec  = match(a:filename, '^fast_spec/') != -1 && filereadable(".fspec")
+  let is_fast_spec  = ( match(a:filename, '^fast_spec/') != -1 || match(a:filename, '^fspec/') != -1 ) && filereadable(".fspec")
 
   if match(a:filename, '_test.rb$') != -1
       exec ":!ruby -Itest " . a:filename
