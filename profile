@@ -19,6 +19,7 @@ test -d /usr/local/bin  && PATH="/usr/local/bin:$PATH"
 test -d /opt/local/sbin && PATH="/opt/local/sbin:$PATH"
 test -d /opt/local/bin  && PATH="/opt/local/bin:$PATH"
 test -d ~/bin           && PATH="$PATH:~/bin"
+test -d /usr/local/share/npm/bin && PATH="${PATH}:/usr/local/share/npm/bin"
 
 # Node.js
 [ -d $HOME/local/node/bin ] && PATH=$HOME/local/node/bin:$PATH
