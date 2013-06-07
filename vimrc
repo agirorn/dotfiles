@@ -569,3 +569,6 @@ highlight   PmenuSel      ctermfg=0 ctermbg=255
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
 highlight def link rubyRspec Function
 
+
+" config for syntastic
+let g:syntastic_javascript_checker = 'jshint'
