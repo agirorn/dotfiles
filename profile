@@ -82,6 +82,7 @@ shopt -s hostcomplete >/dev/null 2>&1
 
 # Color grep output
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+alias http_start='python -m SimpleHTTPServer'
 
 # ----------------------------------------------------------------------
 # MACOS X / DARWIN SPECIFIC
