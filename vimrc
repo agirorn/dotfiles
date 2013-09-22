@@ -426,7 +426,7 @@ map <leader>mv :call RenameFile()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
+  exec ':e! ' . new_file
 endfunction
 
 function! AlternateForCurrentFile()
