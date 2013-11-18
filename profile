@@ -32,7 +32,7 @@ export MANPATH
 export INFOPATH="/usr/local/share/info:$INFOPATH"
 
 # SET LOCAL TO UTF-8
-export LC_ALL=is_IS.UTF-8
+# expor LC_ALL=is_IS.UTF-8
 
 # Set vim as my editor
 export EDITOR=vim
