@@ -28,3 +28,6 @@
 [submodule "vim/bundle/handlebars"]
 	path = vim/bundle/handlebars
 	url = https://github.com/nono/vim-handlebars.git
+[submodule "vim/bundle/vim-endwise"]
+	path = vim/bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git

@@ -69,6 +69,7 @@ sources ~/.bash
 
 # Oracle client breyta.
 test -d /opt/oracle/instantclient_10_2 && export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
+test -d /opt/oracle/instantclient_11_2 && export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
 
 # ODBC
 test -f ~/.odbc.ini && export ODBCINI=~/.odbc.ini
