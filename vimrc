@@ -60,6 +60,10 @@ set selectmode=mouse,key
 " THIS SEAMS TO ALLOW MY TO RESIZE THE WINDOWS SPLITS WITH THE MOUSE
 set ttymouse=xterm2
 
+" Showing a different background colour in Vim past 80 and 120 characters.
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="81,".join(range(121,999),",")
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CREATE THE BACKUP DIRECTORY IF IT DOESN'T EXISTS.
