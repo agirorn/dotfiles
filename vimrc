@@ -576,11 +576,14 @@ highlight def link rubyRspec Function
 
 " config for syntastic
 let g:syntastic_javascript_checkers = ['jshint']
+"
+" Ingone the proprietary attribute that asre used in AngularJs
+let g:syntastic_html_tidy_ignore_errors=["proprietary attribute"]
 
 let g:syntastic_mode_map={
   \ 'mode': 'active',
   \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'eruby']
+  \ 'passive_filetypes': ['eruby']
 \ }
 
 let g:syntastic_echo_current_error=1
