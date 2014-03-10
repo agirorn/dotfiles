@@ -63,3 +63,5 @@ test -z $TMUX && alias exit=exit
 # When ther are fast specs
 alias fspec='rspec --options .fspec'
 alias httpd='ruby -run -e httpd . -p5000'
+
+alias redis-server-start='redis-server /usr/local/etc/redis.conf'
