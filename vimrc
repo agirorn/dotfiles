@@ -583,7 +583,7 @@ let g:syntastic_html_tidy_ignore_errors=["proprietary attribute"]
 let g:syntastic_mode_map={
   \ 'mode': 'active',
   \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['eruby']
+  \ 'passive_filetypes': ['eruby', 'html']
 \ }
 
 let g:syntastic_echo_current_error=1
