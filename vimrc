@@ -268,6 +268,9 @@ set wildignore+=tmp/**
 set wildignore+=public/system/**
 set wildignore+=public/images/**
 set wildignore+=db/sphinx/**
+set wildignore+=node_modules/**
+set wildignore+=app/bower_components/**
+
 
 
 let g:CommandTMaxFiles=20000
