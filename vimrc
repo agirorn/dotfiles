@@ -581,7 +581,10 @@ highlight def link rubyRspec Function
 let g:syntastic_javascript_checkers = ['jshint']
 "
 " Ingone the proprietary attribute that asre used in AngularJs
-let g:syntastic_html_tidy_ignore_errors=["proprietary attribute"]
+let g:syntastic_html_tidy_ignore_errors=[
+  \ "trimming empty <span>",
+  \ "proprietary attribute"
+  \]
 
 let g:syntastic_mode_map={
   \ 'mode': 'active',
