@@ -68,11 +68,11 @@ let &colorcolumn="81,".join(range(121,999),",")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CREATE THE BACKUP DIRECTORY IF IT DOESN'T EXISTS.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !isdirectory('/tmp/vim_backup')
-  silent !mkdir -p ~/tmp/vim_backup
-endif
-set backupdir=~/tmp/vim_backup/
-set directory=~/tmp/vim_backup/
+" if !isdirectory('/tmp/vim_backup')
+"   silent !mkdir -p ~/tmp/vim_backup
+" endif
+" set backupdir=~/tmp/vim_backup/
+" set directory=~/tmp/vim_backup/
 
 " COPY BACKUPFILES WHEN EDITING CRONTAB FILES
 au BufEnter crontab.* setl backupcopy=yes
