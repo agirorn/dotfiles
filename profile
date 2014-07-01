@@ -43,6 +43,9 @@ export HISTCONTROL=erasedups
 export HISTSIZE=999
 shopt -s histappend
 
+# Python
+export PYTHONSTARTUP=~/.pythonrc.py
+
 ###########################################################################
 # sources(dir)
 #
