@@ -14,7 +14,7 @@
 dot_files_dir=~/dotfiles                    # dotfiles directory
 backup_dir=~/dotfiles_old             # old dotfiles backup directory
 
-dot_files="profile bash vimrc vim tmux.conf irbrc"    # list of files/folders to symlink in homedir
+dot_files="profile bash vimrc vim tmux.conf irbrc gemrc"    # list of files/folders to symlink in homedir
 
 ########## Banner
 echo '########################'
