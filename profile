@@ -66,6 +66,8 @@ function sources {
 sources $rvm_path/scripts/completion # RVM
 sources /opt/local/etc/profile.d # Mac Ports
 sources /opt/local/share/doc/git-core/contrib/completion/git-prompt.sh # Mac Ports
+sources /usr/local/git/contrib/completion/git-prompt.sh
+sources /usr/local/git/contrib/completion/git-completion.bash
 sources /usr/local/etc/bash_completion.d # HomeBrew
 sources ~/.bash/completion
 sources ~/.bash
