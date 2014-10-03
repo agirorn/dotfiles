@@ -6,6 +6,9 @@ alias mysql_start='sudo /opt/local/etc/LaunchDaemons/org.macports.mysql5/mysql5.
 alias mysql_stop='sudo /opt/local/etc/LaunchDaemons/org.macports.mysql5/mysql5.wrapper stop'
 alias mysql_restart='sudo /opt/local/etc/LaunchDaemons/org.macports.mysql5/mysql5.wrapper restart'
 
+# iOs Simulator
+alias iphone="open '/Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app'"
+
 # Usefull for runing a single test.
 alias rubyt='ruby -Ilib:test'
 
