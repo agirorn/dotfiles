@@ -29,7 +29,11 @@ alias tmux='tmux -2'
 alias tmuxpwd='tmux set default-path `pwd`'
 
 alias ls='ls -G'
-alias ll="ls -lf"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias ll="ls -la"
+else
+  alias ll="ls -lf"
+fi
 alias l="ll"
 alias la="ls -la"
 
