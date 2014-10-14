@@ -593,3 +593,5 @@ let g:syntastic_mode_map={
 \ }
 
 let g:syntastic_echo_current_error=1
+
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
