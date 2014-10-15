@@ -43,3 +43,6 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/vim-bundle-mako"]
+	path = vim/bundle/vim-bundle-mako
+	url = https://github.com/sophacles/vim-bundle-mako.git
