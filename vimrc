@@ -587,4 +587,4 @@ nmap <F8> :TagbarToggle<CR>
 autocmd BufNewFile,BufRead *.mc    set ft=mako
 autocmd BufNewFile,BufRead *.mhtml    set ft=mako
 
-nmap <leader>p :BufExplorer<cr>
+nmap <leader>s :BufExplorer<cr>
