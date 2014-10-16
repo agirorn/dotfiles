@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-bundle-mako"]
 	path = vim/bundle/vim-bundle-mako
 	url = https://github.com/sophacles/vim-bundle-mako.git
+[submodule "vim/bundle/vim-trailing-whitespace"]
+	path = vim/bundle/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git
