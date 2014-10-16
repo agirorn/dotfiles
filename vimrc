@@ -586,3 +586,5 @@ nmap <F8> :TagbarToggle<CR>
 " Set Mako Templates for .mc extensions..
 autocmd BufNewFile,BufRead *.mc    set ft=mako
 autocmd BufNewFile,BufRead *.mhtml    set ft=mako
+
+nmap <leader>p :BufExplorer<cr>
