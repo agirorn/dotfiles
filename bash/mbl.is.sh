@@ -26,6 +26,6 @@ if [ -d ~/mbl_env ] ; then
   alias mbl_activate='source ~/mbl_env/bin/activate'
   alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver 0.0.0.0:3030'
   alias mbl_shell='cd ~/dj/apps && ./manage.py shell'
-  alias mbl_compass_watch= 'cd ~dj/compass/ && compass watch'
+  alias mbl_compass_watch='cd ~/dj/compass/ && compass watch'
   alias mbl_python_update='cd ~/dj/ && pip install -r requirements.txt --upgrade'
 fi
