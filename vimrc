@@ -257,6 +257,9 @@ set wildignore+=app/bower_components/**
 
 map <leader>f :CtrlP<cr>
 
+let g:ctrlp_max_depth = 80
+let g:ctrlp_max_files = 20000
+
 "# " Command-T maped key's
 "# map <leader>ta :CommandT app/assets/<CR>
 "# map <leader>tc :CommandT app/controllers/<CR>
