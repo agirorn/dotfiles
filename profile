@@ -87,7 +87,7 @@ alias git='LC_ALL="en_US.UTF-8" git'
 shopt -s hostcomplete >/dev/null 2>&1
 
 # Color grep output
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export GREP_OPTIONS='--color=auto --exclude=*.pyc' GREP_COLOR='1;32'
 alias http_start='python -m SimpleHTTPServer'
 
 # ----------------------------------------------------------------------
