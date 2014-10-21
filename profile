@@ -44,7 +44,7 @@ export HISTSIZE=999
 shopt -s histappend
 
 # Python
-export PYTHONSTARTUP=~/.pythonrc.py
+export PYTHONSTARTUP=~/.pythonrc
 
 ###########################################################################
 # sources(dir)

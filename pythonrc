@@ -1,5 +1,6 @@
 # ~/.pythonrc
-# enable syntax completion
+# enable tab completion
+import sys
 try:
     import readline
 except ImportError:
@@ -7,5 +8,5 @@ except ImportError:
 else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
-
-print "hello"
+    if sys.platform == 'darwin':
+        readline.parse_and_bind("bind ^I rl_complete")
