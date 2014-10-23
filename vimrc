@@ -255,7 +255,7 @@ set wildignore+=db/sphinx/**
 set wildignore+=node_modules/**
 set wildignore+=app/bower_components/**
 
-map <leader>f :CtrlP<cr>
+map <nowait><leader>f :CtrlP<cr>
 
 let g:ctrlp_max_depth = 80
 let g:ctrlp_max_files = 20000
