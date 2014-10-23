@@ -25,7 +25,8 @@ if [ -d ~/mbl_env ] ; then
 
   alias mbl_activate='source ~/mbl_env/bin/activate'
   alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver 0.0.0.0:3030'
-  alias mbl_mason_start='cd ~/mason/psgi/ && plackup -p 3040 devel.psgi'
+  alias mbl_mason_start='cd ~/mason/psgi/ && plackup -p 3040 -s Starlet --max-workers=4 devel.psgi'
+
   alias mbl_shell='cd ~/dj/apps && ./manage.py shell'
   alias mbl_compass_watch='cd ~/dj/compass/ && compass watch'
   alias mbl_python_update='cd ~/dj/ && pip install -r requirements.txt --upgrade'
