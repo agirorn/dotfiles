@@ -246,7 +246,7 @@ map <leader>v :view %%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP USES THIS TO EXCLUDE FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildignore+=*.o,*.obj,.git
+set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=vendor/**
 set wildignore+=tmp/**
 set wildignore+=public/system/**
@@ -254,11 +254,12 @@ set wildignore+=public/images/**
 set wildignore+=db/sphinx/**
 set wildignore+=node_modules/**
 set wildignore+=app/bower_components/**
-
-map <nowait><leader>f :CtrlP<cr>
+set wildignore+=*/compass/build
+set wildignore+=*/compass/prodbuild
 
 let g:ctrlp_max_depth = 80
 let g:ctrlp_max_files = 20000
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
 
 "# " Command-T maped key's
 "# map <leader>ta :CommandT app/assets/<CR>
@@ -531,8 +532,6 @@ let g:syntastic_mode_map={
 \ }
 
 let g:syntastic_echo_current_error=1
-
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
 
 nmap <F8> :TagbarToggle<CR>
 
