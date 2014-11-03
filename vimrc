@@ -540,3 +540,11 @@ autocmd BufNewFile,BufRead *.mc    set ft=mako
 autocmd BufNewFile,BufRead *.mhtml    set ft=mako
 
 nmap <leader>s :BufExplorer<cr>
+
+
+if !isdirectory("~/mbl_env")
+  " Forsing some MBL.is love. 
+  set tabstop=4        " TAB WIDTH IS 2 SPACES
+  set shiftwidth=4     " INDENT ALSO WITH 4 SPACES
+  set softtabstop=4    " SOFT TABS
+endif
