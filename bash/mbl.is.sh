@@ -26,7 +26,6 @@ if [ -d ~/mbl_env ] ; then
   alias mbl_activate='source ~/mbl_env/bin/activate'
   alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver 0.0.0.0:3030'
   alias mbl_mason_start='cd ~/mason/psgi/ && DJANGO_PORT=3030 plackup -p 3040 -s Starlet --max-workers=4 devel.psgi'
-  alias mbl_kill_mason_server="kill $(ps aux | egrep 'agir.*plackup|grep -v grep' | awk '{print $2}')"
 
   alias mbl_shell='cd ~/dj/apps && ./manage.py shell'
   alias mbl_compass_watch='cd ~/dj/compass/ && compass watch'
@@ -40,4 +39,8 @@ if [ -d ~/mbl_env ] ; then
   export PERL5LIB="/home/agir/perl5/site-perl:$PERL5LIB";
   export PATH="/home/agir/perl5/bin:$PATH";
 
+
+  function mbl_kill_mason_server() {
+    kill $(ps aux | egrep 'agir.*plackup|grep -v grep' | awk '{print $2}')
+  }
 fi
