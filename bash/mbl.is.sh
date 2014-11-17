@@ -8,6 +8,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+export LAPLACE_PORT=3030
+export MASON_PORT=3040
+
 if [ -d ~/mbl_env ] ; then
   # if running bash
   if [ -n "$BASH_VERSION" ]; then
@@ -24,8 +27,8 @@ if [ -d ~/mbl_env ] ; then
   export PATH
 
   alias mbl_activate='source ~/mbl_env/bin/activate'
-  alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver 0.0.0.0:3030'
-  alias mbl_mason_start='cd ~/mason/psgi/ && DJANGO_PORT=3030 plackup -p 3040 -s Starlet --max-workers=4 devel.psgi'
+  alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver 0.0.0.0:`echo $LAPLACE_PORT`'
+  alias mbl_mason_start='cd ~/mason/psgi/ && DJANGO_PORT=`echo $LAPLACE_PORT` plackup -p `echo $MASON_PORT` -s Starlet --max-workers=4 devel.psgi'
 
   alias mbl_shell='cd ~/dj/apps && ./manage.py shell'
   alias mbl_compass_watch='cd ~/dj/compass/ && compass watch'
