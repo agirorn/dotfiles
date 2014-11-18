@@ -1,0 +1,30 @@
+[nosetests]
+###############################################################################
+# Set verbosity; --verbosity=2 is the same as -v
+verbosity=0
+
+###############################################################################
+# Also look for doctests in test modules. Note that classes, methods and
+# functions should have either doctests or non-doctest tests, not both.
+doctest-tests=1
+
+###############################################################################
+# Also look for doctests in test modules. Note that classes, methods and
+# functions should have either doctests or non-doctest tests, not both.
+doctest-tests=0
+
+###############################################################################
+# Add detail to error output by attempting to evaluate failed asserts
+detailed-errors=1
+
+###############################################################################
+# Fail fast "Stop running tests after the first error or failure"
+stop=1
+
+###############################################################################
+# Don't capture stdout (any stdout output will be printed immediately)
+nocapture=1
+
+###############################################################################
+# Disable logging capture plugin. Logging configuration will be left intact.
+nologcapture=1
