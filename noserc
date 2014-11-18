@@ -1,17 +1,13 @@
 [nosetests]
 ###############################################################################
 # Set verbosity; --verbosity=2 is the same as -v
-verbosity=0
+#                --verbosity=3 is the same as -vv
+verbosity=1
 
 ###############################################################################
 # Also look for doctests in test modules. Note that classes, methods and
 # functions should have either doctests or non-doctest tests, not both.
 doctest-tests=1
-
-###############################################################################
-# Also look for doctests in test modules. Note that classes, methods and
-# functions should have either doctests or non-doctest tests, not both.
-doctest-tests=0
 
 ###############################################################################
 # Add detail to error output by attempting to evaluate failed asserts
