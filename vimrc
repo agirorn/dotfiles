@@ -125,7 +125,7 @@ let NERDTreeMouseMode=1
 let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
 
 " Hide bundler_stubs
-let NERDTreeIgnore=['^bundler_stubs$', '\~$', '\.pyc$']
+let NERDTreeIgnore=['^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,7 +246,7 @@ map <leader>v :view %%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP USES THIS TO EXCLUDE FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildignore+=*.o,*.obj,.git,*.pyc
+set wildignore+=*.o,*.obj,.git,*.pyc,*.pyc
 set wildignore+=vendor/**
 set wildignore+=tmp/**
 set wildignore+=public/system/**
