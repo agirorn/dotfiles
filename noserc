@@ -24,3 +24,7 @@ nocapture=1
 ###############################################################################
 # Disable logging capture plugin. Logging configuration will be left intact.
 nologcapture=1
+
+# coloured output for nosetests
+# https://pypi.python.org/pypi/rednose
+rednose=1
