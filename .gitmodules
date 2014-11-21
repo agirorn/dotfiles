@@ -49,9 +49,9 @@
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
-[submodule "vim/bundle/vim-css-color"]
-	path = vim/bundle/vim-css-color
-	url = https://github.com/ap/vim-css-color.git
 [submodule "vim/bundle/scss-syntax"]
 	path = vim/bundle/scss-syntax
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "vim/bundle/vim-coloresque"]
+	path = vim/bundle/vim-coloresque
+	url = https://github.com/gorodinskiy/vim-coloresque.git
