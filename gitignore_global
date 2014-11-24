@@ -38,3 +38,6 @@ ehthumbs.db
 Thumbs.db
 
 node_modules/
+
+# Hiding custom django settings
+clear_cache_first_settings.py
