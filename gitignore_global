@@ -1,3 +1,9 @@
+# Vim Swapfiles.
+.*.swp
+.*.swo
+.*.swm
+.*.swn
+
 # Compiled source #
 ###################
 *.com
