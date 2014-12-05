@@ -45,6 +45,8 @@ shopt -s histappend
 
 # Python
 export PYTHONSTARTUP=~/.pythonrc
+# Python virtualenvwrapper http://virtualenvwrapper.readthedocs.org/en/latest/
+export WORKON_HOME=~/Envs
 
 ###########################################################################
 # sources(dir)
