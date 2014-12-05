@@ -45,8 +45,13 @@ shopt -s histappend
 
 # Python
 export PYTHONSTARTUP=~/.pythonrc
+test -d ~/Library/Python/2.7/bin && PATH=$PATH:~/Library/Python/2.7/bin
+export PATH
+
 # Python virtualenvwrapper http://virtualenvwrapper.readthedocs.org/en/latest/
 export WORKON_HOME=~/Envs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
 
 ###########################################################################
 # sources(dir)
