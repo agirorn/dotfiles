@@ -8,7 +8,8 @@
   "immed": true,
   "latedef": "nofunc",
   "nonbsp": true,
-  "quotmark": true,
+  "quotmark": "single",
   "maxparams": 6,
-  "maxdepth": 10
+  "maxdepth": 10,
+  "maxlen": 80
 }
