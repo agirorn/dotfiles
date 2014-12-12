@@ -65,9 +65,11 @@ set ttymouse=xterm2
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn="81,".join(range(121,999),",")
 
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-
+autocmd VimEnter,BufEnter,WinEnter,BufWinEnter * call HigliteLongLines()
+function! HigliteLongLines()
+  highlight ColorColumn ctermbg=magenta guibg=Magenta
+  call matchadd('ColorColumn', '\%81v', 100)
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CREATE THE BACKUP DIRECTORY IF IT DOESN'T EXISTS.
