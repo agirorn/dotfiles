@@ -65,8 +65,8 @@ set ttymouse=xterm2
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn="81,".join(range(121,999),",")
 
-autocmd VimEnter,BufEnter,WinEnter,BufWinEnter * call HigliteLongLines()
-function! HigliteLongLines()
+autocmd VimEnter,BufEnter,WinEnter,BufWinEnter * call HighlightLongLines()
+function! HighlightLongLines()
   highlight ColorColumn ctermbg=magenta guibg=Magenta
   call matchadd('ColorColumn', '\%81v', 100)
 endfunction
