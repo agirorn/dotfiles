@@ -78,3 +78,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+. ~/.bash/mbl.is.sh
+
+export PYTHONSTARTUP=~/.pythonrc
+
+###############################################################################
+# Python virtualenvwrapper http://virtualenvwrapper.readthedocs.org/en/latest/
+# pip install virtualenvwrapper
+#
+export WORKON_HOME=~/workon_envs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh

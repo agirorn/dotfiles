@@ -49,7 +49,7 @@ test -d ~/Library/Python/2.7/bin && PATH=$PATH:~/Library/Python/2.7/bin
 export PATH
 
 # Python virtualenvwrapper http://virtualenvwrapper.readthedocs.org/en/latest/
-export WORKON_HOME=~/Envs
+export WORKON_HOME=~/workon_envs
 mkdir -p $WORKON_HOME
 source /usr/local/bin/virtualenvwrapper.sh
 

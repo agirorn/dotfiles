@@ -12,6 +12,11 @@ export LAPLACE_PORT=3030
 export MASON_PORT=3040
 
 if [ -d ~/mbl_env ] ; then
+  export LANG=is_IS.utf8
+  unset LC_CTYPE
+  source $HOME/mbl_env/bin/activate
+  source $HOME/django_env.sh
+
   # if running bash
   if [ -n "$BASH_VERSION" ]; then
       # include .bashrc if it exists
@@ -27,7 +32,7 @@ if [ -d ~/mbl_env ] ; then
   export PATH
 
   alias mbl_activate='source ~/mbl_env/bin/activate'
-  alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver --settings=clear_cache_settings 0.0.0.0:`echo $LAPLACE_PORT`'
+  alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver --settings=localsettings 0.0.0.0:`echo $LAPLACE_PORT`'
   alias mbl_mason_start='cd ~/mason/psgi/ && DJANGO_PORT=`echo $LAPLACE_PORT` plackup -p `echo $MASON_PORT` -s Starlet --max-workers=4 devel.psgi'
 
   alias mbl_shell='cd ~/dj/apps && ./manage.py shell'
