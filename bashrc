@@ -51,7 +51,7 @@ export PATH
 # Python virtualenvwrapper http://virtualenvwrapper.readthedocs.org/en/latest/
 export WORKON_HOME=~/workon_envs
 mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvwrapper.sh
 
 ###########################################################################
 # sources(dir)
@@ -96,19 +96,5 @@ shopt -s hostcomplete >/dev/null 2>&1
 # Color grep output
 export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=*.swp' GREP_COLOR='1;32'
 alias http_start='python -m SimpleHTTPServer'
-
-# ----------------------------------------------------------------------
-# MACOS X / DARWIN SPECIFIC
-# ----------------------------------------------------------------------
-if [ "$UNAME" = Darwin ]; then
-  # Run tmux if it's not running and use the latest bash if avalable
-  if [ -x /opt/local/bin/bash ]; then
-    test -z $TMUX && tmux -f ~/.tmux-bash.conf -2 new-session "/opt/local/bin/reattach-to-user-namespace /opt/local/bin/bash -l"
-  elif [ -x /usr/local/bin/bash ]; then
-    test -z $TMUX && tmux -f ~/.tmux-bash.conf -2 new-session "/usr/local/bin/reattach-to-user-namespace /usr/local/bin/bash -l"
-  else
-    test -z $TMUX && tmux -f ~/.tmux-bash.conf -2 new-session "/bin/bash -l"
-  fi
-fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

@@ -88,4 +88,4 @@ export PYTHONSTARTUP=~/.pythonrc
 #
 export WORKON_HOME=~/workon_envs
 mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvwrapper.sh
