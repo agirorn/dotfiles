@@ -52,3 +52,6 @@ if [ -d ~/mbl_env ] ; then
     kill $(ps aux | egrep 'agir.*plackup|grep -v grep' | awk '{print $2}')
   }
 fi
+
+# Only source this strange django config when at work and if it exists.
+test -f $HOME/mbl_django_env.sh && source $HOME/mbl_django_env.sh
