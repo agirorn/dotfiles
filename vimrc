@@ -524,7 +524,8 @@ highlight def link rubyRspec Function
 
 " config for syntastic
 let g:syntastic_javascript_checkers = ['jshint']
-"
+let g:syntastic_python_checkers = ['pep8', 'pylint']
+
 " Ingone the proprietary attribute that asre used in AngularJs
 let g:syntastic_html_tidy_ignore_errors=[
   \ "trimming empty <span>",
