@@ -1,3 +1,5 @@
 [pep8]
-# ignore = E226,E302,E41
+# E201 whitespace after '{'
+# E202 whitespace before '}'
+ignore = E202,E201
 max-line-length = 200
