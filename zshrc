@@ -89,14 +89,3 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-. ~/.bash/mbl.is.sh
-
-export PYTHONSTARTUP=~/.pythonrc
-
-###############################################################################
-# Python virtualenvwrapper http://virtualenvwrapper.readthedocs.org/en/latest/
-# pip install virtualenvwrapper
-#
-export WORKON_HOME=~/workon_envs
-mkdir -p $WORKON_HOME
-test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvwrapper.sh
