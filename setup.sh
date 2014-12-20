@@ -15,7 +15,23 @@ dot_files_dir=~/dotfiles                    # dotfiles directory
 backup_dir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink in homedir
-dot_files="zshrc oh-my-zsh profile bash vimrc vim tmux.conf irbrc gemrc pylintrc pythonrc config noserc jshintrc"
+dot_files=(
+  bash
+  config
+  gemrc
+  irbrc
+  jshintrc
+  noserc
+  oh-my-zsh
+  profile
+  pylintrc
+  pythonrc
+  tmux.conf
+  vim
+  vimrc
+  zshrc
+)
+
 
 ########## Banner
 echo '########################'
