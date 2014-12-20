@@ -45,7 +45,18 @@ ZSH_CUSTOM=$HOME/dotfiles/my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew bundler bower urltools postgres pip fabric history-substring-search)
+plugins=(
+  bower
+  brew
+  bundler
+  fabric
+  git
+  history-substring-search
+  pip
+  postgres
+  rvm
+  urltools
+)
 
 # User configuration
 
