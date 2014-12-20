@@ -1,9 +1,9 @@
 # LSCOLORS
-# 	The value of this variable describes what color to use for which attribute 
-# 	when colors are enabled with CLICOLOR.  
+# 	The value of this variable describes what color to use for which attribute
+# 	when colors are enabled with CLICOLOR.
 # 	This string is a concatenation of pairs of the format fb, where f is the
 # 	foreground color and b is the background color.
-# 
+#
 #   Extra Info:
 #       A : bold black, usually shows up as dark grey
 #       D : bold brown, usually shows up as yellow
@@ -11,16 +11,16 @@
 #       x : default foreground or background
 #
 #  The color designators are as follows:
-#    a : black         b : red                c : green   
-#    d : brown         e : blue               f : magenta   
+#    a : black         b : red                c : green
+#    d : brown         e : blue               f : magenta
 #    g : cyan          h : light grey
 #    A : bold black    B : bold red           C : bold green
 #    D : bold brown    E : bold blue          F : bold magenta
 #    G : bold cyan     H : bold light grey    x : default
-# 
-#   Note that the above are standard ANSI colors. The actual display may differ 
+#
+#   Note that the above are standard ANSI colors. The actual display may differ
 #   depending on the color capabilities of the terminal in use.
-# 
+#
 #   The order of the attributes are as follows:
 #         1.   directory
 #         2.   symbolic link
@@ -33,14 +33,14 @@
 #         9.   executable with setgid bit set
 #         10.  directory writable to others, with sticky bit
 #         11.  directory writable to others, without sticky bit
-# 
+#
 #   The default is "exfxcxdxbxegedabagacad", i.e. blue foreground and default
 # 	background for regular directories, black foreground and red background for
 # 	setuid executables, etc.
 #
 # Default LSCOLORS                    Foreground : background
 #  directory                        : blue       : default
-#  symbolic link                    : magenta    : default																	 
+#  symbolic link                    : magenta    : default
 #  socket                           : green      : default
 #  pipe                             : brown      : default
 #  executable                       : red        : default
@@ -56,7 +56,7 @@
 
 # Default LSCOLORS                    Foreground : background
 #  directory                        : bold brown : default
-#  symbolic link                    : bold cyan  : default																	 
+#  symbolic link                    : bold cyan  : default
 #  socket                           : green      : default
 #  pipe                             : brown      : default
 #  executable                       : bold green : default

@@ -1,15 +1,15 @@
 # Open a bundlerd Gem in textmate
-function bmate { 
+function bmate {
   if [ ! -e Gemfile ]; then
     echo "Nothing to do since there's no Gemfile in the current directory"
     return
   fi
-  
+
   if [ -z $1 ]; then
     echo "Can't show you an unnamed bundler"
     return
   fi
-  
+
   mate `bundle show $1`
 }
 
