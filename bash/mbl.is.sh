@@ -33,7 +33,7 @@ if [ -d ~/mbl_env ] ; then
 
   alias mbl_activate='source ~/mbl_env/bin/activate'
   alias mbl_start_server='cd ~/dj/apps && ./manage.py runserver --settings=localsettings 0.0.0.0:`echo $LAPLACE_PORT`'
-  alias mbl_mason_start='cd ~/mason/psgi/ && DJANGO_PORT=`echo $LAPLACE_PORT` plackup -p `echo $MASON_PORT` -s Starlet --max-workers=4 devel.psgi'
+  alias mbl_mason_start='mbl_kill_mason_server; cd ~/mason/psgi/ && DJANGO_PORT=`echo $LAPLACE_PORT` plackup -p `echo $MASON_PORT` -s Starlet --max-workers=4 devel.psgi'
 
   alias mbl_shell='cd ~/dj/apps && ./manage.py shell'
   alias mbl_compass_watch='cd ~/dj/compass/ && compass watch'
