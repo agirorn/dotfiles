@@ -518,6 +518,15 @@ highlight   PmenuSel      ctermfg=0 ctermbg=255
 " highlight   PmenuSbar     ctermfg=0 ctermbg=50
 " highlight   PmenuThumb    ctermfg=0 ctermbg=7
 
+" Let the Buffer Explorer display relative paths.
+let g:bufExplorerShowRelativePath=1
+
+" Sort Buffer Explorer by most recently used.
+let g:bufExplorerSortBy='mru'        " Sort by most recently used.
+" Sort Buffer Explorer by name.
+" let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
+
+
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
 highlight def link rubyRspec Function
 
