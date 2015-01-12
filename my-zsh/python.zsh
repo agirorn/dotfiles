@@ -41,3 +41,5 @@ function python_tests() {
     sleep $delay
   done
 }
+
+alias nn='nosetests'
