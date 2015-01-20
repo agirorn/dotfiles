@@ -567,3 +567,4 @@ endif
 
 " Enable scss-syntax.
 au BufRead,BufNewFile *.scss set filetype=scss.css
+set iskeyword-=.
