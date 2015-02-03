@@ -412,7 +412,11 @@ function! AlternateForCurrentFile()
     if filereadable(spec_file)
       let new_file = spec_file
     else
-      let new_file = fast_spec_file
+      if isdirectory("fspec")
+        let new_file = fast_spec_file
+      else
+        let new_file = spec_file
+      end
     end
   else
     if is_erb
