@@ -1,2 +1,2 @@
-export LESS="-i -M -S -F"
-export PAGER=less
+# export LESS="-i -M -S -F"
+# export PAGER=less
