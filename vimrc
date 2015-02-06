@@ -570,8 +570,10 @@ if !isdirectory("~/mbl_env")
 endif
 
 " Force Mason syntax.
-autocmd BufNewFile,BufRead */mason/*.html set filetype=mason    " MASON FILES
-autocmd BufNewFile,BufRead */mason/*/autohandler set filetype=mason    " MASON FILES
+autocmd BufRead */mason/*
+    \ if getline(1) =~ '^\(%\|<[%&].*>\)' |
+    \     set filetype=mason |
+    \ endif
 
 " Enable scss-syntax.
 au BufRead,BufNewFile *.scss set filetype=scss.css
