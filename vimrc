@@ -569,6 +569,12 @@ if !isdirectory("~/mbl_env")
   autocmd BufNewFile,BufRead *.py set softtabstop=4    " SOFT TABS
 endif
 
+" Force Mason syntax.
+autocmd BufRead */mason/*
+    \ if getline(1) =~ '^\(%\|<[%&].*>\)' |
+    \     set filetype=mason |
+    \ endif
+
 " Enable scss-syntax.
 au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
