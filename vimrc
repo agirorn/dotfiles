@@ -267,6 +267,10 @@ let g:ctrlp_max_depth = 80
 let g:ctrlp_max_files = 20000
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|node_modules$\|dist$'
+  \ }
+
 "# " Command-T maped key's
 "# map <leader>ta :CommandT app/assets/<CR>
 "# map <leader>tc :CommandT app/controllers/<CR>
