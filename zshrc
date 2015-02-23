@@ -52,6 +52,7 @@ plugins=(
   fabric
   git
   history-substring-search
+  karma
   pip
   postgres
   rvm
