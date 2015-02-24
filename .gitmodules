@@ -52,9 +52,6 @@
 [submodule "vim/bundle/scss-syntax"]
 	path = vim/bundle/scss-syntax
 	url = https://github.com/cakebaker/scss-syntax.vim.git
-[submodule "vim/bundle/vim-coloresque"]
-	path = vim/bundle/vim-coloresque
-	url = https://github.com/gorodinskiy/vim-coloresque.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
@@ -64,3 +61,6 @@
 [submodule "vim/bundle/vim-perl"]
 	path = vim/bundle/vim-perl
 	url = git@github.com:vim-perl/vim-perl.git
+[submodule "vim/bundle/vim-coloresque"]
+	path = vim/bundle/vim-coloresque
+	url = git@github.com:agirorn/vim-coloresque.git
