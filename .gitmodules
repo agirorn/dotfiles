@@ -61,3 +61,6 @@
 [submodule "vim/bundle/vim-perl"]
 	path = vim/bundle/vim-perl
 	url = git@github.com:vim-perl/vim-perl.git
+[submodule "vim/bundle/vim-coloresque"]
+	path = vim/bundle/vim-coloresque
+	url = git@github.com:agirorn/vim-coloresque.git
