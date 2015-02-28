@@ -51,8 +51,10 @@ plugins=(
   bundler
   fabric
   git
+  grunt
   history-substring-search
   karma
+  npm
   pip
   postgres
   rvm
