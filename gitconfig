@@ -5,3 +5,4 @@
   treelog = log --graph --decorate --pretty=oneline --abbrev-commit --all
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
+  assumed = !git ls-files -v | grep "^[[:lower:]]"
