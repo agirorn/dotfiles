@@ -52,6 +52,7 @@ plugins=(
   fabric
   git
   grunt
+  highlight
   history-substring-search
   karma
   npm
