@@ -33,7 +33,7 @@ set wildmode=list:longest
 set wildmenu
 set scrolloff=5
 set nowrap
-set textwidth=79
+set textwidth=80
 set formatoptions=qn1
 set listchars=tab:▸\ ,eol:¬
 set showtabline=2
@@ -68,7 +68,7 @@ set ttymouse=xterm2
 autocmd VimEnter,BufEnter,WinEnter,BufWinEnter * call HighlightLongLines()
 function! HighlightLongLines()
   highlight ColorColumn ctermbg=magenta guibg=Magenta
-  call matchadd('ColorColumn', '\%81v', 100)
+  call matchadd('ColorColumn', '\%82v', 100)
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
