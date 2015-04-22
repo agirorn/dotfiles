@@ -4,6 +4,13 @@
 .*.swm
 .*.swn
 
+.swp
+.swo
+.swm
+.swn
+
+
+
 # Compiled source #
 ###################
 *.com
