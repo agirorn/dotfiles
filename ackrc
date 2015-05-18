@@ -433,5 +433,6 @@
 --type-add=mason:is:dhandler
 --type-add=mason:is:autohandler
 --type-add=mason:firstlinematch:%
+--type-add=mason:firstlinematch:<%
 
 # MBL.is -- end
