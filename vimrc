@@ -584,6 +584,6 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
 
 " Load a project .vimrc
-if filereadable(".vimrc")
+if filereadable(".vimrc") && expand('~') != getcwd()
     source .vimrc
 endif
