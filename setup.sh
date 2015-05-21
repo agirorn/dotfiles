@@ -27,6 +27,7 @@ dot_files=(
   profile
   pylintrc
   pythonrc
+  psqlrc
   tmux.conf
   vim
   vimrc
