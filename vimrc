@@ -539,11 +539,16 @@ autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_s
 highlight def link rubyRspec Function
 
 
-" config for syntastic
+"
+" Syntastic plugin.
+"
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['pep8']
 
+
+"
 " Ingone the proprietary attribute that asre used in AngularJs
+"
 let g:syntastic_html_tidy_ignore_errors=[
   \ "trimming empty <span>",
   \ "proprietary attribute"
@@ -559,9 +564,18 @@ let g:syntastic_echo_current_error=1
 
 nmap <F8> :TagbarToggle<CR>
 
-" Set Mako Templates for .mc extensions..
+"
+" Set Mako Templates
+"
 autocmd BufNewFile,BufRead *.mc    set ft=mako
-autocmd BufNewFile,BufRead *.mhtml    set ft=mako
+autocmd BufNewFile,BufRead *.mhtml set ft=mako
+
+
+"
+" Perl files.
+"
+autocmd BufNewFile,BufRead *.psgi set ft=perl
+
 
 nmap <leader>s :BufExplorer<cr>
 
@@ -573,17 +587,26 @@ if !isdirectory("~/mbl_env")
   autocmd BufNewFile,BufRead *.py set softtabstop=4    " SOFT TABS
 endif
 
-" Force Mason syntax.
+
+"
+" Mason syntax.
+"
 autocmd BufRead */mason/*
     \ if getline(1) =~ '^\(%\|<[%&].*>\)' |
     \     set filetype=mason |
     \ endif
 
-" Enable scss-syntax.
+
+"
+" scss
+"
 au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
 
+
+"
 " Load a project .vimrc
+"
 if filereadable(".vimrc") && expand('~') != getcwd()
     source .vimrc
 endif
