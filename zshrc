@@ -60,6 +60,8 @@ plugins=(
   postgres
   rvm
   urltools
+  my-perl
+  mbl
 )
 
 # User configuration
