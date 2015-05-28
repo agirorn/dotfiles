@@ -86,5 +86,5 @@
 
 
 
-ignore = E202,E201,E128,E303
+ignore = E202,E201,E128,E303,W391
 max-line-length = 200
