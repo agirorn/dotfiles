@@ -16,7 +16,7 @@ backup_dir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink in homedir
 dot_files=(
-  ack
+  ackrc
   bash
   config
   gemrc
