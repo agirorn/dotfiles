@@ -580,12 +580,12 @@ autocmd BufNewFile,BufRead *.psgi set ft=perl
 nmap <leader>s :BufExplorer<cr>
 
 
-if !isdirectory("~/mbl_env")
-  " Forcing some MBL.is love.
-  autocmd BufNewFile,BufRead *.py set tabstop=4        " TAB WIDTH IS 2 SPACES
-  autocmd BufNewFile,BufRead *.py set shiftwidth=4     " INDENT ALSO WITH 4 SPACES
-  autocmd BufNewFile,BufRead *.py set softtabstop=4    " SOFT TABS
-endif
+" if !isdirectory("~/mbl_env")
+"   " Forcing some MBL.is love.
+"   autocmd BufNewFile,BufRead *.py set tabstop=4        " TAB WIDTH IS 2 SPACES
+"   autocmd BufNewFile,BufRead *.py set shiftwidth=4     " INDENT ALSO WITH 4 SPACES
+"   autocmd BufNewFile,BufRead *.py set softtabstop=4    " SOFT TABS
+" endif
 
 
 "
