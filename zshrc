@@ -56,12 +56,12 @@ plugins=(
   history-substring-search
   karma
   npm
+  nvm
   pip
   postgres
   rvm
   urltools
   my-perl
-  mbl
 )
 
 # User configuration
