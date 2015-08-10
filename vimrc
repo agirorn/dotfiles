@@ -47,7 +47,10 @@ colorscheme vibrantink
 set mouse=a
 set tabpagemax=30
 " GETTING COPY PASTE TO WORK ON THE MAC ITERM2
-set clipboard=unnamed
+" set clipboard=unnamed
+
+" GETTING COPY PASTE TO WORK ON THE UBUNTU LINUX
+set clipboard=unnamedplus
 
 " GET SHIFT+ARROW KEYS TO SELECT TEXT
 set keymodel=startsel
