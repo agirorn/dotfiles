@@ -41,7 +41,7 @@ set switchbuf=usetab,newtab
 
 " 256 COLORS
 set t_Co=256
-colorscheme vibrantink
+colorscheme blackboard
 
 " ENABLE MOUSE / THIS DESABLES THE SELECTIONS OGF TEXT WITHE THE MOUSE
 set mouse=a
