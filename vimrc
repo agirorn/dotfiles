@@ -595,6 +595,10 @@ nmap <leader>s :BufExplorer<cr>
 "
 au BufRead,BufNewFile *.gyp set filetype=json
 
+"
+" .jshintrc syntax
+"
+au BufRead,BufNewFile .jshintrc set filetype=json
 
 "
 " Mason syntax.
@@ -604,13 +608,11 @@ autocmd BufRead */mason/*
     \     set filetype=mason |
     \ endif
 
-
 "
 " scss
 "
 au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
-
 
 "
 " Load a project .vimrc
