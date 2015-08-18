@@ -590,6 +590,11 @@ nmap <leader>s :BufExplorer<cr>
 "   autocmd BufNewFile,BufRead *.py set softtabstop=4    " SOFT TABS
 " endif
 
+"
+" GYP syntax ( Generate Your Projects )
+"
+au BufRead,BufNewFile *.gyp set filetype=json
+
 
 "
 " Mason syntax.
