@@ -598,7 +598,7 @@ au BufRead,BufNewFile *.gyp set filetype=json
 "
 " .jshintrc syntax
 "
-au BufRead,BufNewFile .jshintrc set filetype=json
+autocmd BufNewFile,BufRead .jshintrc set filetype=javascript
 
 "
 " Mason syntax.
