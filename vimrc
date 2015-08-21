@@ -615,6 +615,11 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
 
 "
+" gitmessage
+"
+au FileType gitcommit set tw=72
+
+"
 " Load a project .vimrc
 "
 if filereadable(".vimrc") && expand('~') != getcwd()
