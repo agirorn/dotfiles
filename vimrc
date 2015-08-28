@@ -46,11 +46,14 @@ colorscheme blackboard
 " ENABLE MOUSE / THIS DESABLES THE SELECTIONS OGF TEXT WITHE THE MOUSE
 set mouse=a
 set tabpagemax=30
-" GETTING COPY PASTE TO WORK ON THE MAC ITERM2
-" set clipboard=unnamed
 
-" GETTING COPY PASTE TO WORK ON THE UBUNTU LINUX
+" Copy to clipboard on Ubuntu Linux
 set clipboard=unnamedplus
+
+if has("mac")
+  " Copy to clipboard on Mac OS X
+  set clipboard=unnamed
+endif
 
 " GET SHIFT+ARROW KEYS TO SELECT TEXT
 set keymodel=startsel
@@ -598,7 +601,7 @@ au BufRead,BufNewFile *.gyp set filetype=json
 "
 " .jshintrc syntax
 "
-au BufRead,BufNewFile .jshintrc set filetype=json
+autocmd BufNewFile,BufRead .jshintrc set filetype=javascript
 
 "
 " Mason syntax.
