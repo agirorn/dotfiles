@@ -62,6 +62,7 @@ plugins=(
   rvm
   urltools
   my-perl
+  gitx
 )
 
 # User configuration
