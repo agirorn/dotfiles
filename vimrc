@@ -530,7 +530,7 @@ map <leader>l \\\
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-# YouCompleteMe plugin
+" YouCompleteMe plugin
 let g:ycm_semantic_triggers =  {
  \ 'css': [ 're!^\s+', 're!:\s+' ],
  \ 'javascript': [ 're!=\s+', ]
