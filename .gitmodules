@@ -67,3 +67,6 @@
 [submodule "vim/bundle/vim-nodejs-complete"]
 	path = vim/bundle/vim-nodejs-complete
 	url = git@github.com:myhere/vim-nodejs-complete.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git

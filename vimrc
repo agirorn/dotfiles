@@ -89,6 +89,7 @@ endfunction
 " COPY BACKUPFILES WHEN EDITING CRONTAB FILES
 au BufEnter crontab.* setl backupcopy=yes
 
+" filetype plugin on
 
 if has("autocmd")
 	" Enable filetype detection
@@ -523,20 +524,24 @@ map <leader>8 :InsertRubyUtf8<CR>
 " TOGGLE COMMENT FOR CURRENT LINE
 map <leader>l \\\
 
-" Make SuperTab work with OmniComplete
-let g:SuperTabDefaultCompletionType = "context"
-
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" Color of SuperTab Menu
-highlight   Pmenu         ctermfg=2 ctermbg=0
-highlight   PmenuSel      ctermfg=0 ctermbg=255
-" highlight   PmenuSbar     ctermfg=0 ctermbg=50
-" highlight   PmenuThumb    ctermfg=0 ctermbg=7
+# YouCompleteMe plugin
+let g:ycm_semantic_triggers =  {
+ \ 'css': [ 're!^\s+', 're!:\s+' ],
+ \ 'javascript': [ 're!=\s+', ]
+ \ }
+
+
+" " Color of SuperTab Menu
+" highlight   Pmenu         ctermfg=2 ctermbg=0
+" highlight   PmenuSel      ctermfg=0 ctermbg=255
+" " highlight   PmenuSbar     ctermfg=0 ctermbg=50
+" " highlight   PmenuThumb    ctermfg=0 ctermbg=7
 
 " Let the Buffer Explorer display relative paths.
 let g:bufExplorerShowRelativePath=1
