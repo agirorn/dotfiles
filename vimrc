@@ -524,7 +524,13 @@ map <leader>8 :InsertRubyUtf8<CR>
 map <leader>l \\\
 
 " Make SuperTab work with OmniComplete
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Color of SuperTab Menu
 highlight   Pmenu         ctermfg=2 ctermbg=0
