@@ -6,11 +6,8 @@ set nocompatible
 
 call pathogen#infect()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GET BACKSPACE TO WORK
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set backspace=indent,eol,start
 syntax on
+set backspace=indent,eol,start
 set number
 set laststatus=2
 set ruler
@@ -41,9 +38,37 @@ set switchbuf=usetab,newtab
 
 " 256 COLORS
 set t_Co=256
-colorscheme blackboard
+set background=dark
 
-" ENABLE MOUSE / THIS DESABLES THE SELECTIONS OGF TEXT WITHE THE MOUSE
+
+" ##
+" ## Interesting colorscheme
+" ##
+"
+" colorscheme anderson
+" colorscheme less
+" colorscheme pt_black
+" colorscheme sourcerer
+" colorscheme sunburst
+
+" ##
+" ## Favorite colorscheme
+" ##
+"
+" colorscheme torte
+" colorscheme pablo
+" colorscheme vibrantink
+" colorscheme blackboard
+" colorscheme materialtheme
+
+
+"
+" Current colorscheme
+"
+colorscheme materialtheme
+
+
+" ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
 set mouse=a
 set tabpagemax=30
 

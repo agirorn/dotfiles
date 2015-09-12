@@ -70,3 +70,24 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "vim/bundle/anderson"]
+	path = vim/bundle/anderson
+	url = git@github.com:gilgigilgil/anderson.vim.git
+[submodule "vim/bundle/color-less"]
+	path = vim/bundle/color-less
+	url = git@github.com:vim-scripts/less.vim.git
+[submodule "vim/bundle/color-pt_black"]
+	path = vim/bundle/color-pt_black
+	url = git@github.com:yantze/pt_black.git
+[submodule "vim/bundle/color-sourcerer"]
+	path = vim/bundle/color-sourcerer
+	url = git@github.com:xero/sourcerer.vim.git
+[submodule "vim/bundle/vim-colors-sunburst"]
+	path = vim/bundle/vim-colors-sunburst
+	url = git@github.com:zanloy/vim-colors-sunburst.git
+[submodule "vim/bundle/vim-materialtheme"]
+	path = vim/bundle/vim-materialtheme
+	url = git@github.com:Wutzara/vim-materialtheme.git
+[submodule "vim/bundle/vim-javascript-syntax"]
+	path = vim/bundle/vim-javascript-syntax
+	url = git@github.com:jelera/vim-javascript-syntax.git
