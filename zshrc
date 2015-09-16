@@ -102,3 +102,4 @@ export LC_CTYPE=is_IS.UTF-8
 export NODE_ENV=development
 
 alias gs=gss
+alias npm-exec='PATH=$(npm bin):$PATH'
