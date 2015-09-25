@@ -584,9 +584,14 @@ highlight def link rubyRspec Function
 "
 " Syntastic plugin.
 "
-let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['pep8']
+let g:syntastic_javascript_checkers = ['jshint']
 
+" When we swticeh to xo - eslint
+" let g:syntastic_javascript_eslint_generic = 1
+" let g:syntastic_javascript_eslint_exec = 'xo'
+" let g:syntastic_javascript_eslint_args = '--compact'
+" let g:syntastic_javascript_checkers = ['eslint']
 
 "
 " Ingone the proprietary attribute that asre used in AngularJs
