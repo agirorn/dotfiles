@@ -66,6 +66,10 @@ set background=dark
 " Current colorscheme
 "
 colorscheme materialtheme
+if has("mac")
+  colorscheme peachpuff
+endif
+
 
 
 " ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
