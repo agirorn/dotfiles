@@ -668,8 +668,15 @@ set iskeyword-=.
 au FileType gitcommit set tw=72
 
 "
+" Get EditorCnfig working.
+"
+" https://github.com/editorconfig/editorconfig/issues/132#issuecomment-42256808
+let g:EditorConfig_core_mode = 'external_command'
+
+"
 " Load a project .vimrc
 "
 if filereadable(".vimrc") && expand('~') != getcwd()
     source .vimrc
 endif
+
