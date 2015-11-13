@@ -93,8 +93,6 @@ alias git='LC_ALL="en_US.UTF-8" git'
 : ${HOSTFILE=~/.ssh/known_hosts}
 shopt -s hostcomplete >/dev/null 2>&1
 
-# Color grep output
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=*.swp' GREP_COLOR='1;32'
 alias http_start='python -m SimpleHTTPServer'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
