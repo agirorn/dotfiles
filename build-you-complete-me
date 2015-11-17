@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+pushd vim/bundle/YouCompleteMe && ./install.py --clang-completer && popd
