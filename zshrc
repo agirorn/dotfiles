@@ -98,8 +98,5 @@ export LC_CTYPE=is_IS.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# for now lets force development for NODE_ENV
-export NODE_ENV=development
-
 alias gs=gss
 alias npm-exec='PATH=$(npm bin):$PATH'
