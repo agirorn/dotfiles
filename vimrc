@@ -35,6 +35,7 @@ set formatoptions=qn1
 set listchars=tab:▸\ ,eol:¬
 set showtabline=2
 set switchbuf=usetab,newtab
+set diffopt=vertical,context:8
 
 " 256 COLORS
 set t_Co=256
