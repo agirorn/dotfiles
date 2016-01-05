@@ -590,7 +590,8 @@ highlight def link rubyRspec Function
 " Syntastic plugin.
 "
 let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " When we swticeh to xo - eslint
 " let g:syntastic_javascript_eslint_generic = 1

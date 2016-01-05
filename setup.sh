@@ -19,6 +19,7 @@ dot_files=(
   ackrc
   bash
   config
+  eslintrc
   gemrc
   irbrc
   jshintrc
