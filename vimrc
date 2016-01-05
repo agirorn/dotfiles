@@ -681,3 +681,8 @@ if filereadable(".vimrc") && expand('~') != getcwd()
     source .vimrc
 endif
 
+
+"
+" Map Git diff
+"
+map <leader>G :Gdiff<CR>
