@@ -685,4 +685,4 @@ endif
 "
 " Map Git diff
 "
-map <leader>G :Gdiff<CR>
+map <leader>g :Gdiff<CR>
