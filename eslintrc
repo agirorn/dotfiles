@@ -1,0 +1,11 @@
+{
+    "extends": "defaults",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "semi": 2,
+      "no-multiple-empty-lines": [2, {"max": 1}]
+    }
+}
