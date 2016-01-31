@@ -552,7 +552,7 @@ command! InsertRubyUtf8 :normal ggi<CR><ESC>ggi<c-r>'# encoding: UTF-8<ESC>
 map <leader>8 :InsertRubyUtf8<CR>
 
 " TOGGLE COMMENT FOR CURRENT LINE
-map <leader>l \\\
+map <leader>l gc
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
