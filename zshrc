@@ -101,5 +101,5 @@ export LC_CTYPE=is_IS.UTF-8
 alias gs=gss
 alias npm-exec='PATH=$(npm bin):$PATH'
 
-export NVM_DIR=${HOME}"~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR=${HOME}"~/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
