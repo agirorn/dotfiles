@@ -68,3 +68,11 @@ for file in $dot_files; do
   fi
 
 done
+
+
+for program in $(ls ~/dotfiles/bin)
+do
+  if [[ ! -f ~/bin/$program ]]; then
+    ln -s ~/dotfiles/bin/$program ~/bin
+  fi
+done

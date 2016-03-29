@@ -585,13 +585,17 @@ let g:bufExplorerSortBy='mru'        " Sort by most recently used.
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
 highlight def link rubyRspec Function
 
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
 
 "
 " Syntastic plugin.
 "
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" let g:syntastic_javascript_eslint_exec = 'eslint'
+let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
 " When we swticeh to xo - eslint
 " let g:syntastic_javascript_eslint_generic = 1
