@@ -13,3 +13,8 @@ alias atome="tmpin atom"
 function loop() {
   while :; do clear && eval "$@"; sleep 1; done
 }
+
+# kill all running vim editors
+function kill-all-vims() {
+  ps aux | grep vim | grep -v grep | awk '{print $2}' | xargs -L1 kill -s kill
+}
