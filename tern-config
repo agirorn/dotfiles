@@ -1,0 +1,19 @@
+{
+  "libs": [
+    "browser",
+    "underscore",
+    "jquery"
+  ],
+  "loadEagerly": [
+  ],
+  "plugins": {
+    "node": {},
+    "jasmine": {},
+    "jasminematchers": {},
+    "node-express": {},
+    "requirejs": {
+      "baseURL": "./",
+      "paths": {}
+    }
+  }
+}

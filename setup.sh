@@ -30,6 +30,7 @@ dot_files=(
   pythonrc
   psqlrc
   tmux.conf
+  tern-config
   vim
   vimrc
   zshrc
