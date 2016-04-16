@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+
+npms=(
+  tern-highlight
+  tern-jasmine
+  tern-jasminematchers
+  tern-node-express
+)
+
+pushd vim/bundle/tern_for_vim && \
+nvm use system && \
+npm install && \
+for npm ($npms); do npm install $npm; done; \
+popd
+
+# tern
+# tern-highlight
+# tern-jasmine
+# tern-jasminematchers
+# tern-node-express
+# for x in 1 2 3; do echo $x; done
+
