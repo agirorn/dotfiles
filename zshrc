@@ -57,6 +57,7 @@ plugins=(
   karma
   npm
   nvm
+  nvmrc
   pip
   postgres
   rvm
