@@ -66,7 +66,7 @@ set background=dark
 "
 " Current colorscheme
 "
-colorscheme materialtheme
+colorscheme material-theme
 if has("mac")
   colorscheme peachpuff
 endif
