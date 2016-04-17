@@ -671,6 +671,11 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
 
 "
+" ejs templates
+"
+au BufNewFile,BufRead *.ejs set filetype=html
+
+"
 " gitmessage
 "
 au FileType gitcommit set tw=72

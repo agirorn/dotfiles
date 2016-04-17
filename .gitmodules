@@ -97,9 +97,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
-[submodule "vim/bundle/ejs-syntax"]
-	path = vim/bundle/ejs-syntax
-	url = https://github.com/nikvdp/ejs-syntax.git
 [submodule "vim/bundle/tern_for_vim"]
 	path = vim/bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
