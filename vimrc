@@ -596,6 +596,10 @@ endfunction
 "
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_javascript_checkers = ['eslint']
+
+" lint scss files with https://github.com/brigade/scss-lint
+let g:syntastic_scss_checkers = ['scss_lint']
+
 " let g:syntastic_javascript_eslint_exec = 'eslint'
 let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
