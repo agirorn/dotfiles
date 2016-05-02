@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #
-# Update the dotfiles and all submodules in one command.
+# Upgrade dotfiles and dependencies.
 #
 ./update &&
 ./setup-tern-for-vim &&
