@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+#
+# Update the dotfiles and all submodules in one command.
+#
+./update &&
+./setup-tern-for-vim &&
+./build-you-complete-me
