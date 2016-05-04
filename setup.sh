@@ -34,6 +34,7 @@ dot_files=(
   vim
   vimrc
   zshrc
+  ycm_extra_conf.py
 )
 
 

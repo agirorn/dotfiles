@@ -568,6 +568,7 @@ let g:ycm_semantic_triggers =  {
  \ 'javascript': [ 're!=\s+', ]
  \ }
 
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " " Color of SuperTab Menu
 " highlight   Pmenu         ctermfg=2 ctermbg=0
