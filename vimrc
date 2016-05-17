@@ -629,6 +629,14 @@ let g:syntastic_echo_current_error=1
 nmap <F8> :TagbarToggle<CR>
 
 "
+" Spell config.
+"
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red 
+nmap N ]s
+set spell
+
+"
 " Set Mako Templates
 "
 autocmd BufNewFile,BufRead *.mc    set ft=mako
