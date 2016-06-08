@@ -689,6 +689,11 @@ set iskeyword-=.
 au BufNewFile,BufRead *.ejs set filetype=html
 
 "
+" vuejs templates
+"
+au BufNewFile,BufRead *.vue set filetype=html
+
+"
 " gitmessage
 "
 au FileType gitcommit set tw=72

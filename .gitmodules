@@ -61,9 +61,6 @@
 [submodule "vim/bundle/vim-perl"]
 	path = vim/bundle/vim-perl
 	url = git@github.com:vim-perl/vim-perl.git
-[submodule "vim/bundle/vim-coloresque"]
-	path = vim/bundle/vim-coloresque
-	url = git@github.com:agirorn/vim-coloresque.git
 [submodule "vim/bundle/vim-nodejs-complete"]
 	path = vim/bundle/vim-nodejs-complete
 	url = git@github.com:myhere/vim-nodejs-complete.git
@@ -100,3 +97,6 @@
 [submodule "vim/bundle/tern_for_vim"]
 	path = vim/bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "vim/bundle/vim-coloresque"]
+	path = vim/bundle/vim-coloresque
+	url = git@github.com:agirorn/vim-coloresque.git

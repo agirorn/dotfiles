@@ -51,10 +51,12 @@ plugins=(
   bundler
   fabric
   git
+  gitx
   grunt
   highlight
   history-substring-search
   karma
+  my-perl
   npm
   nvm
   nvmrc
@@ -62,8 +64,7 @@ plugins=(
   postgres
   rvm
   urltools
-  my-perl
-  gitx
+  vagrant
 )
 
 # User configuration
