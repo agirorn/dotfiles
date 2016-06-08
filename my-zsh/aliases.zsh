@@ -6,6 +6,7 @@ alias c='clear'
 alias kill-swap='find . -iname ".*.swp" -exec rm {} \;'
 alias remove-vim-swap='find . -iname '.*.swp' -exec rm {} \;'
 alias atome="tmpin atom"
+unalias gm
 
 # run command for ever with 1 sec delay.
 #
