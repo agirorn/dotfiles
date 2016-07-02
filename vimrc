@@ -54,6 +54,9 @@ Plugin 'xero/sourcerer.vim'
 Plugin 'yantze/pt_black'
 Plugin 'zanloy/vim-colors-sunburst'
 
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 syntax on
 set backspace=indent,eol,start
 set number
@@ -119,8 +122,6 @@ colorscheme materialtheme
 if has("mac")
   colorscheme peachpuff
 endif
-
-
 
 " ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
 set mouse=a
@@ -207,7 +208,7 @@ function! ToggleNerdTree()
         endif
     endif
 endfunction
-map <silent> <F2> :call ToggleNerdTree()<CR>
+nmap <silent> <F2> :call ToggleNerdTree()<CR>
 
 " Now you can just click on any thing and it just reacts (open og close
 " folders, and open files)
