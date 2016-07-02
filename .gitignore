@@ -3,3 +3,4 @@
 *.swp
 config/htop/
 tmux/plugins/
+vim/bundle

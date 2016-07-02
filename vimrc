@@ -1,10 +1,58 @@
-" COLOR PICKER FOR THE MAC.
-" http://www.robinwood.com/Catalog/Technical/OtherTuts/MacColorPicker/MacColorPicker.html
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""  Vundle, the plug-in manager for Vim
+"""
+"""  https://github.com/VundleVim/Vundle.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" DISABLE VI COMPATIBILITY (EMULATION OF OLD BUGS)
-set nocompatible
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-call pathogen#infect()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Wutzara/vim-materialtheme'
+Plugin 'agirorn/vim-coloresque'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ervandew/supertab'
+Plugin 'gilgigilgil/anderson.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'jpalardy/vim-slime'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'myhere/vim-nodejs-complete'
+Plugin 'nono/vim-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'sophacles/vim-bundle-mako'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-perl/vim-perl'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'vim-scripts/less.vim'
+Plugin 'xero/sourcerer.vim'
+Plugin 'yantze/pt_black'
+Plugin 'zanloy/vim-colors-sunburst'
 
 syntax on
 set backspace=indent,eol,start
