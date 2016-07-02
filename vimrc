@@ -614,6 +614,12 @@ let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 " let g:syntastic_javascript_checkers = ['eslint']
 
 "
+" javascript libraries syntax
+" https://github.com/othree/javascript-libraries-syntax.vim
+"
+autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
+
+"
 " Ingone the proprietary attribute that asre used in AngularJs
 "
 let g:syntastic_html_tidy_ignore_errors=[
