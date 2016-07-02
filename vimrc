@@ -593,9 +593,11 @@ function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
 
-"
-" Syntastic plugin.
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Syntastic plugin.
+"""
+""" https://github.com/scrooloose/syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_wq = 0
@@ -608,11 +610,12 @@ let g:syntastic_scss_checkers = ['scss_lint']
 " let g:syntastic_javascript_eslint_exec = 'eslint'
 let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
-" When we swticeh to xo - eslint
-" let g:syntastic_javascript_eslint_generic = 1
-" let g:syntastic_javascript_eslint_exec = 'xo'
-" let g:syntastic_javascript_eslint_args = '--compact'
-" let g:syntastic_javascript_checkers = ['eslint']
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-javascript
+"""
+""" https://github.com/pangloss/vim-javascript
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:javascript_plugin_jsdoc = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ javascript libraries syntax
@@ -744,3 +747,4 @@ endif
 " Map Git diff
 "
 map <leader>g :Gdiff<CR>
+
