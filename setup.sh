@@ -26,15 +26,16 @@ dot_files=(
   noserc
   oh-my-zsh
   profile
+  psqlrc
   pylintrc
   pythonrc
-  psqlrc
-  tmux.conf
   tern-config
+  tmux
+  tmux.conf
   vim
   vimrc
-  zshrc
   ycm_extra_conf.py
+  zshrc
 )
 
 
