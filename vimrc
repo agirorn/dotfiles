@@ -1,8 +1,8 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """  Vundle, the plug-in manager for Vim
 """
 """  https://github.com/VundleVim/Vundle.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -93,37 +93,35 @@ set updatetime=250
 set t_Co=256
 set background=dark
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Interesting colorscheme
+"""
+""" colorscheme anderson
+""" colorscheme less
+""" colorscheme pt_black
+""" colorscheme sourcerer
+""" colorscheme sunburst
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Favorite colorscheme
+"""
+""" colorscheme torte
+""" colorscheme pablo
+""" colorscheme vibrantink
+""" colorscheme blackboard
+""" colorscheme materialtheme
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ##
-" ## Interesting colorscheme
-" ##
-"
-" colorscheme anderson
-" colorscheme less
-" colorscheme pt_black
-" colorscheme sourcerer
-" colorscheme sunburst
-
-" ##
-" ## Favorite colorscheme
-" ##
-"
-" colorscheme torte
-" colorscheme pablo
-" colorscheme vibrantink
-" colorscheme blackboard
-" colorscheme materialtheme
-
-
-"
-" Current colorscheme
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Current colorscheme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme materialtheme
 if has("mac")
   colorscheme peachpuff
 endif
 
-" ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
+""" ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
 set mouse=a
 set tabpagemax=30
 
@@ -140,7 +138,7 @@ set keymodel=startsel
 set selectmode=mouse,key
 
 " THE TIME IT TAKSE VIM TO RESOLVE KEY MAPS IN MS
-"set timeoutlen=300
+" set timeoutlen=300
 
 
 " THIS SEAMS TO ALLOW MY TO RESIZE THE WINDOWS SPLITS WITH THE MOUSE
@@ -157,9 +155,9 @@ function! HighlightLongLines()
   call matchadd('ColorColumn', '\%82v', 100)
 endfunction
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CREATE THE BACKUP DIRECTORY IF IT DOESN'T EXISTS.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" CREATE THE BACKUP DIRECTORY IF IT DOESN'T EXISTS.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " if !isdirectory('/tmp/vim_backup')
 "   silent !mkdir -p ~/tmp/vim_backup
 " endif
@@ -184,9 +182,9 @@ endif
 if &t_Co > 2 || has("gui_running")
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggles NERDTree
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" NERDTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ToggleNerdTree()
     "" Check if NERDTree is open
     if exists("t:NERDTreeBufName")
@@ -210,118 +208,100 @@ function! ToggleNerdTree()
 endfunction
 nmap <silent> <F2> :call ToggleNerdTree()<CR>
 
-" Now you can just click on any thing and it just reacts (open og close
-" folders, and open files)
+""" Now you can just click on any thing and it just reacts (open og close
+""" folders, and open files)
 let NERDTreeMouseMode=1
 
-" sort files and folders by name
+""" sort files and folders by name
 let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
 
-" Hide bundler_stubs
+""" Hide bundler_stubs
 let NERDTreeIgnore=['^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LEADER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Leader
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SEARCH AS YOU TYPE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Search as you type
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
 set hlsearch
 
-" HIDE SEACH SELECTION
+""" Hide search selection
 nnoremap <leader><space> :noh<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DISABLE ARROW KEYS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Disable arrow keys
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map <Left> <Nop>
+" map <Right> <Nop>
+" map <Up> <Nop>
+" map <Down> <Nop>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SWITCH BETWEEN WINDOW SPLITS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
-
-" nmap <silent> <A-Up> :wincmd k<CR>
-" nmap <silent> <A-Down> :wincmd j<CR>
-" nmap <silent> <A-Left> :wincmd h<CR>
-" nmap <silent> <A-Right> :wincmd l<CR>
-
-nmap gh <c-w>h
-nmap gj <c-w>j
-nmap gk <c-w>k
-nmap gl <c-w>l
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Yank / Copy TO THE END OF THE LINE.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Yank / Copy TO THE END OF THE LINE.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map Y y$
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rc <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>rr :source $MYVIMRC<cr>
 
+" Get out of insert mode by pressing jj fast
+" This might be a really bad idea.
 inoremap jj <ESC>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PRESS ,i TO GO TO A VERTICAL SPLIT AND START WORKING THER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vertical split ,|
 nnoremap <leader><bar> <C-w>v<C-w>l
+""" Horizontal split ,_
 nnoremap <leader>_ <C-w>s<C-w>j
 
-" map C-( hjkl ) to move bettwen splits
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-
+" Next buffer ,n
 nnoremap <leader>n :bn<CR>
+
+" Previous buffer ,n
 nnoremap <leader>p :bp<CR>
+
+" Close buffer ,n
 nnoremap <leader>d :Bclose<CR>
 
 " RESIZING WINDOWS
-map - <C-W>-
-map + <C-W>+
+nmap - <C-W>-
+nmap + <C-W>+
+nmap _ :vertical res -2<CR>
+nmap * :vertical res +2<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" IF YOU WANT TO MAXIMIZE THE WINDOW AFTER CHANGE.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" IF YOU WANT TO MAXIMIZE THE WINDOW AFTER CHANGE.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map <C-H> <C-W>h<C-W>_
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_
 "map <C-L> <C-W>l<C-W>_
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ENABLE WINDOW COMMANDS IN INSERT MODE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" ENABLE WINDOW COMMANDS IN INSERT MODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap <C-w> <C-o><C-w>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SET THE SYNTAX HIGHLIGHTING FOR THe Gemfile
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" SET THE SYNTAX HIGHLIGHTING FOR THe Gemfile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TRY TO MAKE IT FASTER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" TRY TO MAKE IT FASTER
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syn sync fromstart
 
 let g:slime_target = "tmux"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ruby
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" ruby
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
@@ -329,18 +309,20 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OPEN FILES IN DIRECTORY OF CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" OPEN FILES IN DIRECTORY OF CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
 let g:ctrlp_working_path_mode = 'w'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP USES THIS TO EXCLUDE FILES
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" CtrlP 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Exclude files
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyc
 set wildignore+=vendor/**
 set wildignore+=tmp/**
@@ -360,101 +342,97 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|node_modules$\|dist$'
   \ }
 
-"# " Command-T maped key's
-"# map <leader>ta :CommandT app/assets/<CR>
-"# map <leader>tc :CommandT app/controllers/<CR>
-"# map <leader>th :CommandT app/helpers/<CR>
-"# map <leader>tm :CommandT app/models/<CR>
-"# map <leader>tv :CommandT app/views/<CR>
-"# map <leader>tl :CommandT app/lib/<CR>
-"# map <leader>tt :CommandT test/<CR>
-"# map <leader>tu :CommandT test/units/<CR>
-"# map <leader>ti :CommandT test/integration/<CR>
-"# map <leader>tf :CommandT test/functional/<CR>
-
 " Flush Command-T cache
 " :map <[SOME CHAR]> :CommandTFlush
 
-" Swithc betwen files
+" Switch previous file
 map <leader><leader> <C-^>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""  Read output from shell command into a new buffer
+"""  R <shell commands>| vim -
+"""
+""" http://vim.wikia.com/wiki/Append_output_of_an_external_command
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:command! -nargs=* -complete=shellcmd R new | setlocal
+  \ buftype=nofile bufhidden=hide noswapfile | r !<args>
 
-
-:command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ADD ROUTS TO A NEW BUFER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Add rails routs to a new buffer
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map rou :R rake routes
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CLOSE BUFFER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Close buffer
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>q :q<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" KEAP SELECTION WHEN INDENTING
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Keep selection when indenting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vnoremap > >gv
 vnoremap < <gv
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" INDENT WITH THE TAB KEY
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Indent with the tab key
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Copy AND Cut IN SELECTION MODE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Copy and cut in selection mode
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap y y
 vmap x x
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Spell checker.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>s :set spell<CR>
 " NEXT SPELL WORD
 nmap <leader>sn ]s
 " LIST OF SUGGESTED SPELLING
 nmap <leader>sl z=
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LOOKUP THE CURRENT WORD ON dictionary.com
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Lookup the current word on dictionary.com
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! LookupCurrentWordOnDictionaryCom()
   :silent ! open http://dictionary.reference.com/browse/<cword>
   redraw!
 endfunction
 map <leader>D :call LookupCurrentWordOnDictionaryCom()<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LOOKUP THE CURRENT WORD ON IKEA.is
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Lookup the current word on ikea.is
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! LookupCurrentWordOnIkeaIs()
   :silent ! open http://www.ikea.is/search\?\&search=<cword>
   redraw!
 endfunction
 map <leader>I :call LookupCurrentWordOnIkeaIs()<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LOOKUP THE CURRENT WORD ON IKEA.IS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Lookup the current word on ikea.is
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! OpenVimCheatSheet()
   :silent ! open http://www.worldtimzone.com/res/vi.html
   redraw!
 endfunction
 map <leader>c :call OpenVimCheatSheet()<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" IF THE <ESC> KEY IS JUST TO FAR AWAY.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" If the <ESC> key is just to far away.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap jj <Esc>
 map <leader>ii gg=G
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Rename current file
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'), 'file')
@@ -466,9 +444,9 @@ function! RenameFile()
 endfunction
 map <leader>mv :call RenameFile()<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SWITCH BETWEEN TEST AND PRODUCTION CODE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Switch between test and production code
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e! ' . new_file
@@ -532,9 +510,9 @@ function! AlternateForCurrentFile()
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Running TESTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>t :call RunTestFile()<cr>
 map <leader>F :call RunDocumentFormatedTest()<cr>
 map <leader>T :call RunNearestTest()<cr>
@@ -597,13 +575,13 @@ function! RunTests(filename)
   end
 endfunction
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ADD # encoding: UTF-8 TO TOP OF FILE.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Add # encoding: UTF-8 to top of file.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! InsertRubyUtf8 :normal ggi<CR><ESC>ggi<c-r>'# encoding: UTF-8<ESC>
 map <leader>8 :InsertRubyUtf8<CR>
 
-" TOGGLE COMMENT FOR CURRENT LINE
+" Toggle comment for current line
 map <leader>l gc
 
 " If you prefer the Omni-Completion tip window to close when a selection is
@@ -634,7 +612,6 @@ let g:bufExplorerSortBy='mru'        " Sort by most recently used.
 " Sort Buffer Explorer by name.
 " let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
 
-
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
 highlight def link rubyRspec Function
 
@@ -642,11 +619,11 @@ function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Syntastic plugin.
 """
 """ https://github.com/scrooloose/syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_wq = 0
@@ -659,33 +636,35 @@ let g:syntastic_scss_checkers = ['scss_lint']
 " let g:syntastic_javascript_eslint_exec = 'eslint'
 let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-javascript
 """
 """ https://github.com/pangloss/vim-javascript
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:javascript_plugin_jsdoc = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-gitgutter
 """
 """ https://github.com/airblade/vim-gitgutter
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_sign_column_always = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Debug syntax highlighting.
 """
 """ Identify the syntax highlighting group used at the cursor
 """ http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-"
-" Ingone the proprietary attribute that asre used in AngularJs
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" Ignore the proprietary attribute that asre used in AngularJs
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_html_tidy_ignore_errors=[
   \ "trimming empty <span>",
   \ "proprietary attribute"
@@ -701,26 +680,30 @@ let g:syntastic_echo_current_error=1
 
 nmap <F8> :TagbarToggle<CR>
 
-"
-" Spell config.
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" Spell config.
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=red 
 nmap N ]s
 set spell
 
-"
-" Set Mako Templates
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" Set Mako Templates
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.mc    set ft=mako
 autocmd BufNewFile,BufRead *.mhtml set ft=mako
 
-
-"
-" Perl files.
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" Perl files.
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.psgi set ft=perl
-
 
 nmap <leader>s :BufExplorer<cr>
 
@@ -732,61 +715,77 @@ nmap <leader>s :BufExplorer<cr>
 "   autocmd BufNewFile,BufRead *.py set softtabstop=4    " SOFT TABS
 " endif
 
-"
-" GYP syntax ( Generate Your Projects )
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" GYP syntax ( Generate Your Projects )
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead,BufNewFile *.gyp set filetype=json
 
-"
-" .jshintrc syntax
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" .jshintrc syntax
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead .jshintrc set filetype=javascript
 
-"
-" Mason syntax.
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" Mason syntax.
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufRead */mason/*
     \ if getline(1) =~ '^\(%\|<[%&].*>\)' |
     \     set filetype=mason |
     \ endif
 
-"
-" scss
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" scss
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead,BufNewFile *.scss set filetype=scss.css
 set iskeyword-=.
 
-"
-" ejs templates
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" ejs templates
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.ejs set filetype=html
 
-"
-" vuejs templates
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" vuejs templates
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.vue set filetype=html
 
-"
-" gitmessage
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" gitmessage
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au FileType gitcommit set tw=72
 
-"
-" Get EditorCnfig working.
-"
-" https://github.com/editorconfig/editorconfig/issues/132#issuecomment-42256808
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" Get EditorCnfig working.
+"""
+""" https://github.com/editorconfig/editorconfig/issues/132#issuecomment-42256808
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EditorConfig_core_mode = 'external_command'
 
-"
-" Load a project .vimrc
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Load a project .vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if filereadable(".vimrc") && expand('~') != getcwd()
     source .vimrc
 endif
 
 
-"
-" Map Git diff
-"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Map Git diff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>g :Gdiff<CR>
 
