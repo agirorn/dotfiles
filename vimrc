@@ -36,6 +36,7 @@ set listchars=tab:▸\ ,eol:¬
 set showtabline=2
 set switchbuf=usetab,newtab
 set diffopt=vertical,context:8
+set updatetime=250
 
 " 256 COLORS
 set t_Co=256
@@ -613,11 +614,19 @@ let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 " let g:syntastic_javascript_eslint_args = '--compact'
 " let g:syntastic_javascript_checkers = ['eslint']
 
-"
-" javascript libraries syntax
-" https://github.com/othree/javascript-libraries-syntax.vim
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" javascript libraries syntax
+"""
+""" https://github.com/othree/javascript-libraries-syntax.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" vim-gitgutter
+"""
+""" https://github.com/airblade/vim-gitgutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_sign_column_always = 1
 
 "
 " Ingone the proprietary attribute that asre used in AngularJs
