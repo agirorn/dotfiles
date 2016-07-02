@@ -628,6 +628,16 @@ autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_sign_column_always = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Debug syntax highlighting.
+"""
+""" Identify the syntax highlighting group used at the cursor
+""" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 "
 " Ingone the proprietary attribute that asre used in AngularJs
 "
