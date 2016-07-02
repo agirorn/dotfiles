@@ -618,13 +618,6 @@ let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 let g:javascript_plugin_jsdoc = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" javascript libraries syntax
-"""
-""" https://github.com/othree/javascript-libraries-syntax.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ vim-gitgutter
 """
 """ https://github.com/airblade/vim-gitgutter
