@@ -52,7 +52,8 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'vim-scripts/less.vim'
 Plugin 'xero/sourcerer.vim'
 Plugin 'yantze/pt_black'
-Plugin 'zanloy/vim-colors-sunburst'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/CycleColor'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -116,10 +117,11 @@ set background=dark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Current colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme materialtheme
-if has("mac")
-  colorscheme peachpuff
-endif
+" colorscheme materialtheme
+colorscheme woju
+" if has("mac")
+"   colorscheme woju
+" endif
 
 """ ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
 set mouse=a
