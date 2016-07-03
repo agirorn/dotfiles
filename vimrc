@@ -54,7 +54,9 @@ Plugin 'xero/sourcerer.vim'
 Plugin 'yantze/pt_black'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/CycleColor'
-Plugin 'glanotte/vim-jasmine'
+" disabled until fixed.
+" Plugin 'glanotte/vim-jasmine'
+Plugin 'agirorn/vim-jasmine'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
