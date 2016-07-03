@@ -57,6 +57,7 @@ Plugin 'vim-scripts/CycleColor'
 " disabled until fixed.
 " Plugin 'glanotte/vim-jasmine'
 Plugin 'agirorn/vim-jasmine'
+Plugin 'moll/vim-node'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
