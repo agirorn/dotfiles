@@ -8,6 +8,9 @@ alias remove-vim-swap='find . -iname '.*.swp' -exec rm {} \;'
 alias atome="tmpin atom"
 unalias gm
 
+# close like vim
+alias :q=exit
+
 # run command for ever with 1 sec delay.
 #
 # loop 'echo "nothing"; ls -l'
