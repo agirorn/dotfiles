@@ -54,6 +54,7 @@ Plugin 'xero/sourcerer.vim'
 Plugin 'yantze/pt_black'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/CycleColor'
+Plugin 'glanotte/vim-jasmine'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -97,20 +98,22 @@ set background=dark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Interesting colorscheme
 """
-""" colorscheme anderson
-""" colorscheme less
-""" colorscheme pt_black
-""" colorscheme sourcerer
-""" colorscheme sunburst
+""" anderson
+""" less
+""" pt_black
+""" sourcerer
+""" sunburst
 """
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Favorite colorscheme
 """
-""" colorscheme torte
-""" colorscheme pablo
-""" colorscheme vibrantink
-""" colorscheme blackboard
-""" colorscheme materialtheme
+""" torte
+""" pablo
+""" vibrantink
+""" blackboard
+""" materialtheme
+""" twilight256
+""" woju
 """
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
