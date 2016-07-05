@@ -92,7 +92,7 @@ set listchars=tab:▸\ ,eol:¬
 set showtabline=2
 set switchbuf=usetab,newtab
 set diffopt=vertical,context:8
-set updatetime=250
+set updatetime=1000
 
 " 256 COLORS
 set t_Co=256
