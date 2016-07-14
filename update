@@ -2,11 +2,24 @@
 #
 # Update the dotfiles and all submodules in one command.
 #
+
+# exit on any error.
+set -e
+
+# updated dortfiles.
 git pull origin master
+
+# Update git submodules
 git submodule init
 git submodule update
 git submodule foreach git checkout master
 git submodule foreach git pull origin
-git status
+
+# Manage tmux plugins.
+~/.tmux/plugins/tpm/bindings/install_plugins
+~/.tmux/plugins/tpm/bindings/update_plugins
+~/.tmux/plugins/tpm/bindings/clean_plugins
+
+# Manage vim plugins
 vim +PluginInstall +qall
 vim +PluginUpdate +qall
