@@ -721,6 +721,7 @@ hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=red 
 nmap N ]s
 set spell
+map <f12> :set spell!<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """
