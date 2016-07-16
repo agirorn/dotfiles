@@ -16,7 +16,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'Wutzara/vim-materialtheme'
 Plugin 'agirorn/vim-coloresque'
 Plugin 'airblade/vim-gitgutter'
@@ -52,12 +53,22 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'vim-scripts/less.vim'
 Plugin 'xero/sourcerer.vim'
 Plugin 'yantze/pt_black'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/CycleColor'
 " disabled until fixed.
 " Plugin 'glanotte/vim-jasmine'
 Plugin 'agirorn/vim-jasmine'
 Plugin 'moll/vim-node'
+Plugin 'Raimondi/delimitMate'
+Plugin 'elzr/vim-json'
+Plugin 'pbrisbin/vim-mkdir'
+Plugin 'wellle/tmux-complete.vim'
+
+" Color schemes.
+Plugin 'flazz/vim-colorschemes'
+
+
+" Test this out on next C++ session
+Plugin 'mbbill/echofunc'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -686,7 +697,20 @@ let g:syntastic_mode_map={
 
 let g:syntastic_echo_current_error=1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Tagbar
+"""
+""" https://github.com/majutsushi/tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarOpenAutoClose<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" tmux-complete
+"""
+""" https://github.com/wellle/tmux-complete.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tmuxcomplete#trigger = 'omnifunc'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """
