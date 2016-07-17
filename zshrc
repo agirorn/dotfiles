@@ -51,6 +51,7 @@ plugins=(
   bundler
   fabric
   git
+  git-kraken
   gitx
   grunt
   highlight
