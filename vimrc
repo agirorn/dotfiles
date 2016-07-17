@@ -84,19 +84,13 @@ Plugin 'xero/sourcerer.vim'
 Plugin 'mbbill/echofunc'
 
 call vundle#end()            " required
-filetype plugin indent on    " required
 
-syntax on
-set backspace=indent,eol,start
 set number
-set laststatus=2
-set ruler
 set ttyfast
 set enc=utf-8
 set fenc=utf-8
-set encoding=utf-8
-set termencoding=utf-8
-set autoindent
+" set encoding=utf-8
+" set termencoding=utf-8
 set showmode
 set showcmd
 set smartindent
@@ -107,19 +101,17 @@ set expandtab        " EXPAND TABS TO SPACES
 set modelines=0
 set visualbell
 set wildmode=list:longest
-set wildmenu
+" leave 5 line top and bottom while scolling
 set scrolloff=5
 set nowrap
 set textwidth=80
 set formatoptions=qn1
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬
 set showtabline=2
 set switchbuf=usetab,newtab
 set diffopt=vertical,context:8
 set updatetime=1000
 
-" 256 COLORS
-set t_Co=256
 set background=dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,7 +147,6 @@ colorscheme woju
 
 """ ENABLE MOUSE / THIS DESABLES THE SELECTIONS OF TEXT WITH THE MOUSE
 set mouse=a
-set tabpagemax=30
 
 " Copy to clipboard on Ubuntu Linux
 set clipboard=unnamedplus
@@ -168,10 +159,6 @@ endif
 " GET SHIFT+ARROW KEYS TO SELECT TEXT
 set keymodel=startsel
 set selectmode=mouse,key
-
-" THE TIME IT TAKSE VIM TO RESOLVE KEY MAPS IN MS
-" set timeoutlen=300
-
 
 " THIS SEAMS TO ALLOW MY TO RESIZE THE WINDOWS SPLITS WITH THE MOUSE
 set ttymouse=xterm2
@@ -199,19 +186,12 @@ endfunction
 " COPY BACKUPFILES WHEN EDITING CRONTAB FILES
 au BufEnter crontab.* setl backupcopy=yes
 
-" filetype plugin on
-
 if has("autocmd")
-	" Enable filetype detection
-	filetype plugin indent on
-
 	" Restore cursor position
 	autocmd BufReadPost *
 		\ if line("'\"") > 1 && line("'\"") <= line("$") |
 		\   exe "normal! g`\"" |
 		\ endif
-endif
-if &t_Co > 2 || has("gui_running")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -261,11 +241,10 @@ let mapleader = ","
 set ignorecase
 set smartcase
 set gdefault
-set incsearch
 set hlsearch
 
 """ Hide search selection
-nnoremap <leader><space> :noh<cr>
+nnoremap <LEADER><SPACE> :nohlsearch<C-R>=has('diff')?'<BAR>diffupdate':''<CR><CR><C-L>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Disable arrow keys
