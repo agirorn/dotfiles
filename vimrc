@@ -16,55 +16,69 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Wutzara/vim-materialtheme'
-Plugin 'agirorn/vim-coloresque'
-Plugin 'airblade/vim-gitgutter'
+
+" Defaults
+Plugin 'tpope/vim-sensible'
+
+" Tools
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ervandew/supertab'
-Plugin 'gilgigilgil/anderson.vim'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'jpalardy/vim-slime'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'myhere/vim-nodejs-complete'
-Plugin 'nono/vim-handlebars'
-Plugin 'pangloss/vim-javascript'
+Plugin 'pbrisbin/vim-mkdir'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'sophacles/vim-bundle-mako'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-perl/vim-perl'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-scripts/ZoomWin'
-Plugin 'vim-scripts/less.vim'
-Plugin 'xero/sourcerer.vim'
-Plugin 'yantze/pt_black'
 Plugin 'vim-scripts/CycleColor'
-Plugin 'glanotte/vim-jasmine'
-Plugin 'moll/vim-node'
+Plugin 'vim-scripts/ZoomWin'
 Plugin 'Raimondi/delimitMate'
-Plugin 'elzr/vim-json'
-Plugin 'pbrisbin/vim-mkdir'
+
+" Autocomplete
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
+
+" Git
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" CSS
+Plugin 'agirorn/vim-coloresque'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'vim-scripts/less.vim'
+
+" Tmux
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tmux-plugins/vim-tmux'
 Plugin 'wellle/tmux-complete.vim'
+
+" javascript
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'glanotte/vim-jasmine'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'myhere/vim-nodejs-complete'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'elzr/vim-json'
+Plugin 'moll/vim-node'
+
+" Ruby
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+
+" Handlebars
+Plugin 'nono/vim-handlebars'
 
 " Color schemes.
 Plugin 'flazz/vim-colorschemes'
-
+Plugin 'gilgigilgil/anderson.vim'
+Plugin 'Wutzara/vim-materialtheme'
+Plugin 'xero/sourcerer.vim'
 
 " Test this out on next C++ session
 Plugin 'mbbill/echofunc'
