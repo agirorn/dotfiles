@@ -2,7 +2,7 @@
 "" Vim configuration file.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              "" be iMproved, required
-filetype off                  "" required
+filetype off                  "" required for Vundle
 
 "" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -93,43 +93,15 @@ set diffopt=vertical,context:8
 set updatetime=1000
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyc
 set spell
-
-"" enable mouse selection.
-set mouse=a
-
-"" Allow mouse to resize pane.
-set ttymouse=xterm2
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Interesting colorscheme
-""
-"" anderson
-"" less
-"" pt_black
-"" sourcerer
-"" sunburst
-""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Favorite colorscheme
-""
-"" torte
-"" pablo
-"" vibrantink
-"" blackboard
-"" materialtheme
-"" twilight256
-"" woju
-""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+set mouse=a            "" enable mouse selection.
+set ttymouse=xterm2    "" Allow mouse to resize pane.
 set background=dark
 colorscheme woju
 
-autocmd VimEnter,BufEnter,WinEnter,BufWinEnter * call HighlightLongLines()
-function! HighlightLongLines()
-  highlight ColorColumn ctermbg=magenta guibg=Magenta
-  call matchadd('ColorColumn', '\%82v', 100)
-endfunction
+"" Search as you type
+set ignorecase
+set smartcase
+set hlsearch
 
 "" Copy backup files when editing crontab files
 au BufEnter crontab.* setl backupcopy=yes
@@ -138,47 +110,8 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-"" NERDTree
-function! ToggleNerdTree()
-  "" Check if NERDTree is open
-  if exists("t:NERDTreeBufName")
-    let s:ntree = bufwinnr(t:NERDTreeBufName)
-  else
-    let s:ntree = -1
-  endif
-  if (s:ntree != -1)
-    "" If NERDTree is open, close it.
-    :NERDTreeClose
-  else
-    "" Try to open a :Rtree for the rails project
-    if exists(":Rtree")
-      "" Open Rtree (using rails plugin, it opens in project dir)
-      :Rtree
-    else
-      "" Open NERDTree in the file path
-      :NERDTreeFind
-    endif
-  endif
-endfunction
-nmap <silent> <F2> :call ToggleNerdTree()<CR>
-
-"" Now you can just click on any thing and it just reacts (open or close
-"" folders, and open files)
-let NERDTreeMouseMode=1
-
-"" sort files and folders by name
-let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
-
-"" Hide bundler_stubs
-let NERDTreeIgnore=['^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
-
 "" Leader
 let mapleader = ","
-
-"" Search as you type
-set ignorecase
-set smartcase
-set hlsearch
 
 "" Hide search selection
 nnoremap <LEADER><SPACE> :nohlsearch<C-R>=has('diff')?'<BAR>diffupdate':''<CR><CR><C-L>
@@ -238,14 +171,10 @@ imap <C-w> <C-o><C-w>
 "" Set the syntax highlighting for the gemfile
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
-let g:slime_target = "tmux"
-
 "" OPEN FILES IN DIRECTORY OF CURRENT FILE
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
-
-let g:ctrlp_working_path_mode = 'w'
 
 "" Keep selection when indenting
 vnoremap > >gv
@@ -269,27 +198,6 @@ nmap <leader>sn ]s
 "" List of suggested spelling
 nmap <leader>sl z=
 
-"" Lookup the current word on dictionary.com
-function! LookupCurrentWordOnDictionaryCom()
-  :silent ! open http://dictionary.reference.com/browse/<cword>
-  redraw!
-endfunction
-map <leader>D :call LookupCurrentWordOnDictionaryCom()<CR>
-
-"" Lookup the current word on ikea.is
-function! LookupCurrentWordOnIkeaIs()
-  :silent ! open http://www.ikea.is/search\?\&search=<cword>
-  redraw!
-endfunction
-map <leader>I :call LookupCurrentWordOnIkeaIs()<CR>
-
-"" Lookup the current word on ikea.is
-function! OpenVimCheatSheet()
-  :silent ! open http://www.worldtimzone.com/res/vi.html
-  redraw!
-endfunction
-map <leader>c :call OpenVimCheatSheet()<CR>
-
 "" Toggle comment for current line
 map <leader>l gc
 
@@ -299,68 +207,8 @@ map <leader>l gc
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-"" CtrlP
-let g:ctrlp_max_depth = 80
-let g:ctrlp_max_files = 20000
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|node_modules$\|dist$',
-  \ }
-
-"" YouCompleteMe plugin
-let g:ycm_semantic_triggers =  {
- \ 'css': [ 're!^\s+', 're!:\s+' ],
- \ 'javascript': [ 're!=\s+', ]
- \ }
-
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
-"" Let the Buffer Explorer display relative paths.
-let g:bufExplorerShowRelativePath=1
-
-"" Sort Buffer Explorer by most recently used.
-let g:bufExplorerSortBy='mru'        " Sort by most recently used.
-
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
 highlight def link rubyRspec Function
-
-function! StrTrim(txt)
-  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-endfunction
-
-"" Syntastic plugin.
-let g:syntastic_check_on_open = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_javascript_checkers = ['eslint']
-
-"" lint scss files with https://github.com/brigade/scss-lint
-let g:syntastic_scss_checkers = ['scss_lint']
-
-"" find the right eslint for syntastic to use.
-let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
-
-"" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-
-"" vim-gitgutter
-let g:gitgutter_sign_column_always = 1
-
-"" Ignore the proprietary attribute that are used in AngularJs
-let g:syntastic_html_tidy_ignore_errors=[
-  \ "trimming empty <span>",
-  \ "proprietary attribute"
-  \]
-
-let g:syntastic_mode_map={
-  \ 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['eruby', 'html']
-\ }
-
-let g:syntastic_echo_current_error=1
 
 "" Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -370,13 +218,6 @@ nmap <F9> :TagbarOpenAutoClose<CR>
 let g:tmuxcomplete#trigger = 'omnifunc'
 
 nmap <leader>s :BufExplorer<cr>
-
-"" GYP syntax ( Generate Your Projects )
-au BufRead,BufNewFile *.gyp set filetype=json
-
-"" javascript
-autocmd BufNewFile,BufRead .jshintrc set filetype=json nospell
-autocmd BufNewFile,BufRead .eslintrc set filetype=json nospell
 
 "" css
 au BufRead,BufNewFile *.scss set filetype=scss.css
@@ -393,21 +234,6 @@ au FileType gitcommit set tw=72
 
 "" Map git diff
 map <leader>g :Gdiff<CR>
-
-function! SetupVimrc()
-  let l:vimrc_spellfile = expand('$HOME').'/.vim/spell/vimrc.utf-8.add'
-  echo "file is readable"
-  let &l:spellfile = l:vimrc_spellfile
-  setlocal spell
-  setlocal spelllang=en_us
-endfunction
-
-autocmd BufNewFile,BufRead vimrc,.vimrc call SetupVimrc()
-
-"" Load a project .vimrc
-if filereadable(".vimrc") && expand('~') != getcwd()
-  source .vimrc
-endif
 
 "" Fix spell color
 au BufNewFile,BufRead * hi SpellBad cterm=underline,bold ctermfg=009 ctermbg=000 guifg=#FFFFFF guibg=#000000 gui=none
