@@ -27,7 +27,7 @@ nmap <silent> <F2> :call ToggleNerdTree()<CR>
 let NERDTreeMouseMode=1
 
 "" sort files and folders by name
-let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
+" let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
 
 "" Hide bundler_stubs
 let NERDTreeIgnore=['^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
