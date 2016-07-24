@@ -1,4 +1,4 @@
-function! StrTrim(txt)
+function! s:Trim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
 
@@ -13,7 +13,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_scss_checkers = ['scss_lint']
 
 "" find the right eslint for syntastic to use.
-let b:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+let s:eslint = s:Trim(system('npm-which eslint'))
+let b:syntastic_javascript_eslint_exec = s:eslint
+let g:syntastic_vue_eslint_exec = s:eslint
 
 "" Ignore the proprietary attribute that are used in AngularJs
 let g:syntastic_html_tidy_ignore_errors=[
@@ -28,5 +30,3 @@ let g:syntastic_mode_map={
 \ }
 
 let g:syntastic_echo_current_error=1
-
-

@@ -60,7 +60,10 @@ Plugin 'myhere/vim-nodejs-complete'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'elzr/vim-json'
 Plugin 'moll/vim-node'
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
+Plugin 'agirorn/vim-vue'
+Plugin 'sekel/vim-vue-syntastic'
+Plugin 'digitaltoad/vim-pug'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
