@@ -60,6 +60,7 @@ Plugin 'myhere/vim-nodejs-complete'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'elzr/vim-json'
 Plugin 'moll/vim-node'
+Plugin 'posva/vim-vue'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
@@ -225,8 +226,7 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 "" ejs templates
 au BufNewFile,BufRead *.ejs set filetype=html
 
-"" vuejs templates
-au BufNewFile,BufRead *.vue set filetype=html
+"" vim
 au BufNewFile,BufRead *.vim set filetype=vim
 
 "" gitmessage
