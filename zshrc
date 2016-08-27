@@ -49,6 +49,8 @@ plugins=(
   bower
   brew
   bundler
+  docker
+  docker-compose
   fabric
   git
   git-kraken
