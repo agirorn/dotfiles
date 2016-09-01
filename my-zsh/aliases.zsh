@@ -4,7 +4,7 @@ alias nns='ND npm start'
 alias wgs='while :; do clear && git status; sleep 1; done;'
 alias c='clear'
 alias kill-swap='find . -iname ".*.swp" -exec rm {} \;'
-alias remove-vim-swap='find . -iname '.*.swp' -exec rm {} \;'
+alias remove-vim-swap="find . -iname '.*.swp' -exec rm {} \;"
 alias atome="tmpin atom"
 unalias gm
 
