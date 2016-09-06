@@ -6,6 +6,7 @@ alias c='clear'
 alias kill-swap='find . -iname ".*.swp" -exec rm {} \;'
 alias remove-vim-swap="find . -iname '.*.swp' -exec rm {} \;"
 alias atome="tmpin atom"
+alias d-c="docker-compose"
 unalias gm
 
 # close like vim
