@@ -3,7 +3,7 @@ function! s:Trim(txt)
 endfunction
 
 "" Syntastic plugin.
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pep8']
