@@ -94,7 +94,7 @@ set nowrap
 set textwidth=80
 set formatoptions=qn1
 set diffopt=vertical,context:8
-set updatetime=1000
+set updatetime=2000
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyc
 set spell
 set mouse=a            "" enable mouse selection.
