@@ -16,6 +16,7 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let s:eslint = s:Trim(system('npm-which eslint'))
 let b:syntastic_javascript_eslint_exec = s:eslint
 let g:syntastic_vue_eslint_exec = s:eslint
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 "" Ignore the proprietary attribute that are used in AngularJs
 let g:syntastic_html_tidy_ignore_errors=[
