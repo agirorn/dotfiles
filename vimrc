@@ -172,6 +172,9 @@ nmap * :vertical res +2<CR>
 "" Enable window commands in insert mode
 imap <C-w> <C-o><C-w>
 
+"" preview markdown in vim
+map <Leader>m :w<cr>:!pandoc % \| lynx -stdin<cr>:redraw!<cr>
+
 "" Set the syntax highlighting for the gemfile
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
