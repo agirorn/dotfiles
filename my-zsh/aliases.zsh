@@ -15,6 +15,7 @@ alias docker-compose-remove-all-images="docker rmi $(docker images -q)"
 alias docker-compose-remove-all-images-force="docker rmi --force $(docker images -q)"
 alias docker-compose-remove-all-containters="docker rm $(docker ps -a -q)"
 alias docker-compose-remove-all-containters-force="docker rm --force $(docker ps -a -q)"
+alias dev="npm run dev"
 
 # Start PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres start"
