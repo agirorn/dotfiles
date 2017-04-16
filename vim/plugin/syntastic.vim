@@ -14,7 +14,7 @@ let g:syntastic_scss_checkers = ['scss_lint']
 
 "" find the right eslint for syntastic to use.
 let s:eslint = s:Trim(system('npm-which eslint'))
-let b:syntastic_javascript_eslint_exec = s:eslint
+let g:syntastic_javascript_eslint_exec = s:eslint
 let g:syntastic_vue_eslint_exec = s:eslint
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
