@@ -60,7 +60,7 @@ plugins=(
   history-substring-search
   karma
   my-perl
-  npm
+  zsh-better-npm-completion
   nvm
   nvmrc
   pip

@@ -7,3 +7,6 @@
 [submodule "vim/bundle/Vundle.vim"]
 	path = vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "my-zsh/plugins/zsh-better-npm-completion"]
+	path = my-zsh/plugins/zsh-better-npm-completion
+	url = git@github.com:lukechilds/zsh-better-npm-completion.git
