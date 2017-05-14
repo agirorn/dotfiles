@@ -45,7 +45,6 @@ ZSH_CUSTOM=$HOME/dotfiles/my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  bindkey-vi
   bower
   brew
   bundler
@@ -60,7 +59,6 @@ plugins=(
   history-substring-search
   karma
   my-perl
-  zsh-better-npm-completion
   nvm
   nvmrc
   pip
@@ -68,6 +66,8 @@ plugins=(
   rvm
   urltools
   vagrant
+  vi-mode
+  zsh-better-npm-completion
 )
 
 # User configuration
@@ -106,6 +106,9 @@ export LC_CTYPE=is_IS.UTF-8
 
 alias gs=gss
 alias npm-exec='PATH=$(npm bin):$PATH'
+
+# No delay
+export KEYTIMEOUT=1
 
 # export NVM_DIR=${HOME}"~/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
