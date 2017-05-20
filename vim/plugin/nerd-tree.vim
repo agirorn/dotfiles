@@ -30,6 +30,6 @@ let NERDTreeMouseMode=1
 " let NERDTreeSortOrder = ['(*|\/$)', '\.swp$', '\.bak$', '\~$']
 
 "" Hide bundler_stubs
-let NERDTreeIgnore=['^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
+let NERDTreeIgnore=['^.git$', '^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
 
 
