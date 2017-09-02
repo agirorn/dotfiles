@@ -244,3 +244,10 @@ map <leader>g :Gdiff<CR>
 "" Fix spell color
 au BufNewFile,BufRead * hi SpellBad cterm=underline,bold ctermfg=009 ctermbg=000 guifg=#FFFFFF guibg=#000000 gui=none
 
+"" yardman
+au BufRead,BufNewFile .yardmanrc set filetype=sh
+
+"" buildfile
+au BufRead,BufNewFile buildfile set filetype=sh
+
+autocmd FileType make setlocal noexpandtab

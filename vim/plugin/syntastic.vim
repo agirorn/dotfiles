@@ -6,6 +6,9 @@ endfunction
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_loc_list_height = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_echo_current_error = 1
 let g:syntastic_javascript_checkers = ['eslint']
@@ -23,6 +26,8 @@ let g:syntastic_vue_eslint_exec = s:eslint
 
 " ruby
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_markdown_mdl_exec = './node_modules/.bin/markdownlint'
+let g:syntastic_markdown_mdl_args = ''
 
 " AngularJs
 "" Ignore the proprietary attribute that are used in AngularJs
