@@ -11,6 +11,11 @@ alias dev="npm run dev"
 # Start PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres start"
 
+# Mac only aliases
+if [[ `uname` == 'Darwin' ]]; then
+  alias abricotine=/Applications/Abricotine.app/Contents/MacOS/Abricotine
+fi
+
 unalias gm
 
 # close like vim
