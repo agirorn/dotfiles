@@ -9,7 +9,8 @@
 .swm
 .swn
 
-
+# IDE's
+.vscode
 
 # Compiled source #
 ###################
