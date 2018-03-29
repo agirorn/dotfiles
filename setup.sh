@@ -41,7 +41,7 @@ dot_files=(
 
 ########## Banner
 echo '########################'
-echo "# Uptating Dow Files   #"
+echo "# Uptating Dot Files   #"
 echo '########################'
 echo ''
 
