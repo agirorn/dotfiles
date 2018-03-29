@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Install TMUX from source on Linux Mint 18.3
+
+set -e
+
+# Configure
+VERSION=2.6
+ROOT=~/code-open-source
+FILE="tmux-${VERSION}.tar.gz"
+DIR="tmux-${VERSION}"
+URL="https://github.com/tmux/tmux/releases/download/${VERSION}/${FILE}"
+
+# Install dependencies
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install libevent-dev
+sudo apt-get install libncurses-dev
+
+# Remove previous
+mkdir -p "${ROOT}"
+cd "${ROOT}"
+test -f "${DIR}" && rm -Rf "${DIR}"
+test -f "${FILE}" && rm -f "${FILE}"
+
+# Get tmux source
+wget -O "${FILE}" "${URL}"
+tar -zvxf "${FILE}";
+cd ${DIR}
+
+# Install
+./configure;
+make;
+sudo make install;
+
+# test
+tmux -V;
