@@ -109,6 +109,10 @@ export EDITOR='vim'
 alias gs=gss
 alias npm-exec='PATH=$(npm bin):$PATH'
 
+function gdwide() {
+  git difftool --no-prompt --extcmd="colordiff -ydw"  $1| less
+}
+
 # No delay
 export KEYTIMEOUT=1
 
