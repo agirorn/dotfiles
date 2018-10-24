@@ -6,3 +6,7 @@
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
   assumed = !git ls-files -v | grep "^[[:lower:]]"
+[user]
+	name = Ægir Örn Símonarson
+[core]
+	excludesfile = ~/.gitignore_global
