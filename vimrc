@@ -81,6 +81,9 @@ Plugin 'xero/sourcerer.vim'
 "" Test this out on next C++ session
 Plugin 'mbbill/echofunc'
 
+"" GYP syntax
+Plugin 'kelan/gyp.vim'
+
 call vundle#end()            " required
 
 set number
@@ -249,5 +252,8 @@ au BufRead,BufNewFile .yardmanrc set filetype=sh
 
 "" buildfile
 au BufRead,BufNewFile buildfile set filetype=sh
+
+"" GYP files
+au BufRead,BufNewFile bindings.gyp set filetype=gyp
 
 autocmd FileType make setlocal noexpandtab

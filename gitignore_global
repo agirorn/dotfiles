@@ -54,3 +54,6 @@ node_modules/
 
 # Hiding custom django settings
 clear_cache_first_settings.py
+
+# ctags file generated with the command "ctags -R"
+/tags

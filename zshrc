@@ -67,6 +67,7 @@ plugins=(
   urltools
   vagrant
   vi-mode
+  yarn
   zsh-better-npm-completion
 )
 
@@ -118,3 +119,5 @@ export KEYTIMEOUT=1
 
 # export NVM_DIR=${HOME}"~/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -s "/home/agirorn/.gvm/scripts/gvm" ]] && source "/home/agirorn/.gvm/scripts/gvm"
