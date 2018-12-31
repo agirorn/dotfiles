@@ -34,8 +34,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'guns/xterm-color-table.vim'
 
 "" Autocomplete
-"" Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Shougo/neocomplete.vim'
 
 "" Git
 Plugin 'tpope/vim-fugitive'
