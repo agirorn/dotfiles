@@ -57,3 +57,7 @@ clear_cache_first_settings.py
 
 # ctags file generated with the command "ctags -R"
 /tags
+/.MY-TODO.md
+
+# PHP storm
+/.idea/
