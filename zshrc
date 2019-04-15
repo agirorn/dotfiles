@@ -51,7 +51,7 @@ plugins=(
   docker-compose
   fabric
   git
-  git-extra
+  git-extras
   git-kraken
   gitx
   grunt
