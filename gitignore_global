@@ -9,7 +9,8 @@
 .swm
 .swn
 
-
+# IDE's
+.vscode
 
 # Compiled source #
 ###################
@@ -53,3 +54,10 @@ node_modules/
 
 # Hiding custom django settings
 clear_cache_first_settings.py
+
+# ctags file generated with the command "ctags -R"
+/tags
+/.MY-TODO.md
+
+# PHP storm
+/.idea/

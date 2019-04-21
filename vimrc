@@ -28,14 +28,15 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/CycleColor'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'Raimondi/delimitMate'
 Plugin 'guns/xterm-color-table.vim'
 
 "" Autocomplete
-"" Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Shougo/neocomplete.vim'
+
+Plugin 'tpope/vim-markdown'
 
 "" Git
 Plugin 'tpope/vim-fugitive'
@@ -57,13 +58,16 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'glanotte/vim-jasmine'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'myhere/vim-nodejs-complete'
-Plugin 'ternjs/tern_for_vim'
+" Plugin 'ternjs/tern_for_vim'
 Plugin 'elzr/vim-json'
 Plugin 'moll/vim-node'
 Plugin 'posva/vim-vue'
 " Plugin 'agirorn/vim-vue'
 Plugin 'sekel/vim-vue-syntastic'
 Plugin 'digitaltoad/vim-pug'
+
+" TwiG templates
+Plugin 'lumiliet/vim-twig'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
@@ -81,7 +85,14 @@ Plugin 'xero/sourcerer.vim'
 "" Test this out on next C++ session
 Plugin 'mbbill/echofunc'
 
+"" GYP syntax
+Plugin 'kelan/gyp.vim'
+
 call vundle#end()            " required
+
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
 
 set number
 set tabstop=2        " Tab width is 2 spaces
@@ -109,6 +120,10 @@ set hlsearch
 
 "" Copy backup files when editing crontab files
 au BufEnter crontab.* setl backupcopy=yes
+
+"" Lets just do this for all files to ensure if they are mounted in Docker that
+"" they get picked up.
+au BufEnter * setl backupcopy=yes
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -221,6 +236,8 @@ highlight def link rubyRspec Function
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
 
+set backupcopy=yes
+
 "" tmux-complete
 let g:tmuxcomplete#trigger = 'omnifunc'
 
@@ -250,4 +267,13 @@ au BufRead,BufNewFile .yardmanrc set filetype=sh
 "" buildfile
 au BufRead,BufNewFile buildfile set filetype=sh
 
+"" GYP files
+au BufRead,BufNewFile bindings.gyp set filetype=gyp
+
 autocmd FileType make setlocal noexpandtab
+
+autocmd FileType php setlocal commentstring=#\ %s
+
+map! <F3> :echo 'F3 is disabled and the current time is ' . strftime('%c')<CR>
+
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']

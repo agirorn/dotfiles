@@ -41,7 +41,7 @@ dot_files=(
 
 ########## Banner
 echo '########################'
-echo "# Uptating Dow Files   #"
+echo "# Uptating Dot Files   #"
 echo '########################'
 echo ''
 
@@ -79,3 +79,6 @@ do
     ln -s ~/dotfiles/bin/$program ~/bin
   fi
 done
+
+cd ~
+~/.tmux/plugins/tpm/bin/update_plugins all

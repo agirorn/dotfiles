@@ -46,13 +46,12 @@ ZSH_CUSTOM=$HOME/dotfiles/my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   bower
-  brew
   bundler
   docker
   docker-compose
   fabric
   git
-  git-extra
+  git-extras
   git-kraken
   gitx
   grunt
@@ -68,6 +67,7 @@ plugins=(
   urltools
   vagrant
   vi-mode
+  yarn
   zsh-better-npm-completion
 )
 
@@ -82,6 +82,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=is_IS.UTF-8
 export LC_CTYPE=is_IS.UTF-8
+
+export EDITOR='vim'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -108,8 +110,14 @@ export LC_CTYPE=is_IS.UTF-8
 alias gs=gss
 alias npm-exec='PATH=$(npm bin):$PATH'
 
+function gdwide() {
+  git difftool --no-prompt --extcmd="colordiff -ydw"  $1| less
+}
+
 # No delay
 export KEYTIMEOUT=1
 
 # export NVM_DIR=${HOME}"~/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -s "/home/agirorn/.gvm/scripts/gvm" ]] && source "/home/agirorn/.gvm/scripts/gvm"

@@ -7,6 +7,8 @@ alias kill-swap='find . -iname ".*.swp" -exec rm {} \;'
 alias remove-vim-swap="find . -iname '.*.swp' -exec rm {} \;"
 alias atome="tmpin atom"
 alias dev="npm run dev"
+# SUDO nvm nodejs
+alias snode="sudo PATH=\$(dirname \$(which node)):\$PATH"
 
 # Start PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres start"
@@ -32,3 +34,5 @@ function loop() {
 function kill-all-vims() {
   ps aux | grep vim | grep -v grep | awk '{print $2}' | xargs -L1 kill -s kill
 }
+
+export PATH="$(yarn global bin):$PATH"

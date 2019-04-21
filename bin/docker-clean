@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+docker-stop-all
+docker-remove-all-containers
+docker-remove-all-images
+docker-remove-all-volumes
