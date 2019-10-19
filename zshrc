@@ -121,3 +121,6 @@ export KEYTIMEOUT=1
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [[ -s "/home/agirorn/.gvm/scripts/gvm" ]] && source "/home/agirorn/.gvm/scripts/gvm"
+
+setopt noincappendhistory
+setopt nosharehistory
