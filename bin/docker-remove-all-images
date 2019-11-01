@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-sudo docker rmi $(sudo docker images -q)
+images=$(sudo docker images -q)
+if [[ ${images} != 0 ]]; then
+  echo "Removing all images"
+  sudo docker rmi ${images}
+else
+  echo "There are no Docker images to remove"
+fi
