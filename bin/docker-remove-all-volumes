@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 volumes=$(sudo docker volume ls -q );
-if [[ ${volumes} != 0 ]]; then
+if [[ ${volumes} ]]; then
   echo "Removing all Docker volumes"
-  sudo docker volume rm  ${volumes}
+  sudo docker volume rm -f ${volumes}
 else
   echo "There are no Docker volumes to remove"
 fi

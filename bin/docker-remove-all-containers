@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-containers=$(sudo docker ps -aq)
-if [[ ${containers} != 0 ]]; then
+containers=$(sudo docker ps -qa)
+if [[ ${containers} ]]; then
   echo "Removing all containers"
-  sudo docker rm ${containers}
+  sudo docker rm -f ${containers}
 else
   echo "There are no containers to remove"
 fi
