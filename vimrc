@@ -31,6 +31,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'Raimondi/delimitMate'
 Plugin 'guns/xterm-color-table.vim'
+Plugin 'joegesualdo/jsdoc.vim'
 
 "" Autocomplete
 Plugin 'Valloric/YouCompleteMe'
