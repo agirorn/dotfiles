@@ -32,6 +32,7 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'Raimondi/delimitMate'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'joegesualdo/jsdoc.vim'
+Plugin 'christoomey/vim-sort-motion'
 
 "" Autocomplete
 Plugin 'Valloric/YouCompleteMe'
@@ -66,6 +67,9 @@ Plugin 'posva/vim-vue'
 " Plugin 'agirorn/vim-vue'
 Plugin 'sekel/vim-vue-syntastic'
 Plugin 'digitaltoad/vim-pug'
+
+" typescript
+Plugin 'leafgarland/typescript-vim'
 
 " TwiG templates
 Plugin 'lumiliet/vim-twig'
