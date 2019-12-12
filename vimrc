@@ -227,7 +227,7 @@ nmap <leader>sn ]s
 nmap <leader>sl z=
 
 "" Toggle comment for current line
-map <leader>l gc
+map <leader>l gcc
 
 "" If you prefer the Omni-Completion tip window to close when a selection is
 "" made, these lines close it on movement in insert mode or when leaving
