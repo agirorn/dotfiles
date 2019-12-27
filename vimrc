@@ -119,6 +119,9 @@ set ttymouse=xterm2    "" Allow mouse to resize pane.
 set background=dark
 colorscheme woju
 
+set cursorline
+set conceallevel=2
+
 "" Search as you type
 set ignorecase
 set smartcase
@@ -281,5 +284,3 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType php setlocal commentstring=#\ %s
 
 map! <F3> :echo 'F3 is disabled and the current time is ' . strftime('%c')<CR>
-
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
