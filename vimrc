@@ -120,7 +120,7 @@ set background=dark
 colorscheme woju
 
 set cursorline
-set conceallevel=2
+set conceallevel=0
 
 "" Search as you type
 set ignorecase
