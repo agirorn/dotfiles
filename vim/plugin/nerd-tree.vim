@@ -21,6 +21,9 @@ function! ToggleNerdTree()
   endif
 endfunction
 nmap <silent> <F2> :call ToggleNerdTree()<CR>
+" Open file file explorer on Mac-Book Pro where the F2 key is not on all the
+" time
+nmap <silent> <C-F> :call ToggleNerdTree()<CR>
 
 "" Now you can just click on any thing and it just reacts (open or close
 "" folders, and open files)
