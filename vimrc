@@ -119,8 +119,11 @@ set ttymouse=xterm2    "" Allow mouse to resize pane.
 set background=dark
 colorscheme woju
 
+"" Allow moves fomr the end of line to next or previous ling
+set whichwrap+=h,l
+
 set cursorline
-set conceallevel=2
+set conceallevel=0
 
 "" Search as you type
 set ignorecase
