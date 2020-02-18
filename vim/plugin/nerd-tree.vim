@@ -31,5 +31,3 @@ let NERDTreeMouseMode=1
 
 "" Hide bundler_stubs
 let NERDTreeIgnore=['^.git$', '^bundler_stubs$', '\~$', '\.pyc$', '\.pyo$']
-
-
