@@ -34,6 +34,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'joegesualdo/jsdoc.vim'
 Plugin 'christoomey/vim-sort-motion'
+    Plugin 'evanleck/vim-svelte'
 
 "" Autocomplete
 Plugin 'Valloric/YouCompleteMe'
