@@ -37,7 +37,8 @@ Plugin 'christoomey/vim-sort-motion'
 Plugin 'evanleck/vim-svelte'
 
 "" Autocomplete
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Shougo/neocomplete.vim'
 
 Plugin 'tpope/vim-markdown'
