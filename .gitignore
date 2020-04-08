@@ -5,3 +5,4 @@ config/htop/
 tmux/plugins/
 vim/bundle
 config/yarn/
+config/coc/
