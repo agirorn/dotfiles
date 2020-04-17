@@ -16,7 +16,7 @@ Plugin 'tpope/vim-sensible'
 
 "" Tools
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab' " Incompatible wihte 
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'jpalardy/vim-slime'
 Plugin 'ctrlpvim/ctrlp.vim'
