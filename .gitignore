@@ -6,3 +6,4 @@ tmux/plugins/
 vim/bundle
 config/yarn/
 config/coc/
+config/sqlitestudio/

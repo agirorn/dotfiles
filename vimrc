@@ -60,7 +60,7 @@ Plugin 'wellle/tmux-complete.vim'
 "" javascript
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'glanotte/vim-jasmine'
+" Plugin 'glanotte/vim-jasmine'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'myhere/vim-nodejs-complete'
 " Plugin 'ternjs/tern_for_vim'
