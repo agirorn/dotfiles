@@ -3,7 +3,9 @@
   "description": "Global dependencies for my system",
   "private": false,
   "scripts": {
-    "install": "./bin/npm-global-install package.json"
+    "install": "./bin/npm-global-install package.json",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bower-cli": "^0.7.0",
@@ -11,6 +13,8 @@
     "eslint-config-defaults": "^7.1.1",
     "eslint_d": "^1.10.3",
     "grunt-cli": "^2.3.1",
-    "tmpin": "^1.0.1"
-  }
+    "tmpin": "^1.0.1",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
