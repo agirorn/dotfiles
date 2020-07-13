@@ -36,3 +36,6 @@ timestamp
 enum
 Inlining
 ZeroMQ
+UUID
+deserialize
+config
