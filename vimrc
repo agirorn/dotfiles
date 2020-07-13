@@ -35,10 +35,11 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'joegesualdo/jsdoc.vim'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'evanleck/vim-svelte'
-Plugin 'iamcco/coc-tailwindcss'
 
 "" Autocomplete
 Plugin 'neoclide/coc.nvim'
+" Plugin 'iamcco/coc-tailwindcss'
+
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Shougo/neocomplete.vim'
 
