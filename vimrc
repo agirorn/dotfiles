@@ -35,6 +35,7 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'joegesualdo/jsdoc.vim'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'evanleck/vim-svelte'
+Plugin 'iamcco/coc-tailwindcss'
 
 "" Autocomplete
 Plugin 'neoclide/coc.nvim'
@@ -289,3 +290,6 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType php setlocal commentstring=#\ %s
 
 map! <F3> :echo 'F3 is disabled and the current time is ' . strftime('%c')<CR>
+
+  :nmap <F1> :echo<CR>
+:imap <F1> <C-o>:echo<CR>
