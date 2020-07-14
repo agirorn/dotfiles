@@ -292,5 +292,5 @@ autocmd FileType php setlocal commentstring=#\ %s
 
 map! <F3> :echo 'F3 is disabled and the current time is ' . strftime('%c')<CR>
 
-  :nmap <F1> :echo<CR>
+:nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
