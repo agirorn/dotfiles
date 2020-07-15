@@ -98,6 +98,9 @@ Plugin 'mbbill/echofunc'
 "" GYP syntax
 Plugin 'kelan/gyp.vim'
 
+"" Haskell
+Plugin 'neovimhaskell/haskell-vim'
+
 call vundle#end()            " required
 
 filetype plugin indent on    " required
