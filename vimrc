@@ -295,5 +295,8 @@ autocmd FileType php setlocal commentstring=#\ %s
 
 map! <F3> :echo 'F3 is disabled and the current time is ' . strftime('%c')<CR>
 
+" Search literally!
+com! -nargs=1 Search :let @/='\V'.escape(<q-args>, '\\')| normal! n
+
 :nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
