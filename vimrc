@@ -60,8 +60,10 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'wellle/tmux-complete.vim'
 
 "" javascript
+Plugin 'styled-components/vim-styled-components'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 " Plugin 'glanotte/vim-jasmine'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'myhere/vim-nodejs-complete'

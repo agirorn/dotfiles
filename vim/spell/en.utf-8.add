@@ -39,3 +39,4 @@ ZeroMQ
 UUID
 deserialize
 config
+memcached
