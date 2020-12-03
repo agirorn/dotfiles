@@ -16,11 +16,12 @@ let g:syntastic_vue_checkers = ['eslint']
 
 "" lint scss files with https://github.com/brigade/scss-lint
 let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_filetype_map = { "javascriptreact": "javascript" }
 
 " javascript
-let s:eslint = s:Trim(system('npm-which eslint'))
-let g:syntastic_javascript_eslint_exec = s:eslint
-let g:syntastic_vue_eslint_exec = s:eslint
+" let s:eslint = s:Trim(system('npm-which eslint'))
+" let g:syntastic_javascript_eslint_exec = s:eslint
+" let g:syntastic_vue_eslint_exec = s:eslint
 
 " ruby
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
