@@ -45,6 +45,9 @@ ZSH_CUSTOM=$HOME/dotfiles/my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  my-react
+  my-perl
+  my-yarn
   bower
   bundler
   docker
@@ -60,10 +63,10 @@ plugins=(
   highlight
   history-substring-search
   karma
-  my-perl
   nvm
   nvmrc
   pip
+  pyenv
   postgres
   rust
   rustup
@@ -73,6 +76,7 @@ plugins=(
   vi-mode
   yarn
   zsh-better-npm-completion
+  fzf
 )
 
 # User configuration
@@ -122,10 +126,8 @@ function gdwide() {
 # No delay
 export KEYTIMEOUT=1
 
-# export NVM_DIR=${HOME}"~/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 [[ -s "/home/agirorn/.gvm/scripts/gvm" ]] && source "/home/agirorn/.gvm/scripts/gvm"
 
 setopt noincappendhistory
 setopt nosharehistory
+export LUCINITY_UPDATE_RC=false

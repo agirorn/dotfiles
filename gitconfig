@@ -10,3 +10,5 @@
 	name = Ægir Örn Símonarson
 [core]
 	excludesfile = ~/.gitignore_global
+[pull]
+	ff = only
