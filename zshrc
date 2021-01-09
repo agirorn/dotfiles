@@ -49,7 +49,9 @@ plugins=(
   bundler
   docker
   docker-compose
+  cargo
   fabric
+  ripgrep
   git
   git-extras
   git-kraken
@@ -63,6 +65,8 @@ plugins=(
   nvmrc
   pip
   postgres
+  rust
+  rustup
   rvm
   urltools
   vagrant
