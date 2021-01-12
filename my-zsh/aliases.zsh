@@ -35,8 +35,10 @@ function kill-all-vims() {
   ps aux | grep vim | grep -v grep | awk '{print $2}' | xargs -L1 kill -s kill
 }
 
-# open rg search in vim
-function vrg() { vim `rg -l $1` }
+# Open all files found by ripgrep in vim
+#
+# https://github.com/BurntSushi/ripgrep
+function vrg() { vim `rg -l $@` }
 
 # Open files marked as changed by git in vim
 function vgchanged() {
@@ -53,3 +55,4 @@ function vgchanged() {
 }
 
 export PATH="$(yarn global bin):$PATH"
+export PATH="$HOME/bin:$PATH"
