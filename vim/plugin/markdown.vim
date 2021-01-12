@@ -15,6 +15,7 @@ let g:markdown_fenced_languages = [
 \    'sh',
 \    'vim',
 \    'xml',
+\    'sql',
 \    'yaml',
 \    'graphql',
 \    'gql=graphql'

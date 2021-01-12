@@ -11,3 +11,8 @@ autocmd BufNewFile,BufRead .jshintrc setlocal filetype=json
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END

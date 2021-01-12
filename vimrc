@@ -101,6 +101,9 @@ Plugin 'mbbill/echofunc'
 "" GYP syntax
 Plugin 'kelan/gyp.vim'
 
+""" SQL
+Plugin 'shmup/vim-sql-syntax'
+
 "" Haskell
 Plugin 'neovimhaskell/haskell-vim'
 
