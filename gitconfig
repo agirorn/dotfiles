@@ -8,7 +8,10 @@
   assumed = !git ls-files -v | grep "^[[:lower:]]"
 [user]
 	name = Ægir Örn Símonarson
+	email = agirorn@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
 	ff = only
+[include]
+path = ~/.gitconfig.local
