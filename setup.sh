@@ -9,76 +9,35 @@
 # update the dot files or add new ones.
 ################################################################################
 
-########## Configuration
-
-dot_files_dir=~/dotfiles                    # dotfiles directory
-backup_dir=~/dotfiles_old             # old dotfiles backup directory
-
 # list of files/folders to symlink in homedir
-dot_files=(
-  ackrc
-  bash
-  config
-  eslintrc
-  gemrc
-  irbrc
-  jshintrc
-  noserc
-  oh-my-zsh
-  profile
-  psqlrc
-  pylintrc
-  pythonrc
-  tern-config
-  tmux
-  tmux.conf
-  vim
-  vimrc
-  ycm_extra_conf.py
-  zshrc
-)
 
+ln -s $HOME/dotfiles/ackrc $HOME/.ackrc
+ln -s $HOME/dotfiles/bash $HOME/.bash
+ln -s $HOME/dotfiles/oh-my-zsh $HOME/.oh-my-zsh
+ln -s $HOME/dotfiles/profile $HOME/.profile
+ln -s $HOME/dotfiles/psqlrc $HOME/.psqlrc
+ln -s $HOME/dotfiles/pylintrc $HOME/.pylintrc
+ln -s $HOME/dotfiles/pythonrc $HOME/.pythonrc
+ln -s $HOME/dotfiles/tmux $HOME/.tmux
+ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
+ln -s $HOME/dotfiles/vim $HOME/.vim
+ln -s $HOME/dotfiles/vimrc $HOME/.vimrc
+ln -s $HOME/dotfiles/zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/zshrc $HOME/.zshrc
 
-########## Banner
-echo '########################'
-echo "# Uptating Dot Files   #"
-echo '########################'
-echo ''
+## Git
+ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig
+ln -s $HOME/dotfiles/gitignore_global $HOME/.gitignore_global
 
-########## Updating Dot Files
-#
-# move any existing dotfiles in the home directory to dotfiles_old directory,
-# then create symlinks from the homedir to any files in the ~/dotfiles directory
-# specified in $files, excluding things that have been simlinkt before
-for file in $dot_files; do
-  link_to_dot_file=~/.$file
-  dot_file=$dot_files_dir/$file
+# ####################
+# Git
+# ####################
+# ln -s $HOME/dotfiles/tern-config $HOME/.tern-config
+# ln -s $HOME/dotfiles/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
 
-  if [ -f $link_to_dot_file ]; then
-    if [ ! \( -h $link_to_dot_file \) ]; then
-     if [ ! \( -d $backup_dir \) ]; then
-        echo "Creating backup directory: $backup_dir"
-        mkdir -p $backup_dir
-      fi
-      echo "Backing up $link_to_dot_file to $backup_dir/ "
-      mv $link_to_dot_file $backup_dir/
-    fi
-  fi
-
-  if [ ! \( -h $link_to_dot_file \) ]; then
-    echo "Symlinking $dot_file to $link_to_dot_file"
-    ln -s $dot_file $link_to_dot_file
-  fi
-
-done
-
-
-for program in $(ls ~/dotfiles/bin)
-do
-  if [[ ! -f ~/bin/$program ]]; then
-    ln -s ~/dotfiles/bin/$program ~/bin
-  fi
-done
-
-cd ~
-~/.tmux/plugins/tpm/bin/update_plugins all
+# ln -s $HOME/dotfiles/config $HOME/.config
+# ln -s $HOME/dotfiles/eslintrc $HOME/.eslintrc
+# ln -s $HOME/dotfiles/gemrc $HOME/.gemrc
+# ln -s $HOME/dotfiles/irbrc $HOME/.irbrc
+# ln -s $HOME/dotfiles/jshintrc $HOME/.jshintrc
+# ln -s $HOME/dotfiles/noserc $HOME/.noserc

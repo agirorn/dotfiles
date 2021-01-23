@@ -35,4 +35,24 @@ function kill-all-vims() {
   ps aux | grep vim | grep -v grep | awk '{print $2}' | xargs -L1 kill -s kill
 }
 
+# Open all files found by ripgrep in vim
+#
+# https://github.com/BurntSushi/ripgrep
+function vrg() { vim `rg -l $@` }
+
+# Open files marked as changed by git in vim
+function vgchanged() {
+  folder='.'
+  if (( ${+1} )); then
+    # echo $ 1 is set to $1
+    folder=$1
+    # else
+    # echo $ 1 is NOT set to ANYTHING
+  fi
+  echo $folder
+
+  vim `git status -s $folder | awk '{print $2}'`
+}
+
 export PATH="$(yarn global bin):$PATH"
+export PATH="$HOME/bin:$PATH"

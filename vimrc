@@ -35,6 +35,7 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'joegesualdo/jsdoc.vim'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'evanleck/vim-svelte'
+Plugin 'jparise/vim-graphql'
 
 "" Autocomplete
 Plugin 'neoclide/coc.nvim'
@@ -99,6 +100,9 @@ Plugin 'mbbill/echofunc'
 
 "" GYP syntax
 Plugin 'kelan/gyp.vim'
+
+""" SQL
+Plugin 'shmup/vim-sql-syntax'
 
 "" Haskell
 Plugin 'neovimhaskell/haskell-vim'
@@ -256,6 +260,7 @@ highlight def link rubyRspec Function
 "" Tagbar
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
+nmap <F11> :ToggleWhitespace<CR>
 
 set backupcopy=yes
 
