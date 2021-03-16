@@ -10,6 +10,7 @@ let g:syntastic_loc_list_height = 10
 let g:syntastic_check_on_wq = 0
 let g:syntastic_echo_current_error = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['eslint']
 let g:syntastic_loc_list_height = 1
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_vue_checkers = ['eslint']
