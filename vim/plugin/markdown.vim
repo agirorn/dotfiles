@@ -6,6 +6,8 @@ let g:markdown_fenced_languages = [
 \    'cpp',
 \    'css',
 \    'erb=eruby',
+\    'typescript',
+\    'ts=typescript',
 \    'javascript',
 \    'js=javascript',
 \    'json',
