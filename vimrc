@@ -78,6 +78,7 @@ Plugin 'digitaltoad/vim-pug'
 
 " typescript
 Plugin 'leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
 
 " TwiG templates
 Plugin 'lumiliet/vim-twig'
@@ -108,6 +109,11 @@ Plugin 'shmup/vim-sql-syntax'
 Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()            " required
+
+" Disable the old RegEx engine for performance reasons
+"
+" - https://jameschambers.co.uk/vim-typescript-slow
+set re=0
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -213,7 +219,7 @@ nmap * :vertical res +2<CR>
 imap <C-w> <C-o><C-w>
 
 "" preview markdown in vim
-map <Leader>m :w<cr>:!pandoc % \| lynx -stdin<cr>:redraw!<cr>
+" map <Leader>m :w<cr>:!pandoc % \| lynx -stdin<cr>:redraw!<cr>
 
 "" Set the syntax highlighting for the gemfile
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
