@@ -14,7 +14,6 @@ let g:syntastic_typescript_checkers = ['eslint']
 let g:syntastic_loc_list_height = 1
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_vue_checkers = ['eslint']
-let g:syntastic_typescript_checkers = ['eslint']
 
 "" lint scss files with https://github.com/brigade/scss-lint
 let g:syntastic_scss_checkers = ['scss_lint']
