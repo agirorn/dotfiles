@@ -107,6 +107,7 @@ Plugin 'shmup/vim-sql-syntax'
 
 "" Haskell
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'kevinoid/vim-jsonc'
 
 call vundle#end()            " required
 
