@@ -17,10 +17,13 @@ Plugin 'tpope/vim-sensible'
 "" Tools
 Plugin 'bronson/vim-trailing-whitespace'
 " Plugin 'ervandew/supertab' " Incompatible wihte 
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'jpalardy/vim-slime'
+" Plugin 'jlanzarotta/bufexplorer'
+" Plugin 'jpalardy/vim-slime'
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" This can probably be disabled
 Plugin 'majutsushi/tagbar'
+
 Plugin 'pbrisbin/vim-mkdir'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
