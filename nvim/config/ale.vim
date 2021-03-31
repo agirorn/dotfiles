@@ -6,7 +6,10 @@ let g:ale_fix_on_save = 1
 " Keep the sign gutter open at all times
 let g:ale_sign_column_always = 1
 
-let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\  'typescript': ['eslint'],
+\}
 
 " Check Python files with flake8 and pylint.
 let b:ale_linters = ['flake8', 'pylint']

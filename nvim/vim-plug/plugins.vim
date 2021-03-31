@@ -33,7 +33,6 @@ call plug#begin('~/.nvim/autoload')
 
   " Asynchronous Lint Engine
   Plug 'dense-analysis/ale'
-  let g:ale_disable_lsp = 1
 
   " If ale fails we can go back to syntastic
   " Plug 'scrooloose/syntastic'
@@ -220,4 +219,7 @@ call plug#begin('~/.nvim/autoload')
   "
   " Plug 'kevinoid/vim-jsonc'
 
+  " It provides a smarter way to correct spelling mistakes by supporting
+  " PascalCase, camelCase and snake_case
+  " Plug 'kamykn/spelunker.vim'
 call plug#end()
