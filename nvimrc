@@ -1,6 +1,7 @@
 " You may need to install plugins fir Coc.vim
 "
-" CocInstall coc-json coc-tsserver coc-css coc-json coc-python coc-rls coc-svelte coc-tailwindcss coc-sql coc-xml coc-yaml
+" CocInstall coc-json coc-tsserver coc-css coc-json coc-python coc-rls
+" CocInstall coc-svelte coc-tailwindcss coc-sql coc-xml coc-yaml
 "
 set runtimepath^=~/.nvim runtimepath+=~/.nvim/after
 let &packpath = &runtimepath

@@ -23,3 +23,6 @@ git submodule foreach git pull origin
 # Manage vim plugins
 vim +PluginInstall +qall
 vim +PluginUpdate +qall
+
+nvim +PlugInstall +qall
+nvim +PlugUpdate +qall
