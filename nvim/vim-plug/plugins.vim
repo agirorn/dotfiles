@@ -87,9 +87,9 @@ call plug#begin('~/.nvim/autoload')
   " " Plug 'Shougo/neocomplete.vim'
   "
 
-  "
+  " Vim Markdown runtime files
   " Plug 'tpope/vim-markdown'
-  "
+
 
   "
   " "" Git

@@ -27,7 +27,8 @@ set formatoptions=qn1
 set diffopt=vertical,context:8
 set updatetime=2000
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyc
-set spell
+" Turn spelling off
+set nospell
 set mouse=a            "" enable mouse selection.
 " set ttymouse=xterm2    "" Allow mouse to resize pane.
 set background=dark
@@ -205,3 +206,8 @@ au BufRead,BufNewFile .yardmanrc set filetype=sh
 " :imap <F1> <C-o>:echo<CR>
 "
 set pumheight=20
+
+" Mark the 80 column
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="80,".join(range(120,999),",")
