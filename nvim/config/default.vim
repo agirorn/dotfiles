@@ -208,9 +208,9 @@ au BufRead,BufNewFile .yardmanrc set filetype=sh
 set pumheight=20
 
 " Mark the 80 column
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(82,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="80,".join(range(120,999),",")
+let &colorcolumn="81,".join(range(120,999),",")
 
 " This should also work after going into insert mode
-autocmd! BufEnter * match ErrorMsg /\%>80c/
+autocmd! BufEnter * match ErrorMsg /\%>81c/
