@@ -10,6 +10,9 @@ alias dev="npm run dev"
 # SUDO nvm nodejs
 alias snode="sudo PATH=\$(dirname \$(which node)):\$PATH"
 
+# Only using neovim now
+alias vim=nvim
+
 # Start PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres start"
 
