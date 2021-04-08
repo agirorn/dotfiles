@@ -38,7 +38,7 @@ function kill-all-vims() {
 # Open all files found by ripgrep in vim
 #
 # https://github.com/BurntSushi/ripgrep
-function vrg() { vim `rg -l $@` }
+function vrg() { nvim `rg -l $@` }
 
 # Open files marked as changed by git in vim
 function vgchanged() {
@@ -51,7 +51,7 @@ function vgchanged() {
   fi
   echo $folder
 
-  vim `git status -s $folder | awk '{print $2}'`
+  nvim `git status -s $folder | awk '{print $2}'`
 }
 
 export PATH="$(yarn global bin):$PATH"

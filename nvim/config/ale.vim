@@ -11,3 +11,6 @@ let g:ale_linters = {
 \  'typescript': ['eslint'],
 \  'python': ['flake8', 'pylint'],
 \}
+
+nmap <silent> N :ALENextWrap<cr>
+" nmap <silent> P :ALEPreviousWrap<cr>

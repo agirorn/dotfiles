@@ -209,8 +209,8 @@ set pumheight=20
 
 " Mark the 80 column
 let &colorcolumn=join(range(82,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-let &colorcolumn="81,".join(range(120,999),",")
+highlight ColorColumn ctermbg=232 guibg=#2c2d27
+" let &colorcolumn="81,".join(range(120,999),",")
 
 " This should also work after going into insert mode
 autocmd! BufEnter * match ErrorMsg /\%>81c/
