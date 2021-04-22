@@ -47,15 +47,13 @@ call plug#begin('~/.nvim/autoload')
   Plug 'tmux-plugins/vim-tmux'
   Plug 'wellle/tmux-complete.vim'
 
-  Plug 'xolox/vim-misc'
-  Plug 'xolox/vim-colorscheme-switcher'
+  " Only usefull to toggle throut avaiable colorschemes
+  " No neead to have in all the time
+  " Plug 'xolox/vim-misc'
+  " Plug 'xolox/vim-colorscheme-switcher'
 
   " Color schemes.
-  Plug 'flazz/vim-colorschemes'
-  Plug 'chriskempson/base16-vim'
-  Plug 'drewtempelmeyer/palenight.vim'
-  Plug 'altercation/vim-colors-solarized'
-  Plug 'flazz/vim-colorschemes'
+  Plug 'ayu-theme/ayu-vim'
 
   """"""""""""""""""""
   " Disabled plugins "
@@ -142,5 +140,4 @@ call plug#begin('~/.nvim/autoload')
   " PascalCase, camelCase and snake_case
   " Plug 'kamykn/spelunker.vim'
   " Plug 'ryanoasis/vim-devicons'
-  "
 call plug#end()

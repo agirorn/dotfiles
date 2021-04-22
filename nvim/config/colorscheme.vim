@@ -1,25 +1,29 @@
-" colorscheme-switcher
-"   plugin xolox/vim-colorscheme-switcher
-map <F7> :PrevColorScheme<CR>
-map <F6> :colorscheme<CR>
-
 if (has("termguicolors"))
   set termguicolors
 endif
 syntax enable
-colorscheme ayu
 
-" colorscheme woju
-" colorscheme palenight
-" colorscheme apprentice
-" colorscheme solarized
-" colorscheme zenburn
-" colorscheme zephyr
-" colorscheme base16-horizon-dark
-" colorscheme behelit
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 " Mark the 80 column
 let &colorcolumn=join(range(82,999),",")
 highlight ColorColumn ctermbg=232 guibg=#2c2d27
 
-set background=dark
+" " colorscheme-switcher
+" "   plugin xolox/vim-colorscheme-switcher
+" map <F7> :PrevColorScheme<CR>
+" map <F6> :colorscheme<CR>
+
+" " Print the Highlighting group under the cursor
+" " Very nice to have when things are not look exactly as planed
+" function! EchoHighlightingGroupUnderTheCursor()
+"   if !exists("*synstack")
+"     return
+"   endif
+"   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
+" map <F5> :call EchoHighlightingGroupUnderTheCursor()<CR>
+" autocmd CursorMoved * call EchoHighlightingGroupUnderTheCursor() 
