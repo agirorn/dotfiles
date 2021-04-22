@@ -1,4 +1,4 @@
-" auto-install vim-plug
+"" auto-install vim-plug
 if empty(glob('~/.nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -31,15 +31,35 @@ call plug#begin('~/.nvim/autoload')
   " Asynchronous Lint Engine
   Plug 'dense-analysis/ale'
 
-  " If ale fails we can go back to syntastic
-  " Plug 'scrooloose/syntastic'
-
   " Comment stuff out
   Plug 'tpope/vim-commentary'
   Plug 'tomtom/tcomment_vim'
 
   "A painless, powerful Vim auto-pair plugin.
   Plug 'tmsvg/pear-tree'
+
+  " Git
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+
+  " Tmux
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'tmux-plugins/vim-tmux'
+  Plug 'wellle/tmux-complete.vim'
+
+  Plug 'xolox/vim-misc'
+  Plug 'xolox/vim-colorscheme-switcher'
+
+  " Color schemes.
+  Plug 'flazz/vim-colorschemes'
+  Plug 'chriskempson/base16-vim'
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'flazz/vim-colorschemes'
+
+  """"""""""""""""""""
+  " Disabled plugins "
+  """"""""""""""""""""
 
   " This is a simple plugin that helps to end certain structures automatically. 
   " Plug 'tpope/vim-endwise'
@@ -62,19 +82,10 @@ call plug#begin('~/.nvim/autoload')
   " Vim Markdown runtime files
   " Plug 'tpope/vim-markdown'
 
-  " Git
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
-
   " " CSS
   " Plug 'agirorn/vim-coloresque'
   " Plug 'cakebaker/scss-syntax.vim'
   " Plug 'vim-scripts/less.vim'
-
-  " Tmux
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'tmux-plugins/vim-tmux'
-  Plug 'wellle/tmux-complete.vim'
 
   " " javascript
   " Plug 'styled-components/vim-styled-components'
@@ -109,13 +120,6 @@ call plug#begin('~/.nvim/autoload')
   " " Handlebars
   " Plug 'nono/vim-handlebars'
 
-  " "" Color schemes.
-  Plug 'flazz/vim-colorschemes'
-
-  Plug 'xolox/vim-misc'
-  Plug 'xolox/vim-colorscheme-switcher'
-  Plug 'raphamorim/lucario'
-
   " Plug 'gilgigilgil/anderson.vim'
   " Plug 'Wutzara/vim-materialtheme'
   " Plug 'xero/sourcerer.vim'
@@ -137,4 +141,6 @@ call plug#begin('~/.nvim/autoload')
   " It provides a smarter way to correct spelling mistakes by supporting
   " PascalCase, camelCase and snake_case
   " Plug 'kamykn/spelunker.vim'
+  " Plug 'ryanoasis/vim-devicons'
+  "
 call plug#end()

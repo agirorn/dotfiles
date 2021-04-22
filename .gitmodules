@@ -10,3 +10,6 @@
 [submodule "my-zsh/plugins/zsh-better-npm-completion"]
 	path = my-zsh/plugins/zsh-better-npm-completion
 	url = git@github.com:lukechilds/zsh-better-npm-completion.git
+[submodule "vendor/vase16-iterm2"]
+	path = vendor/vase16-iterm2
+	url = git@github.com:martinlindhe/base16-iterm2.git

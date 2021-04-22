@@ -31,12 +31,8 @@ set wildignore+=*.o,*.obj,.git,*.pyc,*.pyc
 set nospell
 set mouse=a            "" enable mouse selection.
 " set ttymouse=xterm2    "" Allow mouse to resize pane.
-set background=dark
-colorscheme woju
-
 " Allow moves from the end of line to next or previous ling
 set whichwrap+=h,l
-
 set cursorline
 set conceallevel=0
 
@@ -48,16 +44,19 @@ set hlsearch
 " Copy backup files when editing crontab files
 au BufEnter crontab.* setl backupcopy=yes
 
-" "" Lets just do this for all files to ensure if they are mounted in Docker that
-" "" they get picked up.
+" Lets just do this for all files to ensure if they are mounted in Docker that
+" they get picked up.
 " au BufEnter * setl backupcopy=yes
 "
 " if has("autocmd")
-"   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+"      \ exe "normal! g'\"" | endif
 " endif
 
 "" Hide search selection
-nnoremap <LEADER><SPACE> :nohlsearch<C-R>=has('diff')?'<BAR>diffupdate':''<CR><CR><C-L>
+nnoremap <LEADER><SPACE> :nohlsearch<C-R>=has('diff')
+  \ ? '<BAR>diffupdate'
+  \ : ''<CR><CR><C-L>
 
 "" Yank / Copy to the end of the line.
 map Y y$
@@ -142,19 +141,21 @@ nmap <leader>sn ]s
 "" List of suggested spelling
 nmap <leader>sl z=
 
-" "" Toggle comment for current line
+" Toggle comment for current line
 " map <leader>l gcc
 "
-" "" If you prefer the Omni-Completion tip window to close when a selection is
-" "" made, these lines close it on movement in insert mode or when leaving
-" "" insert mode
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
 " autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 " autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "
-" autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let expect to to_not
+" autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify
+" it_should_behave_like before after setup subject its shared_examples_for
+" shared_context let expect to to_not
 " highlight def link rubyRspec Function
 "
-" "" Tagbar
+" Tagbar
 " nmap <F8> :TagbarToggle<CR>
 " nmap <F9> :TagbarOpenAutoClose<CR>
 " nmap <F11> :ToggleWhitespace<CR>
@@ -182,7 +183,8 @@ nmap <leader>s :BufExplorer<cr>
 " map <leader>g :Gdiff<CR>
 "
 " "" Fix spell color
-" au BufNewFile,BufRead * hi SpellBad cterm=underline,bold ctermfg=009 ctermbg=000 guifg=#FFFFFF guibg=#000000 gui=none
+" au BufNewFile,BufRead * hi SpellBad cterm=underline,bold ctermfg=009
+"   \ ctermbg=000 guifg=#FFFFFF guibg=#000000 gui=none
 "
 "" yardman
 au BufRead,BufNewFile .yardmanrc set filetype=sh
@@ -207,10 +209,6 @@ au BufRead,BufNewFile .yardmanrc set filetype=sh
 "
 set pumheight=20
 
-" Mark the 80 column
-let &colorcolumn=join(range(82,999),",")
-highlight ColorColumn ctermbg=232 guibg=#2c2d27
-" let &colorcolumn="81,".join(range(120,999),",")
 
 " This should also work after going into insert mode
 autocmd! BufEnter * match ErrorMsg /\%>81c/
