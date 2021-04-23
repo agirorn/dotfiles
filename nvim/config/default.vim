@@ -211,5 +211,7 @@ set pumheight=20
 
 
 " This should also work after going into insert mode
-autocmd! BufEnter * match ErrorMsg /\%>81c/
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
+
+" Follow help links
+nnoremap <leader>h <c-]>
