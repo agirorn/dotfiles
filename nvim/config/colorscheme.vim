@@ -8,8 +8,13 @@ syntax enable
 let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
-" Mark the 80 column
-let &colorcolumn=join(range(82,999),",")
+if $AEGIRORN_CUSTOM_NVIM_WIDTH == ''
+  " Mark the 80 column
+  let &colorcolumn=join(range(82,999),",")
+else
+  " Mark the custom wth column
+  let &colorcolumn=join(range($AEGIRORN_CUSTOM_NVIM_WIDTH,999),",")
+endif
 highlight ColorColumn ctermbg=232 guibg=#2c2d27
 
 " " colorscheme-switcher
