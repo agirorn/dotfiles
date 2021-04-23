@@ -35,8 +35,8 @@ export INFOPATH="/usr/local/share/info:$INFOPATH"
 # expor LC_ALL=is_IS.UTF-8
 
 # Set vim as my editor
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 # History controle
 export HISTCONTROL=erasedups

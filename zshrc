@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=is_IS.UTF-8
 export LC_CTYPE=is_IS.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
