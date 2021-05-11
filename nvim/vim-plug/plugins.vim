@@ -55,6 +55,8 @@ call plug#begin('~/.nvim/autoload')
   " Color schemes.
   Plug 'ayu-theme/ayu-vim'
 
+  Plug 'jlanzarotta/bufexplorer'
+
   """"""""""""""""""""
   " Disabled plugins "
   """"""""""""""""""""
