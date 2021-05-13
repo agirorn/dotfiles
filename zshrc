@@ -45,16 +45,14 @@ ZSH_CUSTOM=$HOME/dotfiles/my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  my-react
-  my-perl
-  my-yarn
+  bazel
   bower
   bundler
+  cargo
   docker
   docker-compose
-  cargo
   fabric
-  ripgrep
+  fzf
   git
   git-extras
   git-kraken
@@ -63,11 +61,15 @@ plugins=(
   highlight
   history-substring-search
   karma
+  my-perl
+  my-react
+  my-yarn
   nvm
   nvmrc
   pip
-  pyenv
   postgres
+  pyenv
+  ripgrep
   rust
   rustup
   rvm
@@ -76,7 +78,6 @@ plugins=(
   vi-mode
   yarn
   zsh-better-npm-completion
-  fzf
 )
 
 # User configuration
