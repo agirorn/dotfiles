@@ -100,12 +100,20 @@ map <leader>q :q<CR>
 map <f12> :set spell!<cr>
 "
 " "" Resizing windows
-" nmap - <C-W>-
-" nmap + <C-W>+
-" nmap _ :vertical res -2<CR>
-" nmap * :vertical res +2<CR>
-"
-" "" Enable window commands in insert mode
+nmap - :res -4<CR>
+nmap _ :res +4<CR>
+nmap + :vertical res -4<CR>
+nmap * :vertical res +4<CR>
+
+
+
+" nmap <C-s-k> :resize -2<CR>
+" nmap <C-s-j> :resize +2<CR>
+" nmap <C-s-h> :vertical resize -2<CR>
+" nmap <C-s-l> :vertical resize +2<CR>
+
+
+:" "" Enable window commands in insert mode
 " imap <C-w> <C-o><C-w>
 "
 " "" preview markdown in vim
