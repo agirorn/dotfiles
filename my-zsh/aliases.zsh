@@ -6,7 +6,6 @@ alias c='clear'
 alias kill-swap='find . -iname ".*.swp" -exec rm {} \;'
 alias remove-vim-swap="find . -iname '.*.swp' -exec rm {} \;"
 alias atome="tmpin atom"
-alias dev="npm run dev"
 # SUDO nvm nodejs
 alias snode="sudo PATH=\$(dirname \$(which node)):\$PATH"
 
