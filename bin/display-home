@@ -1,10 +1,2 @@
 #!/usr/bin/env bash
-#
-# Using displayplacer to configure the displays at home
-#
-# https://github.com/jakehilborn/displayplacer
-#
-displayplacer \
-  "id:5355D91B-463B-3528-A693-B95AF2124B12 res:1792x1120 hz:59 color_depth:8 scaling:on origin:(0,0) degree:0" \
-  "id:A375D835-FD37-EE0E-0DC4-0399DDBCBFB2 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(879,-1080) degree:0" \
-  "id:DADF3593-5FD3-3A53-A289-3D513FEEF299 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(-1041,-1080) degree:0"
+displayplacer "id:C2677E6B-1D8C-921E-FDFF-370CEB17A479 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(0,0) degree:0" "id:DADF3593-5FD3-3A53-A289-3D513FEEF299 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(-1060,-1080) degree:0" "id:A375D835-FD37-EE0E-0DC4-0399DDBCBFB2 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(860,-1080) degree:0"

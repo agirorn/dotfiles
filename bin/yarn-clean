@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+cd `yarn cache dir`
+
+# # Failing the script if it is not now running in the Yarn Caches directory
+# pwd | rg "Caches/Yarn" && echo ok || exit 1
+#
+# for i in `ls`; do
+#   echo "removing $i - packages left: `ls -l | wc -l`";
+#   rm -rf $i;
+# done
+
+## This could be a much faster way to do it.
+cd ..
+mkdir -p .v6-empty;
+mv v6 .v6
+rsync -a --delete .v6-empty/ .v6/
+rmdir .v6-empty;
+rmdir .v6;
+
+exit 0;

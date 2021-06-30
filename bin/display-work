@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+displayplacer "id:C2677E6B-1D8C-921E-FDFF-370CEB17A479 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(0,0) degree:0" "id:40FD4E33-0CFF-3544-3CB8-B3F655EE0055 res:2560x1440 hz:59 color_depth:8 scaling:off origin:(-1776,-1440) degree:0" "id:941A855C-CFFE-99B7-2330-F96769682AAC res:2560x1440 hz:59 color_depth:8 scaling:off origin:(784,-1440) degree:0"

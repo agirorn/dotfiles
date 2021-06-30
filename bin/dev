@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+test -x packages.json && yarn dev
+test -x packages.json && exit 0
+make dev
