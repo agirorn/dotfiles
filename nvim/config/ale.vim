@@ -14,3 +14,23 @@ let g:ale_linters = {
 
 nmap <silent> N :ALENextWrap<cr>
 " nmap <silent> P :ALEPreviousWrap<cr>
+
+command! ALEIgnoreEslint call AleIgnoreEslint()
+function! AleIgnoreEslint()
+  " https://stackoverflow.com/questions/54961318/vim-ale-shortcut-to-add-eslint-ignore-hint
+  let l:codes = []
+  if (!exists('b:ale_highlight_items'))
+    echo 'cannot ignore eslint rule without b:ale_highlight_items'
+    return
+  endif
+  for l:item in b:ale_highlight_items
+    if (l:item['lnum']==line('.') && l:item['linter_name']=='eslint')
+      let l:code = l:item['code']
+      call add(l:codes, l:code)
+    endif
+  endfor
+  if len(l:codes)
+    exec 'normal O// eslint-disable-next-line ' . join(l:codes, ', ')
+  endif
+endfunction
+nmap <F7> :ALEIgnoreEslint <cr>
