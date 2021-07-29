@@ -58,3 +58,17 @@ function vgchanged() {
 
 export PATH="$(yarn global bin):$PATH"
 export PATH="$HOME/bin:$PATH"
+
+## This is to get python 3.8.0 installed on mac os
+# https://github.com/pyenv/pyenv/issues/1740
+# And the commadn to install python also requiers a patch
+# pyenv install 3.8.0 --patch < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch)
+test -d /usr/local/opt/zlib/li && \
+  bexport LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+test -d /usr/local/opt/zlib/include && \
+  export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+
+# This is required by PYENV for seom strange reason the plugin can not just
+# figure this out
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
