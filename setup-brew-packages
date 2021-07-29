@@ -3,25 +3,26 @@
 INSTALLED=`brew list`
 APPLICATIONS=(
   atom
+  bzip2
   ctags
   dbeaver-community
   fzf
   git
   htop
+  jq
   neovim
   nvm
   obs
+  postgresql
   pyenv
   pyenv-virtualenv
   ripgrep
   subversion
   tmux
+  urlview
   visual-studio-code
-  zsh
-  postgresql
   zlib
-  bzip2
-  jq
+  zsh
 )
 
 for app in ${APPLICATIONS[@]}; do
