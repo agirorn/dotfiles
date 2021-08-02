@@ -6,6 +6,7 @@ APPLICATIONS=(
   bzip2
   ctags
   dbeaver-community
+  docker
   fzf
   git
   htop
@@ -24,12 +25,20 @@ APPLICATIONS=(
   zlib
   zsh
 )
-
+apps_to_install=()
 for app in ${APPLICATIONS[@]}; do
-  # Checking that is $app is installed by homebrew
+  # Checking that $app was installed by homebrew
   echo $INSTALLED | grep -q $app
   if [ $? != 0 ]; then
-    echo "Installing $app"
-    brew install $app
+    apps_to_install+=("${app}")
   fi
 done
+
+if [ ${#apps_to_install[@]} -eq 0 ]; then
+  echo "Nothing to install"
+  exit 0
+fi
+
+missing_apps=${apps_to_install[@]}
+echo Installing ${missing_apps}
+brew install ${missing_apps}
