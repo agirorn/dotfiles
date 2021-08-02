@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+TODAY=`date +%Y-%m-%d`
+DONE_FILE=~/TODO/done/${TODAY}.md
+TODO_FILE=~/TODO/TODO.md
+NEW_FILE_CONTENT=$(cat <<EOF
+# Work done at ${TODAY}
+
+## [DONE]
+EOF
+)
+
+if [ ! -f "$DONE_FILE" ]; then
+  # Start with a good template
+  echo $"${NEW_FILE_CONTENT}" > $DONE_FILE
+fi
+
+nvim -O $TODO_FILE $DONE_FILE

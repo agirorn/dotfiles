@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+open_day_in_the_past () {
+  DATE=`date -v-${1}d +%F`
+  FILE=~/TODO/done/${DATE}.md
+  if [ -f "$FILE" ]; then
+    nvim $FILE
+    exit 0
+  fi
+}
+
+open_day_in_the_past 1
+open_day_in_the_past 2
+open_day_in_the_past 3
+open_day_in_the_past 4
+open_day_in_the_past 5
+open_day_in_the_past 6
+open_day_in_the_past 7

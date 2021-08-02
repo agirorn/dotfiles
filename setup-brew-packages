@@ -1,0 +1,35 @@
+#! /usr/bin/env bash
+
+INSTALLED=`brew list`
+APPLICATIONS=(
+  atom
+  bzip2
+  ctags
+  dbeaver-community
+  fzf
+  git
+  htop
+  jq
+  neovim
+  nvm
+  obs
+  postgresql
+  pyenv
+  pyenv-virtualenv
+  ripgrep
+  subversion
+  tmux
+  urlview
+  visual-studio-code
+  zlib
+  zsh
+)
+
+for app in ${APPLICATIONS[@]}; do
+  # Checking that is $app is installed by homebrew
+  echo $INSTALLED | grep -q $app
+  if [ $? != 0 ]; then
+    echo "Installing $app"
+    brew install $app
+  fi
+done
