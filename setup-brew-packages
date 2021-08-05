@@ -16,6 +16,7 @@ APPLICATIONS=(
   obs
   postgresql
   pyenv
+  displayplacer
   pyenv-virtualenv
   ripgrep
   subversion
