@@ -70,5 +70,6 @@ test -d /usr/local/opt/zlib/include && \
 
 # This is required by PYENV for seom strange reason the plugin can not just
 # figure this out
+export ZSH_PYENV_QUIET=true
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
