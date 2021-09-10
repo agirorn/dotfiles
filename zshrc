@@ -68,7 +68,7 @@ plugins=(
   # nvmrc
   pip
   postgres
-  pyenv
+  # pyenv
   ripgrep
   rust
   rustup
@@ -84,6 +84,7 @@ plugins=(
 
 export PATH="/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 test -d $HOME/bin && export PATH="$PATH:$HOME/bin"
+test -d $HOME/work-bin && export PATH="$PATH:$HOME/work-bin"
 test -d $HOME/.local/bin && export PATH="$PATH:$HOME/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
