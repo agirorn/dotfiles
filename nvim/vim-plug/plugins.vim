@@ -56,6 +56,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'ayu-theme/ayu-vim'
 
   Plug 'jlanzarotta/bufexplorer'
+  Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
   """"""""""""""""""""
   " Disabled plugins "
