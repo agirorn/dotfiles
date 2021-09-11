@@ -6,11 +6,13 @@ APPLICATIONS=(
   bzip2
   ctags
   dbeaver-community
+  displayplacer
   docker
   fzf
   git
   htop
   jq
+  kubectl
   neovim
   nvm
   obs
