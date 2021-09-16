@@ -8,6 +8,7 @@ APPLICATIONS=(
   dbeaver-community
   displayplacer
   docker
+  ffmpeg
   fzf
   git
   htop
