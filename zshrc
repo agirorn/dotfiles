@@ -65,7 +65,7 @@ plugins=(
   my-react
   my-yarn
   nvm
-  # nvmrc
+  nvmrc
   pip
   postgres
   # pyenv
