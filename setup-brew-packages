@@ -24,6 +24,7 @@ APPLICATIONS=(
   tmux
   urlview
   visual-studio-code
+  youtube-dl
   zlib
   zsh
 )
