@@ -1,0 +1,11 @@
+"############################################################
+" Turn on repeat keys on MacOs
+"
+" defaults write -g ApplePressAndHoldEnabled -bool false
+"############################################################
+
+" Configure the clipboard
+set clipboard+=unnamed
+
+" Turnoff the beeping
+set belloff=all
