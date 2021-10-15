@@ -3,6 +3,7 @@
 INSTALLED=`brew list`
 APPLICATIONS=(
   atom
+  bazelisk
   bzip2
   ctags
   dbeaver-community
