@@ -61,6 +61,7 @@ plugins=(
   highlight
   history-substring-search
   karma
+  mvn
   my-perl
   my-react
   my-yarn
