@@ -1,0 +1,12 @@
+# Interesting brew packages
+
+## Prot swagger
+
+Start your web security testing journey for free - download our essential manual
+toolkit.
+
+https://portswigger.net/burp/communitydownload
+
+```
+brew install urp-suite
+```
