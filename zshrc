@@ -137,3 +137,7 @@ export KEYTIMEOUT=1
 setopt noincappendhistory
 setopt nosharehistory
 export LUCINITY_UPDATE_RC=false
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
+
+# Dirty hack since for some reason nvm does not use the correct version
+nvm use default
