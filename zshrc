@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_PYENV_QUIET=true
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -72,7 +73,7 @@ plugins=(
   nvmrc
   pip
   postgres
-  # pyenv
+  pyenv
   ripgrep
   rust
   rustup
@@ -138,10 +139,6 @@ setopt noincappendhistory
 setopt nosharehistory
 export LUCINITY_UPDATE_RC=false
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
-
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Dirty hack since for some reason nvm does not use the correct version
 nvm use default
