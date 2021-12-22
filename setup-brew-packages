@@ -5,6 +5,7 @@ APPLICATIONS=(
   atom
   bazel
   bzip2
+  colordiff
   ctags
   dbeaver-community
   displayplacer
@@ -15,6 +16,7 @@ APPLICATIONS=(
   htop
   jq
   kubectl
+  lazygit
   neovim
   nvm
   obs
@@ -23,9 +25,8 @@ APPLICATIONS=(
   pyenv-virtualenv
   ripgrep
   subversion
-  tmux
-  lazygit
   tig
+  tmux
   urlview
   visual-studio-code
   youtube-dl
