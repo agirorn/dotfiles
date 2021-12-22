@@ -142,3 +142,6 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
 
 # Dirty hack since for some reason nvm does not use the correct version
 nvm use default
+
+# Kuberneties completion
+echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc
