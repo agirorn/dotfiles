@@ -24,6 +24,8 @@ APPLICATIONS=(
   ripgrep
   subversion
   tmux
+  lazygit
+  tig
   urlview
   visual-studio-code
   youtube-dl
