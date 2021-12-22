@@ -144,5 +144,4 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
 nvm use default
 
 # Kuberneties completion
-echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)

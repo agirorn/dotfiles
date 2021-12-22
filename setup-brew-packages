@@ -8,6 +8,7 @@ APPLICATIONS=(
   colordiff
   ctags
   dbeaver-community
+  diff-so-fancy
   displayplacer
   docker
   ffmpeg

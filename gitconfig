@@ -11,6 +11,7 @@
 	email = agirorn@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [pull]
 	ff = only
 [include]
