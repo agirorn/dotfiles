@@ -52,7 +52,6 @@ plugins=(
   bazel
   bower
   bundler
-  cargo
   docker
   docker-compose
   fabric
@@ -76,7 +75,6 @@ plugins=(
   pyenv
   ripgrep
   rust
-  rustup
   rvm
   urltools
   vagrant
