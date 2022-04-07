@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -z ${1} ]; then
+  echo "No port provide";
+  exit 1
+fi
+
+PORT=${1}
+TIME=${2:-0.25} # wait for 1/5 of the second before check again
+
+echo "Waiting for port ${PORT} to be availabel (sleep ${TIME})"
+
+while ! nc -z localhost ${PORT}; do
+  printf '%s' "."
+  sleep ${TIME}
+done
+
+echo "PORT ${PORT} is open"
