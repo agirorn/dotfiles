@@ -68,8 +68,9 @@ plugins=(
   my-perl
   my-react
   my-yarn
-  nvm
-  nvmrc
+  # nvm
+  # nvmrc
+  fnm
   pip
   postgres
   pyenv
@@ -139,7 +140,8 @@ export LUCINITY_UPDATE_RC=false
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
 
 # Dirty hack since for some reason nvm does not use the correct version
-nvm use default
+  # nvm use default
+eval "$(fnm env --use-on-cd)"
 
 # Kuberneties completion
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
