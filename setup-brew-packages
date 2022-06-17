@@ -2,6 +2,7 @@
 
 INSTALLED=`brew list`
 APPLICATIONS=(
+  rust-analyzer
   atom
   bazel
   bzip2
