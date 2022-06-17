@@ -2,7 +2,7 @@
 
 INSTALLED=`brew list`
 APPLICATIONS=(
-  rust-analyzer
+  font-hack-nerd-font
   atom
   bazel
   bzip2
