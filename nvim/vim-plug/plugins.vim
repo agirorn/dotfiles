@@ -110,8 +110,7 @@ call plug#begin('~/.nvim/autoload')
 
 
 
-
-
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 
 

@@ -27,18 +27,18 @@ cmp.setup({
     end,
   },
   mapping = {
-    -- Tab immediately completes. C-n/C-p to select.
-    -- ['<C-Space>'] = cmp.mapping.confirm({ select = true })
-      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      -- Enter immediately completes. Arrow U/Down to select.
       ['<Up>'] = cmp.mapping.select_prev_item(),
-      ['<C-n>'] = cmp.mapping.select_next_item(),
       ['<Down>'] = cmp.mapping.select_next_item(),
       ['<Tab>'] = cmp.mapping.select_next_item(),
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+      -- Accept currently selected item. Set `select` to `false` to only confirm
+      -- explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
     -- TODO: currently snippets from lsp end up getting prioritized -- stop that!
