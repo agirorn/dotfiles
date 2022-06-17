@@ -25,7 +25,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'tpope/vim-sensible'
 
   " Better Syntax Support
-  Plug 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
 
   " File Explorer
   Plug 'preservim/nerdtree'
@@ -61,6 +61,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'tmux-plugins/vim-tmux'
   Plug 'wellle/tmux-complete.vim'
 
+
   " Only usefull to toggle throut avaiable colorschemes
   " No neead to have in all the time
   " Plug 'xolox/vim-misc'
@@ -68,6 +69,12 @@ call plug#begin('~/.nvim/autoload')
 
   " Color schemes.
   Plug 'ayu-theme/ayu-vim'
+  Plug 'nanotech/jellybeans.vim'
+
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'MunifTanjim/nui.nvim'
+  Plug 'nvim-neo-tree/neo-tree.nvim'
 
   Plug 'jlanzarotta/bufexplorer'
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
@@ -88,7 +95,6 @@ call plug#begin('~/.nvim/autoload')
   Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   " Trouble https://github.com/folke/trouble.nvim
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'folke/trouble.nvim'
 
 
@@ -113,6 +119,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 
+  Plug 'folke/which-key.nvim'
 
 
 
