@@ -80,7 +80,6 @@ call plug#begin('~/.nvim/autoload')
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
   Plug 'wfxr/minimap.vim'
 
-
   " Semantic language support
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'neovim/nvim-lspconfig'
@@ -97,14 +96,10 @@ call plug#begin('~/.nvim/autoload')
   " Trouble https://github.com/folke/trouble.nvim
   Plug 'folke/trouble.nvim'
 
-
-  "
-  " " Only because nvim-cmp _requires_ snippets
-  " Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
-  " Plug 'hrsh7th/vim-vsnip'
+  " Only because nvim-cmp _requires_ snippets
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
-  " " Syntactic language support
+  " Syntactic language support
   " Plug 'cespare/vim-toml'
   " Plug 'stephpy/vim-yaml'
   " Plug 'rust-lang/rust.vim'
@@ -112,38 +107,10 @@ call plug#begin('~/.nvim/autoload')
   " "Plug 'fatih/vim-go'
   " Plug 'dag/vim-fish'
   " Plug 'godlygeek/tabular'
-  " Plug 'plasticboy/vim-markdown'
-
-
+  Plug 'preservim/vim-markdown'
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-
   Plug 'folke/which-key.nvim'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   """"""""""""""""""""
   " Disabled plugins "
@@ -163,7 +130,6 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'joegesualdo/jsdoc.vim'
   " Plug 'christoomey/vim-sort-motion'
   " Plug 'evanleck/vim-svelte'
-  " Plug 'jparise/vim-graphql'
   " " Plug 'iamcco/coc-tailwindcss'
   " " Plug 'Valloric/YouCompleteMe'
   " " Plug 'Shougo/neocomplete.vim'
