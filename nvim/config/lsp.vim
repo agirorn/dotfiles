@@ -1,3 +1,7 @@
+" To have the latest version of rust=analyser run in nvim :>
+" :LspInstall rust_analyzer@nightly
+" And possibly also update rust in shell :> rustup update
+
 set completeopt=menu,menuone,noselect
 
 " LSP configuration
