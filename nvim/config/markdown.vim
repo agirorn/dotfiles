@@ -4,11 +4,11 @@ let g:markdown_fenced_languages = [
 \    'cpp',
 \    'css',
 \    'erb=eruby',
-\    'gql=graphql',
-\    'graphql',
 \    'javascript',
 \    'js=javascript',
 \    'json',
+\    'gql=graphql',
+\    'graphql',
 \    'python',
 \    'ruby',
 \    'sass',
@@ -23,5 +23,5 @@ let g:markdown_fenced_languages = [
 \    'yaml'
 \  ]
 
-" Reuse the default nvim cnfig config for plugin plasticboy/vim-markdown
+" Reuse the default nvim config for plugin plasticboy/vim-markdown
 let g:vim_markdown_fenced_languages = g:markdown_fenced_languages

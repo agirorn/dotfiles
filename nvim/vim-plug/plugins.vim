@@ -1,3 +1,17 @@
+" AstroNvim is a very interestinf vim convifutaion project to look into
+" https://github.com/AstroNvim/AstroNvim
+" And also this one is nice
+" https://gist.github.com/benfrain/97f2b91087121b2d4ba0dcc4202d252f
+
+" Initeresting new plugins
+" Plug 'editorconfig/editorconfig-vim'
+
+" " Cold be usefull
+" Plug 'glepnir/lspsaga.nvim'
+
+" https://github.com/mhartington/formatter.nvim
+" https://github.com/nvim-telescope/telescope.nvim
+
 "" auto-install vim-plug
 if empty(glob('~/.nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
@@ -11,13 +25,13 @@ call plug#begin('~/.nvim/autoload')
   Plug 'tpope/vim-sensible'
 
   " Better Syntax Support
-  Plug 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
 
   " File Explorer
   Plug 'preservim/nerdtree'
 
   " Make your Vim/Neovim as smart as VSCode.
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " This plugin causes trailing whitespace to be highlighted in red.
   Plug 'bronson/vim-trailing-whitespace'
@@ -29,7 +43,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'pbrisbin/vim-mkdir'
 
   " Asynchronous Lint Engine
-  Plug 'dense-analysis/ale'
+  " Plug 'dense-analysis/ale'
 
   " Comment stuff out
   Plug 'tpope/vim-commentary'
@@ -47,6 +61,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'tmux-plugins/vim-tmux'
   Plug 'wellle/tmux-complete.vim'
 
+
   " Only usefull to toggle throut avaiable colorschemes
   " No neead to have in all the time
   " Plug 'xolox/vim-misc'
@@ -54,9 +69,48 @@ call plug#begin('~/.nvim/autoload')
 
   " Color schemes.
   Plug 'ayu-theme/ayu-vim'
+  Plug 'nanotech/jellybeans.vim'
+
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'MunifTanjim/nui.nvim'
+  Plug 'nvim-neo-tree/neo-tree.nvim'
 
   Plug 'jlanzarotta/bufexplorer'
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
+  Plug 'wfxr/minimap.vim'
+
+  " Semantic language support
+  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'neovim/nvim-lspconfig'
+  " Plug 'nvim-lua/lsp_extensions.nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+  Plug 'ray-x/lsp_signature.nvim'
+
+  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  " Trouble https://github.com/folke/trouble.nvim
+  Plug 'folke/trouble.nvim'
+
+  " Only because nvim-cmp _requires_ snippets
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/vim-vsnip'
+  " Syntactic language support
+  " Plug 'cespare/vim-toml'
+  " Plug 'stephpy/vim-yaml'
+  " Plug 'rust-lang/rust.vim'
+  " Plug 'rhysd/vim-clang-format'
+  " "Plug 'fatih/vim-go'
+  " Plug 'dag/vim-fish'
+  " Plug 'godlygeek/tabular'
+  Plug 'preservim/vim-markdown'
+
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'folke/which-key.nvim'
 
   """"""""""""""""""""
   " Disabled plugins "
@@ -76,7 +130,6 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'joegesualdo/jsdoc.vim'
   " Plug 'christoomey/vim-sort-motion'
   " Plug 'evanleck/vim-svelte'
-  " Plug 'jparise/vim-graphql'
   " " Plug 'iamcco/coc-tailwindcss'
   " " Plug 'Valloric/YouCompleteMe'
   " " Plug 'Shougo/neocomplete.vim'

@@ -35,6 +35,7 @@ set mouse=a            "" enable mouse selection.
 set whichwrap+=h,l
 set cursorline
 set conceallevel=0
+set nofoldenable
 
 " Search as you type
 set ignorecase
