@@ -41,3 +41,11 @@ ln -s $HOME/dotfiles/gitignore_global $HOME/.gitignore_global
 # ln -s $HOME/dotfiles/irbrc $HOME/.irbrc
 # ln -s $HOME/dotfiles/jshintrc $HOME/.jshintrc
 # ln -s $HOME/dotfiles/noserc $HOME/.noserc
+
+which -s fnm
+if [[ $? != 0 ]]; then
+  echo "innstalling Fast Node Manager"
+  curl -fsSL https://fnm.vercel.app/install | bash
+else
+  echo "Skipping Fast Node Manager installation since it is already installed"
+fi

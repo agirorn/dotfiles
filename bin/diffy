@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# This script creates a colored side by side git diff
+#
+# Set then environment variable GIT_EXTERNAL_DIFF to this script so that git diff
+# can utilize it
+#
+# ```shell
+# GIT_EXTERNAL_DIFF=~/bin/diffy git diff
+# ```
+#
+echo
+echo Comparing: "$1 between $3 and $6"
+echo
+if stty >/dev/null 2>&1; then
+  pager=${PAGER:-less -r}
+else
+  pager=cat
+fi
+C=$(stty size | cut -d' ' -f2)
+D=$(expr $C / 2)
+sdiff -W -w $C "$2" "$5" | colordiff | grep -E "^.{$D} *[|<>] *" -A 10 -B 10 -n | $pager
