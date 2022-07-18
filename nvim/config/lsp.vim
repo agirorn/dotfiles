@@ -99,6 +99,19 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local custom_elm_attach = function(client)
+  if client.config.flags then
+      client.config.flags.allow_incremental_sync = true
+  end
+end
+
+-- lspconfig.elmls.setup {
+--   on_attach = custom_elm_attach
+-- }
+
+lspconfig.elmls.setup {}
+
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   flags = {
@@ -149,3 +162,37 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 END
 
+
+" Show line diagnostics automatically in hover window
+" see: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
+" Ru press <space>+e
+" lua << END
+" vim.o.updatetime = 500
+" vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+" END
+
+lua << END
+vim.diagnostic.config({
+  virtual_text = {
+    source = "if_many",  -- Or "if_many"
+  },
+  float = {
+    source = "always",  -- Or "if_many"
+  },
+})
+END
+
+" Highlight line number instead of having icons in sign column
+lua << END
+vim.cmd [[
+  highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+  highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+  highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+  highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]
+END

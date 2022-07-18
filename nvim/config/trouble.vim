@@ -5,3 +5,5 @@ lua << EOF
     -- refer to the configuration section below
   }
 EOF
+
+nmap <silent> <F3> :TroubleToggle<CR>

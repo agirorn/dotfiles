@@ -112,6 +112,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'folke/which-key.nvim'
 
+  " Plug 'elmcast/elm-vim'
   """"""""""""""""""""
   " Disabled plugins "
   """"""""""""""""""""
