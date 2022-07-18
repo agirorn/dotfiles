@@ -218,6 +218,16 @@ au BufRead,BufNewFile .yardmanrc set filetype=sh
 "
 set pumheight=20
 
+" Convert slashes to backslashes for Windows.
+" <leader>cf copies just the filename.
+" <leader>cp copies the filename including its full path.
+if has('win32')
+  nmap <leader>cf :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
+  nmap <leader>cp :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
+else
+  nmap <leader>cf :let @*=expand("%")<CR>
+  nmap <leader>cp :let @*=expand("%:p")<CR>
+endif
 
 " This should also work after going into insert mode
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
