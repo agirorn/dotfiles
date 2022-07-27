@@ -138,7 +138,36 @@ lspconfig.tsserver.setup({
     end,
 })
 
-require'lspconfig'.eslint.setup{}
+require'lspconfig'.eslint.setup{
+
+  settings = {
+    codeAction = {
+      disableRuleComment = {
+        enable = true,
+        location = "separateLine"
+      },
+      showDocumentation = {
+        enable = true
+      }
+    },
+    codeActionOnSave = {
+      enable = false,
+      mode = "all"
+    },
+    format = true,
+    nodePath = "",
+    onIgnoredFiles = "off",
+    packageManager = "npm",
+    quiet = false,
+    rulesCustomizations = {},
+    run = "onType",
+    useESLintClass = true,
+    validate = "on",
+    workingDirectory = {
+      mode = "location"
+    }
+  }
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -149,3 +178,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 END
 
+nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
