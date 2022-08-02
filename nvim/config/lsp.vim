@@ -212,3 +212,10 @@ vim.cmd [[
   sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
 ]]
 END
+
+"# Auto fix javascript and Typescript files
+autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
+autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
+
+"# Run the available code actions under the cursor
+nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
