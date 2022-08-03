@@ -8,6 +8,7 @@ APPLICATIONS=(
   bzip2
   colordiff
   ctags
+  kap
   dbeaver-community
   diff-so-fancy
   displayplacer
