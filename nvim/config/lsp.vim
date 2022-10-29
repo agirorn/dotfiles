@@ -219,3 +219,6 @@ autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
 
 "# Run the available code actions under the cursor
 nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
+
+"# Shows a pop-up windows with the current error under the cursor.
+" autocmd CursorHold * lua vim.diagnostic.open_float()
