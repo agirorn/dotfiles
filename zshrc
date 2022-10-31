@@ -81,7 +81,6 @@ plugins=(
   vagrant
   vi-mode
   yarn
-  zsh-better-npm-completion
 )
 
 # User configuration
