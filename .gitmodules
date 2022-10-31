@@ -12,4 +12,4 @@
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "vendor/vase16-iterm2"]
 	path = vendor/vase16-iterm2
-	url = git@github.com:martinlindhe/base16-iterm2.git
+	url = git@github.com:tinted-theming/base16-iterm2
