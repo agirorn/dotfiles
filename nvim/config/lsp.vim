@@ -99,6 +99,19 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local custom_elm_attach = function(client)
+  if client.config.flags then
+      client.config.flags.allow_incremental_sync = true
+  end
+end
+
+-- lspconfig.elmls.setup {
+--   on_attach = custom_elm_attach
+-- }
+
+lspconfig.elmls.setup {}
+
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   flags = {
@@ -138,36 +151,23 @@ lspconfig.tsserver.setup({
     end,
 })
 
-require'lspconfig'.eslint.setup{
-
-  settings = {
-    codeAction = {
-      disableRuleComment = {
-        enable = true,
-        location = "separateLine"
-      },
-      showDocumentation = {
-        enable = true
-      }
-    },
-    codeActionOnSave = {
-      enable = false,
-      mode = "all"
-    },
-    format = true,
-    nodePath = "",
-    onIgnoredFiles = "off",
-    packageManager = "npm",
-    quiet = false,
-    rulesCustomizations = {},
-    run = "onType",
-    useESLintClass = true,
-    validate = "on",
-    workingDirectory = {
-      mode = "location"
-    }
-  }
-}
+lspconfig.eslint.setup({
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 500 },
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = true
+    if client.resolved_capabilities.document_formatting then
+      local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function()
+          vim.lsp.buf.formatting_sync()
+        end,
+        group = au_lsp,
+      })
+    end
+  end,
+})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -178,4 +178,47 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 END
 
+
+" Show line diagnostics automatically in hover window
+" see: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
+" Ru press <space>+e
+" lua << END
+" vim.o.updatetime = 500
+" vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+" END
+
+lua << END
+vim.diagnostic.config({
+  virtual_text = {
+    source = "if_many",  -- Or "if_many"
+  },
+  float = {
+    source = "always",  -- Or "if_many"
+  },
+})
+END
+
+" Highlight line number instead of having icons in sign column
+lua << END
+vim.cmd [[
+  highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+  highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+  highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+  highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]
+END
+
+"# Auto fix javascript and Typescript files
+autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
+autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
+
+"# Run the available code actions under the cursor
 nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
+
+"# Shows a pop-up windows with the current error under the cursor.
+" autocmd CursorHold * lua vim.diagnostic.open_float()

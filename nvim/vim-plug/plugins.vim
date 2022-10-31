@@ -80,6 +80,9 @@ call plug#begin('~/.nvim/autoload')
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
   Plug 'wfxr/minimap.vim'
 
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
   " Semantic language support
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'neovim/nvim-lspconfig'
@@ -112,6 +115,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'folke/which-key.nvim'
 
+  " Plug 'elmcast/elm-vim'
   """"""""""""""""""""
   " Disabled plugins "
   """"""""""""""""""""
