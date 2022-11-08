@@ -141,8 +141,8 @@ lspconfig.tsserver.setup({
         },
     },
     on_attach = function(client, bufnr)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
         local ts_utils = require("nvim-lsp-ts-utils")
         ts_utils.setup({})
         ts_utils.setup_client(client)
@@ -157,8 +157,8 @@ lspconfig.eslint.setup({
   capabilities = capabilities,
   flags = { debounce_text_changes = 500 },
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = true
-    if client.resolved_capabilities.document_formatting then
+    client.server_capabilities.document_formatting = true
+    if client.server_capabilities.document_formatting then
       local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
       vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*",
