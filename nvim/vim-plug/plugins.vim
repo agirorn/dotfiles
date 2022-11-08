@@ -112,7 +112,8 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'godlygeek/tabular'
   Plug 'preservim/vim-markdown'
 
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'folke/which-key.nvim'
 
   " Plug 'elmcast/elm-vim'
