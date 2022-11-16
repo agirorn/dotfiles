@@ -195,8 +195,13 @@ nmap <leader>s :BufExplorer<cr>
 " au BufNewFile,BufRead * hi SpellBad cterm=underline,bold ctermfg=009
 "   \ ctermbg=000 guifg=#FFFFFF guibg=#000000 gui=none
 "
-"" yardman
+
+"# yardman
 au BufRead,BufNewFile .yardmanrc set filetype=sh
+
+"# Tiltfile
+au BufRead,BufNewFile Tiltfile set filetype=python
+
 "
 " "" buildfile
 " au BufRead,BufNewFile buildfile set filetype=sh
