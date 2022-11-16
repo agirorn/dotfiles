@@ -144,3 +144,7 @@ eval "$(fnm env --use-on-cd)"
 
 # Kuberneties completion
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/aegiro/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
