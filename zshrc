@@ -64,6 +64,7 @@ plugins=(
   highlight
   history-substring-search
   karma
+  kubectl
   mvn
   my-perl
   my-react
