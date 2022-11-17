@@ -143,9 +143,9 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
   # nvm use default
 eval "$(fnm env --use-on-cd)"
 
-# Kuberneties completion
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/aegiro/.rd/bin:$PATH"
+export PATH="${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Kuberneties completion
+which kubectl >> /dev/null && source <(kubectl completion zsh)

@@ -107,5 +107,5 @@ export NVM_DIR="$HOME/.nvm"
 source "$HOME/.cargo/env"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/aegiro/.rd/bin:$PATH"
+export PATH="${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
