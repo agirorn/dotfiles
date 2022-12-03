@@ -1,6 +1,7 @@
 {
   "name": "Dotfiles",
   "description": "Global dependencies for my system",
+  "license": "UNLICENSED",
   "private": false,
   "scripts": {
     "install": "./bin/npm-global-install package.json"
