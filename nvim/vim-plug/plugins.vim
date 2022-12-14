@@ -113,6 +113,10 @@ call plug#begin('~/.nvim/autoload')
   Plug 'preservim/vim-markdown'
 
   " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  "" You may need to run this after PlugInstall for treesitter to work propperly
+  "" $nvim --headless -c "TSInstallSync bash c" -c q
+  "" $ nvim --headless -c "TSUpdateSync" -c q
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'folke/which-key.nvim'
 
