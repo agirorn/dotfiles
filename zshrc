@@ -150,4 +150,6 @@ export PATH="${HOME}/.rd/bin:$PATH"
 # Kuberneties completion
 which kubectl >> /dev/null && source <(kubectl completion zsh)
 
+# Kuberneties completion
+test -x /usr/local/bin/kubectl && source <(kubectl completion zsh)
 test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
