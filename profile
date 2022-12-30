@@ -9,5 +9,5 @@ test -d $HOME/work-bin && export PATH="$PATH:$HOME/work-bin"
 eval "$(pyenv init --path)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/aegiro/.rd/bin:$PATH"
+export PATH=${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

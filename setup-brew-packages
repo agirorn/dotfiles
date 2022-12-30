@@ -2,6 +2,7 @@
 
 INSTALLED=`brew list`
 APPLICATIONS=(
+  kubectx
   font-hack-nerd-font
   atom
   bazel

@@ -144,9 +144,12 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
 eval "$(fnm env --use-on-cd)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="${HOME}/.rd/bin:${PATH}"
+export PATH="${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Kuberneties completion
-test -x /usr/local/bin/kubectl && source <(kubectl completion zsh)
+which kubectl >> /dev/null && source <(kubectl completion zsh)
 
+# Kuberneties completion
+test -x /usr/local/bin/kubectl && source <(kubectl completion zsh)
+test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
