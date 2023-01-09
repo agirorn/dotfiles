@@ -120,6 +120,9 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'folke/which-key.nvim'
 
+  Plug 'tpope/vim-dadbod'
+  Plug 'kristijanhusak/vim-dadbod-ui'
+
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""
   " Disabled plugins "
