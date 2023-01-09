@@ -110,7 +110,7 @@ call plug#begin('~/.nvim/autoload')
   " "Plug 'fatih/vim-go'
   " Plug 'dag/vim-fish'
   " Plug 'godlygeek/tabular'
-  Plug 'preservim/vim-markdown'
+  " Plug 'preservim/vim-markdown'
 
   " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
