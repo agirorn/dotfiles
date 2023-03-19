@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 
+# brew tap dbcli/tap
+# brew install pgcli
+
 INSTALLED=`brew list`
 APPLICATIONS=(
   kubectx
