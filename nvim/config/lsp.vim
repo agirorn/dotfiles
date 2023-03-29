@@ -147,6 +147,7 @@ lspconfig.rust_analyzer.setup {
   },
   capabilities = capabilities,
 }
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 lspconfig.tsserver.setup({
     init_options = {
