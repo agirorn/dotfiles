@@ -13,6 +13,7 @@ APPLICATIONS=(
   colordiff
   ctags
   kap
+  kube-linter
   dbeaver-community
   diff-so-fancy
   displayplacer

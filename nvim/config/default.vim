@@ -14,6 +14,7 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
 
+set guicursor = " "
 set number
 set tabstop=2        " Tab width is 2 spaces
 set shiftwidth=2     " Indent also with 4 spaces

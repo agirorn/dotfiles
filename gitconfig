@@ -10,7 +10,7 @@
 	name = Ægir Örn Símonarson
 	email = agirorn@gmail.com
 [core]
-	excludesfile = /Users/aegiro/.gitignore_global
+	# excludesfile = ~.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [pull]
 	ff = only
