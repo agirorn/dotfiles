@@ -173,6 +173,19 @@ lspconfig.eslint.setup({
   end,
 })
 
+lspconfig.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+        }
+      }
+    }
+  }
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
