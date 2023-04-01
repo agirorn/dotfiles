@@ -42,6 +42,7 @@ set nofoldenable
 set ignorecase
 set smartcase
 set hlsearch
+set splitright
 
 " Copy backup files when editing crontab files
 au BufEnter crontab.* setl backupcopy=yes

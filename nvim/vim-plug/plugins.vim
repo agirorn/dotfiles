@@ -94,6 +94,13 @@ call plug#begin('~/.nvim/autoload')
   Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
   Plug 'ray-x/lsp_signature.nvim'
 
+  " # RUST
+  Plug 'simrat39/rust-tools.nvim'
+
+  " # RUST DEBUGGING
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'mfussenegger/nvim-dap'
+
   Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   " Trouble https://github.com/folke/trouble.nvim
