@@ -188,18 +188,22 @@ lspconfig.eslint.setup({
   end,
 })
 
-lspconfig.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = {'W391'},
-          maxLineLength = 100
-        }
-      }
-    }
-  }
+lspconfig.pyright.setup{
+  on_attach = on_attach,
 }
+
+-- lspconfig.pylsp.setup{
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           ignore = {'W391'},
+--           maxLineLength = 100
+--         }
+--       }
+--     }
+--   }
+-- }
 lspconfig.tailwindcss.setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
