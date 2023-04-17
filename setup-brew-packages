@@ -6,7 +6,6 @@
 INSTALLED=`brew list`
 APPLICATIONS=(
   kubectx
-  font-hack-nerd-font
   atom
   bazel
   bzip2
@@ -20,7 +19,9 @@ APPLICATIONS=(
   docker
   ffmpeg
   fzf
+  fnm
   git
+  diff-so-fancy
   htop
   jq
   kubectl
@@ -54,6 +55,10 @@ if [ ${#apps_to_install[@]} -eq 0 ]; then
   echo "Nothing to install"
   exit 0
 fi
+
+# Installing fonts see
+# https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
+brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font
 
 missing_apps=${apps_to_install[@]}
 echo Installing ${missing_apps}
