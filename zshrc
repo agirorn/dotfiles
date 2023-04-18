@@ -153,3 +153,8 @@ which kubectl >> /dev/null && source <(kubectl completion zsh)
 # Kuberneties completion
 test -x /usr/local/bin/kubectl && source <(kubectl completion zsh)
 test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
+test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
+
+rust_analyser_path=`which rustup >> /dev/null && \
+  dirname $(rustup which --toolchain stable rust-analyzer)`
+test -d $rust_analyser_path && export PATH=$PATH:$rust_analyser_path
