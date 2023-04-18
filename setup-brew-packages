@@ -34,6 +34,7 @@ APPLICATIONS=(
   pyenv-virtualenv
   ripgrep
   subversion
+  htop
   tig
   tmux
   urlview
