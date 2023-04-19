@@ -158,3 +158,13 @@ test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
 rust_analyser_path=`which rustup >> /dev/null && \
   dirname $(rustup which --toolchain stable rust-analyzer)`
 test -d $rust_analyser_path && export PATH=$PATH:$rust_analyser_path
+
+test -d $HOME/code/devops-scripts
+which -s az
+if [[ $? != 0 ]]; then
+  export DS_BASE_PATH=$HOME/code/devops-scripts
+  export PATH=$PATH:$DS_BASE_PATH/bin
+  eval "$(ds --show-completions-zsh)"
+fi
+
+test -d /usr/local/opt/libpq/bin && export PATH="/usr/local/opt/libpq/bin:$PATH"
