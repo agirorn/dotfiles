@@ -160,8 +160,9 @@ rust_analyser_path=`which rustup >> /dev/null && \
 test -d $rust_analyser_path && export PATH=$PATH:$rust_analyser_path
 
 test -d $HOME/code/devops-scripts
-which -s az
-if [[ $? != 0 ]]; then
+
+if which -s az >> /dev/null; then
+  echo "should not be here"
   export DS_BASE_PATH=$HOME/code/devops-scripts
   export PATH=$PATH:$DS_BASE_PATH/bin
   eval "$(ds --show-completions-zsh)"
