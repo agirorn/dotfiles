@@ -148,24 +148,37 @@ export PATH="${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Kuberneties completion
-which kubectl >> /dev/null && source <(kubectl completion zsh)
-
-# Kuberneties completion
-test -x /usr/local/bin/kubectl && source <(kubectl completion zsh)
-test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
-test -d $HOME/.zshrc-at-work.zsh && source $HOME/.zshrc-at-work.zsh
-
-rust_analyser_path=`which rustup >> /dev/null && \
-  dirname $(rustup which --toolchain stable rust-analyzer)`
-test -d $rust_analyser_path && export PATH=$PATH:$rust_analyser_path
-
-test -d $HOME/code/devops-scripts
-
-if which -s az >> /dev/null; then
-  echo "should not be here"
-  export DS_BASE_PATH=$HOME/code/devops-scripts
-  export PATH=$PATH:$DS_BASE_PATH/bin
-  eval "$(ds --show-completions-zsh)"
+if which kubectl >> /dev/null; then
+  source <(kubectl completion zsh)
 fi
 
-test -d /usr/local/opt/libpq/bin && export PATH="/usr/local/opt/libpq/bin:$PATH"
+# Kuberneties completion
+if test -x /usr/local/bin/kubectl; then
+  source <(kubectl completion zsh)
+fi
+if test -d $HOME/.zshrc-at-work.zsh; then
+  source $HOME/.zshrc-at-work.zsh
+fi
+if test -d $HOME/.zshrc-at-work.zsh; then
+  source $HOME/.zshrc-at-work.zsh
+fi
+
+if which -s rustup >> /dev/null; then
+  rust_analyser_path=`dirname $(rustup which --toolchain stable rust-analyzer)`
+  if test -d $rust_analyser_path; then
+    export PATH=$PATH:$rust_analyser_path
+  fi
+fi
+
+if test -d $HOME/code/devops-scripts; then
+  if which -s az >> /dev/null; then
+    echo "should not be here"
+    export DS_BASE_PATH=$HOME/code/devops-scripts
+    export PATH=$PATH:$DS_BASE_PATH/bin
+    eval "$(ds --show-completions-zsh)"
+  fi
+fi
+
+if test -d /usr/local/opt/libpq/bin; then
+  export PATH="/usr/local/opt/libpq/bin:$PATH"
+fi
