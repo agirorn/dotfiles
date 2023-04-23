@@ -28,7 +28,7 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'sheerun/vim-polyglot'
 
   " File Explorer
-  Plug 'preservim/nerdtree'
+  " Plug 'preservim/nerdtree'
 
   " Make your Vim/Neovim as smart as VSCode.
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
