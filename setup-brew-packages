@@ -5,36 +5,36 @@
 
 INSTALLED=`brew list`
 APPLICATIONS=(
-  kubectx
   atom
   bazel
   bzip2
   colordiff
   ctags
-  kap
-  kube-linter
   dbeaver-community
+  diff-so-fancy
   diff-so-fancy
   displayplacer
   docker
   ffmpeg
-  fzf
   fnm
+  fzf
   git
-  diff-so-fancy
   htop
   jq
+  kap
+  kube-linter
   kubectl
+  kubectx
   lazygit
   neovim
   nvm
   obs
+  obsidian
   postgresql
   pyenv
   pyenv-virtualenv
   ripgrep
   subversion
-  htop
   tig
   tmux
   urlview
