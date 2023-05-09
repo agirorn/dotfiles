@@ -150,11 +150,11 @@ export PATH="${HOME}/.rd/bin:$PATH"
 # Kuberneties completion
 if which kubectl >> /dev/null; then
   source <(kubectl completion zsh)
-fi
-
-# Kuberneties completion
-if test -x /usr/local/bin/kubectl; then
-  source <(kubectl completion zsh)
+else
+  # Kuberneties completion
+  if test -x /usr/local/bin/kubectl; then
+    source <(kubectl completion zsh)
+  fi
 fi
 if test -d $HOME/.zshrc-at-work.zsh; then
   source $HOME/.zshrc-at-work.zsh
