@@ -68,7 +68,6 @@ plugins=(
   mvn
   my-perl
   my-react
-  my-yarn
   # nvm
   # nvmrc
   fnm
@@ -82,6 +81,7 @@ plugins=(
   vagrant
   vi-mode
   yarn
+  my-yarn
 )
 
 # User configuration
@@ -170,15 +170,15 @@ if which -s rustup >> /dev/null; then
   fi
 fi
 
+if test -d /usr/local/opt/libpq/bin; then
+  export PATH="/usr/local/opt/libpq/bin:$PATH"
+fi
+
 if test -d $HOME/code/devops-scripts; then
   if which -s az >> /dev/null; then
-    echo "should not be here"
     export DS_BASE_PATH=$HOME/code/devops-scripts
     export PATH=$PATH:$DS_BASE_PATH/bin
     eval "$(ds --show-completions-zsh)"
   fi
 fi
 
-if test -d /usr/local/opt/libpq/bin; then
-  export PATH="/usr/local/opt/libpq/bin:$PATH"
-fi
