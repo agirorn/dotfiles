@@ -6,12 +6,13 @@
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
   assumed = !git ls-files -v | grep "^[[:lower:]]"
+  # from https://github.com/banga/git-split-diffs
+  wdiff = "!git diff | git-split-diffs --color | less -RFX"
 [user]
 	name = Ægir Örn Símonarson
 	email = agirorn@gmail.com
 [core]
 	# excludesfile = ~.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [pull]
 	ff = only
 [include]
