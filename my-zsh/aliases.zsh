@@ -56,7 +56,6 @@ function vgchanged() {
   nvim `git status -s $folder | awk '{print $2}'`
 }
 
-export PATH="$(yarn global bin):$PATH"
 export PATH="$HOME/bin:$PATH"
 
 ## This is to get python 3.8.0 installed on mac os

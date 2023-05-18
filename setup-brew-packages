@@ -38,6 +38,7 @@ APPLICATIONS=(
   tig
   tmux
   urlview
+  extract_url
   visual-studio-code
   youtube-dl
   zlib

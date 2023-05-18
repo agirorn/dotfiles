@@ -68,7 +68,6 @@ plugins=(
   mvn
   my-perl
   my-react
-  my-yarn
   # nvm
   # nvmrc
   fnm
@@ -82,6 +81,7 @@ plugins=(
   vagrant
   vi-mode
   yarn
+  my-yarn
 )
 
 # User configuration
@@ -150,11 +150,11 @@ export PATH="${HOME}/.rd/bin:$PATH"
 # Kuberneties completion
 if which kubectl >> /dev/null; then
   source <(kubectl completion zsh)
-fi
-
-# Kuberneties completion
-if test -x /usr/local/bin/kubectl; then
-  source <(kubectl completion zsh)
+else
+  # Kuberneties completion
+  if test -x /usr/local/bin/kubectl; then
+    source <(kubectl completion zsh)
+  fi
 fi
 if test -d $HOME/.zshrc-at-work.zsh; then
   source $HOME/.zshrc-at-work.zsh
@@ -170,15 +170,19 @@ if which -s rustup >> /dev/null; then
   fi
 fi
 
+if test -d /usr/local/opt/libpq/bin; then
+  export PATH="/usr/local/opt/libpq/bin:$PATH"
+fi
+
 if test -d $HOME/code/devops-scripts; then
   if which -s az >> /dev/null; then
-    echo "should not be here"
     export DS_BASE_PATH=$HOME/code/devops-scripts
     export PATH=$PATH:$DS_BASE_PATH/bin
     eval "$(ds --show-completions-zsh)"
   fi
 fi
 
-if test -d /usr/local/opt/libpq/bin; then
-  export PATH="/usr/local/opt/libpq/bin:$PATH"
+if test -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"; then
+  # Add Visual Studio Code (code)
+  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
