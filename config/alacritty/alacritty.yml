@@ -9,69 +9,22 @@ window:
 
 font:
   normal: &font-normal
-    # family: "Hack Nerd Font"
-    # family: Menlo
-    # family: "Cousine Nerd Font"
-    # family: "CodeNewRoman Nerd Font"
-    # family: "CodeNewRoman Nerd Font Mono"
-    # family: "CodeNewRoman Nerd Font Propo"
-    # family: "Cousine Nerd Font"
-    # family: "Cousine Nerd Font Mono"
-    # family: "Cousine Nerd Font Propo"
-    # family: "FiraCode Nerd Font"
-    # family: "FiraCode Nerd Font Med"
-    # family: "FiraCode Nerd Font Mono"
-    # family: "FiraCode Nerd Font Mono,FiraCode Nerd Font Mono Light"
-    # family: "FiraCode Nerd Font Mono,FiraCode Nerd Font Mono Med"
-    # family: "FiraCode Nerd Font Mono,FiraCode Nerd Font Mono Ret"
-    # family: "FiraCode Nerd Font Mono,FiraCode Nerd Font Mono SemBd"
-    # family: "FiraCode Nerd Font Propo"
-    # family: "FiraCode Nerd Font Propo Ret"
-    # family: "FiraCode Nerd Font Propo,FiraCode Nerd Font Propo Light"
-    # family: "FiraCode Nerd Font Propo,FiraCode Nerd Font Propo Med"
-    # family: "FiraCode Nerd Font Propo,FiraCode Nerd Font Propo SemBd"
-    # family: "FiraCode Nerd Font,FiraCode Nerd Font Light"
-    # family: "FiraCode Nerd Font,FiraCode Nerd Font Ret"
-    # family: "FiraCode Nerd Font,FiraCode Nerd Font SemBd"
-    # family: "FiraMono Nerd Font"
-    # family: "FiraMono Nerd Font Mono"
-    # family: "FiraMono Nerd Font Mono Medium"
-    # family: "FiraMono Nerd Font Propo"
-    # family: "FiraMono Nerd Font Propo,FiraMono Nerd Font Propo Medium"
-    # family: "FiraMono Nerd Font"
-    # family: "FiraMono Nerd Font Medium"
-    # family: "Hack Nerd Font"
+    # You can find awailable fonts with `fc-listr`
     family: "Hack Nerd Font Mono"
-    # family: "Hack Nerd Font Propo"
-    # family: monospace
-    # family: Menlo
     style: Regular
-
   bold:
-    <<: *font-normal
-    # family: monospace
-    # family: Hack Nerd Font
+    # <<: *font-normal
     style: Bold
-
   italic:
-    <<: *font-normal
-    # family: Hack Nerd Font
-    # family: monospace
-    # family: monospace
+    # <<: *font-normal
     style: Italic
-
   bold_italic:
-    <<: *font-normal
-    # family: Hack Nerd Font
-    # family: monospace
-    # family: monospace
+    # <<: *font-normal
     style: Bold Italic
-
-  # normal:
-  #   family: "Agave"
   size: 12
-  # glyph_offset:
-  #   y: 1
+
+env:
+  TERM: xterm-256color
 
 draw_bold_text_with_bright_colors: true
 
@@ -79,10 +32,32 @@ selection:
   save_to_clipboard: false
 
 import:
-  # - ~/.catppuccin-frappe.yml
-  - ~/.catppuccin-latte.yml
-  # - ~/.catppuccin-macchiato.yml
-  - ~/.catppuccin-mocha.yml
+  - ~/.config/alacritty/themes/alacritty/themes/github_dimmed.yaml
+  # Other interesting themes
+  # - ~/.config/alacritty/themes/alacritty/themes/Cobalt2.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/argonaut.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/blood_moon.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/breeze.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/darcula.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/dracula.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/flat_remix.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/gnome_terminal.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/konsole_linux.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/marine_dark.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/monokai_charcoal.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/nightfox.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/omni.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/papercolor_dark.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/pencil_dark.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/rose-pine-moon.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/rose-pine.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/solarized_dark.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/taerminal.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/tango_dark.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/tender.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/terminal_app.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/thelovelace.yaml
+  # - ~/.config/alacritty/themes/alacritty/themes/tomorrow_night_bright.yaml
 
 shell:
   program: /bin/bash
