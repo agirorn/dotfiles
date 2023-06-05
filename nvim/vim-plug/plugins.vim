@@ -129,6 +129,8 @@ call plug#begin('~/.nvim/autoload')
 
   Plug 'tpope/vim-dadbod'
   Plug 'kristijanhusak/vim-dadbod-ui'
+  Plug 'google/vim-maktaba'
+  Plug 'bazelbuild/vim-bazel'
 
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""
