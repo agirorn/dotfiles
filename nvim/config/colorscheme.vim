@@ -12,12 +12,15 @@ colorscheme jellybeans
 if $AEGIRORN_CUSTOM_NVIM_WIDTH == ''
   " Mark the 80 column
   let &colorcolumn=join(range(82,999),",")
-  autocmd! BufEnter * match ErrorMsg /\%>81c/
+  " autocmd! BufEnter * match ErrorMsg /\%>81c/
 else
   " Mark the custom width column
   let &colorcolumn=join(range($AEGIRORN_CUSTOM_NVIM_WIDTH,999),",")
 endif
 highlight ColorColumn ctermbg=232 guibg=#2c2d27
+
+" Change the editor space to 100cols for rust
+autocmd FileType rust set colorcolumn=101,999
 
 " " colorscheme-switcher
 " "   plugin xolox/vim-colorscheme-switcher

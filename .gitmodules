@@ -7,9 +7,6 @@
 [submodule "vim/bundle/Vundle.vim"]
 	path = vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
-# [submodule "my-zsh/plugins/zsh-better-npm-completion"]
-# 	path = my-zsh/plugins/zsh-better-npm-completion
-# 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule "vendor/vase16-iterm2"]
-	path = vendor/vase16-iterm2
-	url = git@github.com:tinted-theming/base16-iterm2
+[submodule "config/alacritty/themes/alacritty"]
+	path = config/alacritty/themes/alacritty
+	url = git@github.com:alacritty/alacritty-theme.git
