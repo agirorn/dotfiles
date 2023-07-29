@@ -16,6 +16,7 @@ Elasticsearch
 WebSocket
 binance
 ESlint
+monorepo
 struct
 enum
 deserialize

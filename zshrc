@@ -187,5 +187,15 @@ if test -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"; th
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
+if test -d $HOME/Library/pnpm; then
+  # pnpm
+  export PNPM_HOME="$HOME/Library/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+  # pnpm end
+fi
+
 #Star Ship
 eval "$(starship init zsh)"

@@ -213,6 +213,15 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
   }
 )
+
+
+-- lspconfig.bazel.setup{
+--   cmd = { "bazel" },
+--   filetypes = { "bzl", "BUILD", "WORKSPACE" },
+--   root_dir = lspconfig.util.root_pattern("WORKSPACE"),
+-- }
+
+
 END
 
 
