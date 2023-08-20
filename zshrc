@@ -198,4 +198,4 @@ if test -d $HOME/Library/pnpm; then
 fi
 
 #Star Ship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
