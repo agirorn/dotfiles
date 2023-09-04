@@ -287,6 +287,27 @@ rt.setup({
       vim.keymap.set("n", "<Leader>M", rt.expand_macro.expand_macro)
 
     end,
+
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    -- standalone = true,
+    settings = {
+      ["rust-analyzer"] = {
+        -- enable clippy on save
+        checkOnSave = {
+          command = "clippy",
+          extraArgs = { "--all", "--", "-W", "clippy::all" },
+        },
+        rustfmt = {
+          extraArgs = { "+nightly" },
+        },
+        cargo = {
+          loadOutDirsFromCheck = true,
+        },
+        procMacro = {
+          enable = true,
+        },
+      },
+    },
   },
 })
 END
