@@ -255,7 +255,6 @@ rt.setup({
   },
   server = {
     on_attach = function(_, bufnr)
-
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -285,7 +284,6 @@ rt.setup({
       -- Code action groups
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
       vim.keymap.set("n", "<Leader>M", rt.expand_macro.expand_macro)
-
     end,
 
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -310,6 +308,7 @@ rt.setup({
     },
   },
 })
+
 END
 
 " Highlight line number instead of having icons in sign column
@@ -330,6 +329,8 @@ END
 "# Auto fix javascript and Typescript files
 autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
 autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
+"# Auto format rust files.
+autocmd BufWritePre *.rs execute 'lua vim.lsp.buf.format()'
 
 "# Run the available code actions under the cursor
 nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
