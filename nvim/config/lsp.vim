@@ -190,6 +190,7 @@ lspconfig.eslint.setup({
 
 lspconfig.pyright.setup{
   on_attach = on_attach,
+  filetypes = {"python"}
 }
 
 -- lspconfig.pylsp.setup{

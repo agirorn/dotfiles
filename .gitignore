@@ -4,3 +4,5 @@
 config/htop/
 tmux/plugins/
 vim/bundle
+config/packer/checkpoint_cache
+config/packer/checkpoint_signature
