@@ -196,3 +196,6 @@ if test -d $HOME/Library/pnpm; then
   esac
   # pnpm end
 fi
+
+#Star Ship
+# eval "$(starship init zsh)"

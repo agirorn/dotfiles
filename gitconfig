@@ -12,7 +12,7 @@
 	name = Ægir Örn Símonarson
 	email = agirorn@gmail.com
 [core]
-	# excludesfile = ~.gitignore_global
+	excludesfile = ~/.gitignore_global
 [pull]
 	ff = only
 [include]
