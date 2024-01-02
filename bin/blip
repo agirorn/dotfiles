@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+if [ -z "$1" ]
+then
+  MSG="Your work is compleate"
+else
+  MSG="$@"
+fi
+# echo "The message is $message"
+echo "${MSG}" | terminal-notifier -title Blip!! -sound default

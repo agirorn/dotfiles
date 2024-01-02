@@ -39,6 +39,7 @@ APPLICATIONS=(
   ripgrep
   starship
   subversion
+  terminal-notifier
   tig
   tmux
   urlview
