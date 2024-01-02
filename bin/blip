@@ -6,5 +6,4 @@ then
 else
   MSG="$@"
 fi
-# echo "The message is $message"
 echo "${MSG}" | terminal-notifier -title Blip!! -sound default
