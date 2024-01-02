@@ -1,0 +1,80 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[[colors.indexed_colors]]
+color = "0xd18616"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xff938a"
+index = 17
+
+[colors.bright]
+black = "0x636e7b"
+blue = "0x6cb6ff"
+cyan = "0x56d4dd"
+green = "0x6bc46d"
+magenta = "0xdcbdfb"
+red = "0xff938a"
+white = "0xcdd9e5"
+yellow = "0xdaaa3f"
+
+[colors.normal]
+black = "0x545d68"
+blue = "0x539bf5"
+cyan = "0x39c5cf"
+green = "0x57ab5a"
+magenta = "0xb083f0"
+red = "0xf47067"
+white = "0x909dab"
+yellow = "0xc69026"
+
+[colors.primary]
+background = "0x22272e"
+# bright_background = "0x000000"
+bright_foreground = "0xffffff"
+# dim_background = "0x31363b"
+dim_foreground = "0xeff0f1"
+foreground = "0x95A2AF"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Super|Shift"
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+args = ["-l", "-c", "tmux"]
+program = "/bin/bash"
+
+[window]
+opacity = 1
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 0
+y = 0
