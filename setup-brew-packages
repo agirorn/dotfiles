@@ -8,6 +8,7 @@ APPLICATIONS=(
   alacritty
   atom
   bazel
+  beekeeper-studio
   bzip2
   colordiff
   ctags
