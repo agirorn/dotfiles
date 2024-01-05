@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+which -s brew
+if [[ $? == 0 ]]; then
+
+  which -s dotnet >> /dev/null
+  if [[ $? != 0 ]]; then
+    echo Installing dotnet
+    brew install dotnet
+  fi
+
+  which -s mono >> /dev/null
+  if [[ $? != 0 ]]; then
+    echo Installing mono
+    brew install mono
+  fi
+
+  brew tap | grep -q omnisharp-roslyn
+  if [[ $? != 0 ]]; then
+    echo Adding the missing omnisharp-roslyn tab
+    brew tap omnisharp/omnisharp-roslyn
+  fi
+  brew list | grep -q omnisharp
+  if [[ $? != 0 ]]; then
+    echo Installing omnisharp
+    brew install omnisharp
+  fi
+fi
