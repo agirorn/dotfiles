@@ -15,14 +15,15 @@ if [[ $? == 0 ]]; then
     brew install mono
   fi
 
+  # https://github.com/OmniSharp/homebrew-omnisharp-roslyn
   brew tap | grep -q omnisharp-roslyn
   if [[ $? != 0 ]]; then
     echo Adding the missing omnisharp-roslyn tab
     brew tap omnisharp/omnisharp-roslyn
   fi
-  brew list | grep -q omnisharp
+  brew list | grep -q omnisharp-mono
   if [[ $? != 0 ]]; then
-    echo Installing omnisharp
-    brew install omnisharp
+    echo Installing omnisharp-mono
+    brew install omnisharp-mono
   fi
 fi
