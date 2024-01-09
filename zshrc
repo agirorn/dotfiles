@@ -82,7 +82,7 @@ plugins=(
   vi-mode
   yarn
   my-yarn
-  zsh-dotnet-completion
+  my-dotnet
 )
 
 # User configuration
