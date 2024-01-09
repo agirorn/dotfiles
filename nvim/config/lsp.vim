@@ -213,7 +213,7 @@ lspconfig.tailwindcss.setup {}
 -- end
 
 local pid = vim.fn.getpid()
-local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharpXXX")
+local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
   lspconfig.omnisharp.setup{
       cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
       -- Additional configuration can be added here
