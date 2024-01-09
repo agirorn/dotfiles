@@ -204,6 +204,3 @@ if test -d "${HOME}/.local/share/fnm"; then
 fi
 
 eval "$(fnm env --use-on-cd)"
-
-# Add .NET Core SDK tools
-test -d ~/.dotnet/tools && export PATH="$PATH:~/.dotnet/tools"

@@ -10,6 +10,3 @@
 [submodule "config/alacritty/alacritty-theme"]
 	path = config/alacritty/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme.git
-[submodule "my-zsh/plugins/zsh-dotnet-completion"]
-	path = my-zsh/plugins/zsh-dotnet-completion
-	url = https://github.com/memark/zsh-dotnet-completion.git
