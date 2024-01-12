@@ -214,11 +214,15 @@ lspconfig.tailwindcss.setup {}
 
 local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
-  lspconfig.omnisharp.setup{
-      cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-      -- Additional configuration can be added here
-      on_attach = on_attach 
-  }
+
+lspconfig.omnisharp.setup{
+    handlers = {
+      ["textDocument/definition"] = require('omnisharp_extended').handler,
+    },
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+    -- Additional configuration can be added here
+    on_attach = on_attach 
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
