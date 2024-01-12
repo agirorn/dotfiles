@@ -67,6 +67,12 @@ test -d /usr/local/opt/zlib/li && \
 test -d /usr/local/opt/zlib/include && \
   export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
+# Print out the output hepler sutff when running dotnet tests
+alias dtest='dotnet test --logger "console;verbosity=detailed"'
+
+# unit time command and not the build in bash ot zsh one
+test -f /usr/bin/time && alias utime=/usr/bin/time
+
 # This is required by PYENV for seom strange reason the plugin can not just
 # figure this out
 # export ZSH_PYENV_QUIET=true
