@@ -203,4 +203,11 @@ if test -d "${HOME}/.local/share/fnm"; then
   export PATH="${HOME}/.local/share/fnm:$PATH"
 fi
 
+
+# Go executables
+if test -d "${HOME}/go/bin"; then
+  export PATH="$PATH:${HOME}/go/bin"
+fi
+
+
 eval "$(fnm env --use-on-cd)"
