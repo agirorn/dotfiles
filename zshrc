@@ -68,6 +68,7 @@ plugins=(
   mvn
   my-perl
   my-react
+  nats
   # nvm
   # nvmrc
   fnm

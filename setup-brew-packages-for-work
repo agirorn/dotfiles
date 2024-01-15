@@ -6,6 +6,7 @@ brew tap nats-io/nats-tools
 INSTALLED=`brew list`
 APPLICATIONS=(
   nats-io/nats-tools/nats
+  nats-io/nats-tools/nsc
   nats-server
 )
 
