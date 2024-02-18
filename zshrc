@@ -68,6 +68,7 @@ plugins=(
   mvn
   my-perl
   my-react
+  nats
   # nvm
   # nvmrc
   fnm
@@ -82,6 +83,7 @@ plugins=(
   vi-mode
   yarn
   my-yarn
+  my-dotnet
 )
 
 # User configuration
@@ -139,9 +141,6 @@ setopt nosharehistory
 export LUCINITY_UPDATE_RC=false
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=false
 
-# Dirty hack since for some reason nvm does not use the correct version
-  # nvm use default
-eval "$(fnm env --use-on-cd)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="${HOME}/.rd/bin:$PATH"
@@ -199,3 +198,17 @@ fi
 
 #Star Ship
 # eval "$(starship init zsh)"
+
+# fnm
+if test -d "${HOME}/.local/share/fnm"; then
+  export PATH="${HOME}/.local/share/fnm:$PATH"
+fi
+
+
+# Go executables
+if test -d "${HOME}/go/bin"; then
+  export PATH="$PATH:${HOME}/go/bin"
+fi
+
+
+eval "$(fnm env --use-on-cd)"

@@ -132,6 +132,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'google/vim-maktaba'
   Plug 'bazelbuild/vim-bazel'
   Plug 'rebelot/kanagawa.nvim'
+  Plug 'Hoffs/omnisharp-extended-lsp.nvim'
 
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""

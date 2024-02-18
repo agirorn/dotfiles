@@ -2,53 +2,14 @@
 
 # brew tap dbcli/tap
 # brew install pgcli
-
+brew tap nats-io/nats-tools
 INSTALLED=`brew list`
 APPLICATIONS=(
-  alacritty
-  atom
-  bazel
-  beekeeper-studio
-  bzip2
-  colordiff
-  ctags
-  dbeaver-community
-  diff-so-fancy
-  diff-so-fancy
-  displayplacer
-  docker
-  golang
-  extract_url
-  ffmpeg
-  fnm
-  fzf
-  git
-  htop
-  jq
-  kap
-  kube-linter
-  kubectl
-  kubectx
-  lazygit
-  neovim
-  nvm
-  obs
-  obsidian
-  postgresql
-  pyenv
-  pyenv-virtualenv
-  ripgrep
-  starship
-  subversion
-  terminal-notifier
-  tig
-  tmux
-  urlview
-  visual-studio-code
-  youtube-dl
-  zlib
-  zsh
+  nats-io/nats-tools/nats
+  nats-io/nats-tools/nsc
+  nats-server
 )
+
 apps_to_install=()
 for app in ${APPLICATIONS[@]}; do
   # Checking that $app was installed by homebrew

@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+# Print out the output hepler sutff when running dotnet tests
+dotnet test --logger "console;verbosity=detailed" $@

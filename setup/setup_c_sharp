@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+which -s brew
+if [[ $? == 0 ]]; then
+
+  which -s dotnet-sdk >> /dev/null
+  if [[ $? != 0 ]]; then
+    echo Installing dotnet-sdk
+    brew install dotnet-sdk
+  fi
+
+  which -s mono >> /dev/null
+  if [[ $? != 0 ]]; then
+    echo Installing mono
+    brew install mono
+  fi
+
+  # https://github.com/OmniSharp/homebrew-omnisharp-roslyn
+  brew tap | grep -q omnisharp-roslyn
+  if [[ $? != 0 ]]; then
+    echo Adding the missing omnisharp-roslyn tab
+    brew tap omnisharp/omnisharp-roslyn
+  fi
+
+  # Download omnisharp (omnisharp-osx-x64-net6.0.zip) from https://github.com/OmniSharp/omnisharp-roslyn/releases
+  # and unpack it to ~/bin/omnisharp-osx-x64-net6.0
+
+  # More info can be found here https://aaronbos.dev/posts/csharp-dotnet-neovim
+fi

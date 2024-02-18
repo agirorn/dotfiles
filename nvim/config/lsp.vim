@@ -190,6 +190,7 @@ lspconfig.eslint.setup({
 
 lspconfig.pyright.setup{
   on_attach = on_attach,
+  filetypes = {"python"}
 }
 
 -- lspconfig.pylsp.setup{
@@ -205,6 +206,23 @@ lspconfig.pyright.setup{
 --   }
 -- }
 lspconfig.tailwindcss.setup {}
+
+-- function file_exists(name)
+--    local f=io.open(name,"r")
+--    if f~=nil then io.close(f) return true else return false end
+-- end
+
+local pid = vim.fn.getpid()
+local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
+
+lspconfig.omnisharp.setup{
+    handlers = {
+      ["textDocument/definition"] = require('omnisharp_extended').handler,
+    },
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+    -- Additional configuration can be added here
+    on_attach = on_attach 
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
