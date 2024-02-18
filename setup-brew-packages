@@ -23,6 +23,7 @@ APPLICATIONS=(
   fnm
   fzf
   git
+  go
   htop
   jq
   kap

@@ -239,6 +239,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 --   root_dir = lspconfig.util.root_pattern("WORKSPACE"),
 -- }
 
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+}
 
 END
 
