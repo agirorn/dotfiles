@@ -4,4 +4,5 @@ let g:dbs = {
 \ 'test-case-manager': 'postgresql://postgres:docker@localhost:5433/clearlens',
 \ 'test-sar': 'postgresql://postgres:docker@localhost:5433/sar',
 \ 'dev': 'postgresql://postgres:docker@localhost:5432/clearlens',
+\ 'local': 'postgresql://admin:admin@localhost:5432/db',
 \}

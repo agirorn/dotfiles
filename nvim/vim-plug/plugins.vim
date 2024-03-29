@@ -129,6 +129,7 @@ call plug#begin('~/.nvim/autoload')
 
   Plug 'tpope/vim-dadbod'
   Plug 'kristijanhusak/vim-dadbod-ui'
+  Plug 'kristijanhusak/vim-dadbod-completion'
   Plug 'google/vim-maktaba'
   Plug 'bazelbuild/vim-bazel'
   Plug 'rebelot/kanagawa.nvim'
