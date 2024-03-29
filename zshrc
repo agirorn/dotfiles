@@ -204,11 +204,13 @@ if test -d "${HOME}/.local/share/fnm"; then
   export PATH="${HOME}/.local/share/fnm:$PATH"
 fi
 
-
 # Go executables
 if test -d "${HOME}/go/bin"; then
   export PATH="$PATH:${HOME}/go/bin"
 fi
 
+if test -d "/usr/local/opt/postgresql@16/bin"; then
+  export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+fi
 
 eval "$(fnm env --use-on-cd)"
