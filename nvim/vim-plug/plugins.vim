@@ -135,6 +135,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'rebelot/kanagawa.nvim'
   Plug 'Hoffs/omnisharp-extended-lsp.nvim'
   Plug 'ray-x/go.nvim'
+  Plug 'slint-ui/vim-slint'
 
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""
