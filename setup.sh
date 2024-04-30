@@ -26,22 +26,9 @@ test -f $HOME/.zshrc     || ln -s $HOME/dotfiles/zshrc     $HOME/.zshrc
 test -f $HOME/.zshrc     || ln -s $HOME/dotfiles/zshrc     $HOME/.zshrc
 
 ## Git
-test -f || ln -s $HOME/dotfiles/gitconfig        $HOME/.gitconfig
-test -d $HOME/.config/git        || mkdir -p $HOME/.config/git
-test -f $HOME/.config/git/ignore || ln -s $HOME/dotfiles/gitignore_global $HOME/.config/git/ignore
+test -f $HOME/.gitignore_global || ln -s $HOME/dotfiles/gitignore_global $HOME/.gitignore_global
+test -d $HOME/.config || ln -s $HOME/dotfiles/config $HOME/.config
 
-# ####################
-# Git
-# ####################
-# ln -s $HOME/dotfiles/tern-config $HOME/.tern-config
-# ln -s $HOME/dotfiles/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
-
-# ln -s $HOME/dotfiles/config $HOME/.config
-# ln -s $HOME/dotfiles/eslintrc $HOME/.eslintrc
-# ln -s $HOME/dotfiles/gemrc $HOME/.gemrc
-# ln -s $HOME/dotfiles/irbrc $HOME/.irbrc
-# ln -s $HOME/dotfiles/jshintrc $HOME/.jshintrc
-# ln -s $HOME/dotfiles/noserc $HOME/.noserc
 
 which -s fnm
 if [[ $? != 0 ]]; then
