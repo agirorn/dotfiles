@@ -7,7 +7,19 @@ set completeopt=menu,menuone,noselect
 " LSP configuration
 lua << END
 -- local lsp_installer = require'nvim-lsp-installer'
-require("nvim-lsp-installer").setup {}
+
+-- # Configure NVIM LSP isntaller
+-- # See https://github.com/williamboman/nvim-lsp-installer?tab=readme-ov-file#configuration
+require("nvim-lsp-installer").setup {
+  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+}
 
 -- lsp_installer.setup({
 --     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
