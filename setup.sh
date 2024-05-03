@@ -24,6 +24,7 @@ test -f $HOME/.vim       || ln -s $HOME/dotfiles/vim       $HOME/.vim
 test -f $HOME/.vimrc     || ln -s $HOME/dotfiles/vimrc     $HOME/.vimrc
 test -f $HOME/.zshrc     || ln -s $HOME/dotfiles/zshrc     $HOME/.zshrc
 test -f $HOME/.zshrc     || ln -s $HOME/dotfiles/zshrc     $HOME/.zshrc
+test -d $HOME/bin        || ln -s $HOME/dotfiles/bin       $HOME/bin
 
 ## Git
 test -f $HOME/.gitignore_global || ln -s $HOME/dotfiles/gitignore_global $HOME/.gitignore_global
