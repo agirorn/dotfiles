@@ -35,6 +35,7 @@ require("nvim-lsp-installer").setup {
 local cmp = require'cmp'
 
 local lspconfig = require'lspconfig'
+
 cmp.setup({
   snippet = {
     -- REQUIRED by nvim-cmp. get rid of it once we can
@@ -124,6 +125,13 @@ end
 --   on_attach = custom_elm_attach
 -- }
 
+-- lspconfig.snyk_ls.setup( {
+--   init_options = {
+--     -- activate_snyk_open_source = false,
+--   }
+--   -- cmd = "snyk-ls"
+-- })
+
 lspconfig.elmls.setup {}
 
 -- lspconfig.rust_analyzer.setup {
@@ -184,19 +192,19 @@ lspconfig.eslint.setup({
   capabilities = capabilities,
   flags = { debounce_text_changes = 500 },
   on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = true
-    client.server_capabilities.documentFormattingProvider = true
-    if client.server_capabilities.document_formatting then
-      local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function()
-          -- vim.lsp.buf.format({ async = true })
-          vim.lsp.buf.format()
-        end,
-        group = au_lsp,
-      })
-    end
+    -- client.server_capabilities.document_formatting = true
+    client.server_capabilities.documentFormattingProvider = false
+    -- if client.server_capabilities.document_formatting then
+    --   local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
+    --   vim.api.nvim_create_autocmd("BufWritePre", {
+    --     pattern = "*",
+    --     callback = function()
+    --       -- vim.lsp.buf.format({ async = true })
+    --       vim.lsp.buf.format()
+    --     end,
+    --     group = au_lsp,
+    --   })
+    -- end
   end,
 })
 
@@ -370,3 +378,13 @@ nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
 
 "# Shows a pop-up windows with the current error under the cursor.
 " autocmd CursorHold * lua vim.diagnostic.open_float()
+
+"# format using Black
+lua << END
+local group = vim.api.nvim_create_augroup("Black", { clear = true })
+vim.api.nvim_create_autocmd("bufWritePost", {
+	pattern = "*.py",
+	command = "silent !black %",
+	group = group,
+})
+END

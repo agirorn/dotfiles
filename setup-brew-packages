@@ -25,6 +25,7 @@ APPLICATIONS=(
   ffmpeg
   fnm
   fzf
+  lens
   git
   go
   golang

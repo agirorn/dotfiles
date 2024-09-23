@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+snyk code test --severity-threshold=high $@
+# snyk code test $@
