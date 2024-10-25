@@ -235,6 +235,8 @@ lspconfig.tailwindcss.setup {}
 local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
 
+-- More info on thei can be found here
+-- https://aaronbos.dev/posts/csharp-dotnet-neovim
 lspconfig.omnisharp.setup{
     handlers = {
       ["textDocument/definition"] = require('omnisharp_extended').handler,

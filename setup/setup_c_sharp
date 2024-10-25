@@ -15,15 +15,14 @@ if [[ $? == 0 ]]; then
     brew install mono
   fi
 
-  # https://github.com/OmniSharp/homebrew-omnisharp-roslyn
-  brew tap | grep -q omnisharp-roslyn
-  if [[ $? != 0 ]]; then
-    echo Adding the missing omnisharp-roslyn tab
-    brew tap omnisharp/omnisharp-roslyn
-  fi
-
   # Download omnisharp (omnisharp-osx-x64-net6.0.zip) from https://github.com/OmniSharp/omnisharp-roslyn/releases
   # and unpack it to ~/bin/omnisharp-osx-x64-net6.0
-
   # More info can be found here https://aaronbos.dev/posts/csharp-dotnet-neovim
+  OMNISHARP=omnisharp-osx-x64-net6.0
+  OMNISHARP_DIR=~/dotfiles/bin/${OMNISHARP}
+  OMNISHARP_EXEC=OmniSharp
+  OMNISHARP_URL=https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.12/${OMNISHARP}.tar.gz
+  mkdir -p ${OMNISHARP_DIR}
+  cd ${OMNISHARP_DIR}
+  test -x ${OMNISHARP_EXEC} || wget -qO- ${OMNISHARP_URL} | tar xvz
 fi
