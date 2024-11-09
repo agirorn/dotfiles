@@ -246,6 +246,13 @@ lspconfig.omnisharp.setup{
     on_attach = on_attach 
 }
 
+-- -- " If neoformat continues to use all the CPU we can remove it and do it ourself
+-- -- " Install dotnet tool install -g csharpier
+-- " vim.api.nvim_create_autocmd("BufWritePre", {
+-- "     pattern = "*.cs",
+-- "     command = "silent! !csharpier --write %",
+-- " })
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
