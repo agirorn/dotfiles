@@ -133,7 +133,11 @@ call plug#begin('~/.nvim/autoload')
   Plug 'google/vim-maktaba'
   Plug 'bazelbuild/vim-bazel'
   Plug 'rebelot/kanagawa.nvim'
+
+  "" For C#
   Plug 'Hoffs/omnisharp-extended-lsp.nvim'
+  Plug 'sbdchd/neoformat'
+
   Plug 'ray-x/go.nvim'
   Plug 'slint-ui/vim-slint'
 

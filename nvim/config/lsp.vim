@@ -167,7 +167,7 @@ lspconfig.elmls.setup {}
 --   },
 --   capabilities = capabilities,
 -- }
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.format()]]
 
 lspconfig.tsserver.setup({
     init_options = {
@@ -373,7 +373,7 @@ END
 autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
 autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
 "# Auto format rust files.
-autocmd BufWritePre *.rs execute 'lua vim.lsp.buf.format()'
+autocmd BufWritePre *.rs silent! execute 'lua vim.lsp.buf.format()'
 
 "# Run the available code actions under the cursor
 nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
