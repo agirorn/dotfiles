@@ -58,10 +58,11 @@ cmp.setup({
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
-    -- TODO: currently snippets from lsp end up getting prioritized -- stop that!
-    { name = 'nvim_lsp' },
-  }, {
-    { name = 'path' },
+    { name = 'nvim_lsp' },                  -- Primary source for LSP completion
+    { name = 'nvim_lsp_signature_help' },   -- LSP function signature help
+    { name = 'nvim_lua' },                  -- Lua-specific completions
+    { name = 'path' },                      -- Path completions
+    { name = 'buffer' },                    -- Buffer completions
   }),
   experimental = {
     ghost_text = true,
@@ -111,9 +112,8 @@ local on_attach = function(client, bufnr)
   })
 end
 
--- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local custom_elm_attach = function(client)
   if client.config.flags then
@@ -234,17 +234,93 @@ lspconfig.tailwindcss.setup {}
 
 local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
+--
+-- To print out the current confifg of omnisharp
+-- :lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config.settings)) end end
+--
+-- to prin tout the lsp omnisharp
+-- lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config)) end end
+--
+
+-- Function to inspect LSP omnisharp settings
+function ShowOmniSharpSettings()
+    for _, client in pairs(vim.lsp.get_active_clients()) do
+        if client.name == "omnisharp" then
+            print(vim.inspect(client.config.settings))
+            return
+        end
+    end
+    print("No active LSP client found with name: " .. client_name)
+end
 
 -- More info on thei can be found here
 -- https://aaronbos.dev/posts/csharp-dotnet-neovim
 lspconfig.omnisharp.setup{
+    -- capabilities = capabilities,
+    capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
+      textDocument = {
+        semanticTokens = true, -- Enable semantic highlighting
+      }
+    }),
     handlers = {
       ["textDocument/definition"] = require('omnisharp_extended').handler,
     },
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-    -- Additional configuration can be added here
-    on_attach = on_attach 
+    on_attach = on_attach,
+    --
+    -- The configuration options can be found here
+    -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
+    -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
+    --
+    settings = {
+      RoslynExtensionsOptions = {
+        enableAnalyzersSupport = true,
+        enableEditorConfigSupport = true,
+        enableDecompilationSupport = true,
+        enableImportCompletion = true,
+        enableReferenceCompletion = true
+      },
+      FormattingOptions = {
+        enableEditorConfigSupport= true,
+        -- OrganizeImports= true,
+        -- TabSize= 4,
+        -- IndentSize= 4,
+        -- UseTabs= false
+      },
+      DotNet = {
+        EnablePackageRestore = true,
+        EnableMSBuildLoadProjectsOnDemand = true,
+        AnalyzeOpenDocumentsOnly = false
+      },
+      fileOptions = {
+        excludeSearchPatterns = {
+          "**/bin",
+          "**/obj",
+          "**/.git",
+          "**/node_modules"
+        }
+      },
+      Logging = {
+        LogLevel = "Debug",
+        File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
+      }
+  },
+
 }
+
+vim.cmd [[
+  augroup lsp_document_highlight
+    autocmd! * <buffer>
+    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+  augroup END
+]]
+
+vim.cmd [[
+  hi! link LspReferenceText Visual
+  hi! link LspReferenceRead Visual
+  hi! link LspReferenceWrite Visual
+]]
 
 -- -- " If neoformat continues to use all the CPU we can remove it and do it ourself
 -- -- " Install dotnet tool install -g csharpier
@@ -326,8 +402,6 @@ rt.setup({
       buf_set_keymap('n', 'N',        '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
       buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
       buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-
 
       -- Hover actions
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
