@@ -81,7 +81,8 @@ call plug#begin('~/.nvim/autoload')
   Plug 'wfxr/minimap.vim'
 
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  " Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-telescope/telescope.nvim'
 
   " Semantic language support
   Plug 'williamboman/nvim-lsp-installer'
