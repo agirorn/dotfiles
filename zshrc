@@ -219,3 +219,7 @@ if test -d "$HOME/.pyenv"; then
   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
+
+## Add the dotnet tools to the path
+export PATH="$PATH:$HOME/.dotnet/tools"
+

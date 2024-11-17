@@ -4,6 +4,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash",
     "c",
+    "c_sharp",
     "dockerfile",
     "elm",
     "graphql",
@@ -14,6 +15,7 @@ require'nvim-treesitter.configs'.setup {
     "lua",
     "make",
     "markdown",
+    "proto",
     "python",
     "rust",
     "toml",

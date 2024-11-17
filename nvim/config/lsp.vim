@@ -232,95 +232,174 @@ lspconfig.tailwindcss.setup {}
 --    if f~=nil then io.close(f) return true else return false end
 -- end
 
-local pid = vim.fn.getpid()
-local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
---
--- To print out the current confifg of omnisharp
--- :lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config.settings)) end end
---
--- to prin tout the lsp omnisharp
--- lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config)) end end
---
+-- -----------------------------------------------------------------------------
+-- OmniSharp
+-- -----------------------------------------------------------------------------
 
--- Function to inspect LSP omnisharp settings
-function ShowOmniSharpSettings()
-    for _, client in pairs(vim.lsp.get_active_clients()) do
-        if client.name == "omnisharp" then
-            print(vim.inspect(client.config.settings))
-            return
-        end
-    end
-    print("No active LSP client found with name: " .. client_name)
-end
+-- lspconfig.omnisharp.setup {
+--     cmd = { "dotnet", "omnisharp" },
+--     root_dir = lspconfig.util.root_pattern("*.csproj", "*.sln"),
+--     capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- }
 
--- More info on thei can be found here
--- https://aaronbos.dev/posts/csharp-dotnet-neovim
-lspconfig.omnisharp.setup{
-    -- capabilities = capabilities,
-    capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
-      textDocument = {
-        semanticTokens = true, -- Enable semantic highlighting
-      }
-    }),
-    handlers = {
-      ["textDocument/definition"] = require('omnisharp_extended').handler,
-    },
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-    on_attach = on_attach,
-    --
-    -- The configuration options can be found here
-    -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
-    -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
-    --
-    settings = {
-      RoslynExtensionsOptions = {
-        enableAnalyzersSupport = true,
-        enableEditorConfigSupport = true,
-        enableDecompilationSupport = true,
-        enableImportCompletion = true,
-        enableReferenceCompletion = true
-      },
-      FormattingOptions = {
-        enableEditorConfigSupport= true,
-        -- OrganizeImports= true,
-        -- TabSize= 4,
-        -- IndentSize= 4,
-        -- UseTabs= false
-      },
-      DotNet = {
-        EnablePackageRestore = true,
-        EnableMSBuildLoadProjectsOnDemand = true,
-        AnalyzeOpenDocumentsOnly = false
-      },
-      fileOptions = {
-        excludeSearchPatterns = {
-          "**/bin",
-          "**/obj",
-          "**/.git",
-          "**/node_modules"
-        }
-      },
-      Logging = {
-        LogLevel = "Debug",
-        File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
-      }
-  },
+-- -----------------------------------------------------------------------------
+-- OmniSharp
+-- -----------------------------------------------------------------------------
 
+-- lspconfig.omnisharp.setup {}
+lspconfig.omnisharp.setup {
+
+     -- capabilities = capabilities,
+     capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
+       textDocument = {
+         semanticTokens = true, -- Enable semantic highlighting
+       }
+     }),
+     handlers = {
+       ["textDocument/definition"] = require('omnisharp_extended').handler,
+     },
+     -- cmd= lspconfig.omnisharp.document_config.default_config.cmd,
+     -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+     on_attach = on_attach,
+     --
+     -- The configuration options can be found here
+     -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
+     -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
+     --
+     settings = {
+       RoslynExtensionsOptions = {
+         enableAnalyzersSupport = true,
+         enableEditorConfigSupport = true,
+         enableDecompilationSupport = true,
+         enableImportCompletion = true,
+         enableReferenceCompletion = true
+       },
+       FormattingOptions = {
+         enableEditorConfigSupport= true,
+         -- OrganizeImports= true,
+         -- TabSize= 4,
+         -- IndentSize= 4,
+         -- UseTabs= false
+       },
+       DotNet = {
+         EnablePackageRestore = true,
+         EnableMSBuildLoadProjectsOnDemand = true,
+         AnalyzeOpenDocumentsOnly = false
+       },
+       fileOptions = {
+         excludeSearchPatterns = {
+           "**/bin",
+           "**/obj",
+           "**/.git",
+           "**/node_modules"
+         }
+       },
+       Logging = {
+         LogLevel = "Debug",
+         File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
+       }
+   },
 }
 
-vim.cmd [[
-  augroup lsp_document_highlight
-    autocmd! * <buffer>
-    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-  augroup END
-]]
 
-vim.cmd [[
-  hi! link LspReferenceText Visual
-  hi! link LspReferenceRead Visual
-  hi! link LspReferenceWrite Visual
-]]
+
+-- -----------------------------------------------------------------------------
+-- OmniSharp
+-- -----------------------------------------------------------------------------
+
+-- local pid = vim.fn.getpid()
+-- local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
+-- --
+-- -- To print out the current confifg of omnisharp
+-- -- :lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config.settings)) end end
+-- --
+-- -- to prin tout the lsp omnisharp
+-- -- lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config)) end end
+-- --
+--
+-- -- Function to inspect LSP omnisharp settings
+-- function ShowOmniSharpSettings()
+--     for _, client in pairs(vim.lsp.get_active_clients()) do
+--         if client.name == "omnisharp" then
+--             print(vim.inspect(client.config.settings))
+--             return
+--         end
+--     end
+--     print("No active LSP client found with name: " .. client_name)
+-- end
+--
+-- -- More info on thei can be found here
+-- -- https://aaronbos.dev/posts/csharp-dotnet-neovim
+-- lspconfig.omnisharp.setup{
+--     -- capabilities = capabilities,
+--     capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
+--       textDocument = {
+--         semanticTokens = true, -- Enable semantic highlighting
+--       }
+--     }),
+--     handlers = {
+--       ["textDocument/definition"] = require('omnisharp_extended').handler,
+--     },
+--     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+--     on_attach = on_attach,
+--     --
+--     -- The configuration options can be found here
+--     -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
+--     -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
+--     --
+--     settings = {
+--       RoslynExtensionsOptions = {
+--         enableAnalyzersSupport = true,
+--         enableEditorConfigSupport = true,
+--         enableDecompilationSupport = true,
+--         enableImportCompletion = true,
+--         enableReferenceCompletion = true
+--       },
+--       FormattingOptions = {
+--         enableEditorConfigSupport= true,
+--         -- OrganizeImports= true,
+--         -- TabSize= 4,
+--         -- IndentSize= 4,
+--         -- UseTabs= false
+--       },
+--       DotNet = {
+--         EnablePackageRestore = true,
+--         EnableMSBuildLoadProjectsOnDemand = true,
+--         AnalyzeOpenDocumentsOnly = false
+--       },
+--       fileOptions = {
+--         excludeSearchPatterns = {
+--           "**/bin",
+--           "**/obj",
+--           "**/.git",
+--           "**/node_modules"
+--         }
+--       },
+--       Logging = {
+--         LogLevel = "Debug",
+--         File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
+--       }
+--   },
+--
+-- }
+--
+-- vim.cmd [[
+--   augroup lsp_document_highlight
+--     autocmd! * <buffer>
+--     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--   augroup END
+-- ]]
+--
+-- vim.cmd [[
+--   hi! link LspReferenceText Visual
+--   hi! link LspReferenceRead Visual
+--   hi! link LspReferenceWrite Visual
+-- ]]
+
+-- -----------------------------------------------------------------------------
+-- END :: OmniSharp
+-- -----------------------------------------------------------------------------
 
 -- -- " If neoformat continues to use all the CPU we can remove it and do it ourself
 -- -- " Install dotnet tool install -g csharpier
