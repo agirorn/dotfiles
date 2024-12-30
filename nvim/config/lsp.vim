@@ -213,6 +213,7 @@ lspconfig.tailwindcss.setup {}
 -- end
 
 local pid = vim.fn.getpid()
+-- DotNet C#
 local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
 
 lspconfig.omnisharp.setup{
@@ -221,7 +222,7 @@ lspconfig.omnisharp.setup{
     },
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
     -- Additional configuration can be added here
-    on_attach = on_attach 
+    on_attach = on_attach
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -241,6 +242,18 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 lspconfig.gopls.setup {
   on_attach = on_attach,
+}
+
+lspconfig.yamlls.setup {
+  on_attach = on_attach,
+       settings = {
+            yaml = {
+              schemas = {
+                kubernetes = "*.yml",
+                compose= "compose.+.yml",
+              },
+            }
+        }
 }
 
 END
@@ -321,6 +334,7 @@ rt.setup({
         },
         cargo = {
           loadOutDirsFromCheck = true,
+          features = "all",
         },
         procMacro = {
           enable = true,
@@ -331,6 +345,41 @@ rt.setup({
 })
 
 END
+
+lua << END
+require'lspconfig'.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+      return
+    end
+
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = {
+        -- Tell the language server which version of Lua you're using
+        -- (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT'
+      },
+      -- Make the server aware of Neovim runtime files
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME
+          -- Depending on the usage, you might want to add additional paths here.
+          -- "${3rd}/luv/library"
+          -- "${3rd}/busted/library",
+        }
+        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+        -- library = vim.api.nvim_get_runtime_file("", true)
+      }
+    })
+  end,
+  settings = {
+    Lua = {}
+  }
+}
+END
+
 
 " Highlight line number instead of having icons in sign column
 lua << END
