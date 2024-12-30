@@ -169,7 +169,7 @@ lspconfig.elmls.setup {}
 -- }
 vim.cmd [[autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.format()]]
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     init_options = {
         preferences = {
             disableSuggestions = true,
