@@ -1,7 +1,8 @@
 #
 # My .profile file ;)
 #
-
+echo .bashrc
+[[ -x "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 # the basics
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
@@ -109,3 +110,15 @@ source "$HOME/.cargo/env"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+. "$HOME/.cargo/env"
+
+  # export PYENV_ROOT="$HOME/.pyenv"
+  # export PATH="$PYENV_ROOT/bin:$PATH"
+  # test -d $HOME/work-bin && export PATH="$PATH:$HOME/work-bin"
+  # eval "$(pyenv init --path)"
+
+if test -d "$HOME/.pyenv"; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi

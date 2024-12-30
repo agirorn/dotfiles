@@ -1,13 +1,11 @@
 #
 # My .profile file ;)
 #
+echo .profile
 source "$HOME/.cargo/env"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-test -d $HOME/work-bin && export PATH="$PATH:$HOME/work-bin"
-eval "$(pyenv init --path)"
+[[ -r $HOME/.bashrc ]] && . $HOME/.bashrc
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH=${HOME}/.rd/bin:$PATH"
+test -d ${HOME}/.rd/bin && export PATH=${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+test -f "$HOME/.cargo/env" && . "$HOME/.cargo/env"

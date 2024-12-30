@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_PYENV_QUIET=true
+# export ZSH_PYENV_QUIET=true
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -75,7 +75,7 @@ plugins=(
   fnm
   pip
   postgres
-  pyenv
+  # pyenv
   rust
   rvm
   urltools
@@ -93,8 +93,15 @@ test -d $HOME/bin && export PATH="$PATH:$HOME/bin"
 test -d $HOME/work-bin && export PATH="$PATH:$HOME/work-bin"
 test -d $HOME/.local/bin && export PATH="$PATH:$HOME/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
+
+# M1 Homebrew setup
+if test -d /opt/homebrew/bin; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+if test -d /opt/homebrew/sbin; then
+  export PATH="/opt/homebrew/sbin:$PATH"
+fi
 
 # You may need to manually set your language environment
 export LANG=is_IS.UTF-8
@@ -155,10 +162,7 @@ else
     source <(kubectl completion zsh)
   fi
 fi
-if test -d $HOME/.zshrc-at-work.zsh; then
-  source $HOME/.zshrc-at-work.zsh
-fi
-if test -d $HOME/.zshrc-at-work.zsh; then
+if test -f $HOME/.zshrc-at-work.zsh; then
   source $HOME/.zshrc-at-work.zsh
 fi
 
@@ -171,14 +175,6 @@ fi
 
 if test -d /usr/local/opt/libpq/bin; then
   export PATH="/usr/local/opt/libpq/bin:$PATH"
-fi
-
-if test -d $HOME/code/devops-scripts; then
-  if which -s az >> /dev/null; then
-    export DS_BASE_PATH=$HOME/code/devops-scripts
-    export PATH=$PATH:$DS_BASE_PATH/bin
-    eval "$(ds --show-completions-zsh)"
-  fi
 fi
 
 if test -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"; then
@@ -213,4 +209,18 @@ if test -d "/usr/local/opt/postgresql@16/bin"; then
   export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 fi
 
-eval "$(fnm env --use-on-cd)"
+# test -d $HOME/go/bin && export PATH="$PATH:$HOME/go/bin"
+
+if command -v fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
+
+if test -d "$HOME/.pyenv"; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+## Add the dotnet tools to the path
+export PATH="$PATH:$HOME/.dotnet/tools"
+

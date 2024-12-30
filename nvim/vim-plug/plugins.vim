@@ -81,7 +81,8 @@ call plug#begin('~/.nvim/autoload')
   Plug 'wfxr/minimap.vim'
 
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  " Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-telescope/telescope.nvim'
 
   " Semantic language support
   Plug 'williamboman/nvim-lsp-installer'
@@ -133,7 +134,11 @@ call plug#begin('~/.nvim/autoload')
   Plug 'google/vim-maktaba'
   Plug 'bazelbuild/vim-bazel'
   Plug 'rebelot/kanagawa.nvim'
+
+  "" For C#
   Plug 'Hoffs/omnisharp-extended-lsp.nvim'
+  Plug 'sbdchd/neoformat'
+
   Plug 'ray-x/go.nvim'
   Plug 'slint-ui/vim-slint'
 

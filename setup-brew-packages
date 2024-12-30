@@ -2,28 +2,33 @@
 
 # brew tap dbcli/tap
 # brew install pgcli
+if ! command -v displayplacer 2>&1 1>/dev/null; then
+  brew install jakehilborn/jakehilborn/displayplacer
+fi
+
+if ! command -v docker 2>&1 1>/dev/null; then
+  brew install --cask docker
+fi
 
 INSTALLED=`brew list`
 APPLICATIONS=(
   alacritty
-  atom
   bazel
   beekeeper-studio
   bzip2
+  code-minimap
   colordiff
   ctags
   dbeaver-community
   diff-so-fancy
-  diff-so-fancy
-  displayplacer
-  docker
-  golang
   extract_url
   ffmpeg
   fnm
   fzf
+  lens
   git
   go
+  golang
   htop
   jq
   kap
@@ -32,13 +37,15 @@ APPLICATIONS=(
   kubectx
   lazygit
   neovim
-  nvm
   obs
   obsidian
+  openssl
   postgresql
   pyenv
   pyenv-virtualenv
+  readline
   ripgrep
+  sqlite3
   starship
   subversion
   terminal-notifier
@@ -46,6 +53,7 @@ APPLICATIONS=(
   tmux
   urlview
   visual-studio-code
+  xz
   youtube-dl
   zlib
   zsh
