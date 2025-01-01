@@ -110,6 +110,9 @@ call plug#begin('~/.nvim/autoload')
   " Only because nvim-cmp _requires_ snippets
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
+
+  Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
   " Syntactic language support
   " Plug 'cespare/vim-toml'
   " Plug 'stephpy/vim-yaml'
