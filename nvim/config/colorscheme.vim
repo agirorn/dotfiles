@@ -10,6 +10,7 @@ colorscheme ayu
 " colorscheme jellybeans
 " colorscheme kanagawa
 " colorscheme catppuccin-mocha
+" colorscheme tokyonight-night
 
 if $AEGIRORN_CUSTOM_NVIM_WIDTH == ''
   " Mark the 80 column

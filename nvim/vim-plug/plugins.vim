@@ -112,6 +112,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'hrsh7th/vim-vsnip'
 
   Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+  Plug 'folke/tokyonight.nvim'
 
   " Syntactic language support
   " Plug 'cespare/vim-toml'
