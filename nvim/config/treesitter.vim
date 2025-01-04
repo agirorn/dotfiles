@@ -49,4 +49,8 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- Make ```shell looke like ```bash in markdown files
+vim.treesitter.language.register("bash", "shell")
+
 END
