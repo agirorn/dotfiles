@@ -7,6 +7,7 @@ require'nvim-treesitter.configs'.setup {
     "c_sharp",
     "dockerfile",
     "elm",
+    "go",
     "graphql",
     "html",
     "java",
