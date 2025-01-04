@@ -21,6 +21,15 @@ require("nvim-lsp-installer").setup {
   }
 }
 
+-- Suppress nvim-lsp-installer Installation Messages
+--
+-- This hides error when sertan programing language are not installed on the
+-- platform and is less anoying
+vim.notify = function(msg, log_level, _opts)
+    if msg:match("LSP") then return end
+    vim.api.nvim_echo({ { msg } }, true, {})
+end
+
 -- lsp_installer.setup({
 --     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 --     ui = {
