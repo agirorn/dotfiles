@@ -49,9 +49,6 @@ call plug#begin('~/.nvim/autoload')
   Plug 'tpope/vim-commentary'
   Plug 'tomtom/tcomment_vim'
 
-  "A painless, powerful Vim auto-pair plugin.
-  Plug 'tmsvg/pear-tree'
-
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
