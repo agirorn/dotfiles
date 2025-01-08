@@ -169,6 +169,23 @@ lspconfig.elmls.setup {}
 -- }
 vim.cmd [[autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.format()]]
 
+-- Enable JSON Language Server
+lspconfig.jsonls.setup {
+    settings = {
+        json = {
+            schemas = require('schemastore').json.schemas(), -- Load common JSON schemas
+            validate = { enable = true }, -- Enable validation
+        },
+    },
+}
+
+-- Optional: Enable Treesitter for JSON
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "json" },
+    highlight = { enable = true },
+    indent = { enable = true },
+}
+
 lspconfig.tsserver.setup({
     init_options = {
         preferences = {
