@@ -21,6 +21,15 @@ require("nvim-lsp-installer").setup {
   }
 }
 
+-- Suppress nvim-lsp-installer Installation Messages
+--
+-- This hides error when sertan programing language are not installed on the
+-- platform and is less anoying
+vim.notify = function(msg, log_level, _opts)
+    if msg:match("LSP") then return end
+    vim.api.nvim_echo({ { msg } }, true, {})
+end
+
 -- lsp_installer.setup({
 --     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 --     ui = {
@@ -186,7 +195,7 @@ require'nvim-treesitter.configs'.setup {
     indent = { enable = true },
 }
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     init_options = {
         preferences = {
             disableSuggestions = true,
@@ -444,6 +453,18 @@ lspconfig.gopls.setup {
   on_attach = on_attach,
 }
 
+lspconfig.yamlls.setup {
+  on_attach = on_attach,
+       settings = {
+            yaml = {
+              schemas = {
+                kubernetes = "*.yml",
+                compose= "compose.+.yml",
+              },
+            }
+        }
+}
+
 END
 
 
@@ -520,6 +541,7 @@ rt.setup({
         },
         cargo = {
           loadOutDirsFromCheck = true,
+          features = "all",
         },
         procMacro = {
           enable = true,
@@ -530,6 +552,41 @@ rt.setup({
 })
 
 END
+
+lua << END
+require'lspconfig'.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+      return
+    end
+
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = {
+        -- Tell the language server which version of Lua you're using
+        -- (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT'
+      },
+      -- Make the server aware of Neovim runtime files
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME
+          -- Depending on the usage, you might want to add additional paths here.
+          -- "${3rd}/luv/library"
+          -- "${3rd}/busted/library",
+        }
+        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+        -- library = vim.api.nvim_get_runtime_file("", true)
+      }
+    })
+  end,
+  settings = {
+    Lua = {}
+  }
+}
+END
+
 
 " Highlight line number instead of having icons in sign column
 lua << END

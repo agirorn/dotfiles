@@ -60,6 +60,7 @@ plugins=(
   git-extras
   git-kraken
   gitx
+  golang
   grunt
   highlight
   history-substring-search

@@ -6,9 +6,11 @@ syntax enable
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
-" colorscheme ayu
+colorscheme ayu
 " colorscheme jellybeans
-colorscheme kanagawa
+" colorscheme kanagawa
+" colorscheme catppuccin-mocha
+" colorscheme tokyonight-night
 
 if $AEGIRORN_CUSTOM_NVIM_WIDTH == ''
   " Mark the 80 column
