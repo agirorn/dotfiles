@@ -16,7 +16,7 @@ require('telescope').setup {
     mappings = {
       i = { -- Insert mode mappings
         -- ["<CR>"] = require('telescope.actions').select_default, -- Ensure this is set
-        ["<C-e>"] = require('telescope.actions').select_default, -- Ensure it's bound correctly
+        -- ["<C-e>"] = require('telescope.actions').select_default, -- Ensure it's bound correctly
       },
     },
   },
