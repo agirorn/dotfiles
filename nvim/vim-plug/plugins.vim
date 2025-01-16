@@ -70,6 +70,9 @@ call plug#begin('~/.nvim/autoload')
   " Color schemes.
   Plug 'ayu-theme/ayu-vim'
   Plug 'nanotech/jellybeans.vim'
+  " Plug 'lunarvim/Onedarker.nvim'
+  " Plug 'folke/tokyonight.nvim'
+  " Plug 'craftzdog/solarized-osaka.nvim'
 
   Plug 'nvim-lua/plenary.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
