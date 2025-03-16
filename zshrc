@@ -224,3 +224,4 @@ fi
 ## Add the dotnet tools to the path
 export PATH="$PATH:$HOME/.dotnet/tools"
 
+# export PATH="$HOME/bin:$PATH"

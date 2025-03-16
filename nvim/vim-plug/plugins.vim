@@ -145,6 +145,7 @@ call plug#begin('~/.nvim/autoload')
 
   Plug 'ray-x/go.nvim'
   Plug 'slint-ui/vim-slint'
+  Plug 'b0o/schemastore.nvim'
 
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""
