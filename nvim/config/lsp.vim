@@ -522,10 +522,12 @@ rt.setup({
         },
         rustfmt = {
           extraArgs = { "+nightly" },
+          -- extraArgs = { "+stable" },
         },
         cargo = {
           loadOutDirsFromCheck = true,
           features = "all",
+          allFeatures = true,
         },
         procMacro = {
           enable = true,
