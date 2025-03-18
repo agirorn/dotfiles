@@ -209,6 +209,10 @@ if test -d "/usr/local/opt/postgresql@16/bin"; then
   export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 fi
 
+if test -d "${HOME}/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin"; then
+  export PATH="$PATH:${HOME}/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin"
+fi
+
 # test -d $HOME/go/bin && export PATH="$PATH:$HOME/go/bin"
 
 if command -v fnm >/dev/null 2>&1; then
