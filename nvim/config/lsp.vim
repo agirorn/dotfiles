@@ -254,6 +254,17 @@ lspconfig.pyright.setup{
 -- }
 lspconfig.tailwindcss.setup {}
 
+
+-- " a TOML v1.0.0 toolkit
+lspconfig.taplo.setup({})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.toml",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
+
 -- function file_exists(name)
 --    local f=io.open(name,"r")
 --    if f~=nil then io.close(f) return true else return false end
