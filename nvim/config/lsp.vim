@@ -177,7 +177,6 @@ lspconfig.elmls.setup {}
 --   },
 --   capabilities = capabilities,
 -- }
-vim.cmd [[autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.format()]]
 
 -- Enable JSON Language Server
 lspconfig.jsonls.setup {
@@ -257,12 +256,6 @@ lspconfig.tailwindcss.setup {}
 
 -- " a TOML v1.0.0 toolkit
 lspconfig.taplo.setup({})
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.toml",
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
 
 
 -- function file_exists(name)
@@ -620,8 +613,6 @@ END
 "# Auto fix javascript and Typescript files
 autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
 autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
-"# Auto format rust files.
-autocmd BufWritePre *.rs silent! execute 'lua vim.lsp.buf.format()'
 
 "# Run the available code actions under the cursor
 nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>
@@ -637,4 +628,18 @@ vim.api.nvim_create_autocmd("bufWritePost", {
 	command = "silent !black %",
 	group = group,
 })
+
+-- "Auto format any file that has format support in the LSP
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+    for _, client in ipairs(clients) do
+      if client.supports_method("textDocument/formatting") then
+        vim.lsp.buf.format({ async = false })
+        break
+      end
+    end
+  end,
+})
 END
+
