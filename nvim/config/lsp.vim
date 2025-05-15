@@ -251,6 +251,12 @@ lspconfig.pyright.setup{
 --     }
 --   }
 -- }
+
+lspconfig.jdtls.setup{
+  cmd = {'jdtls'},
+  root_dir = require('lspconfig/util').root_pattern('.git', 'mvnw', 'gradlew'),
+}
+
 lspconfig.tailwindcss.setup {}
 
 
