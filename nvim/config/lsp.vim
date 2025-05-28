@@ -310,7 +310,8 @@ lspconfig.omnisharp.setup {
          enableDecompilationSupport = true,
          enableImportCompletion = true,
          enableRoslynAnalyzers = true,
-         enableReferenceCompletion = true
+         enableReferenceCompletion = true,
+         enableSdkResolver = true,
        },
        FormattingOptions = {
          enableEditorConfigSupport= true,
