@@ -302,17 +302,18 @@ lspconfig.omnisharp.setup {
      -- The configuration options can be found here
      -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
      -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
-     --
+     --  
+     enable_editorconfig_support = true,
      settings = {
        RoslynExtensionsOptions = {
          enableAnalyzersSupport = true,
-         enableEditorConfigSupport = true,
+         EnableEditorConfigSupport = true,
          enableDecompilationSupport = true,
          enableImportCompletion = true,
          enableReferenceCompletion = true
        },
        FormattingOptions = {
-         enableEditorConfigSupport= true,
+         EnableEditorConfigSupport= true,
          -- OrganizeImports= true,
          -- TabSize= 4,
          -- IndentSize= 4,
