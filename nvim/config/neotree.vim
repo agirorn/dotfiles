@@ -191,9 +191,8 @@ lua << END
       })
 
 
-
-
-
+  -- Custom colors
+  vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#7aa2f7", bold = true }) -- Change directory name color
 END
 
 " require("neo-tree").setup({
