@@ -29,7 +29,7 @@ test -f ${HOME}/.tmux.conf   || ln -s ${HOME}/dotfiles/tmux.conf   ${HOME}/.tmux
 test -f ${HOME}/.vim         || ln -s ${HOME}/dotfiles/vim         ${HOME}/.vim
 test -f ${HOME}/.vimrc       || ln -s ${HOME}/dotfiles/vimrc       ${HOME}/.vimrc
 test -f ${HOME}/.nvimrc      || ln -s ${HOME}/dotfiles/nvimrc      ${HOME}/.nvimrc    
-test -f ${HOME}/.nvimrc.lua  || ln -s ${HOME}/dotfiles/nvimrc.lua    ${HOME}/.nvimrc.lua    
+test -f ${HOME}/.nvimrc.lua  || ln -s ${HOME}/dotfiles/nvimrc.lua  ${HOME}/.nvimrc.lua    
 test -f ${HOME}/.nvim        || ln -s ${HOME}/dotfiles/nvim        ${HOME}/.nvim
 test -f ${HOME}/.zshrc       || ln -s ${HOME}/dotfiles/zshrc       ${HOME}/.zshrc
 test -f ${HOME}/.zshrc       || ln -s ${HOME}/dotfiles/zshrc       ${HOME}/.zshrc
