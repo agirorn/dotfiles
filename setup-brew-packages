@@ -44,6 +44,7 @@ APPLICATIONS=(
   postgresql
   pyenv
   pyenv-virtualenv
+  pnpm
   readline
   ripgrep
   sqlite3
