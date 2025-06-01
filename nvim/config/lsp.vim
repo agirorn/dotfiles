@@ -12,15 +12,16 @@ require("mason").setup()
 require("mason-lspconfig").setup {
     -- ensure_installed = { "typescript-language-server", "eslint", "lua_ls" }
     ensure_installed = {
-      "tailwindcss",
-      "yamlls",
-      "omnisharp",
       "bashls",
-      "rust_analyzer",
-      "jsonls",
-      "ts_ls",
       "eslint",
-      "lua_ls"
+      "jsonls",
+      "lua_ls",
+      "omnisharp",
+      "rust_analyzer",
+      "tailwindcss",
+      "taplo",
+      "ts_ls",
+      "yamlls",
     }
 }
 END
