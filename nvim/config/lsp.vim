@@ -4,23 +4,47 @@
 
 set completeopt=menu,menuone,noselect
 
+lua << END
+-- Install and setup Mason
+require("mason").setup()
+
+-- Ensure some LSPs are installed
+require("mason-lspconfig").setup {
+    -- ensure_installed = { "typescript-language-server", "eslint", "lua_ls" }
+    ensure_installed = {
+      "tailwindcss",
+      "yamlls",
+      "omnisharp",
+      "bashls",
+      "rust_analyzer",
+      "jsonls",
+      "ts_ls",
+      "eslint",
+      "lua_ls"
+    }
+}
+END
+
+
 " LSP configuration
 lua << END
--- local lsp_installer = require'nvim-lsp-installer'
+-- -- local lsp_installer = require'nvim-lsp-installer'
+--
+-- -- # Configure NVIM LSP isntaller
+-- -- # See https://github.com/williamboman/nvim-lsp-installer?tab=readme-ov-file#configuration
+-- require("nvim-lsp-installer").setup {
+--   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+--   ui = {
+--     icons = {
+--       server_installed = "✓",
+--       server_pending = "➜",
+--       server_uninstalled = "✗"
+--     }
+--   }
+-- }
+END
 
--- # Configure NVIM LSP isntaller
--- # See https://github.com/williamboman/nvim-lsp-installer?tab=readme-ov-file#configuration
-require("nvim-lsp-installer").setup {
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-}
-
+lua << END
 -- Suppress nvim-lsp-installer Installation Messages
 --
 -- This hides error when sertan programing language are not installed on the
@@ -234,6 +258,7 @@ lspconfig.eslint.setup({
   end,
 })
 
+-- maybe basedpyright is better for Python
 lspconfig.pyright.setup{
   on_attach = on_attach,
   filetypes = {"python"}
@@ -302,7 +327,7 @@ lspconfig.omnisharp.setup {
      -- The configuration options can be found here
      -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
      -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
-     --  
+     --
      enable_editorconfig_support = true,
      settings = {
        RoslynExtensionsOptions = {

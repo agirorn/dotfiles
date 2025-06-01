@@ -85,7 +85,8 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-telescope/telescope.nvim'
 
   " Semantic language support
-  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'mason-org/mason.nvim'
+  Plug 'mason-org/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
   " Plug 'nvim-lua/lsp_extensions.nvim'
   Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
