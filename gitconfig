@@ -13,6 +13,7 @@
 	email = agirorn@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+#	pager = git-split-diffs --color | less -RFX --mouse
 [pull]
 	ff = only
 [include]
@@ -24,7 +25,7 @@ path = ~/.gitconfig.local
 	process = git-lfs filter-process
 # [difftool "sourcetree"]
 # 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-# 	path = 
+# 	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -35,6 +36,6 @@ path = ~/.gitconfig.local
 [difftool]
 	prompt = false
 [difftool "icdiff"]
-	cmd = icdiff --line-numbers $LOCAL $REMOTE
+	cmd = icdiff --line-numbers $LOCAL $REMOTE | less -RFX --mouse
 [init]
 	defaultBranch = main
