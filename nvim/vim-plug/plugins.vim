@@ -74,8 +74,7 @@ call plug#begin('~/.nvim/autoload')
   " This github theme is quite nice
   " Plug 'projekt0n/github-nvim-theme'
 
-  " Plug 'arcticicestudio/nord-vim'
-  Plug 'arcticicestudio/nord-vim', { 'on':  'NERDTreeToggle' }
+  Plug 'arcticicestudio/nord-vim'
 
   Plug 'nvim-lua/plenary.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
