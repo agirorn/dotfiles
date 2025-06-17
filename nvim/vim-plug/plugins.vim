@@ -71,6 +71,12 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'folke/tokyonight.nvim'
   " Plug 'craftzdog/solarized-osaka.nvim'
 
+  " This github theme is quite nice
+  " Plug 'projekt0n/github-nvim-theme'
+
+  " Plug 'arcticicestudio/nord-vim'
+  Plug 'arcticicestudio/nord-vim', { 'on':  'NERDTreeToggle' }
+
   Plug 'nvim-lua/plenary.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'MunifTanjim/nui.nvim'
@@ -131,6 +137,7 @@ call plug#begin('~/.nvim/autoload')
   "" $nvim --headless -c "TSInstallSync bash c" -c q
   "" $ nvim --headless -c "TSUpdateSync" -c q
   Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/playground'
   Plug 'folke/which-key.nvim'
 
   Plug 'tpope/vim-dadbod'

@@ -5,8 +5,28 @@ syntax enable
 
 " let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+
+" #######################################################
+" OLD find colorscheme
+" #######################################################
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+
+let g:nord_custom_bg = '#262C38' " Just a litle darker background
+
+" #######################################################
+" Nord colorscheme
+"
+" https://www.nordtheme.com/ports/vim
+" #######################################################
+colorscheme nord
+execute 'hi Normal guibg=' . g:nord_custom_bg . ' ctermbg=NONE'
+execute 'hi NormalNC guibg=' . g:nord_custom_bg
+execute 'hi EndOfBuffer guibg=' . g:nord_custom_bg
+execute 'hi VertSplit guibg=' . g:nord_custom_bg
+execute 'hi StatusLine guibg=' . g:nord_custom_bg
+execute 'hi LineNr guibg=' . g:nord_custom_bg
+
 " colorscheme onedarker
 " colorscheme jellybeans
 " colorscheme kanagawa

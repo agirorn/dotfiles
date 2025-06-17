@@ -47,11 +47,27 @@ require'nvim-treesitter.configs'.setup {
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = fase,
+  },
+  playground = {
+    enable = true,
+    updatetime = 25,
+    persist_queries = false,
   },
 }
 
 -- Make ```shell looke like ```bash in markdown files
 vim.treesitter.language.register("bash", "shell")
+
+vim.api.nvim_create_autocmd({ "ColorScheme","BufReadPost", "BufEnter", "VimEnter","WinEnter", "BufWinEnter" }, {
+  pattern = "*.rs",
+  callback = function()
+    -- vim.api.nvim_set_hl(0, "@lsp.type.namespace.rust", { link = "Macro" })
+    vim.api.nvim_set_hl(0, "@lsp.type.macro.rust", { link = "Macro" })
+    -- vim.api.nvim_set_hl(0, "@lsp.typemod.namespace.library.rust", { link = "Macro" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.namespace.macro.rust", { link = "Macro" })
+    -- vim.api.nvim_set_hl(0, "@lsp.typemod.namespace.procMacro.rust", { link = "Macro" })
+  end,
+})
 
 END
