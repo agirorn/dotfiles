@@ -311,60 +311,67 @@ lspconfig.taplo.setup({})
 
 -- lspconfig.omnisharp.setup {}
 lspconfig.omnisharp.setup {
+  -- The Mason loading of omnisharp is currently broken
+  cmd = {
+    vim.fn.expand("~/.local/share/nvim/mason/packages/omnisharp/OmniSharp"),
+    "--languageserver",
+    "--hostPID",
+   tostring(vim.fn.getpid())
+  },
 
-     -- capabilities = capabilities,
-     capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
-       textDocument = {
-         semanticTokens = true, -- Enable semantic highlighting
-       }
-     }),
-     handlers = {
-       ["textDocument/definition"] = require('omnisharp_extended').handler,
-     },
-     -- cmd= lspconfig.omnisharp.document_config.default_config.cmd,
-     -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-     on_attach = on_attach,
-     --
-     -- The configuration options can be found here
-     -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
-     -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
-     --
-     enable_editorconfig_support = true,
-     settings = {
-       RoslynExtensionsOptions = {
-         enableAnalyzersSupport = true,
-         EnableEditorConfigSupport = true,
-         enableDecompilationSupport = true,
-         enableImportCompletion = true,
-         enableRoslynAnalyzers = true,
-         enableReferenceCompletion = true,
-         enableSdkResolver = true,
-       },
-       FormattingOptions = {
-         EnableEditorConfigSupport= true,
-         -- OrganizeImports= true,
-         -- TabSize= 4,
-         -- IndentSize= 4,
-         -- UseTabs= false
-       },
-       DotNet = {
-         EnablePackageRestore = true,
-         EnableMSBuildLoadProjectsOnDemand = true,
-         AnalyzeOpenDocumentsOnly = false
-       },
-       fileOptions = {
-         excludeSearchPatterns = {
-           "**/bin",
-           "**/obj",
-           "**/.git",
-           "**/node_modules"
-         }
-       },
-       Logging = {
-         LogLevel = "Debug",
-         File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
-       }
-   },
+  -- capabilities = capabilities,
+  capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
+    textDocument = {
+      semanticTokens = true, -- Enable semantic highlighting
+    }
+  }),
+  handlers = {
+    ["textDocument/definition"] = require('omnisharp_extended').handler,
+  },
+  -- cmd= lspconfig.omnisharp.document_config.default_config.cmd,
+  -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+  on_attach = on_attach,
+  --
+  -- The configuration options can be found here
+  -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
+  -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
+  --
+  enable_editorconfig_support = true,
+  settings = {
+    RoslynExtensionsOptions = {
+      enableAnalyzersSupport = true,
+      EnableEditorConfigSupport = true,
+      enableDecompilationSupport = true,
+      enableImportCompletion = true,
+      enableRoslynAnalyzers = true,
+      enableReferenceCompletion = true,
+      enableSdkResolver = true,
+    },
+    FormattingOptions = {
+      EnableEditorConfigSupport= true,
+      -- OrganizeImports= true,
+      -- TabSize= 4,
+      -- IndentSize= 4,
+      -- UseTabs= false
+    },
+    DotNet = {
+      EnablePackageRestore = true,
+      EnableMSBuildLoadProjectsOnDemand = true,
+      AnalyzeOpenDocumentsOnly = false
+    },
+    fileOptions = {
+      excludeSearchPatterns = {
+        "**/bin",
+        "**/obj",
+        "**/.git",
+        "**/node_modules"
+      }
+    },
+    Logging = {
+      LogLevel = "Debug",
+      File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
+    }
+  },
 }
 
 
