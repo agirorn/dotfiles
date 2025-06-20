@@ -308,12 +308,17 @@ lspconfig.taplo.setup({})
 -- -----------------------------------------------------------------------------
 -- OmniSharp
 -- -----------------------------------------------------------------------------
+-- vim.fn.expand("~/Downloads/omnisharp/OmniSharp"),
+
+vim.env.DOTNET_ROOT = "/usr/local/share/dotnet" -- or your actual path
+vim.env.PATH = vim.env.PATH .. ':/usr/local/share/dotnet'
 
 -- lspconfig.omnisharp.setup {}
 lspconfig.omnisharp.setup {
   -- The Mason loading of omnisharp is currently broken
   cmd = {
-    vim.fn.expand("~/.local/share/nvim/mason/packages/omnisharp/OmniSharp"),
+    -- Downloda OmniSharp from https://github.com/OmniSharp/omnisharp-roslyn/releases/tag/v1.39.13
+    vim.fn.expand("~/Downloads/omnisharp-osx-arm64-net6.0/OmniSharp"),
     "--languageserver",
     "--hostPID",
    tostring(vim.fn.getpid())
@@ -337,6 +342,8 @@ lspconfig.omnisharp.setup {
   -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
   --
   enable_editorconfig_support = true,
+  enable_roslyn_analyzers = true,
+  enable_import_completion = true,
   settings = {
     RoslynExtensionsOptions = {
       enableAnalyzersSupport = true,
