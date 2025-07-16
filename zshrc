@@ -213,6 +213,12 @@ if test -d "${HOME}/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin"; t
   export PATH="$PATH:${HOME}/.local/share/nvim/lsp_servers/tsserver/node_modules/.bin"
 fi
 
+
+if test -d "/usr/local/share/dotnet"; then
+  export DOTNET_ROOT="/usr/local/share/dotnet"
+  export PATH="$PATH:$DOTNET_ROOT"
+fi
+
 # test -d $HOME/go/bin && export PATH="$PATH:$HOME/go/bin"
 
 if command -v fnm >/dev/null 2>&1; then
