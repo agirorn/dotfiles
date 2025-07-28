@@ -154,6 +154,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'slint-ui/vim-slint'
   Plug 'b0o/schemastore.nvim'
   Plug 'mfussenegger/nvim-jdtls'
+  Plug 'seblyng/roslyn.nvim'
 
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""

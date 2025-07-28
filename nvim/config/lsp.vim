@@ -6,7 +6,12 @@ set completeopt=menu,menuone,noselect
 
 lua << END
 -- Install and setup Mason
-require("mason").setup()
+require("mason").setup({
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  },
+})
 
 -- Ensure some LSPs are installed
 require("mason-lspconfig").setup {
@@ -22,6 +27,7 @@ require("mason-lspconfig").setup {
       "taplo",
       "ts_ls",
       "yamlls",
+      "roslyn",
     }
 }
 END
@@ -313,74 +319,87 @@ lspconfig.taplo.setup({})
 vim.env.DOTNET_ROOT = "/usr/local/share/dotnet" -- or your actual path
 vim.env.PATH = vim.env.PATH .. ':/usr/local/share/dotnet'
 
--- lspconfig.omnisharp.setup {}
-lspconfig.omnisharp.setup {
-  -- The Mason loading of omnisharp is currently broken
-  cmd = {
-    -- Downloda OmniSharp from https://github.com/OmniSharp/omnisharp-roslyn/releases/tag/v1.39.13
-    vim.fn.expand("~/Downloads/omnisharp-osx-arm64-net6.0/OmniSharp"),
-    "--languageserver",
-    "--hostPID",
-   tostring(vim.fn.getpid())
-  },
+-- -- lspconfig.omnisharp.setup {}
+-- lspconfig.omnisharp.setup {
+--   -- The Mason loading of omnisharp is currently broken
+--   cmd = {
+--     -- Downloda OmniSharp from https://github.com/OmniSharp/omnisharp-roslyn/releases/tag/v1.39.13
+--     vim.fn.expand("~/Downloads/omnisharp-osx-arm64-net6.0/OmniSharp"),
+--     "--languageserver",
+--     "--hostPID",
+--    tostring(vim.fn.getpid())
+--   },
+-- 
+--   -- capabilities = capabilities,
+--   capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
+--     textDocument = {
+--       semanticTokens = true, -- Enable semantic highlighting
+--     }
+--   }),
+--   handlers = {
+--     ["textDocument/definition"] = require('omnisharp_extended').handler,
+--   },
+--   -- cmd= lspconfig.omnisharp.document_config.default_config.cmd,
+--   -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+--   on_attach = on_attach,
+--   --
+--   -- The configuration options can be found here
+--   -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
+--   -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
+--   --
+--   enable_editorconfig_support = true,
+--   enable_roslyn_analyzers = true,
+--   enable_import_completion = true,
+--   settings = {
+--     RoslynExtensionsOptions = {
+--       enableAnalyzersSupport = true,
+--       EnableEditorConfigSupport = true,
+--       enableDecompilationSupport = true,
+--       enableImportCompletion = true,
+--       enableRoslynAnalyzers = true,
+--       enableReferenceCompletion = true,
+--       enableSdkResolver = true,
+--     },
+--     FormattingOptions = {
+--       EnableEditorConfigSupport= true,
+--       -- OrganizeImports= true,
+--       -- TabSize= 4,
+--       -- IndentSize= 4,
+--       -- UseTabs= false
+--     },
+--     DotNet = {
+--       EnablePackageRestore = true,
+--       EnableMSBuildLoadProjectsOnDemand = true,
+--       AnalyzeOpenDocumentsOnly = false
+--     },
+--     fileOptions = {
+--       excludeSearchPatterns = {
+--         "**/bin",
+--         "**/obj",
+--         "**/.git",
+--         "**/node_modules"
+--       }
+--     },
+--     Logging = {
+--       LogLevel = "Debug",
+--       File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
+--     }
+--   },
+-- }
 
-  -- capabilities = capabilities,
-  capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
-    textDocument = {
-      semanticTokens = true, -- Enable semantic highlighting
-    }
-  }),
-  handlers = {
-    ["textDocument/definition"] = require('omnisharp_extended').handler,
-  },
-  -- cmd= lspconfig.omnisharp.document_config.default_config.cmd,
-  -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-  on_attach = on_attach,
-  --
-  -- The configuration options can be found here
-  -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
-  -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
-  --
-  enable_editorconfig_support = true,
-  enable_roslyn_analyzers = true,
-  enable_import_completion = true,
-  settings = {
-    RoslynExtensionsOptions = {
-      enableAnalyzersSupport = true,
-      EnableEditorConfigSupport = true,
-      enableDecompilationSupport = true,
-      enableImportCompletion = true,
-      enableRoslynAnalyzers = true,
-      enableReferenceCompletion = true,
-      enableSdkResolver = true,
-    },
-    FormattingOptions = {
-      EnableEditorConfigSupport= true,
-      -- OrganizeImports= true,
-      -- TabSize= 4,
-      -- IndentSize= 4,
-      -- UseTabs= false
-    },
-    DotNet = {
-      EnablePackageRestore = true,
-      EnableMSBuildLoadProjectsOnDemand = true,
-      AnalyzeOpenDocumentsOnly = false
-    },
-    fileOptions = {
-      excludeSearchPatterns = {
-        "**/bin",
-        "**/obj",
-        "**/.git",
-        "**/node_modules"
-      }
-    },
-    Logging = {
-      LogLevel = "Debug",
-      File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
-    }
-  },
-}
+require("roslyn").setup({
+  on_attach = function(client, bufnr)
+    -- Example keybindings
+    local buf_map = function(mode, lhs, rhs)
+      vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, { noremap = true, silent = true })
+    end
 
+    buf_map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    buf_map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    buf_map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  end,
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
+})
 
 
 -- -----------------------------------------------------------------------------
