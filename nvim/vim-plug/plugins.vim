@@ -68,7 +68,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'ayu-theme/ayu-vim'
   Plug 'nanotech/jellybeans.vim'
   " Plug 'lunarvim/Onedarker.nvim'
-  " Plug 'folke/tokyonight.nvim'
+  Plug 'folke/tokyonight.nvim'
   " Plug 'craftzdog/solarized-osaka.nvim'
 
   " This github theme is quite nice
@@ -155,6 +155,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'b0o/schemastore.nvim'
   Plug 'mfussenegger/nvim-jdtls'
   Plug 'seblyng/roslyn.nvim'
+  Plug 'ray-x/lsp_signature.nvim'
 
   " Plug 'elmcast/elm-vim'
   """"""""""""""""""""

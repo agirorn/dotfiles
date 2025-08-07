@@ -21,13 +21,12 @@ require("mason-lspconfig").setup {
       "eslint",
       "jsonls",
       "lua_ls",
-      "omnisharp",
+      -- "omnisharp",
       "rust_analyzer",
       "tailwindcss",
       "taplo",
       "ts_ls",
       "yamlls",
-      "roslyn",
     }
 }
 END
@@ -35,6 +34,19 @@ END
 
 " LSP configuration
 lua << END
+
+local lsp_signature_config = {
+  bind = true,
+  hint_enable = false,
+  hint_prefix = "⫸  ",
+  handler_opts = {
+    border = "rounded"
+  }
+}  -- add your config here
+require "lsp_signature".setup(lsp_signature_config )
+require'lsp_signature'.on_attach(lsp_signature_config , bufnr)
+
+
 -- -- local lsp_installer = require'nvim-lsp-installer'
 --
 -- -- # Configure NVIM LSP isntaller
@@ -61,17 +73,6 @@ vim.notify = function(msg, log_level, _opts)
     if msg:match("LSP") then return end
     vim.api.nvim_echo({ { msg } }, true, {})
 end
-
--- lsp_installer.setup({
---     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
---     ui = {
---         icons = {
---             server_installed = "✓",
---             server_pending = "➜",
---             server_uninstalled = "✗"
---         }
---     }
--- })
 
 local cmp = require'cmp'
 
@@ -117,42 +118,6 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Setup lspconfig.
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD',       '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd',       '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K',        '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi',       '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-s>',    '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr',       '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', 'P',        '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', 'N',        '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-  -- Get signatures (and _only_ signatures) when in argument lists.
-  require "lsp_signature".on_attach({
-    doc_lines = 0,
-    handler_opts = {
-      border = "none"
-    },
-  })
-end
-
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -162,52 +127,7 @@ local custom_elm_attach = function(client)
   end
 end
 
--- lspconfig.elmls.setup {
---   on_attach = custom_elm_attach
--- }
-
--- lspconfig.snyk_ls.setup( {
---   init_options = {
---     -- activate_snyk_open_source = false,
---   }
---   -- cmd = "snyk-ls"
--- })
-
 lspconfig.elmls.setup {}
-
--- lspconfig.rust_analyzer.setup {
---   on_attach = on_attach,
---   flags = {
---     debounce_text_changes = 150,
---   },
---   settings = {
---     ["rust-analyzer"] = {
---       cargo = {
---         allFeatures = true,
---       },
---       completion = {
---         postfix = {
---           enable = false,
---         },
---       },
---       imports = {
---           granularity = {
---               group = "module",
---           },
---           prefix = "self",
---       },
---       cargo = {
---           buildScripts = {
---               enable = true,
---           },
---       },
---       procMacro = {
---           enable = true,
---       },
---     },
---   },
---   capabilities = capabilities,
--- }
 
 -- Enable JSON Language Server
 lspconfig.jsonls.setup {
@@ -232,18 +152,27 @@ lspconfig.ts_ls.setup({
             disableSuggestions = true,
         },
     },
-    on_attach = function(client, bufnr)
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
-        local ts_utils = require("nvim-lsp-ts-utils")
-        ts_utils.setup({})
-        ts_utils.setup_client(client)
-        -- buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
-        -- buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
-        -- buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
-        on_attach(client, bufnr)
-    end,
 })
+
+vim.api.nvim_create_user_command("BufKeymaps", function()
+  local modes = { "n", "i", "v", "x", "s", "o", "t", "c" } -- normal, insert, etc.
+  local lines = {}
+
+  for _, mode in ipairs(modes) do
+    local keymaps = vim.api.nvim_buf_get_keymap(0, mode)
+    for _, map in ipairs(keymaps) do
+      table.insert(lines, string.format("[%s] %s → %s", mode, map.lhs, map.rhs or ""))
+    end
+  end
+
+  vim.cmd("new")  -- open new scratch buffer
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  vim.bo.buftype = "nofile"
+  vim.bo.bufhidden = "wipe"
+  vim.bo.swapfile = false
+  vim.bo.filetype = "keymaps"
+end, {})
+
 
 lspconfig.eslint.setup({
   capabilities = capabilities,
@@ -267,7 +196,6 @@ lspconfig.eslint.setup({
 
 -- maybe basedpyright is better for Python
 lspconfig.pyright.setup{
-  on_attach = on_attach,
   filetypes = {"python"}
 }
 
@@ -296,216 +224,15 @@ lspconfig.tailwindcss.setup {}
 lspconfig.taplo.setup({})
 
 
--- function file_exists(name)
---    local f=io.open(name,"r")
---    if f~=nil then io.close(f) return true else return false end
--- end
-
--- -----------------------------------------------------------------------------
--- OmniSharp
--- -----------------------------------------------------------------------------
-
--- lspconfig.omnisharp.setup {
---     cmd = { "dotnet", "omnisharp" },
---     root_dir = lspconfig.util.root_pattern("*.csproj", "*.sln"),
---     capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
--- }
-
--- -----------------------------------------------------------------------------
--- OmniSharp
--- -----------------------------------------------------------------------------
--- vim.fn.expand("~/Downloads/omnisharp/OmniSharp"),
-
-vim.env.DOTNET_ROOT = "/usr/local/share/dotnet" -- or your actual path
-vim.env.PATH = vim.env.PATH .. ':/usr/local/share/dotnet'
-
--- -- lspconfig.omnisharp.setup {}
--- lspconfig.omnisharp.setup {
---   -- The Mason loading of omnisharp is currently broken
---   cmd = {
---     -- Downloda OmniSharp from https://github.com/OmniSharp/omnisharp-roslyn/releases/tag/v1.39.13
---     vim.fn.expand("~/Downloads/omnisharp-osx-arm64-net6.0/OmniSharp"),
---     "--languageserver",
---     "--hostPID",
---    tostring(vim.fn.getpid())
---   },
--- 
---   -- capabilities = capabilities,
---   capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
---     textDocument = {
---       semanticTokens = true, -- Enable semantic highlighting
---     }
---   }),
---   handlers = {
---     ["textDocument/definition"] = require('omnisharp_extended').handler,
---   },
---   -- cmd= lspconfig.omnisharp.document_config.default_config.cmd,
---   -- cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
---   on_attach = on_attach,
---   --
---   -- The configuration options can be found here
---   -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
---   -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
---   --
---   enable_editorconfig_support = true,
---   enable_roslyn_analyzers = true,
---   enable_import_completion = true,
---   settings = {
---     RoslynExtensionsOptions = {
---       enableAnalyzersSupport = true,
---       EnableEditorConfigSupport = true,
---       enableDecompilationSupport = true,
---       enableImportCompletion = true,
---       enableRoslynAnalyzers = true,
---       enableReferenceCompletion = true,
---       enableSdkResolver = true,
---     },
---     FormattingOptions = {
---       EnableEditorConfigSupport= true,
---       -- OrganizeImports= true,
---       -- TabSize= 4,
---       -- IndentSize= 4,
---       -- UseTabs= false
---     },
---     DotNet = {
---       EnablePackageRestore = true,
---       EnableMSBuildLoadProjectsOnDemand = true,
---       AnalyzeOpenDocumentsOnly = false
---     },
---     fileOptions = {
---       excludeSearchPatterns = {
---         "**/bin",
---         "**/obj",
---         "**/.git",
---         "**/node_modules"
---       }
---     },
---     Logging = {
---       LogLevel = "Debug",
---       File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
---     }
---   },
--- }
-
 require("roslyn").setup({
-  on_attach = function(client, bufnr)
-    -- Example keybindings
-    local buf_map = function(mode, lhs, rhs)
-      vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, { noremap = true, silent = true })
-    end
-
-    buf_map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    buf_map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    buf_map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  end,
-  capabilities = vim.lsp.protocol.make_client_capabilities(),
+  config = {
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
+    on_attach = function(client, bufnr)
+      print("The roslyn server is attaching!")
+      require "lsp_signature".on_attach(lsp_signature_config, bufnr)
+    end,
+  }
 })
-
-
--- -----------------------------------------------------------------------------
--- OmniSharp
--- -----------------------------------------------------------------------------
-
--- local pid = vim.fn.getpid()
--- local omnisharp_bin = vim.fn.expand("$HOME/dotfiles/bin/omnisharp-osx-x64-net6.0/OmniSharp")
--- --
--- -- To print out the current confifg of omnisharp
--- -- :lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config.settings)) end end
--- --
--- -- to prin tout the lsp omnisharp
--- -- lua for _, client in pairs(vim.lsp.get_active_clients()) do if client.name == "omnisharp" then print(vim.inspect(client.config)) end end
--- --
---
--- -- Function to inspect LSP omnisharp settings
--- function ShowOmniSharpSettings()
---     for _, client in pairs(vim.lsp.get_active_clients()) do
---         if client.name == "omnisharp" then
---             print(vim.inspect(client.config.settings))
---             return
---         end
---     end
---     print("No active LSP client found with name: " .. client_name)
--- end
---
--- -- More info on thei can be found here
--- -- https://aaronbos.dev/posts/csharp-dotnet-neovim
--- lspconfig.omnisharp.setup{
---     -- capabilities = capabilities,
---     capabilities = vim.tbl_extend('keep', cmp_nvim_lsp.default_capabilities(), {
---       textDocument = {
---         semanticTokens = true, -- Enable semantic highlighting
---       }
---     }),
---     handlers = {
---       ["textDocument/definition"] = require('omnisharp_extended').handler,
---     },
---     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
---     on_attach = on_attach,
---     --
---     -- The configuration options can be found here
---     -- https://github.com/OmniSharp/omnisharp-roslyn/wiki/Configuration-Options
---     -- https://github.com/OmniSharp/omnisharp-roslyn/tree/master/src/OmniSharp.Shared/Options
---     --
---     settings = {
---       RoslynExtensionsOptions = {
---         enableAnalyzersSupport = true,
---         enableEditorConfigSupport = true,
---         enableDecompilationSupport = true,
---         enableImportCompletion = true,
---         enableReferenceCompletion = true
---       },
---       FormattingOptions = {
---         enableEditorConfigSupport= true,
---         -- OrganizeImports= true,
---         -- TabSize= 4,
---         -- IndentSize= 4,
---         -- UseTabs= false
---       },
---       DotNet = {
---         EnablePackageRestore = true,
---         EnableMSBuildLoadProjectsOnDemand = true,
---         AnalyzeOpenDocumentsOnly = false
---       },
---       fileOptions = {
---         excludeSearchPatterns = {
---           "**/bin",
---           "**/obj",
---           "**/.git",
---           "**/node_modules"
---         }
---       },
---       Logging = {
---         LogLevel = "Debug",
---         File = os.getenv("HOME") .. "/omnisharp.log" -- Dynamically resolve $HOME
---       }
---   },
---
--- }
---
--- vim.cmd [[
---   augroup lsp_document_highlight
---     autocmd! * <buffer>
---     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
---     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
---   augroup END
--- ]]
---
--- vim.cmd [[
---   hi! link LspReferenceText Visual
---   hi! link LspReferenceRead Visual
---   hi! link LspReferenceWrite Visual
--- ]]
-
--- -----------------------------------------------------------------------------
--- END :: OmniSharp
--- -----------------------------------------------------------------------------
-
--- -- " If neoformat continues to use all the CPU we can remove it and do it ourself
--- -- " Install dotnet tool install -g csharpier
--- " vim.api.nvim_create_autocmd("BufWritePre", {
--- "     pattern = "*.cs",
--- "     command = "silent! !csharpier --write %",
--- " })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -522,20 +249,17 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 --   root_dir = lspconfig.util.root_pattern("WORKSPACE"),
 -- }
 
-lspconfig.gopls.setup {
-  on_attach = on_attach,
-}
+lspconfig.gopls.setup {}
 
 lspconfig.yamlls.setup {
-  on_attach = on_attach,
-       settings = {
-            yaml = {
-              schemas = {
-                kubernetes = "*.yml",
-                compose= "compose.+.yml",
-              },
-            }
-        }
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "*.yml",
+        compose= "compose.+.yml",
+      },
+    }
+  }
 }
 
 END
@@ -570,36 +294,6 @@ rt.setup({
     },
   },
   server = {
-    on_attach = function(_, bufnr)
-      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-      local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-      --Enable completion triggered by <c-x><c-o>
-      buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-      local opts = { noremap=true, silent=true }
-
-      buf_set_keymap('n', 'gD',       '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      buf_set_keymap('n', 'gd',       '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-      buf_set_keymap('n', 'K',        '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-      buf_set_keymap('n', 'gi',       '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-      buf_set_keymap('n', '<C-s>',    '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-      buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-      buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-      buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-      buf_set_keymap('n', 'gr',       '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-      buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-      buf_set_keymap('n', 'P',        '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-      buf_set_keymap('n', 'N',        '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-      buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-      buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-      vim.keymap.set("n", "<Leader>M", rt.expand_macro.expand_macro)
-    end,
-
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
     -- standalone = true,
     settings = {
@@ -710,5 +404,28 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
   end,
 })
+
+local builtin = require('telescope.builtin')
+-- vim.keymap.set('n', 'gD', builtin.lsp_document_symbols, { desc = '[G]oto [D]eclaration' })
+-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
+
+local lsp_signature = require('lsp_signature');
+
+vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
+vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
+vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      '[G]oto [R]eferences' })
+vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
+
+vim.keymap.set('n', '<space>s', lsp_signature.toggle_float_win, { desc = '[D]ocument [S]ymbols' })
+-- vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
+-- vim.keymap.set('n', '<C-s>', builtin.signature_help, { desc = '[S]ignature_[H]elp' })
+vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype [D]efinition' })
+-- code_action re mapped to F
+-- vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, { desc = '[G]oto [T]ype [D]efinition' })
+
+
 END
+" nmap('dg', require('telescope.builtin').lsp_definitions, '[G]oto [D]efentions');
+
 

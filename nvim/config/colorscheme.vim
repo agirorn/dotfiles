@@ -27,6 +27,9 @@ execute 'hi VertSplit guibg=' . g:nord_custom_bg
 execute 'hi StatusLine guibg=' . g:nord_custom_bg
 execute 'hi LineNr guibg=' . g:nord_custom_bg
 
+
+colorscheme tokyonight-night
+
 " colorscheme onedarker
 " colorscheme jellybeans
 " colorscheme kanagawa
