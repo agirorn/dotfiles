@@ -415,7 +415,10 @@ vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efini
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
 vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      '[G]oto [R]eferences' })
 vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
+vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
 
+
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = '[D]ocument [S]ymbols' })
 vim.keymap.set('n', '<space>s', lsp_signature.toggle_float_win, { desc = '[D]ocument [S]ymbols' })
 -- vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
 -- vim.keymap.set('n', '<C-s>', builtin.signature_help, { desc = '[S]ignature_[H]elp' })
@@ -424,8 +427,12 @@ vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype [
 -- code_action re mapped to F
 -- vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, { desc = '[G]oto [T]ype [D]efinition' })
 
+vim.diagnostic.config({
+  virtual_text = true,
+  virtual_lines = { current_line = true },
+  update_in_insert = false,
+  underline = false,
+  float = true
+})
 
 END
-" nmap('dg', require('telescope.builtin').lsp_definitions, '[G]oto [D]efentions');
-
-
