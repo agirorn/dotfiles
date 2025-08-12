@@ -471,6 +471,6 @@ function _G.toggle_diagnostics()
 end
 
 -- Map to a key (example: <leader>d)
-vim.keymap.set('n', '<leader>a', toggle_diagnostics, { noremap = true, silent = true })
+vim.keymap.set('n', '<F3>', toggle_diagnostics, { noremap = true, silent = true })
 
 END
