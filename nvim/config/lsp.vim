@@ -412,6 +412,7 @@ local builtin = require('telescope.builtin')
 local lsp_signature = require('lsp_signature');
 
 vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
+vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
 vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      '[G]oto [R]eferences' })
 vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
@@ -427,12 +428,49 @@ vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype [
 -- code_action re mapped to F
 -- vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, { desc = '[G]oto [T]ype [D]efinition' })
 
-vim.diagnostic.config({
+local diagnostics_on = {
   virtual_text = true,
-  virtual_lines = { current_line = true },
+  virtual_lines = { current_line = f },
   update_in_insert = false,
   underline = false,
   float = true
-})
+}
+
+local diagnostics_off = {
+  float = {
+    source = "always"
+  },
+  jump = {
+    float = false,
+    wrap = true
+  },
+  severity_sort = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  virtual_lines = false,
+  virtual_text = {
+    source = "if_many"
+  }
+}
+local diagnostics_enabled = false
+vim.diagnostic.config(diagnostics_off)
+
+function _G.toggle_diagnostics()
+  diagnostics_enabled = not diagnostics_enabled
+  if diagnostics_enabled then
+
+    vim.diagnostic.config(diagnostics_on)
+    -- vim.diagnostic.enable()
+    print("Diagnostics enabled")
+  else
+    vim.diagnostic.config(diagnostics_off)
+    -- vim.diagnostic.disable()
+    print("Diagnostics disabled")
+  end
+end
+
+-- Map to a key (example: <leader>d)
+vim.keymap.set('n', '<leader>a', toggle_diagnostics, { noremap = true, silent = true })
 
 END
