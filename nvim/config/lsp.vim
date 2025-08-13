@@ -412,7 +412,6 @@ local builtin = require('telescope.builtin')
 local lsp_signature = require('lsp_signature');
 
 vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
-vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
 vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      '[G]oto [R]eferences' })
 vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
@@ -471,6 +470,6 @@ function _G.toggle_diagnostics()
 end
 
 -- Map to a key (example: <leader>d)
-vim.keymap.set('n', '<F3>', toggle_diagnostics, { noremap = true, silent = true })
+vim.keymap.set('n', '<F3>', toggle_diagnostics, { noremap = true, silent = true, desc = '[T]ioggle [D]iagnostics' })
 
 END

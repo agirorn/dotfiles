@@ -6,4 +6,4 @@ lua << EOF
   }
 EOF
 
-nmap <silent> <F3> :TroubleToggle<CR>
+" nmap <silent> <F3> :TroubleToggle<CR>
