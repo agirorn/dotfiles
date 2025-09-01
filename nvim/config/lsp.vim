@@ -15,7 +15,7 @@ require("mason").setup({
 
 -- Ensure some LSPs are installed
 require("mason-lspconfig").setup {
-    -- ensure_installed = { "typescript-language-server", "eslint", "lua_ls" }
+    automatic_enable = false,
     ensure_installed = {
       "bashls",
       "eslint",
