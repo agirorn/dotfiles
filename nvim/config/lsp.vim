@@ -27,6 +27,7 @@ require("mason-lspconfig").setup {
       "taplo",
       "ts_ls",
       "yamlls",
+      "svelte",
     }
 }
 END
@@ -262,6 +263,8 @@ lspconfig.yamlls.setup {
     }
   }
 }
+
+lspconfig.svelte.setup {}
 
 END
 
