@@ -28,9 +28,8 @@ let g:nord_custom_bg = '#262C38' " Just a litle darker background
 " execute 'hi LineNr guibg=' . g:nord_custom_bg
 
 
-" colorscheme tokyonight-night
-" Temoraray testing kanagawa instead of tokyonight-night
-colorscheme kanagawa
+colorscheme tokyonight-night
+" colorscheme kanagawa
 
 " colorscheme onedarker
 " colorscheme jellybeans
