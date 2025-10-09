@@ -19,16 +19,18 @@ let g:nord_custom_bg = '#262C38' " Just a litle darker background
 "
 " https://www.nordtheme.com/ports/vim
 " #######################################################
-colorscheme nord
-execute 'hi Normal guibg=' . g:nord_custom_bg . ' ctermbg=NONE'
-execute 'hi NormalNC guibg=' . g:nord_custom_bg
-execute 'hi EndOfBuffer guibg=' . g:nord_custom_bg
-execute 'hi VertSplit guibg=' . g:nord_custom_bg
-execute 'hi StatusLine guibg=' . g:nord_custom_bg
-execute 'hi LineNr guibg=' . g:nord_custom_bg
+" colorscheme nord
+" execute 'hi Normal guibg=' . g:nord_custom_bg . ' ctermbg=NONE'
+" execute 'hi NormalNC guibg=' . g:nord_custom_bg
+" execute 'hi EndOfBuffer guibg=' . g:nord_custom_bg
+" execute 'hi VertSplit guibg=' . g:nord_custom_bg
+" execute 'hi StatusLine guibg=' . g:nord_custom_bg
+" execute 'hi LineNr guibg=' . g:nord_custom_bg
 
 
-colorscheme tokyonight-night
+" colorscheme tokyonight-night
+" Temoraray testing kanagawa instead of tokyonight-night
+colorscheme kanagawa
 
 " colorscheme onedarker
 " colorscheme jellybeans

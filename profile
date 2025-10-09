@@ -2,7 +2,6 @@
 # My .profile file ;)
 #
 echo .profile
-source "$HOME/.cargo/env"
 [[ -r $HOME/.bashrc ]] && . $HOME/.bashrc
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
