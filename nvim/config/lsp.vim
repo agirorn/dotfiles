@@ -429,6 +429,7 @@ vim.keymap.set('n', '<space>s', lsp_signature.toggle_float_win, { desc = '[D]ocu
 -- vim.keymap.set('n', '<C-s>', builtin.signature_help, { desc = '[S]ignature_[H]elp' })
 vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype [D]efinition' })
+vim.keymap.set('n', 'E', vim.diagnostic.goto_next, { desc = '[G]oto [N]ext Error' })
 -- code_action re mapped to F
 -- vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, { desc = '[G]oto [T]ype [D]efinition' })
 
