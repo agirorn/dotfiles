@@ -147,7 +147,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'rebelot/kanagawa.nvim'
 
   "" For C#
-  Plug 'Hoffs/omnisharp-extended-lsp.nvim'
+  " Plug 'Hoffs/omnisharp-extended-lsp.nvim'
   Plug 'sbdchd/neoformat'
 
   Plug 'ray-x/go.nvim'
