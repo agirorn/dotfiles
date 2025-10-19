@@ -433,9 +433,20 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = '[D]ocument 
 vim.keymap.set('n', '<space>s', lsp_signature.toggle_float_win, { desc = '[D]ocument [S]ymbols' })
 -- vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
 -- vim.keymap.set('n', '<C-s>', builtin.signature_help, { desc = '[S]ignature_[H]elp' })
-vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
+
+-- Define a named function
+local function show_signature_help()
+  vim.lsp.buf.signature_help({ border = "rounded" })
+end
+vim.keymap.set('n', 'gs', show_signature_help, { desc = '[S]ignature_[H]elp' })
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype [D]efinition' })
 vim.keymap.set('n', 'E', vim.diagnostic.goto_next, { desc = '[G]oto [N]ext Error' })
+
+local function show_hover()
+  vim.lsp.buf.hover({ border= "rounded" })
+end
+vim.keymap.set('n', 'K', show_hover)
+
 -- code_action re mapped to F
 -- vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, { desc = '[G]oto [T]ype [D]efinition' })
 
