@@ -288,44 +288,44 @@ vim.diagnostic.config({
 })
 END
 
-lua << END
-local rt = require("rust-tools")
-
-rt.setup({
-  tools = {
-    inlay_hints = {
-      only_current_line = true,
-    },
-  },
-  server = {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-    -- standalone = true,
-    settings = {
-      ["rust-analyzer"] = {
-        -- enable clippy on save
-        checkOnSave = {
-          enable = true,
-          command = "clippy",
-          extraArgs = { "--all", "--", "-W", "clippy::all" },
-        },
-        rustfmt = {
-          extraArgs = { "+nightly" },
-          -- extraArgs = { "+stable" },
-        },
-        cargo = {
-          loadOutDirsFromCheck = true,
-          features = "all",
-          allFeatures = true,
-        },
-        procMacro = {
-          enable = true,
-        },
-      },
-    },
-  },
-})
-
-END
+" -- lua << END
+" -- local rt = require("rust-tools")
+" -- 
+" -- rt.setup({
+" --   tools = {
+" --     inlay_hints = {
+" --       only_current_line = true,
+" --     },
+" --   },
+" --   server = {
+" --     capabilities = require("cmp_nvim_lsp").default_capabilities(),
+" --     -- standalone = true,
+" --     settings = {
+" --       ["rust-analyzer"] = {
+" --         -- enable clippy on save
+" --         checkOnSave = {
+" --           enable = true,
+" --           command = "clippy",
+" --           extraArgs = { "--all", "--", "-W", "clippy::all" },
+" --         },
+" --         rustfmt = {
+" --           extraArgs = { "+nightly" },
+" --           -- extraArgs = { "+stable" },
+" --         },
+" --         cargo = {
+" --           loadOutDirsFromCheck = true,
+" --           features = "all",
+" --           allFeatures = true,
+" --         },
+" --         procMacro = {
+" --           enable = true,
+" --         },
+" --       },
+" --     },
+" --   },
+" -- })
+" --
+" -- END
 
 lua << END
 require'lspconfig'.lua_ls.setup {

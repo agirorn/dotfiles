@@ -102,7 +102,8 @@ call plug#begin('~/.nvim/autoload')
   Plug 'ray-x/lsp_signature.nvim'
 
   " # RUST
-  Plug 'simrat39/rust-tools.nvim'
+  " Plug 'simrat39/rust-tools.nvim'
+  Plug 'mrcjkb/rustaceanvim', { 'tag': 'v6.9.2' }
 
   " # RUST DEBUGGING
   Plug 'nvim-lua/plenary.nvim'
