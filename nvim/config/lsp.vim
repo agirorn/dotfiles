@@ -77,8 +77,6 @@ end
 
 local cmp = require'cmp'
 
-local lspconfig = require'lspconfig'
-
 cmp.setup({
   snippet = {
     -- REQUIRED by nvim-cmp. get rid of it once we can
@@ -128,17 +126,18 @@ local custom_elm_attach = function(client)
   end
 end
 
-lspconfig.elmls.setup {}
+vim.lsp.enable("elmls")
 
 -- Enable JSON Language Server
-lspconfig.jsonls.setup {
+vim.lsp.config("jsonls", {
     settings = {
         json = {
             schemas = require('schemastore').json.schemas(), -- Load common JSON schemas
             validate = { enable = true }, -- Enable validation
         },
     },
-}
+})
+vim.lsp.enable("jsonls")
 
 -- Optional: Enable Treesitter for JSON
 require'nvim-treesitter.configs'.setup {
@@ -147,7 +146,7 @@ require'nvim-treesitter.configs'.setup {
     indent = { enable = true },
 }
 
-lspconfig.ts_ls.setup({
+vim.lsp.config("ts_ls", {
     init_options = {
         preferences = {
             disableSuggestions = true,
@@ -155,6 +154,7 @@ lspconfig.ts_ls.setup({
         },
     },
 })
+vim.lsp.enable("ts_ls")
 
 vim.api.nvim_create_user_command("BufKeymaps", function()
   local modes = { "n", "i", "v", "x", "s", "o", "t", "c" } -- normal, insert, etc.
@@ -176,7 +176,7 @@ vim.api.nvim_create_user_command("BufKeymaps", function()
 end, {})
 
 
-lspconfig.eslint.setup({
+vim.lsp.config("eslint", {
   capabilities = capabilities,
   flags = { debounce_text_changes = 500 },
   on_attach = function(client, bufnr)
@@ -195,11 +195,13 @@ lspconfig.eslint.setup({
     end
   end,
 })
+vim.lsp.enable("eslint")
 
 -- maybe basedpyright is better for Python
-lspconfig.pyright.setup{
+vim.lsp.config("pyright", {
   filetypes = {"python"}
-}
+})
+vim.lsp.enable("pyright")
 
 -- lspconfig.pylsp.setup{
 --   settings = {
@@ -214,16 +216,17 @@ lspconfig.pyright.setup{
 --   }
 -- }
 
-lspconfig.jdtls.setup{
+vim.lsp.config("jdtls", {
   cmd = {'jdtls'},
   root_dir = require('lspconfig/util').root_pattern('.git', 'mvnw', 'gradlew'),
-}
+})
+vim.lsp.enable("jdtls")
 
-lspconfig.tailwindcss.setup {}
+vim.lsp.enable("tailwindcss")
 
 
 -- " a TOML v1.0.0 toolkit
-lspconfig.taplo.setup({})
+vim.lsp.enable("taplo")
 
 
 require("roslyn").setup({
@@ -245,15 +248,16 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 
--- lspconfig.bazel.setup{
+-- vim.lsp.config("bazel", {
 --   cmd = { "bazel" },
 --   filetypes = { "bzl", "BUILD", "WORKSPACE" },
 --   root_dir = lspconfig.util.root_pattern("WORKSPACE"),
--- }
+-- })
+-- vim.lsp.enable("bazel")
 
-lspconfig.gopls.setup {}
+vim.lsp.enable("gopls")
 
-lspconfig.yamlls.setup {
+vim.lsp.config("yamlls", {
   settings = {
     yaml = {
       schemas = {
@@ -262,9 +266,10 @@ lspconfig.yamlls.setup {
       },
     }
   }
-}
+})
+vim.lsp.enable("yamlls")
 
-lspconfig.svelte.setup {}
+vim.lsp.enable("svelte")
 
 END
 
@@ -328,7 +333,7 @@ END
 " -- END
 
 lua << END
-require'lspconfig'.lua_ls.setup {
+vim.lsp.config("lua_ls", {
   on_init = function(client)
     local path = client.workspace_folders[1].name
     if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
@@ -358,7 +363,8 @@ require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {}
   }
-}
+})
+vim.lsp.enable("lua_ls")
 END
 
 
