@@ -24,6 +24,7 @@ require("mason-lspconfig").setup {
       -- "omnisharp",
       "rust_analyzer",
       "tailwindcss",
+      "pyright",
       "taplo",
       "ts_ls",
       "yamlls",
@@ -197,10 +198,6 @@ vim.lsp.config("eslint", {
 })
 vim.lsp.enable("eslint")
 
--- maybe basedpyright is better for Python
-vim.lsp.config("pyright", {
-  filetypes = {"python"}
-})
 vim.lsp.enable("pyright")
 
 -- lspconfig.pylsp.setup{
