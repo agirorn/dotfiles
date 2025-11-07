@@ -69,6 +69,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nanotech/jellybeans.vim'
   " Plug 'lunarvim/Onedarker.nvim'
   Plug 'folke/tokyonight.nvim'
+  Plug 'yorumicolors/yorumi.nvim'
   " Plug 'craftzdog/solarized-osaka.nvim'
 
   " This github theme is quite nice

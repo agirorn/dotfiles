@@ -12,7 +12,7 @@ syntax enable
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
 
-let g:nord_custom_bg = '#262C38' " Just a litle darker background
+" let g:nord_custom_bg = '#262C38' " Just a litle darker background
 
 " #######################################################
 " Nord colorscheme
@@ -28,7 +28,8 @@ let g:nord_custom_bg = '#262C38' " Just a litle darker background
 " execute 'hi LineNr guibg=' . g:nord_custom_bg
 
 
-colorscheme tokyonight-night
+" colorscheme tokyonight-night
+colorscheme yorumi
 " colorscheme kanagawa
 
 " colorscheme onedarker
