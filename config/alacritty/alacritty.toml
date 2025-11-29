@@ -62,6 +62,12 @@ action = "SpawnNewInstance"
 key = "Return"
 mods = "Super|Shift"
 
+
+# [[keyboard.bindings]]
+# key = "J"
+# mods = "Alt"
+# chars = "\\x1bj" # This sends the escape sequence for Alt+J
+
 [selection]
 save_to_clipboard = false
 
@@ -71,6 +77,7 @@ args = ["-l", "-c", "tmux"]
 
 [window]
 opacity = 1
+option_as_alt = "OnlyLeft"
 
 [window.class]
 general = "Alacritty"
