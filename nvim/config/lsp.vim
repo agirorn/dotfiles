@@ -421,7 +421,7 @@ local lsp_signature = require('lsp_signature');
 
 vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
-vim.keymap.set('n', 'gt', builtin.lsp_incoming_calls, { desc = '[G]oto incoming [T]alls' })
+vim.keymap.set('n', 'gC', builtin.lsp_incoming_calls, { desc = '[G]oto incoming [T]alls' })
 vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      '[G]oto [R]eferences' })
 vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
 vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
