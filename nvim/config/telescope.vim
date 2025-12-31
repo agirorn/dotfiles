@@ -11,6 +11,7 @@ nnoremap <leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fd <cmd>lua require('telescope.builtin').diagnostics()<cr>
+nnoremap <leader>tt <cmd>lua require('telescope.builtin').resume()<cr>
 
 lua << END
 require('telescope').setup {

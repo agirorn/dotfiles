@@ -419,6 +419,8 @@ local builtin = require('telescope.builtin')
 
 local lsp_signature = require('lsp_signature');
 
+
+vim.keymap.set('n', '<F4>', vim.diagnostic.setqflist, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
 vim.keymap.set('n', 'gC', builtin.lsp_incoming_calls, { desc = '[G]oto incoming [T]alls' })
@@ -448,9 +450,34 @@ vim.keymap.set('n', 'K', show_hover)
 -- code_action re mapped to F
 -- vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, { desc = '[G]oto [T]ype [D]efinition' })
 
+local function float_dialog_format(diag)
+  local msg = ("%s [%s]"):format(diag.message, diag.code)
+  if diag.code_action then
+    msg = msg .. ("\n Code Actions:\n %s"):format(diag.code_action)
+  end
+  local ri = diag.user_data
+    and diag.user_data.lsp
+    and diag.user_data.lsp.relatedInformation
+
+  if ri and #ri > 0 then
+    msg = msg .. "\n\nRelated Information:\n"
+    for _, r in ipairs(ri) do
+      local uri = r.location and r.location.uri or ""
+      local path = vim.uri_to_fname(uri)
+      local lnum = (r.location and r.location.range and r.location.range.start.line or 0) + 1
+      msg = msg .. "\n- - - - - - - - - - - - - -\n"
+      msg = msg .. ("Source: %s:%d\n \n%s\n"):format(path, lnum, r.message or "")
+    end
+  end
+
+  return msg
+end
+
+
 local diagnostics_on = {
   virtual_text = true,
   virtual_lines = { current_line = f },
+  severity_sort = true,
   update_in_insert = false,
   underline = false,
   float = true
@@ -458,13 +485,15 @@ local diagnostics_on = {
 
 local diagnostics_off = {
   float = {
-    source = "always"
+    source = "always",
+    focusable = true,
+    format = float_dialog_format,
   },
   jump = {
     float = false,
     wrap = true
   },
-  severity_sort = false,
+  severity_sort = true,
   signs = true,
   underline = true,
   update_in_insert = false,
@@ -473,6 +502,8 @@ local diagnostics_off = {
     source = "if_many"
   }
 }
+
+
 local diagnostics_enabled = false
 vim.diagnostic.config(diagnostics_off)
 
