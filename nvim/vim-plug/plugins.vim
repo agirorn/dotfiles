@@ -81,6 +81,9 @@ call plug#begin('~/.nvim/autoload')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'MunifTanjim/nui.nvim'
   Plug 'nvim-neo-tree/neo-tree.nvim'
+  Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'stevearc/oil.nvim'
+  Plug 'mikavilpas/yazi.nvim'
 
   Plug 'jlanzarotta/bufexplorer'
   Plug 'evanleck/vim-svelte', {'branch': 'main'}
