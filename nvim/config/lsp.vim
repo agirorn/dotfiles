@@ -420,7 +420,7 @@ local builtin = require('telescope.builtin')
 local lsp_signature = require('lsp_signature');
 
 
-vim.keymap.set('n', '<F4>', vim.diagnostic.setqflist, { desc =     '[G]oto [D]efinition' })
+vim.keymap.set('n', '<F5>', vim.diagnostic.setqflist, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
 vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
 vim.keymap.set('n', 'gC', builtin.lsp_incoming_calls, { desc = '[G]oto incoming [T]alls' })
