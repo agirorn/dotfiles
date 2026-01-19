@@ -70,6 +70,7 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'lunarvim/Onedarker.nvim'
   Plug 'folke/tokyonight.nvim'
   Plug 'yorumicolors/yorumi.nvim'
+  Plug 'rafamadriz/neon'
   " Plug 'craftzdog/solarized-osaka.nvim'
 
   " This github theme is quite nice
