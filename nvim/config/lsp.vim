@@ -24,7 +24,9 @@ require("mason-lspconfig").setup {
       -- "omnisharp",
       "rust_analyzer",
       "tailwindcss",
-      "pyright",
+      -- "pyright",
+      "basedpyright",
+      -- "ruff"
       "taplo",
       "ts_ls",
       "yamlls",
@@ -362,6 +364,24 @@ vim.lsp.config("lua_ls", {
   }
 })
 vim.lsp.enable("lua_ls")
+
+
+
+-- BasedPyright: type checking
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      analysis = {
+        typeCheckingMode = "standard", -- "strict" if you want pain
+        -- typeCheckingMode = "strict", -- "strict" if you want pain
+        diagnosticMode = "workspace",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+})
+vim.lsp.enable("basedpyright")
 END
 
 
