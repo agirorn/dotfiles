@@ -142,7 +142,7 @@ call plug#begin('~/.nvim/autoload')
   "" $nvim --headless -c "TSInstallSync bash c" -c q
   "" $ nvim --headless -c "TSUpdateSync" -c q
   Plug 'nvim-treesitter/nvim-treesitter'
-  Plug 'nvim-treesitter/playground'
+  " Plug 'nvim-treesitter/playground'
   Plug 'folke/which-key.nvim'
 
   Plug 'tpope/vim-dadbod'

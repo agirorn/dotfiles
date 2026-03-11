@@ -6,9 +6,16 @@ if ! command -v displayplacer 2>&1 1>/dev/null; then
   brew install jakehilborn/jakehilborn/displayplacer
 fi
 
-if ! command -v docker 2>&1 1>/dev/null; then
-  brew install --cask docker
-fi
+# Docker is not allowed at work so we should not auto install
+# In the future we should just install rancher 
+# brew install --cask rancher
+# if ! command -v docker 2>&1 1>/dev/null; then
+#   brew install --cask docker
+# fi
+#
+# !!! dbeaver-community is not allowed at work
+# brew install dbeaver-community
+#
 
 INSTALLED=`brew list`
 APPLICATIONS=(
@@ -19,8 +26,8 @@ APPLICATIONS=(
   code-minimap
   colordiff
   ctags
-  dbeaver-community
   diff-so-fancy
+  yazi
   extract_url
   ffmpeg
   fnm
@@ -54,7 +61,6 @@ APPLICATIONS=(
   tig
   tmux
   urlview
-  visual-studio-code
   xz
   youtube-dl
   zlib
@@ -76,7 +82,8 @@ fi
 
 # Installing fonts see
 # https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
-brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font
+brew install --cask font-hack-nerd-font
+brew install --cask visual-studio-code
 
 missing_apps=${apps_to_install[@]}
 echo Installing ${missing_apps}

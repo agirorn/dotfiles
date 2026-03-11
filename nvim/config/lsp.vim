@@ -143,7 +143,7 @@ vim.lsp.config("jsonls", {
 vim.lsp.enable("jsonls")
 
 -- Optional: Enable Treesitter for JSON
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter'.setup {
     ensure_installed = { "json" },
     highlight = { enable = true },
     indent = { enable = true },
