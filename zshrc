@@ -235,3 +235,11 @@ fi
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 # export PATH="$HOME/bin:$PATH"
+
+# Added by pythong uv project.
+# How invasive can you be
+# . "$HOME/.local/bin/env"
+# Setting this my way
+if test -f "$HOME/.local/bin/env"; then
+  source "$HOME/.local/bin/env"
+fi

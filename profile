@@ -8,3 +8,5 @@ echo .profile
 test -d ${HOME}/.rd/bin && export PATH=${HOME}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 test -f "$HOME/.cargo/env" && . "$HOME/.cargo/env"
+
+test -f "$HOME/.local/bin/env" && source "$HOME/.local/bin/env"
