@@ -70,6 +70,7 @@ call plug#begin('~/.nvim/autoload')
   " Plug 'lunarvim/Onedarker.nvim'
   Plug 'folke/tokyonight.nvim'
   Plug 'yorumicolors/yorumi.nvim'
+  Plug 'rafamadriz/neon'
   " Plug 'craftzdog/solarized-osaka.nvim'
 
   " This github theme is quite nice
@@ -141,7 +142,7 @@ call plug#begin('~/.nvim/autoload')
   "" $nvim --headless -c "TSInstallSync bash c" -c q
   "" $ nvim --headless -c "TSUpdateSync" -c q
   Plug 'nvim-treesitter/nvim-treesitter'
-  Plug 'nvim-treesitter/playground'
+  " Plug 'nvim-treesitter/playground'
   Plug 'folke/which-key.nvim'
 
   Plug 'tpope/vim-dadbod'
@@ -154,6 +155,8 @@ call plug#begin('~/.nvim/autoload')
   "" For C#
   " Plug 'Hoffs/omnisharp-extended-lsp.nvim'
   Plug 'sbdchd/neoformat'
+  " An alternative formatter
+  " Plug 'stevearc/conform.nvim'
 
   Plug 'ray-x/go.nvim'
   Plug 'slint-ui/vim-slint'

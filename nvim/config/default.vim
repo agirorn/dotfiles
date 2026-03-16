@@ -172,6 +172,10 @@ nmap <leader>sl z=
 " nmap <F11> :ToggleWhitespace<CR>
 
 set backupcopy=yes
+set termguicolors
+lua<<END
+vim.g.termguicolors=true
+END
 
 "" tmux-complete
 let g:tmuxcomplete#trigger = 'omnifunc'

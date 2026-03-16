@@ -24,7 +24,9 @@ require("mason-lspconfig").setup {
       -- "omnisharp",
       "rust_analyzer",
       "tailwindcss",
-      "pyright",
+      -- "pyright",
+      "basedpyright",
+      -- "ruff"
       "taplo",
       "ts_ls",
       "yamlls",
@@ -141,7 +143,7 @@ vim.lsp.config("jsonls", {
 vim.lsp.enable("jsonls")
 
 -- Optional: Enable Treesitter for JSON
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter'.setup {
     ensure_installed = { "json" },
     highlight = { enable = true },
     indent = { enable = true },
@@ -154,6 +156,10 @@ vim.lsp.config("ts_ls", {
             documentFormattingProvider = false,
         },
     },
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end,
 })
 vim.lsp.enable("ts_ls")
 
@@ -176,13 +182,13 @@ vim.api.nvim_create_user_command("BufKeymaps", function()
   vim.bo.filetype = "keymaps"
 end, {})
 
-
 vim.lsp.config("eslint", {
   capabilities = capabilities,
+  workingDirectory = { mode = "location" },
   flags = { debounce_text_changes = 500 },
   on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = true
-    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormattingProvider = true
     if client.server_capabilities.document_formatting then
       local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -362,6 +368,24 @@ vim.lsp.config("lua_ls", {
   }
 })
 vim.lsp.enable("lua_ls")
+
+
+
+-- BasedPyright: type checking
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      analysis = {
+        typeCheckingMode = "standard", -- "strict" if you want pain
+        -- typeCheckingMode = "strict", -- "strict" if you want pain
+        diagnosticMode = "workspace",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+})
+vim.lsp.enable("basedpyright")
 END
 
 
@@ -381,8 +405,8 @@ vim.cmd [[
 END
 
 "# Auto fix javascript and Typescript files
-autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
-autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
+" autocmd BufWritePre *.ts silent! execute 'call EslintFixAll()'
+" autocmd BufWritePre *.js silent! execute 'call EslintFixAll()'
 
 "# Run the available code actions under the cursor
 nnoremap <silent> F <cmd>lua vim.lsp.buf.code_action()<CR>

@@ -1,3 +1,8 @@
+" https://github.com/Mofiqul/vscode.nvim
+" https://github.com/sainnhe/sonokai
+" https://github.com/Mofiqul/dracula.nvim
+" sho-87/kanagawa-paper.nvim
+
 if (has("termguicolors"))
   set termguicolors
 endif
@@ -31,6 +36,13 @@ syntax enable
 
 " colorscheme tokyonight-night
 colorscheme yorumi
+
+" -- neon
+" lua<<END
+" vim.g.neon_style = "dark"
+" END
+" colorscheme neon
+
 " colorscheme kanagawa
 
 " colorscheme onedarker
@@ -53,6 +65,7 @@ highlight ColorColumn ctermbg=232 guibg=#2c2d27
 
 " Change the editor space to 100cols for rust
 autocmd FileType rust set colorcolumn=101,999
+autocmd FileType cs set colorcolumn=121,999
 
 " " colorscheme-switcher
 " "   plugin xolox/vim-colorscheme-switcher
