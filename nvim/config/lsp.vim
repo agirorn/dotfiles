@@ -24,8 +24,8 @@ require("mason-lspconfig").setup {
       -- "omnisharp",
       "rust_analyzer",
       "tailwindcss",
-      -- "pyright",
-      "basedpyright",
+      "pyright",
+      -- "basedpyright",
       -- "ruff"
       "taplo",
       "ts_ls",
@@ -204,20 +204,25 @@ vim.lsp.config("eslint", {
 })
 vim.lsp.enable("eslint")
 
-vim.lsp.enable("pyright")
+-- -- Leaing the basedpyright here just ins case
+-- local util = require("lspconfig.util")
+-- vim.lsp.config("basedpyright", {
+--   root_dir = function(bufnr, on_dir)
+--     local fname = vim.api.nvim_buf_get_name(bufnr)
+--     local root = util.root_pattern("uv.lock")(fname)
+--       or util.root_pattern(".git")(fname)
+--       or util.root_pattern("pyproject.toml")(fname)
+-- 
+--     on_dir(root)
+--   end,
+-- })
+-- vim.lsp.enable("basedpyright")
 
--- lspconfig.pylsp.setup{
---   settings = {
---     pylsp = {
---       plugins = {
---         pycodestyle = {
---           ignore = {'W391'},
---           maxLineLength = 100
---         }
---       }
---     }
---   }
--- }
+vim.lsp.config('pyright', {
+  root_markers = { '.git' },
+})
+vim.lsp.enable('pyright')
+
 
 vim.lsp.config("jdtls", {
   cmd = {'jdtls'},
