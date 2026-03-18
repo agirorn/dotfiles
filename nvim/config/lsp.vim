@@ -26,7 +26,7 @@ require("mason-lspconfig").setup {
       "tailwindcss",
       "pyright",
       -- "basedpyright",
-      -- "ruff"
+      "ruff",
       "taplo",
       "ts_ls",
       "yamlls",
@@ -212,7 +212,7 @@ vim.lsp.enable("eslint")
 --     local root = util.root_pattern("uv.lock")(fname)
 --       or util.root_pattern(".git")(fname)
 --       or util.root_pattern("pyproject.toml")(fname)
--- 
+--
 --     on_dir(root)
 --   end,
 -- })
@@ -222,6 +222,7 @@ vim.lsp.config('pyright', {
   root_markers = { '.git' },
 })
 vim.lsp.enable('pyright')
+vim.lsp.enable('ruff')
 
 
 vim.lsp.config("jdtls", {
@@ -303,7 +304,7 @@ END
 
 " -- lua << END
 " -- local rt = require("rust-tools")
-" -- 
+" --
 " -- rt.setup({
 " --   tools = {
 " --     inlay_hints = {
