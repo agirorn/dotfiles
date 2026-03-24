@@ -240,3 +240,11 @@ if test -d "$HOME/.ssh/scm-script.sh"; then
   alias scm-ssh="$HOME/.ssh/scm-script.sh"
   scm-ssh start_agent
 fi
+
+# Added by pythong uv project.
+# How invasive can you be
+# . "$HOME/.local/bin/env"
+# Setting this my way
+if test -f "$HOME/.local/bin/env"; then
+  source "$HOME/.local/bin/env"
+fi
