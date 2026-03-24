@@ -235,3 +235,8 @@ fi
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 # export PATH="$HOME/bin:$PATH"
+
+if test -d "$HOME/.ssh/scm-script.sh"; then
+  alias scm-ssh="$HOME/.ssh/scm-script.sh"
+  scm-ssh start_agent
+fi
