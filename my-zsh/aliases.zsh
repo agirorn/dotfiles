@@ -40,7 +40,9 @@ function kill-all-vims() {
 # Open all files found by ripgrep in vim
 #
 # https://github.com/BurntSushi/ripgrep
-function vrg() { nvim `rg -l $@` }
+function vrg() { 
+  rg -0 -l -- "$@" | xargs -0 nvim
+}
 
 # Open files marked as changed by git in vim
 function vgchanged() {
