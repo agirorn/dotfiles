@@ -41,7 +41,7 @@ function kill-all-vims() {
 #
 # https://github.com/BurntSushi/ripgrep
 function vrg() { 
-  rg -0 -l -- "$@" | xargs -0 nvim
+  rg -0 -l $@ | xargs -0 nvim
 }
 
 # Open files marked as changed by git in vim
