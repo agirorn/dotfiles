@@ -242,7 +242,7 @@ if test -f "$HOME/.ssh/scm-script.sh"; then
   alias scm-ssh="$HOME/.ssh/scm-script.sh"
   # For some reason this does not work.
   # scm-ssh start_agent
-  $HOME/.ssh/scm-script.sh start_agent
+  $HOME/.ssh/scm-script.sh start_agent > /dev/null
 fi
 
 # Added by pythong uv project.
