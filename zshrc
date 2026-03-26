@@ -236,9 +236,13 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 
 # export PATH="$HOME/bin:$PATH"
 
-if test -d "$HOME/.ssh/scm-script.sh"; then
+if test -f "$HOME/.ssh/scm-script.sh"; then
+  # If this is not working you might need to run `scm-ssh ssh_reset` to re-setup
+  # the socket.
   alias scm-ssh="$HOME/.ssh/scm-script.sh"
-  scm-ssh start_agent
+  # For some reason this does not work.
+  # scm-ssh start_agent
+  $HOME/.ssh/scm-script.sh start_agent
 fi
 
 # Added by pythong uv project.
