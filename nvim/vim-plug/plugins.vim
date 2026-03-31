@@ -155,6 +155,7 @@ call plug#begin('~/.nvim/autoload')
   "" For C#
   " Plug 'Hoffs/omnisharp-extended-lsp.nvim'
   Plug 'sbdchd/neoformat'
+  Plug 'stevearc/conform.nvim'
   " An alternative formatter
   " Plug 'stevearc/conform.nvim'
 

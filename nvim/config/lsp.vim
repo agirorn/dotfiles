@@ -36,6 +36,19 @@ require("mason-lspconfig").setup {
 END
 
 
+lua << END
+require("conform").setup({
+  formatters_by_ft = {
+    python = { "ruff_organize_imports", "ruff_format" },
+  },
+  format_on_save = {
+    lsp_format = "never",
+    timeout_ms = 1000,
+  },
+})
+END
+
+
 " LSP configuration
 lua << END
 
@@ -204,7 +217,7 @@ vim.lsp.config("eslint", {
 })
 vim.lsp.enable("eslint")
 
--- -- Leaing the basedpyright here just ins case
+-- -- Leaving the basedpyright here just ins case
 -- local util = require("lspconfig.util")
 -- vim.lsp.config("basedpyright", {
 --   root_dir = function(bufnr, on_dir)
