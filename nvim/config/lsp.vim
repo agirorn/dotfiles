@@ -235,6 +235,11 @@ vim.lsp.config('pyright', {
   root_markers = { '.git' },
 })
 vim.lsp.enable('pyright')
+local util = require("lspconfig.util")
+
+vim.lsp.config('ruff', {
+  root_markers= { ".git" }
+})
 vim.lsp.enable('ruff')
 
 
@@ -390,21 +395,6 @@ vim.lsp.enable("lua_ls")
 
 
 
--- BasedPyright: type checking
-vim.lsp.config("basedpyright", {
-  settings = {
-    basedpyright = {
-      analysis = {
-        typeCheckingMode = "standard", -- "strict" if you want pain
-        -- typeCheckingMode = "strict", -- "strict" if you want pain
-        diagnosticMode = "workspace",
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
-})
-vim.lsp.enable("basedpyright")
 END
 
 
