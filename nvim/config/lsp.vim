@@ -232,7 +232,31 @@ vim.lsp.enable("eslint")
 -- vim.lsp.enable("basedpyright")
 
 vim.lsp.config('pyright', {
-  root_markers = { '.git' },
+  root_dir = function(bufnr, on_dir)
+    local file = vim.api.nvim_buf_get_name(bufnr)
+    if file == '' then
+      return
+    end
+
+    local git_root = vim.fs.root(bufnr, '.git')
+    if not git_root then
+      return
+    end
+
+    local root = nil
+
+    for dir in vim.fs.parents(file) do
+      if dir == git_root then
+        break
+      end
+
+      if vim.uv.fs_stat(vim.fs.joinpath(dir, 'pyproject.toml')) then
+        root = dir
+      end
+    end
+
+    on_dir(root or git_root)
+  end,
 })
 vim.lsp.enable('pyright')
 local util = require("lspconfig.util")
