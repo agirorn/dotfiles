@@ -78,6 +78,7 @@ require('nvim-treesitter').install {
   "typescript",
   "vim",
   "yaml",
+  "sql",
 }
 
 -- Make ```shell looke like ```bash in markdown files
