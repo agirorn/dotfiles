@@ -258,6 +258,35 @@ vim.lsp.config('pyright', {
     on_dir(root or git_root)
   end,
 })
+
+--  vim.lsp.config('pyright', {
+--  --  root_dir = function(bufnr, on_dir)
+--  --    on_dir(vim.fs.root(bufnr, 'Dockerfile-SQL'))
+--  --  end,
+--    root_markers = { 'pyrightconfig.json', 'pyproject.toml', '.git' },
+--    settings = {
+--      python = {
+--        analysis = {
+--          verboseOutput = true,
+--        },
+--      },
+--    },
+--  })
+
+-- vim.lsp.config('pyright', {
+--   root_dir = '/Users/asimonar/code/laguna-2/services',
+--   settings = {
+--     python = {
+--       pythonPath = '/Users/asimonar/code/laguna-2/services/.venv/bin/python',
+--       analysis = {
+--         verboseOutput = true,
+--         diagnosticMode = 'openFilesOnly',
+--         useLibraryCodeForTypes = true,
+--       },
+--     },
+--   },
+-- })
+
 vim.lsp.enable('pyright')
 local util = require("lspconfig.util")
 
