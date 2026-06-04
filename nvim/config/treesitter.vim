@@ -1,5 +1,5 @@
 lua << END
-require'nvim-treesitter'.setup {
+require('nvim-treesitter').setup {
   -- A list of parser names, or "all"
   ensure_installed = {
     "bash",
@@ -54,6 +54,30 @@ require'nvim-treesitter'.setup {
     updatetime = 25,
     persist_queries = false,
   },
+}
+require('nvim-treesitter').install { 
+  "bash",
+  "c",
+  "c_sharp",
+  "dockerfile",
+  "elm",
+  "go",
+  "graphql",
+  "html",
+  "java",
+  "javascript",
+  "json",
+  "lua",
+  "make",
+  "markdown",
+  "proto",
+  "python",
+  "rust",
+  "toml",
+  "tsx",
+  "typescript",
+  "vim",
+  "yaml",
 }
 
 -- Make ```shell looke like ```bash in markdown files
