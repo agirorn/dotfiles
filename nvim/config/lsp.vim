@@ -259,6 +259,13 @@ vim.lsp.config('pyright', {
   end,
 })
 
+local format_sync_grp = vim.api.nvim_create_augroup("RustaceanFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  buffer = bufnr,
+  callback = function() vim.lsp.buf.format() end,
+  group = format_sync_grp,
+})
+
 --  vim.lsp.config('pyright', {
 --  --  root_dir = function(bufnr, on_dir)
 --  --    on_dir(vim.fs.root(bufnr, 'Dockerfile-SQL'))

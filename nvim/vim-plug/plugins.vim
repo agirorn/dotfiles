@@ -108,7 +108,7 @@ call plug#begin('~/.nvim/autoload')
 
   " # RUST
   " Plug 'simrat39/rust-tools.nvim'
-  Plug 'mrcjkb/rustaceanvim', { 'tag': 'v6.9.2' }
+  Plug 'mrcjkb/rustaceanvim', { 'tag': 'v9.0.5' }
 
   " # RUST DEBUGGING
   Plug 'nvim-lua/plenary.nvim'
