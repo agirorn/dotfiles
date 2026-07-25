@@ -319,13 +319,13 @@ require("roslyn").setup({
   }
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  }
-)
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, {
+--     virtual_text = true,
+--     signs = true,
+--     update_in_insert = false,
+--   }
+-- )
 
 
 -- vim.lsp.config("bazel", {
@@ -576,7 +576,7 @@ local diagnostics_off = {
     format = float_dialog_format,
   },
   jump = {
-    float = false,
+    on_jump = false,
     wrap = true
   },
   severity_sort = true,

@@ -1,3 +1,5 @@
+" Remember to install tree sitter
+" cargo install tree-sitter-cli
 lua << END
 require('nvim-treesitter').setup {
   -- A list of parser names, or "all"
