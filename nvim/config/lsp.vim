@@ -22,7 +22,7 @@ require("mason-lspconfig").setup {
       "jsonls",
       "lua_ls",
       -- "omnisharp",
-      "rust_analyzer",
+      -- "rust_analyzer",
       "tailwindcss",
       "pyright",
       -- "basedpyright",
@@ -258,6 +258,34 @@ vim.lsp.config('pyright', {
     on_dir(root or git_root)
   end,
 })
+
+vim.g.rustaceanvim = {
+  server = {
+    default_settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          allFeatures = true,
+        },
+        -- Switch from standard compiler checks to clippy
+        checkOnSave = {
+          command = "clippy",
+        },
+        -- Enable full support for macro auto-completion
+        procMacro = {
+          enable = true,
+        },
+      },
+    },
+    on_attach = function(client, bufnr)
+      -- if vim.lsp.inlay_hint then
+      --   vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+      -- end
+    end
+  },
+  -- 2. Configure rustaceanvim UI and automation features
+  tools = {
+  },
+}
 
 local format_sync_grp = vim.api.nvim_create_augroup("RustaceanFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -513,16 +541,15 @@ local builtin = require('telescope.builtin')
 local lsp_signature = require('lsp_signature');
 
 
-vim.keymap.set('n', '<F5>', vim.diagnostic.setqflist, { desc =     '[G]oto [D]efinition' })
-vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     '[G]oto [D]efinition' })
-vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = '[G]oto [I]mplementation' })
-vim.keymap.set('n', 'gC', builtin.lsp_incoming_calls, { desc = '[G]oto incoming [T]alls' })
-vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      '[G]oto [R]eferences' })
-vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
-vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
+vim.keymap.set('n', '<F5>', vim.diagnostic.setqflist, { desc =     'Goto [D]efinition' })
+vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc =     'Goto [d]efinition' })
+vim.keymap.set('n', 'gi', builtin.lsp_implementations, { desc = 'Goto [i]mplementation' })
+vim.keymap.set('n', 'gC', builtin.lsp_incoming_calls, { desc = 'Goto incoming [C]alls' })
+vim.keymap.set('n', 'gr', builtin.lsp_references, { desc =      'Goto [r]eferences' })
+vim.keymap.set('n', '<space>ds', builtin.lsp_document_symbols, { desc = 'Document [S]ymbols' })
 
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = '[D]ocument [S]ymbols' })
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = 'Open [e]rror flat' })
 vim.keymap.set('n', '<space>s', lsp_signature.toggle_float_win, { desc = '[D]ocument [S]ymbols' })
 -- vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, { desc = '[S]ignature_[H]elp' })
 -- vim.keymap.set('n', '<C-s>', builtin.signature_help, { desc = '[S]ignature_[H]elp' })
@@ -531,8 +558,21 @@ vim.keymap.set('n', '<space>s', lsp_signature.toggle_float_win, { desc = '[D]ocu
 local function show_signature_help()
   vim.lsp.buf.signature_help({ border = "rounded" })
 end
-vim.keymap.set('n', 'gs', show_signature_help, { desc = '[S]ignature_[H]elp' })
-vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = '[G]oto [T]ype [D]efinition' })
+vim.keymap.set('n', 'gs', show_signature_help, { desc = 'Show [S]ignature_Help' })
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { desc = 'Goto [t]ype definition' })
+
+local inlay_hints_on=false
+local function toggle_inlay_hints()
+  if inlay_hints_on then
+    vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
+    inlay_hints_on=false
+  else
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    inlay_hints_on=true
+  end
+end
+vim.keymap.set('n', '<F9>', toggle_inlay_hints, { desc = 'Toggle inline [T]ype definition' })
+
 vim.keymap.set('n', 'E', vim.diagnostic.goto_next, { desc = '[G]oto [N]ext Error' })
 
 local function show_hover()
