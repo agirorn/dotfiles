@@ -266,6 +266,11 @@ vim.g.rustaceanvim = {
         cargo = {
           allFeatures = true,
         },
+        completion = {
+          autoimport = {
+            enable = false,
+          },
+        },
         -- Switch from standard compiler checks to clippy
         checkOnSave = {
           command = "clippy",
