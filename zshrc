@@ -52,7 +52,7 @@ plugins=(
   bazel
   bower
   bundler
-  docker
+  # docker
   docker-compose
   fabric
   fzf
@@ -150,7 +150,7 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="${HOME}/.rd/bin:$PATH"
+export PATH="/Users/asimonar/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Kuberneties completion
@@ -230,6 +230,15 @@ if test -d "$HOME/.pyenv"; then
   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
+
+
+# Add Java to the path `brew install openjdk@25`
+if test -d "/opt/homebrew/opt/openjdk@25/bin"; then
+  PATH="/opt/homebrew/opt/openjdk@25/bin:$PATH"
+fi
+
+
+PATH="/opt/homebrew/opt/openjdk@25/bin:$PATH"
 
 ## Add the dotnet tools to the path
 export PATH="$PATH:$HOME/.dotnet/tools"
