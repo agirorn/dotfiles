@@ -40,8 +40,9 @@ function kill-all-vims() {
 # Open all files found by ripgrep in vim
 #
 # https://github.com/BurntSushi/ripgrep
-function vrg() { 
-  rg -0 -l $@ | xargs -0 nvim
+function vrg() {
+  # rg -0 -l $@ | xargs -0 nvim # This brakes christoomey/vim-tmux-navigator
+  nvim `rg -0 -l $@`
 }
 
 # Open files marked as changed by git in vim
