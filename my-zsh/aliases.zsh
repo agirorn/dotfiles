@@ -12,6 +12,9 @@ alias snode="sudo PATH=\$(dirname \$(which node)):\$PATH"
 # Only using neovim now
 alias vim=nvim
 
+# Short hand for lasydocker
+alias ld=lazydocker
+
 # Start PostgreSQL
 alias pg-start="pg_ctl -D /usr/local/var/postgres start"
 
