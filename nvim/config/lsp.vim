@@ -17,6 +17,9 @@ require("mason").setup({
 require("mason-lspconfig").setup {
     automatic_enable = false,
     ensure_installed = {
+      -- Codebook is a spell checker for code
+      "codebook",
+
       -- BASH
       "bashls",
 
