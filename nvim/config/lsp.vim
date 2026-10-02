@@ -365,6 +365,13 @@ vim.lsp.config('pyright', {
 
     on_dir(root or git_root)
   end,
+  settings = {
+    python = {
+      analysis = {
+        autoImportCompletions = false,
+      },
+    },
+  },
 })
 
 vim.g.rustaceanvim = {
@@ -477,6 +484,21 @@ require("roslyn").setup({
 --   }
 -- )
 
+-- vim.lsp.config("roslyn", {
+--     on_attach = function()
+--         print("This will run when the server attaches!")
+--     end,
+--     settings = {
+--         ["csharp|inlay_hints"] = {
+--             csharp_enable_inlay_hints_for_implicit_object_creation = true,
+--             csharp_enable_inlay_hints_for_implicit_variable_types = true,
+--         },
+--         ["csharp|code_lens"] = {
+--             dotnet_enable_references_code_lens = true,
+--         },
+--     },
+-- })
+
 
 -- vim.lsp.config("bazel", {
 --   cmd = { "bazel" },
@@ -487,15 +509,29 @@ require("roslyn").setup({
 
 vim.lsp.enable("gopls")
 
+-- vim.lsp.config("yamlls", {
+--   settings = {
+--     yaml = {
+--       schemas = {
+--         kubernetes = "*.yml",
+--         compose= "compose.+.yml",
+--       },
+--     }
+--   }
+-- })
+
+-- For when all yamls are open apis specs
 vim.lsp.config("yamlls", {
   settings = {
     yaml = {
       schemas = {
-        kubernetes = "*.yml",
-        compose= "compose.+.yml",
+        ["https://spec.openapis.org/oas/3.1/schema/2022-10-07"] = {
+          "**/*.yaml",
+          "**/*.yml",
+        },
       },
-    }
-  }
+    },
+  },
 })
 vim.lsp.enable("yamlls")
 

@@ -26,6 +26,8 @@ require('nvim-treesitter').setup {
     "typescript",
     "vim",
     "yaml",
+    "xml",
+    "jinja",
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -81,6 +83,8 @@ require('nvim-treesitter').install {
   "vim",
   "yaml",
   "sql",
+  "xml",
+  "jinja",
 }
 
 -- Make ```shell looke like ```bash in markdown files

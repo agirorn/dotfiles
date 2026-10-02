@@ -93,6 +93,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-lua/plenary.nvim'
   " Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'kyoh86/vim-jsonl'
 
   " Semantic language support
   Plug 'mason-org/mason.nvim'
@@ -114,7 +115,7 @@ call plug#begin('~/.nvim/autoload')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'mfussenegger/nvim-dap'
 
-  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  " Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   " Trouble https://github.com/folke/trouble.nvim
   Plug 'folke/trouble.nvim'

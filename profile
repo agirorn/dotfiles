@@ -4,9 +4,9 @@
 echo .profile
 [[ -r $HOME/.bashrc ]] && . $HOME/.bashrc
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-test -d ${HOME}/.rd/bin && export PATH=${HOME}/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+### NOT MANAGED BY RANCHER DESKTOP START (I CAN EDIT)
+test -d "$HOME/.rd/bin" && export PATH="$HOME/.rd/bin:$PATH"
+### NOT MANAGED BY RANCHER DESKTOP END (I CAN EDIT)
 test -f "$HOME/.cargo/env" && . "$HOME/.cargo/env"
 
 test -f "$HOME/.local/bin/env" && source "$HOME/.local/bin/env"

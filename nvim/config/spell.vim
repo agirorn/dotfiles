@@ -5,3 +5,10 @@ for d in glob('~/.vim/spell/*.add', 1, 1)
     endif
 endfor
 
+
+lua << END
+  vim.keymap.set("n", "<C-s>", function()
+    require("which-key").show({ global = true, keys = "z=" })
+  end, { desc = "Spelling Suggestions (Bottom Menu)" })
+END
+
