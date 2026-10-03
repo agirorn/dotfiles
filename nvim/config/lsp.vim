@@ -63,25 +63,22 @@ END
 
 lua << END
 require("conform").setup({
-  -- notify_on_error = true,
-  -- notify_no_formatters = true,
-
   formatters_by_ft = {
     python = { "ruff_organize_imports", "ruff_format" },
-    -- html = { "prettier" },
+    html = { "prettier" },
   },
 
-  -- format_on_save = {
-  --   lsp_format = "never",
-  --   timeout_ms = 1000,
-  -- },
+  format_on_save = {
+    lsp_format = "never",
+    timeout_ms = 1000,
+  },
 
   formatters = {
     prettier = {
       prepend_args = {
         "--print-width", "80",
         "--single-attribute-per-line",
-        "--no-bracket-same-line",
+        -- "--bracket-same-line=true",
       },
     },
   },
@@ -227,12 +224,6 @@ vim.lsp.config("html", {
         scripts = true,
         styles = true,
       },
-    },
-  }
-})
-vim.lsp.config("html", {
-  settings = {
-    html = {
       format = {
         wrapLineLength = 80,
         -- wrapAttributes = "auto",
@@ -243,49 +234,9 @@ vim.lsp.config("html", {
         preserveNewLines = true,
       },
     },
-  },
+  }
 })
--- vim.lsp.config('html', {
---   init_options = {
---     -- provideFormatter = true, -- Activates the formatting engine
---   },
---   settings = {
---   --   html = {
---       -- format = {
---       --   wrapLineLength = 80,            -- Break lines at 120 characters
---       --   -- indentInnerHtml = true,          -- Indent blocks inside <head> and <body>
---       --   unformatted = { "code", "pre" }, -- Ignore formatting for these tags
---       --   -- preserveNewLines = true,         -- Respect manual line breaks
---       -- },
---       -- Exhaustive Layout Formatter Rules
---       format = {
---         wrapLineLength = 80,
---         unformatted = { "code", "pre" }, -- Ignore structural format updates inside these tags
---         contentUnformatted = "",  -- Clear the inner tag skip list
---
---         -- enable = true,                  -- Universal formatter activator
---         -- wrapLineLength = 80,            -- Break layout columns passing N character count
---         -- printWidth = 80,
---         -- wrapAttributes = "preserve",        -- Strategy ("auto", "force", "force-aligned", "force-expand-multiline")
---         -- wrapAttributesIndentSize = nil,  -- Alignment indents (inherits tabWidth if nil)
---         -- indentInnerHtml = false,        -- Toggle physical indent additions to <head> and <body>
---         -- indentHandlebars = false,       -- Treat Handlebars expressions with tab offsets
---         -- endWithNewline = false,         -- Inserts empty row terminating the file tail
---         -- extraLiners = "head, body, /html", -- Array tags requiring an isolated preceding blank line
---         -- unformatted = { "code", "pre" }, -- Ignore structural format updates inside these tags
---         -- contentUnformatted = "pre,code",-- String list bypassing layout rewrites inside tags
---         -- preserveNewLines = true,         -- Protect human spacing structures and line breaks
---         -- maxPreserveNewLines = nil,       -- Numerical cap preventing cascading structural line gaps
---         -- indentEmptyLines = false,       -- Add whitespaces to empty lines
---         -- templating = false,             -- Honor framework templating tags (Django/Jinja/ERB)
---       },
---   --   },
---   },
--- })
-
 vim.lsp.enable("html");
--- vim.lsp.enable("htmlhint");
-
 
 vim.api.nvim_create_user_command("BufKeymaps", function()
   local modes = { "n", "i", "v", "x", "s", "o", "t", "c" } -- normal, insert, etc.
