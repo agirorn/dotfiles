@@ -332,9 +332,18 @@ vim.g.rustaceanvim = {
   server = {
     default_settings = {
       ['rust-analyzer'] = {
-        cargo = {
-          allFeatures = true,
+        -- cargo = {
+        --   allFeatures = true,
+        -- },
+        lru = {
+          capacity = 64,
         },
+        -- cachePriming = {
+        --   enable = false,
+        -- },
+        -- cachePriming = {
+        --   enable = false,
+        -- },
         completion = {
           autoimport = {
             enable = false,
